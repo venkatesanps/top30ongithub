@@ -144,7 +144,7 @@
 	shallow = true
 [submodule "sources/37-great_expectations"]
 	path = sources/37-great_expectations
-	url = https://github.com/great-expectations/great_expectations.git
+	url = https://github.com/fivetran/great_expectations.git
 	shallow = true
 [submodule "sources/38-agent-toolkit-for-aws"]
 	path = sources/38-agent-toolkit-for-aws
@@ -192,7 +192,7 @@
 	shallow = true
 [submodule "sources/49-ccusage"]
 	path = sources/49-ccusage
-	url = https://github.com/ryoppippi/ccusage.git
+	url = https://github.com/ccusage/ccusage.git
 	shallow = true
 [submodule "sources/50-docker-otel-lgtm"]
 	path = sources/50-docker-otel-lgtm

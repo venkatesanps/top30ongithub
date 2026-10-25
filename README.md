@@ -56,7 +56,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-25: 56 repos, 30 of 30 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
+_Checked 2026-10-25: 56 repos, 55 of 55 install-tested items passing, 2 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
 
 **Top 30 from the post**
 
@@ -69,7 +69,7 @@ _Checked 2026-10-25: 56 repos, 30 of 30 install-tested items passing, 0 needing 
 | 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 305k | 2026-10-23 | pass (2026-10-25) | ~706 | OK |
 | 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 176.1k | 2026-10-18 | pass (2026-10-25) | ~430 | OK |
 | 7 | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | 77.2k | 2026-10-25 | pass (2026-10-25) | ~116 | OK |
-| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 383.8k | 2026-10-25 | pass (2026-10-25) | n/a (MCP) | OK |
+| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 383.9k | 2026-10-25 | pass (2026-10-25) | n/a (MCP) | OK |
 | 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 135.1k | 2026-10-23 | pass (2026-10-25) | n/a (CLI skill) | OK |
 | 10 | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 88.2k | 2026-10-22 | pass (2026-10-25) | ~870 | OK |
 | 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 65.4k | 2026-10-25 | pass (2026-10-25) | ~67 | OK |
@@ -88,41 +88,41 @@ _Checked 2026-10-25: 56 repos, 30 of 30 install-tested items passing, 0 needing 
 | 24 | PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 68.1k | 2026-10-24 | pass (2026-10-25) | ~139 | OK |
 | 25 | Marketing Skills | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | 56.5k | 2026-10-22 | pass (2026-10-25) | ~10,604 | OK |
 | 26 | Skills by Anthropic | [anthropics/skills](https://github.com/anthropics/skills) | 183.7k | 2026-10-09 | pass (2026-10-25) | ~759 + ~939 | OK |
-| 27 | OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 71.8k | 2026-10-24 | pass (2026-10-25) | per project | OK |
+| 27 | OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 71.9k | 2026-10-24 | pass (2026-10-25) | per project | OK |
 | 28 | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | 60.5k | 2026-10-16 | pass (2026-10-25) | ~90 | OK |
-| 29 | HyperFrames | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 72k | 2026-10-25 | pass (2026-10-25) | ~551 | OK |
+| 29 | HyperFrames | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 72.1k | 2026-10-25 | pass (2026-10-25) | ~551 | OK |
 | 30 | I Have ADHD | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | 58.7k | 2026-10-19 | pass (2026-10-25) | ~67 | OK |
 
 **Data & ops toolkit**
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 31 | Snowflake AI Kit (Cortex Code) | [Snowflake-Labs/snowflake-ai-kit](https://github.com/Snowflake-Labs/snowflake-ai-kit) | — | — | untested (2026-10-25) | ~? | OK |
-| 32 | dbt Agent Skills | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | — | — | untested (2026-10-25) | ~? | OK |
-| 33 | dbt MCP server | [dbt-labs/dbt-mcp](https://github.com/dbt-labs/dbt-mcp) | — | — | untested (2026-10-25) | n/a | OK |
-| 34 | Astronomer Airflow agents | [astronomer/agents](https://github.com/astronomer/agents) | — | — | untested (2026-10-25) | ~? | OK |
-| 35 | Snowflake cost monitoring (dbt) | [get-select/dbt-snowflake-monitoring](https://github.com/get-select/dbt-snowflake-monitoring) | — | — | manual (2026-10-25) | n/a | OK |
-| 36 | Elementary (data observability) | [elementary-data/elementary](https://github.com/elementary-data/elementary) | — | — | untested (2026-10-25) | n/a | OK |
-| 37 | Great Expectations | [great-expectations/great_expectations](https://github.com/great-expectations/great_expectations) | — | — | untested (2026-10-25) | n/a | OK |
-| 38 | Agent Toolkit for AWS | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | — | — | untested (2026-10-25) | ~? | OK |
-| 39 | AWS MCP servers (data & ops) | [awslabs/mcp](https://github.com/awslabs/mcp) | — | — | untested (2026-10-25) | n/a | OK |
-| 40 | Oracle SQLcl MCP server | [oracle/mcp](https://github.com/oracle/mcp) | — | — | untested (2026-10-25) | n/a | OK |
-| 41 | SQLGlot | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | — | — | untested (2026-10-25) | n/a | OK |
-| 42 | SQLFluff | [sqlfluff/sqlfluff](https://github.com/sqlfluff/sqlfluff) | — | — | untested (2026-10-25) | n/a | OK |
-| 43 | Informatica for Claude (IDMC) | [forcedotcom/informatica-claude-plugins](https://github.com/forcedotcom/informatica-claude-plugins) | — | — | untested (2026-10-25) | ~? | OK |
-| 44 | Anthropic knowledge-work plugins | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | — | — | untested (2026-10-25) | ~? | OK |
-| 45 | Jira & Confluence MCP (Data Center) | [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian) | — | — | untested (2026-10-25) | n/a | OK |
-| 46 | Apache DevLake (DORA dashboards) | [apache/devlake](https://github.com/apache/devlake) | — | — | untested (2026-10-25) | n/a | OK |
-| 47 | Middleware (DORA metrics) | [middlewarehq/middleware](https://github.com/middlewarehq/middleware) | — | — | untested (2026-10-25) | n/a | OK |
-| 48 | Claude Code ROI monitoring | [anthropics/claude-code-monitoring-guide](https://github.com/anthropics/claude-code-monitoring-guide) | — | — | untested (2026-10-25) | n/a | OK |
-| 49 | ccusage | [ryoppippi/ccusage](https://github.com/ryoppippi/ccusage) | — | — | untested (2026-10-25) | n/a | OK |
-| 50 | Grafana OTel LGTM (all-in-one) | [grafana/docker-otel-lgtm](https://github.com/grafana/docker-otel-lgtm) | — | — | untested (2026-10-25) | n/a | OK |
-| 51 | Grafana MCP server | [grafana/mcp-grafana](https://github.com/grafana/mcp-grafana) | — | — | untested (2026-10-25) | n/a | OK |
-| 52 | Keep (alert hub & AIOps) | [keephq/keep](https://github.com/keephq/keep) | — | — | untested (2026-10-25) | n/a | OK |
-| 53 | HolmesGPT (AI SRE agent) | [HolmesGPT/holmesgpt](https://github.com/HolmesGPT/holmesgpt) | — | — | untested (2026-10-25) | n/a | OK |
-| 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | — | — | untested (2026-10-25) | n/a | OK |
-| 55 | Dynatrace MCP server | [dynatrace-oss/dynatrace-mcp](https://github.com/dynatrace-oss/dynatrace-mcp) | — | — | untested (2026-10-25) | n/a | OK |
-| 56 | PagerDuty MCP server | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | — | — | untested (2026-10-25) | n/a | OK |
+| 31 | Snowflake AI Kit (Cortex Code) | [Snowflake-Labs/snowflake-ai-kit](https://github.com/Snowflake-Labs/snowflake-ai-kit) | 41 | 2026-10-23 | pass (2026-10-25) | ~187 | OK |
+| 32 | dbt Agent Skills | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | 746 | 2026-10-22 | pass (2026-10-25) | ~1,136 + ~305 | OK |
+| 33 | dbt MCP server | [dbt-labs/dbt-mcp](https://github.com/dbt-labs/dbt-mcp) | 612 | 2026-10-23 | pass (2026-10-25) | n/a | OK |
+| 34 | Astronomer Airflow agents | [astronomer/agents](https://github.com/astronomer/agents) | 456 | 2026-10-14 | pass (2026-10-25) | ~3,961 | OK |
+| 35 | Snowflake cost monitoring (dbt) | [get-select/dbt-snowflake-monitoring](https://github.com/get-select/dbt-snowflake-monitoring) | 264 | 2026-03-18 | manual (2026-10-25) | n/a | OK |
+| 36 | Elementary (data observability) | [elementary-data/elementary](https://github.com/elementary-data/elementary) | 2.4k | 2026-10-22 | pass (2026-10-25) | n/a | OK |
+| 37 | Great Expectations | [fivetran/great_expectations](https://github.com/fivetran/great_expectations) | 11.9k | 2026-10-22 | pass (2026-10-25) | n/a | OK |
+| 38 | Agent Toolkit for AWS | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | 3.3k | 2026-10-23 | pass (2026-10-25) | ~4,762 + ~3,855 | OK |
+| 39 | AWS MCP servers (data & ops) | [awslabs/mcp](https://github.com/awslabs/mcp) | 9.8k | 2026-10-23 | pass (2026-10-25) | n/a | OK |
+| 40 | Oracle SQLcl MCP server | [oracle/mcp](https://github.com/oracle/mcp) | 467 | 2026-10-23 | pass (2026-10-25) | n/a | OK |
+| 41 | SQLGlot | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | 9.7k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
+| 42 | SQLFluff | [sqlfluff/sqlfluff](https://github.com/sqlfluff/sqlfluff) | 10k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
+| 43 | Informatica for Claude (IDMC) | [forcedotcom/informatica-claude-plugins](https://github.com/forcedotcom/informatica-claude-plugins) | 1 | 2026-09-15 | pass (2026-10-25) | ~234 | OK |
+| 44 | Anthropic knowledge-work plugins | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | 32.9k | 2026-10-24 | pass (2026-10-25) | ~695 + ~868 + ~675 | OK |
+| 45 | Jira & Confluence MCP (Data Center) | [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian) | 6k | 2026-09-19 | pass (2026-10-25) | n/a | OK |
+| 46 | Apache DevLake (DORA dashboards) | [apache/devlake](https://github.com/apache/devlake) | 3.2k | 2026-10-22 | pass (2026-10-25) | n/a | OK |
+| 47 | Middleware (DORA metrics) | [middlewarehq/middleware](https://github.com/middlewarehq/middleware) | 1.6k | 2026-08-03 | pass (2026-10-25) | n/a | OK |
+| 48 | Claude Code ROI monitoring | [anthropics/claude-code-monitoring-guide](https://github.com/anthropics/claude-code-monitoring-guide) | 380 | 2025-07-29 | pass (2026-10-25) | n/a | OK |
+| 49 | ccusage | [ccusage/ccusage](https://github.com/ccusage/ccusage) | 19.2k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
+| 50 | Grafana OTel LGTM (all-in-one) | [grafana/docker-otel-lgtm](https://github.com/grafana/docker-otel-lgtm) | 2.1k | 2026-10-23 | pass (2026-10-25) | n/a | OK |
+| 51 | Grafana MCP server | [grafana/mcp-grafana](https://github.com/grafana/mcp-grafana) | 3.6k | 2026-10-23 | pass (2026-10-25) | n/a | OK |
+| 52 | Keep (alert hub & AIOps) | [keephq/keep](https://github.com/keephq/keep) | 12.4k | 2026-10-22 | pass (2026-10-25) | n/a | OK |
+| 53 | HolmesGPT (AI SRE agent) | [HolmesGPT/holmesgpt](https://github.com/HolmesGPT/holmesgpt) | 3.7k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
+| 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | 92.9k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
+| 55 | Dynatrace MCP server | [dynatrace-oss/dynatrace-mcp](https://github.com/dynatrace-oss/dynatrace-mcp) | 137 | 2026-08-26 | pass (2026-10-25) | n/a | ⚠ Upstream repo is archived (read-only). |
+| 56 | PagerDuty MCP server | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | pass (2026-10-25) | n/a | ⚠ Upstream repo is archived (read-only).; README says the project moved (points to github.com/astral-sh/uv). |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

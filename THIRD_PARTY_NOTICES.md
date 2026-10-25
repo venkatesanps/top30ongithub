@@ -13,7 +13,7 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [9b68f7ed12](https://github.com/JuliusBrussee/caveman/tree/9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4) |
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [12af471f62](https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c) |
 | 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [81c6be8d87](https://github.com/tt-a1i/archify/tree/81c6be8d87090670c45d08a8f97f9d29c5af0bec) |
-| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [9b672cea0e](https://github.com/cathrynlavery/diagram-design/tree/9b672cea0ec48d2e9863c9920a114b68582f4eab) |
+| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [4a5fe680e8](https://github.com/cathrynlavery/diagram-design/tree/4a5fe680e8560651958b18e08766a67bbadd43bb) |
 | 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [3671d50f0a](https://github.com/pbakaus/impeccable/tree/3671d50f0ac9a662ce0615e85a256110c9cd720b) |
 | 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [d14efff8ed](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/d14efff8ed1faa4187f004f79926f428c8074ec7) |
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [e85f3cbc2e](https://github.com/coreyhaines31/marketingskills/tree/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b) |

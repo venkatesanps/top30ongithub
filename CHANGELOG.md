@@ -2,6 +2,28 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-25 20:19 UTC
+
+**Upstream updates**
+- Claude-Mem: [a8e6943 → b1cfce1](https://github.com/thedotmack/claude-mem/compare/a8e69430a74095305e76a483077968736d5db1f2...b1cfce1aa443b117b075e23e32087d2eef8fb0e8)
+- Diagram Design: [9b672ce → 4a5fe68](https://github.com/cathrynlavery/diagram-design/compare/9b672cea0ec48d2e9863c9920a114b68582f4eab...4a5fe680e8560651958b18e08766a67bbadd43bb)
+- HyperFrames: [c509182 → 70187a1](https://github.com/heygen-com/hyperframes/compare/c50918277ae69b45677c200e95575faec5fd1519...70187a13b59118cf056f3bcdcd0c0df8f453a9f8)
+
+**Notes**
+- ⚠ Dynatrace MCP server: Upstream repo is archived (read-only).
+- ⚠ PagerDuty MCP server: Upstream repo is archived (read-only).
+- ⚠ PagerDuty MCP server: README says the project moved (points to github.com/astral-sh/uv).
+- Great Expectations: repo moved from github.com/great-expectations/great_expectations to github.com/fivetran/great_expectations; catalog and install commands updated automatically
+- ccusage: repo moved from github.com/ryoppippi/ccusage to github.com/ccusage/ccusage; catalog and install commands updated automatically
+- Snowflake AI Kit (Cortex Code): per-session tokens ~? → ~187
+- dbt Agent Skills: per-session tokens ~? → ~1,136 + ~305
+- Astronomer Airflow agents: per-session tokens ~? → ~3,961
+- Agent Toolkit for AWS: per-session tokens ~? → ~4,762 + ~3,855
+- Informatica for Claude (IDMC): per-session tokens ~? → ~234
+- Anthropic knowledge-work plugins: per-session tokens ~? → ~695 + ~868 + ~675
+
+**Install tests**: 55/55 passed
+
 ## 2026-10-25 19:45 UTC
 
 **Upstream updates**

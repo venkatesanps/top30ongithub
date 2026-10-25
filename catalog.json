@@ -48,7 +48,7 @@
    "upstream": {
     "head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
     "license": "MIT",
-    "stars": 223750,
+    "stars": 223754,
     "pushed": "2026-04-20",
     "default_branch": "main"
    },
@@ -97,7 +97,7 @@
    "upstream": {
     "head": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
     "license": "MIT",
-    "stars": 303126,
+    "stars": 303137,
     "pushed": "2026-10-22",
     "default_branch": "main"
    },
@@ -131,7 +131,7 @@
    },
    "upstream": {
     "head": "e49479937753c8aca5a09aa76dbe2eea1b68f187",
-    "stars": 288729,
+    "stars": 288739,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main",
@@ -183,7 +183,7 @@
    "upstream": {
     "head": "aeac41d4d005999432bb7312f7ff06383a91d59d",
     "license": "MIT",
-    "stars": 110456,
+    "stars": 110462,
     "pushed": "2026-10-13",
     "default_branch": "main"
    },
@@ -232,7 +232,7 @@
    "upstream": {
     "head": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
     "license": "MIT",
-    "stars": 304981,
+    "stars": 304988,
     "pushed": "2026-10-23",
     "default_branch": "main"
    },
@@ -275,7 +275,7 @@
    "upstream": {
     "head": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
     "license": "MIT",
-    "stars": 176080,
+    "stars": 176088,
     "pushed": "2026-10-18",
     "default_branch": "main"
    },
@@ -320,7 +320,7 @@
      "npm:@santifer/career-ops": "1.38.0"
     },
     "pinned": "f4d7477c8d25f81e6e4a952b724378913ea8c86e",
-    "stars": 77246,
+    "stars": 77249,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -370,7 +370,7 @@
      "npm:rea-agents": "6.8.0"
     },
     "pinned": "1173c0a9dc1b352a60943a491462294db8f353ae",
-    "stars": 383761,
+    "stars": 383851,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -413,7 +413,7 @@
     "packages": {
      "pypi:graphifyy": "0.9.95"
     },
-    "stars": 135058,
+    "stars": 135066,
     "pushed": "2026-10-23",
     "license": "Apache-2.0",
     "default_branch": "v8"
@@ -448,7 +448,7 @@
    },
    "upstream": {
     "head": "e24fcf6d371bcfa529bc110bacb1bb43de1b8d33",
-    "stars": 88236,
+    "stars": 88237,
     "pushed": "2026-10-22",
     "license": "MIT",
     "default_branch": "main"
@@ -484,7 +484,7 @@
    },
    "upstream": {
     "head": "f3cd06a620e385ce15109ed6d3b70fc20c89eccc",
-    "stars": 65435,
+    "stars": 65436,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -528,7 +528,7 @@
      "pypi:agent-reach": "0.1.0"
     },
     "pinned": "14c213405669414492bda0f8d52cc6531d062c45",
-    "stars": 102417,
+    "stars": 102424,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -573,7 +573,7 @@
     "packages": {
      "pypi:headroom-ai": "0.41.0"
     },
-    "stars": 77806,
+    "stars": 77807,
     "pushed": "2026-10-24",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -621,7 +621,7 @@
     "packages": {
      "npm:bmad-method": "6.12.4"
     },
-    "stars": 54538,
+    "stars": 54540,
     "pushed": "2026-10-20",
     "license": "NOASSERTION",
     "default_branch": "main"
@@ -656,9 +656,9 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "a8e69430a74095305e76a483077968736d5db1f2",
-    "pinned": "a8e69430a74095305e76a483077968736d5db1f2",
-    "stars": 103067,
+    "head": "b1cfce1aa443b117b075e23e32087d2eef8fb0e8",
+    "pinned": "b1cfce1aa443b117b075e23e32087d2eef8fb0e8",
+    "stars": 103070,
     "pushed": "2026-10-25",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -695,7 +695,7 @@
    "upstream": {
     "head": "64d82101cac149125d28df888e3f2ea14a444dc5",
     "pinned": "64d82101cac149125d28df888e3f2ea14a444dc5",
-    "stars": 137684,
+    "stars": 137685,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -739,7 +739,7 @@
     "head": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "pinned": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "license": "Apache-2.0",
-    "stars": 115008,
+    "stars": 115012,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -825,7 +825,7 @@
     "head": "12af471f627f866411b4bd785b19646d3672784c",
     "pinned": "12af471f627f866411b4bd785b19646d3672784c",
     "license": "MIT",
-    "stars": 102407,
+    "stars": 102416,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -867,7 +867,7 @@
     "head": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
     "pinned": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
     "license": "Apache-2.0",
-    "stars": 89112,
+    "stars": 89121,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -907,12 +907,12 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "9b672cea0ec48d2e9863c9920a114b68582f4eab",
+    "head": "4a5fe680e8560651958b18e08766a67bbadd43bb",
     "license": "MIT",
-    "stars": 61009,
+    "stars": 61013,
     "pushed": "2026-10-25",
     "default_branch": "main",
-    "pinned": "9b672cea0ec48d2e9863c9920a114b68582f4eab"
+    "pinned": "4a5fe680e8560651958b18e08766a67bbadd43bb"
    },
    "collection": "top30"
   },
@@ -961,7 +961,7 @@
     },
     "pinned": "3671d50f0ac9a662ce0615e85a256110c9cd720b",
     "license": "Apache-2.0",
-    "stars": 87487,
+    "stars": 87502,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -1012,7 +1012,7 @@
      "npm:ui-ux-pro-max-cli": "2.15.0"
     },
     "license": "MIT",
-    "stars": 140317,
+    "stars": 140321,
     "pushed": "2026-10-23",
     "default_branch": "main"
    },
@@ -1050,7 +1050,7 @@
    },
    "upstream": {
     "head": "78759bf62e9a1ef43e926ff9e50afa4cfe9a63cb",
-    "stars": 68069,
+    "stars": 68070,
     "pushed": "2026-10-24",
     "license": "MIT",
     "default_branch": "main"
@@ -1091,7 +1091,7 @@
    "upstream": {
     "head": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
     "license": "MIT",
-    "stars": 56492,
+    "stars": 56496,
     "pushed": "2026-10-22",
     "default_branch": "main"
    },
@@ -1126,7 +1126,7 @@
    },
    "upstream": {
     "head": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-    "stars": 183729,
+    "stars": 183736,
     "pushed": "2026-10-09",
     "license": null,
     "default_branch": "main"
@@ -1170,7 +1170,7 @@
    },
    "upstream": {
     "head": "e01dbf433f46eeb91d39bf905e194162921019a3",
-    "stars": 71849,
+    "stars": 71851,
     "pushed": "2026-10-24",
     "license": "AGPL-3.0",
     "default_branch": "main"
@@ -1216,7 +1216,7 @@
    "upstream": {
     "head": "8c307f367c91bd974002f10f2be2965d642c13df",
     "license": "MIT",
-    "stars": 60546,
+    "stars": 60547,
     "pushed": "2026-10-16",
     "default_branch": "main"
    },
@@ -1257,12 +1257,12 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "c50918277ae69b45677c200e95575faec5fd1519",
+    "head": "70187a13b59118cf056f3bcdcd0c0df8f453a9f8",
     "packages": {
      "npm:hyperframes": "0.8.199"
     },
-    "pinned": "c50918277ae69b45677c200e95575faec5fd1519",
-    "stars": 72045,
+    "pinned": "70187a13b59118cf056f3bcdcd0c0df8f453a9f8",
+    "stars": 72055,
     "pushed": "2026-10-25",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -1305,7 +1305,7 @@
    "upstream": {
     "head": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
     "license": "MIT",
-    "stars": 58700,
+    "stars": 58703,
     "pushed": "2026-10-19",
     "default_branch": "main"
    },
@@ -1329,14 +1329,21 @@
    "verify": "claude plugin list | grep -q snowflake-cortex-code",
    "use": "Ask 'show my warehouses and their credit use this week', or $cortex-run <task>.",
    "note": "Needs the Cortex Code CLI and a Snowflake connection in ~/.snowflake/connections.toml. Its migration agent (in Cortex Code: /migrate) covers Oracle sources and converts Informatica jobs to dbt; Oracle code extraction is marked 'planned' by Snowflake.",
-   "always_on": "~?",
+   "always_on": "~187",
    "source": "sources/31-snowflake-ai-kit",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "6a9165f38da7cf368ba8f91c87dfe0326ecb6336",
+    "stars": 41,
+    "pushed": "2026-10-23",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "6a9165f38da7cf368ba8f91c87dfe0326ecb6336"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1363,16 +1370,21 @@
     "base": "skills/dbt/skills",
     "skills": "*"
    },
-   "always_on": "~?",
+   "always_on": "~1,136 + ~305",
    "source": "sources/32-dbt-agent-skills",
    "status": "ok",
    "problems": [],
    "upstream": {
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "head": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
+    "stars": 746,
+    "pushed": "2026-10-22",
+    "default_branch": "main",
+    "pinned": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040"
    },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1401,10 +1413,20 @@
    "source": "sources/33-dbt-mcp",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "c9d616b03a448f4690851c788b888156cfb68462",
+    "stars": 612,
+    "pushed": "2026-10-23",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "packages": {
+     "pypi:dbt-mcp": "2.7.0"
+    },
+    "pinned": "c9d616b03a448f4690851c788b888156cfb68462"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1448,16 +1470,24 @@
      "migrating-airflow-2-to-3"
     ]
    },
-   "always_on": "~?",
+   "always_on": "~3,961",
    "source": "sources/34-astronomer-agents",
    "status": "ok",
    "problems": [],
    "upstream": {
-    "license": "Apache-2.0"
+    "license": "Apache-2.0",
+    "head": "486ee63d01f8126c52fbc92c36cd36ec31708dcd",
+    "stars": 456,
+    "pushed": "2026-10-14",
+    "default_branch": "main",
+    "packages": {
+     "pypi:astro-airflow-mcp": "0.9.1"
+    },
+    "pinned": "486ee63d01f8126c52fbc92c36cd36ec31708dcd"
    },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1485,7 +1515,13 @@
    "source": "sources/35-dbt-snowflake-monitoring",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "ff52462722e6e7eb8063d85f6434fb13dc780055",
+    "stars": 264,
+    "pushed": "2026-03-18",
+    "license": "MIT",
+    "default_branch": "main"
+   },
    "verified": {
     "date": "2026-10-25",
     "result": "manual"
@@ -1517,10 +1553,20 @@
    "source": "sources/36-elementary",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "54368c6381caa2d00569b4b49c512ff0a31e9457",
+    "stars": 2428,
+    "pushed": "2026-10-22",
+    "license": "Apache-2.0",
+    "default_branch": "master",
+    "packages": {
+     "pypi:elementary-data": "0.26.1"
+    },
+    "pinned": "54368c6381caa2d00569b4b49c512ff0a31e9457"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1528,7 +1574,7 @@
    "collection": "dataops",
    "row": 6,
    "name": "Great Expectations",
-   "repo": "great-expectations/great_expectations",
+   "repo": "fivetran/great_expectations",
    "what": "Data quality checks as code (expectations) with readable validation reports; runs against Snowflake, Oracle, Spark, pandas.",
    "needs": [
     "python"
@@ -1549,10 +1595,20 @@
    "source": "sources/37-great_expectations",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "99f4d0cca81de00db3af8859e16127e9b9927dae",
+    "stars": 11901,
+    "pushed": "2026-10-22",
+    "license": "Apache-2.0",
+    "default_branch": "develop",
+    "packages": {
+     "pypi:great-expectations": "1.24.1"
+    },
+    "pinned": "99f4d0cca81de00db3af8859e16127e9b9927dae"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1574,14 +1630,21 @@
    "verify": "claude plugin list | grep -q aws-data-analytics",
    "use": "'Design a Glue job that lands S3 files into Snowflake' or 'why did this Lambda time out?'",
    "note": "Uses your AWS credentials; start with a read-only role.",
-   "always_on": "~?",
+   "always_on": "~4,762 + ~3,855",
    "source": "sources/38-agent-toolkit-for-aws",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "e8c630949189f03b3dd77388c86b06a7f2f911a9",
+    "stars": 3270,
+    "pushed": "2026-10-23",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "e8c630949189f03b3dd77388c86b06a7f2f911a9"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1619,10 +1682,22 @@
    "source": "sources/39-awslabs-mcp",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "24c39705d1d762cb6ebdd72b23f757a67b7a36c2",
+    "stars": 9831,
+    "pushed": "2026-10-23",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "packages": {
+     "pypi:awslabs.aws-dataprocessing-mcp-server": "0.2.2",
+     "pypi:awslabs.cloudwatch-mcp-server": "0.3.1",
+     "pypi:awslabs.billing-cost-management-mcp-server": "0.0.42"
+    },
+    "pinned": "24c39705d1d762cb6ebdd72b23f757a67b7a36c2"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1651,10 +1726,20 @@
    "source": "sources/40-oracle-mcp",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "58cf8b7fd71f23908e32de88ef59613399ac952c",
+    "stars": 467,
+    "pushed": "2026-10-23",
+    "license": "UPL-1.0",
+    "default_branch": "main",
+    "packages": {
+     "pypi:oracle.oci-cloud-mcp-server": "2.2.3"
+    },
+    "pinned": "58cf8b7fd71f23908e32de88ef59613399ac952c"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1683,10 +1768,20 @@
    "source": "sources/41-sqlglot",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "78b24a744adb8d5dc0eb285f067087338b60f266",
+    "stars": 9721,
+    "pushed": "2026-10-25",
+    "license": "MIT",
+    "default_branch": "main",
+    "packages": {
+     "pypi:sqlglot": "30.24.0"
+    },
+    "pinned": "78b24a744adb8d5dc0eb285f067087338b60f266"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1715,10 +1810,20 @@
    "source": "sources/42-sqlfluff",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "c99bc3fe81355f261b22b96b80a18761c565c00e",
+    "stars": 9991,
+    "pushed": "2026-10-25",
+    "license": "MIT",
+    "default_branch": "main",
+    "packages": {
+     "pypi:sqlfluff": "4.4.0"
+    },
+    "pinned": "c99bc3fe81355f261b22b96b80a18761c565c00e"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1739,14 +1844,21 @@
    "verify": "claude plugin list | grep -q informatica-for-claude-platform",
    "use": "'Which catalog assets hold customer email, and who owns them?'",
    "note": "For Informatica's cloud (IDMC). For PowerCenter-to-Snowflake conversion, Snowflake's free SnowConvert AI and Cortex Code's /migrate agent are the tools to evaluate.",
-   "always_on": "~?",
+   "always_on": "~234",
    "source": "sources/43-informatica-claude-plugins",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "554d02e0f7f2adafeaeeedbde04435b7bd310a47",
+    "stars": 1,
+    "pushed": "2026-09-15",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "554d02e0f7f2adafeaeeedbde04435b7bd310a47"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1769,14 +1881,21 @@
    "verify": "claude plugin list | grep -q 'engineering@knowledge-work-plugins'",
    "use": "/engineering:standup, /engineering:incident-response, /operations:status-report",
    "note": "",
-   "always_on": "~?",
+   "always_on": "~695 + ~868 + ~675",
    "source": "sources/44-knowledge-work-plugins",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "33d3dea41a341b341d4f5da2e8801ae0c89be2b8",
+    "stars": 32943,
+    "pushed": "2026-10-24",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "33d3dea41a341b341d4f5da2e8801ae0c89be2b8"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1805,10 +1924,20 @@
    "source": "sources/45-mcp-atlassian",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "0a5d2427144d72f5aade07d4fabd385421cec401",
+    "stars": 6044,
+    "pushed": "2026-09-19",
+    "license": "MIT",
+    "default_branch": "main",
+    "packages": {
+     "pypi:mcp-atlassian": "0.23.1"
+    },
+    "pinned": "0a5d2427144d72f5aade07d4fabd385421cec401"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1840,10 +1969,17 @@
    "source": "sources/46-devlake",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "6c6e20de29e0566bbad40639e2278e8421046ffb",
+    "stars": 3179,
+    "pushed": "2026-10-22",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "6c6e20de29e0566bbad40639e2278e8421046ffb"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1873,10 +2009,17 @@
    "source": "sources/47-middleware",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "844eb425ff95fcd408e408d78f21b8df860503fc",
+    "stars": 1631,
+    "pushed": "2026-08-03",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "844eb425ff95fcd408e408d78f21b8df860503fc"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1908,10 +2051,17 @@
    "source": "sources/48-claude-code-monitoring-guide",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "02777441f2a3fa38a187b57872ca9dc5e0411b48",
+    "stars": 380,
+    "pushed": "2025-07-29",
+    "license": null,
+    "default_branch": "main",
+    "pinned": "02777441f2a3fa38a187b57872ca9dc5e0411b48"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1919,7 +2069,7 @@
    "collection": "dataops",
    "row": 8,
    "name": "ccusage",
-   "repo": "ryoppippi/ccusage",
+   "repo": "ccusage/ccusage",
    "what": "Reads local Claude Code logs and reports tokens and cost by day, session and model. Handy for leads tracking their own and the team's spend.",
    "needs": [
     "node"
@@ -1940,10 +2090,20 @@
    "source": "sources/49-ccusage",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "b40f51149d117e7c01b5f92466bae44e39c66a10",
+    "stars": 19174,
+    "pushed": "2026-10-25",
+    "license": "NOASSERTION",
+    "default_branch": "main",
+    "packages": {
+     "npm:ccusage": "20.0.44"
+    },
+    "pinned": "b40f51149d117e7c01b5f92466bae44e39c66a10"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -1973,10 +2133,17 @@
    "source": "sources/50-docker-otel-lgtm",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "15a9933443087607cd3fa1d6286d735c73d4977b",
+    "stars": 2072,
+    "pushed": "2026-10-23",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "15a9933443087607cd3fa1d6286d735c73d4977b"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -2005,10 +2172,20 @@
    "source": "sources/51-mcp-grafana",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "e97cd4479eb40d25bc8d466db1651c29ce0c783e",
+    "stars": 3599,
+    "pushed": "2026-10-23",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "packages": {
+     "pypi:mcp-grafana": "2.1.1"
+    },
+    "pinned": "e97cd4479eb40d25bc8d466db1651c29ce0c783e"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -2041,10 +2218,17 @@
    "source": "sources/52-keep",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "e5cd8698c89071d00635e6f0f544c748ae7c6b60",
+    "stars": 12438,
+    "pushed": "2026-10-22",
+    "license": "NOASSERTION",
+    "default_branch": "main",
+    "pinned": "e5cd8698c89071d00635e6f0f544c748ae7c6b60"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -2073,10 +2257,20 @@
    "source": "sources/53-holmesgpt",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "5924ad0997b861f0b86d7b3ed702a61a86df2af6",
+    "stars": 3684,
+    "pushed": "2026-10-25",
+    "license": "Apache-2.0",
+    "default_branch": "master",
+    "packages": {
+     "pypi:holmesgpt": "0.45.0"
+    },
+    "pinned": "5924ad0997b861f0b86d7b3ed702a61a86df2af6"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -2106,10 +2300,17 @@
    "source": "sources/54-uptime-kuma",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "413857f1f04ae18bdea7f0ed0273c1902679df68",
+    "stars": 92900,
+    "pushed": "2026-10-25",
+    "license": "MIT",
+    "default_branch": "master",
+    "pinned": "413857f1f04ae18bdea7f0ed0273c1902679df68"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -2136,12 +2337,27 @@
    ],
    "always_on": "n/a",
    "source": "sources/55-dynatrace-mcp",
-   "status": "ok",
-   "problems": [],
-   "upstream": {},
+   "status": "attention",
+   "problems": [
+    {
+     "kind": "archived",
+     "msg": "Upstream repo is archived (read-only)."
+    }
+   ],
+   "upstream": {
+    "head": "2a2d442f5c3de1fdf9585f64e1bca07437296ce5",
+    "stars": 137,
+    "pushed": "2026-08-26",
+    "license": "MIT",
+    "default_branch": "main",
+    "packages": {
+     "npm:@dynatrace-oss/dynatrace-mcp-server": "2.1.2"
+    },
+    "pinned": "2a2d442f5c3de1fdf9585f64e1bca07437296ce5"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -2168,12 +2384,31 @@
    ],
    "always_on": "n/a",
    "source": "sources/56-pagerduty-mcp-server",
-   "status": "ok",
-   "problems": [],
-   "upstream": {},
+   "status": "attention",
+   "problems": [
+    {
+     "kind": "archived",
+     "msg": "Upstream repo is archived (read-only)."
+    },
+    {
+     "kind": "moved",
+     "msg": "README says the project moved (points to github.com/astral-sh/uv)."
+    }
+   ],
+   "upstream": {
+    "head": "dcfbdb82e1a63584bf5c37b43007561498b06dc7",
+    "stars": 79,
+    "pushed": "2026-09-04",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "packages": {
+     "pypi:pagerduty-mcp": "1.1.0"
+    },
+    "pinned": "dcfbdb82e1a63584bf5c37b43007561498b06dc7"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   }
  ],
