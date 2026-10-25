@@ -66,10 +66,6 @@
 	path = sources/17-caveman
 	url = https://github.com/JuliusBrussee/caveman.git
 	shallow = true
-[submodule "sources/18-get-shit-done"]
-	path = sources/18-get-shit-done
-	url = https://github.com/gsd-build/get-shit-done.git
-	shallow = true
 [submodule "sources/19-taste-skill"]
 	path = sources/19-taste-skill
 	url = https://github.com/Leonxlnx/taste-skill.git
@@ -118,7 +114,7 @@
 	path = sources/30-i-have-adhd
 	url = https://github.com/ayghri/i-have-adhd.git
 	shallow = true
-[submodule "sources/18b-gsd-core"]
-	path = sources/18b-gsd-core
+[submodule "sources/18-gsd-core"]
+	path = sources/18-gsd-core
 	url = https://github.com/open-gsd/gsd-core.git
 	shallow = true

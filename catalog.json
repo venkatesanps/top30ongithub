@@ -26,8 +26,25 @@
    "use": "Automatic once installed.",
    "always_on": "~105",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/01-andrej-karpathy-skills",
+   "zip": {
+    "folder": "01-karpathy",
+    "base": "skills",
+    "skills": [
+     "karpathy-guidelines"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+    "license": "MIT"
+   }
   },
   {
    "n": 2,
@@ -47,8 +64,32 @@
    "use": "Run /setup-matt-pocock-skills once per repo, then /grill-me.",
    "always_on": "~1,651",
    "tested": "Installed from GitHub",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/02-mattpocock-skills",
+   "zip": {
+    "folder": "02-mattpocock",
+    "base": "skills",
+    "skills": [
+     "productivity/grill-me",
+     "engineering/tdd",
+     "engineering/to-spec",
+     "engineering/diagnosing-bugs",
+     "engineering/code-review",
+     "engineering/domain-modeling",
+     "productivity/handoff",
+     "productivity/teach"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
+    "license": "MIT"
+   }
   },
   {
    "n": 3,
@@ -68,8 +109,17 @@
    "use": "/plugin configure ecc@ecc to set hook options.",
    "always_on": "~47,561",
    "tested": "Installed + validated",
-   "claude_ai": false,
-   "note": "Heaviest by far: ~47.6k tokens added to every session. Only download from github.com/affaan-m/ECC or npm ecc-universal."
+   "note": "Heaviest by far: ~47.6k tokens added to every session. Only download from github.com/affaan-m/ECC or npm ecc-universal.",
+   "source": "sources/03-ecc",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "90606c8315ee09cafc303515c5f33024db6b9882"
+   }
   },
   {
    "n": 4,
@@ -89,8 +139,33 @@
    "use": "/spec then /plan then /build.",
    "always_on": "~3,669",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/04-agent-skills",
+   "zip": {
+    "folder": "04-agent-skills",
+    "base": "skills",
+    "skills": [
+     "spec-driven-development",
+     "planning-and-task-breakdown",
+     "code-review-and-quality",
+     "debugging-and-error-recovery",
+     "security-and-hardening",
+     "api-and-interface-design",
+     "documentation-and-adrs",
+     "idea-refine",
+     "interview-me"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+    "license": "MIT"
+   }
   },
   {
    "n": 5,
@@ -110,8 +185,32 @@
    "use": "Automatic; starts with brainstorming before code.",
    "always_on": "~848",
    "tested": "Installed from GitHub",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/05-superpowers",
+   "zip": {
+    "folder": "05-superpowers",
+    "base": "skills",
+    "skills": [
+     "brainstorming",
+     "writing-plans",
+     "executing-plans",
+     "systematic-debugging",
+     "test-driven-development",
+     "verification-before-completion",
+     "requesting-code-review",
+     "receiving-code-review"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
+    "license": "MIT"
+   }
   },
   {
    "n": 6,
@@ -131,8 +230,26 @@
    "use": "/ponytail:ponytail ultra, /ponytail:ponytail-review",
    "always_on": "~641",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/06-ponytail",
+   "zip": {
+    "folder": "06-ponytail",
+    "base": "skills",
+    "skills": [
+     "ponytail",
+     "ponytail-review"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
+    "license": "MIT"
+   }
   },
   {
    "n": 7,
@@ -154,8 +271,26 @@
    "use": "cd ~/career-ops, add cv.md, run claude, then /career-ops <job URL>.",
    "always_on": "~116",
    "tested": "Plugin installed + validated",
-   "claude_ai": false,
-   "note": "Works as a project folder. Draft-only: never submits applications."
+   "note": "Works as a project folder. Draft-only: never submits applications.",
+   "source": "sources/07-career-ops",
+   "packages": [
+    {
+     "npm": "@santifer/career-ops"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "f4d7477c8d25f81e6e4a952b724378913ea8c86e",
+    "packages": {
+     "npm:@santifer/career-ops": "1.38.0"
+    },
+    "pinned": "f4d7477c8d25f81e6e4a952b724378913ea8c86e"
+   }
   },
   {
    "n": 8,
@@ -175,8 +310,32 @@
    "use": "Ask: 'Use REA to explain how search works in the Notes app.'",
    "always_on": "n/a (MCP)",
    "tested": "CLI 6.7.0 built; doctor runs",
-   "claude_ai": false,
-   "note": "Setup targets macOS (installs Homebrew + Hopper). Fake trojan 'REA.exe' copies exist: only use github.com/morluto/rea, rea.tools or npm rea-agents."
+   "note": "Setup targets macOS (installs Homebrew + Hopper). Fake trojan 'REA.exe' copies exist: only use github.com/morluto/rea, rea.tools or npm rea-agents.",
+   "source": "sources/08-rea",
+   "packages": [
+    {
+     "npm": "rea-agents"
+    }
+   ],
+   "ci": {
+    "install": [
+     "npm install --global rea-agents"
+    ],
+    "verify": "rea --version"
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "a174892e3e52b58e74df5b9f53ba4d0e0617177c",
+    "packages": {
+     "npm:rea-agents": "6.8.0"
+    },
+    "pinned": "a174892e3e52b58e74df5b9f53ba4d0e0617177c"
+   }
   },
   {
    "n": 9,
@@ -196,8 +355,25 @@
    "use": "/graphify . in Claude Code, or graphify update <path> (code-only, no LLM).",
    "always_on": "n/a (CLI skill)",
    "tested": "0.9.95 built; mapped a repo: 958 nodes offline",
-   "claude_ai": false,
-   "note": "PyPI name is graphifyy (double y)."
+   "note": "PyPI name is graphifyy (double y).",
+   "source": "sources/09-graphify",
+   "packages": [
+    {
+     "pypi": "graphifyy"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-25",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "92741d162b2094ffc2fed58cfbd8ee823e9da62c",
+    "packages": {
+     "pypi:graphifyy": "0.9.95"
+    }
+   }
   },
   {
    "n": 10,
@@ -217,8 +393,17 @@
    "use": "/understand then /understand-dashboard",
    "always_on": "~1,148",
    "tested": "Installed + validated",
-   "claude_ai": false,
-   "note": "First /understand on a big repo burns a lot of tokens; later runs are incremental."
+   "note": "First /understand on a big repo burns a lot of tokens; later runs are incremental.",
+   "source": "sources/10-understand-anything",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "e24fcf6d371bcfa529bc110bacb1bb43de1b8d33"
+   }
   },
   {
    "n": 11,
@@ -239,8 +424,17 @@
    "use": "/last30days <topic>; run /last30days setup to add API keys.",
    "always_on": "~105",
    "tested": "Installed + validated",
-   "claude_ai": false,
-   "note": "More sources unlock with keys in ~/.config/last30days/.env. Runs take 2-8 minutes."
+   "note": "More sources unlock with keys in ~/.config/last30days/.env. Runs take 2-8 minutes.",
+   "source": "sources/11-last30days-skill",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "f3cd06a620e385ce15109ed6d3b70fc20c89eccc"
+   }
   },
   {
    "n": 12,
@@ -260,8 +454,26 @@
    "use": "Ask the agent to read a tweet, Reddit thread or YouTube video.",
    "always_on": "n/a (CLI skill)",
    "tested": "1.6.0 built; doctor OK",
-   "claude_ai": false,
-   "note": "Many guides still show 'agent-reach install --env=auto'; v1.6 replaced it with 'agent-reach setup'. X/Reddit need a login (agent-reach login <channel>); cookies stay local."
+   "note": "Many guides still show 'agent-reach install --env=auto'; v1.6 replaced it with 'agent-reach setup'. X/Reddit need a login (agent-reach login <channel>); cookies stay local.",
+   "source": "sources/12-agent-reach",
+   "packages": [
+    {
+     "pypi": "agent-reach"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-25",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "14c213405669414492bda0f8d52cc6531d062c45",
+    "packages": {
+     "pypi:agent-reach": "0.1.0"
+    },
+    "pinned": "14c213405669414492bda0f8d52cc6531d062c45"
+   }
   },
   {
    "n": 13,
@@ -283,8 +495,25 @@
    "use": "headroom perf to see savings; headroom unwrap claude to undo.",
    "always_on": "~0 (hooks)",
    "tested": "CLI 0.41.0 built; plugin installed",
-   "claude_ai": false,
-   "note": "README itself says 15-20% savings for coding agents (60-95% is for JSON-heavy data)."
+   "note": "README itself says 15-20% savings for coding agents (60-95% is for JSON-heavy data).",
+   "source": "sources/13-headroom",
+   "packages": [
+    {
+     "pypi": "headroom-ai"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "3fef15d376d9899f77a28464e2e91f8b99514930",
+    "packages": {
+     "pypi:headroom-ai": "0.41.0"
+    }
+   }
   },
   {
    "n": 14,
@@ -303,8 +532,31 @@
    "use": "Run inside a project folder, then /bmad-help.",
    "always_on": "per project",
    "tested": "v6 installed: 29 skills",
-   "claude_ai": false,
-   "note": "Installs per project (run it in the project folder)."
+   "note": "Installs per project (run it in the project folder).",
+   "source": "sources/14-bmad-method",
+   "packages": [
+    {
+     "npm": "bmad-method"
+    }
+   ],
+   "ci": {
+    "install": [
+     "mkdir -p ~/bmad-ci && cd ~/bmad-ci && npx -y bmad-method install --yes --directory . --modules bmm --tools claude-code --user-name ci"
+    ],
+    "verify": "test -d ~/bmad-ci/.claude"
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "61e01f82644c4bb533750cfa0d6d61ab61d2cc9b",
+    "packages": {
+     "npm:bmad-method": "6.12.4"
+    }
+   }
   },
   {
    "n": 15,
@@ -325,8 +577,18 @@
    "use": "Automatic; search with the mem-search skill.",
    "always_on": "~2,775",
    "tested": "Installed; fails naming-policy validation (cosmetic)",
-   "claude_ai": false,
-   "note": "Runs a background worker (Bun). Data lives in ~/.claude-mem."
+   "note": "Runs a background worker (Bun). Data lives in ~/.claude-mem.",
+   "source": "sources/15-claude-mem",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "834e438ef66ac495683c7d3f4ab2dc249dd81de5",
+    "pinned": "834e438ef66ac495683c7d3f4ab2dc249dd81de5"
+   }
   },
   {
    "n": 16,
@@ -347,8 +609,18 @@
    "use": "/office-hours, /plan-ceo-review, /review, /ship",
    "always_on": "n/a (skills dir)",
    "tested": "v1.91 installed (browser part needs Chromium download)",
-   "claude_ai": false,
-   "note": "Its setup asks you to add CLAUDE.md lines telling Claude to use gstack's /browse instead of Claude in Chrome."
+   "note": "Its setup asks you to add CLAUDE.md lines telling Claude to use gstack's /browse instead of Claude in Chrome.",
+   "source": "sources/16-gstack",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "64d82101cac149125d28df888e3f2ea14a444dc5",
+    "pinned": "64d82101cac149125d28df888e3f2ea14a444dc5"
+   }
   },
   {
    "n": 17,
@@ -368,8 +640,26 @@
    "use": "/caveman, /caveman-compress CLAUDE.md",
    "always_on": "~1,991",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": "An independent placebo test (skill-placebo) found no significant output-token saving and ~14% higher cost on Opus 5.5."
+   "note": "An independent placebo test (skill-placebo) found no significant output-token saving and ~14% higher cost on Opus 5.5.",
+   "source": "sources/17-caveman",
+   "zip": {
+    "folder": "17-caveman",
+    "base": "skills",
+    "skills": [
+     "caveman"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
+    "pinned": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
+    "license": "Apache-2.0"
+   }
   },
   {
    "n": 18,
@@ -388,8 +678,26 @@
    "use": "/gsd-help, then /gsd-new-project",
    "always_on": "n/a (commands)",
    "tested": "gsd-core 1.18 installed",
-   "claude_ai": false,
-   "note": "gsd-build/get-shit-done moved to open-gsd/gsd-core. gsd-core declares Node 24+ (worked on 22 with a warning)."
+   "note": "gsd-build/get-shit-done moved to open-gsd/gsd-core. gsd-core declares Node 24+ (worked on 22 with a warning).",
+   "source": "sources/18-gsd-core",
+   "packages": [
+    {
+     "npm": "@opengsd/gsd-core"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "754e886bffaf2947648177d6371cd8705f42ab9b",
+    "packages": {
+     "npm:@opengsd/gsd-core": "1.18.0"
+    },
+    "pinned": "754e886bffaf2947648177d6371cd8705f42ab9b"
+   }
   },
   {
    "n": 19,
@@ -409,8 +717,26 @@
    "use": "Automatic on landing pages and redesigns.",
    "always_on": "~349",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/19-taste-skill",
+   "zip": {
+    "folder": "19-taste",
+    "base": "skills",
+    "skills": [
+     "taste-skill"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "12af471f627f866411b4bd785b19646d3672784c",
+    "pinned": "12af471f627f866411b4bd785b19646d3672784c",
+    "license": "MIT"
+   }
   },
   {
    "n": 20,
@@ -429,8 +755,26 @@
    "use": "'Use archify to draw a high-level architecture of this repo.'",
    "always_on": "n/a (skill)",
    "tested": "doctor OK; demo diagram rendered",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/20-archify",
+   "zip": {
+    "folder": "20-archify",
+    "base": "",
+    "skills": [
+     "archify"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
+    "pinned": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
+    "license": "Apache-2.0"
+   }
   },
   {
    "n": 21,
@@ -450,8 +794,25 @@
    "use": "Ask for a diagram; it asks for brand tokens first.",
    "always_on": "~596",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/21-diagram-design",
+   "zip": {
+    "folder": "21-diagram-design",
+    "base": "skills",
+    "skills": [
+     "diagram-design"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "0b9b10cab3dbf695642fa1a6c4b4f60df9083689",
+    "license": "MIT"
+   }
   },
   {
    "n": 22,
@@ -471,8 +832,34 @@
    "use": "/impeccable init once, then /impeccable critique <target>",
    "always_on": "~439",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/22-impeccable",
+   "zip": {
+    "folder": "22-impeccable",
+    "base": "plugin/skills",
+    "skills": [
+     "impeccable"
+    ]
+   },
+   "packages": [
+    {
+     "npm": "impeccable"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "658b4ce2942171ed5b3b3bec7e9d99456ba86e5e",
+    "packages": {
+     "npm:impeccable": "4.7.0"
+    },
+    "pinned": "658b4ce2942171ed5b3b3bec7e9d99456ba86e5e",
+    "license": "Apache-2.0"
+   }
   },
   {
    "n": 23,
@@ -493,8 +880,33 @@
    "use": "Automatic on UI work.",
    "always_on": "~1,067",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/23-ui-ux-pro-max-skill",
+   "zip": {
+    "folder": "23-ui-ux-pro-max",
+    "base": ".claude/skills",
+    "skills": [
+     "ui-ux-pro-max"
+    ]
+   },
+   "packages": [
+    {
+     "npm": "ui-ux-pro-max-cli"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "d14efff8ed1faa4187f004f79926f428c8074ec7",
+    "packages": {
+     "npm:ui-ux-pro-max-cli": "2.15.0"
+    },
+    "license": "MIT"
+   }
   },
   {
    "n": 24,
@@ -518,8 +930,17 @@
    "use": "'Make a deck from this PDF.'",
    "always_on": "~206",
    "tested": "Installed + validated",
-   "claude_ai": false,
-   "note": "Repo is ~110 MB. If pip refuses (macOS 'externally-managed'), create a venv in ~/ppt-master first."
+   "note": "Repo is ~110 MB. If pip refuses (macOS 'externally-managed'), create a venv in ~/ppt-master first.",
+   "source": "sources/24-ppt-master",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "78759bf62e9a1ef43e926ff9e50afa4cfe9a63cb"
+   }
   },
   {
    "n": 25,
@@ -539,8 +960,23 @@
    "use": "Start with the product-marketing-context skill.",
    "always_on": "~15,682",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": "~15.7k tokens per session for all 52. Installing only the skills you need is much lighter."
+   "note": "~15.7k tokens per session for all 52. Installing only the skills you need is much lighter.",
+   "source": "sources/25-marketingskills",
+   "zip": {
+    "folder": "25-marketing",
+    "base": "skills",
+    "skills": "*"
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
+    "license": "MIT"
+   }
   },
   {
    "n": 26,
@@ -561,8 +997,17 @@
    "use": "Automatic when you ask for a .docx/.xlsx/.pptx/.pdf.",
    "always_on": "~1,030 + ~1,223",
    "tested": "Installed from GitHub",
-   "claude_ai": false,
-   "note": "The Claude app already has these built in; this is for Claude Code."
+   "note": "The Claude app already has these built in; this is for Claude Code.",
+   "source": "sources/26-anthropics-skills",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "dbd4588f9e1033efb41dad4bef2f7947c8993d44"
+   }
   },
   {
    "n": 27,
@@ -585,8 +1030,23 @@
    "use": "Open Claude Code in ~/OpenMontage and describe the video.",
    "always_on": "per project",
    "tested": "make install + preflight OK (local FFmpeg tools ready)",
-   "claude_ai": false,
-   "note": "AGPL-3.0. Generation providers (Veo, Kling, ElevenLabs...) need your own API keys; stock/archive and FFmpeg paths are free."
+   "note": "AGPL-3.0. Generation providers (Veo, Kling, ElevenLabs...) need your own API keys; stock/archive and FFmpeg paths are free.",
+   "source": "sources/27-openmontage",
+   "ci": {
+    "install": [
+     "git clone --depth 1 https://github.com/calesthio/OpenMontage.git ~/OpenMontage",
+     "cd ~/OpenMontage && make install"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "e01dbf433f46eeb91d39bf905e194162921019a3"
+   }
   },
   {
    "n": 28,
@@ -606,8 +1066,28 @@
    "use": "/humanizer <paste text>",
    "always_on": "~144",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/28-humanizer",
+   "zip": {
+    "folder": "28-humanizer",
+    "base": "",
+    "skills": [
+     "."
+    ],
+    "only": [
+     "SKILL.md"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "8c307f367c91bd974002f10f2be2965d642c13df",
+    "license": "MIT"
+   }
   },
   {
    "n": 29,
@@ -630,8 +1110,26 @@
    "use": "/hyperframes 'Make a 10-second product intro.'",
    "always_on": "~783",
    "tested": "Installed + validated; doctor needs headless Chrome (browser ensure)",
-   "claude_ai": false,
-   "note": ""
+   "note": "",
+   "source": "sources/29-hyperframes",
+   "packages": [
+    {
+     "npm": "hyperframes"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-24",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "b2124b2a5631a9fbec9383a1697b7c63c8966a03",
+    "packages": {
+     "npm:hyperframes": "0.8.198"
+    },
+    "pinned": "b2124b2a5631a9fbec9383a1697b7c63c8966a03"
+   }
   },
   {
    "n": 30,
@@ -651,8 +1149,27 @@
    "use": "/i-have-adhd once per session; 'stop adhd mode' to turn off.",
    "always_on": "~106",
    "tested": "Installed + validated",
-   "claude_ai": true,
-   "note": ""
+   "note": "",
+   "source": "sources/30-i-have-adhd",
+   "zip": {
+    "folder": "30-i-have-adhd",
+    "base": "skills",
+    "skills": [
+     "i-have-adhd"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-10-25",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+    "license": "MIT"
+   }
   }
- ]
+ ],
+ "schema": 2,
+ "checked": "2026-10-25"
 }

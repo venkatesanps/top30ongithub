@@ -1,0 +1,42 @@
+name: CI
+
+# Checks every human push and pull request: catalog is valid, generated files match it,
+# scripts parse, zips are well-formed.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate catalog, pins and zips
+        run: python3 scripts/kit.py validate
+
+      - name: Generated files match catalog.json
+        run: |
+          python3 scripts/kit.py render
+          if ! git diff --exit-code -- install.sh verify.sh guide/index.html README.md THIRD_PARTY_NOTICES.md; then
+            echo "::error::Generated files are stale. Run: python3 scripts/kit.py render, then commit."
+            exit 1
+          fi
+
+      - name: Scripts parse and run
+        run: |
+          bash -n install.sh && bash -n verify.sh
+          shellcheck -S error install.sh verify.sh
+          ./install.sh --list > /dev/null
+          ./install.sh --status > /dev/null
+          ./install.sh --dry-run row 1 row 5 > /dev/null
+          python3 -m py_compile scripts/kit.py

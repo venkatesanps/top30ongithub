@@ -30,6 +30,13 @@ h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.1; letter-spacing: -0.01e
 .facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 14px; }
 .facts b { font-family: var(--f-display); font-size: 18px; color: var(--ink); margin-right: 4px; }
 .facts li { color: var(--muted); }
+.checked { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+.checked a { color: var(--accent); }
+.tag.bad { background: var(--warn-soft); color: var(--warn); }
+.stats { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 13px; color: var(--muted); }
+.stats b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.problem { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 8px 10px; border-radius: 0 6px 6px 0; font-size: 14px; }
+.problem strong { color: var(--warn); }
 
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 .filters { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); margin: 22px 0 6px; padding-block: 10px; border-bottom: 1px solid var(--line); }
@@ -82,14 +89,9 @@ footer { margin-top: 36px; color: var(--muted); font-size: 13px; display: grid; 
 <div class="wrap">
   <header>
     <h1>Claude Plugins Field Guide</h1>
-    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, each traced to its real repository, installed and checked on Oct 24, 2026. Pick the row that matches your week and add one.</p>
-    <ul class="facts">
-      <li><b>30</b>repos found</li>
-      <li><b>23</b>Claude Code plugins</li>
-      <li><b>7</b>CLIs or installers</li>
-      <li><b>30/30</b>built here</li>
-      <li><b>16</b>also run in the Claude app</li>
-    </ul>
+    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, each traced to its real repository. A daily job re-checks every repo, re-tests installs and refreshes this page. Pick the row that matches your week and add one.</p>
+    <ul class="facts" id="facts"></ul>
+    <p class="checked" id="checked"></p>
   </header>
 
   <nav class="filters" aria-label="Filter by job">
@@ -104,8 +106,9 @@ footer { margin-top: 36px; color: var(--muted); font-size: 13px; display: grid; 
 
   <footer>
     <p>Token figures come from <code>claude plugin details</code>: the tokens a plugin adds to every Claude Code session before you invoke anything. Bars use a log scale.</p>
-    <p>"Built here" means the install ran in a clean Linux workspace and its health check passed. Two steps couldn't finish only because that workspace blocks browser downloads: gstack's Chromium and HyperFrames' headless Chrome. Both download normally on your machine.</p>
-    <p>Star counts in the original post don't match the repos' own numbers in several cases, so they're left out here.</p>
+    <p>"Install test" means the install commands ran on a fresh Linux machine in GitHub Actions and the item's check command passed. A few items use a non-interactive variant there (BMAD, REA, OpenMontage); see <code>ci</code> in catalog.json.</p>
+    <p>Stars and update dates come from the GitHub API at the last check. The star counts in the original post don't match these in several cases.</p>
+    <p>Source, history and the daily job: <a href="https://github.com/venkatesanps/top30ongithub">github.com/venkatesanps/top30ongithub</a>.</p>
   </footer>
 </div>
 
@@ -116,7 +119,8 @@ let row = "all";
 try { row = localStorage.getItem("row") || "all"; sortSel.value = localStorage.getItem("sort") || "row"; } catch (e) {}
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-const tok = s => { const m = String(s).match(/~?([\d,]+)/); return m && /^~/.test(String(s).trim()) ? m[1].split("+")[0].replace(/,/g, "") * 1 + (String(s).match(/\+\s*~?([\d,]+)/) ? String(s).match(/\+\s*~?([\d,]+)/)[1].replace(/,/g, "") * 1 : 0) : null; };
+const tok = s => { s = String(s); if (!/^~/.test(s.trim())) return null; return s.split("+").reduce((a, p) => a + (+(p.match(/[\d,]+/) || ["0"])[0].replace(/,/g, "")), 0); };
+const stars = n => n == null ? "—" : n >= 1000 ? (n / 1000).toFixed(n >= 100000 ? 0 : 1).replace(/\.0$/, "") + "k" : String(n);
 const MAX = Math.log10(50000);
 
 function chipEls() {
@@ -125,22 +129,24 @@ function chipEls() {
 }
 
 function card(it) {
+  const up = it.upstream || {};
   const t = tok(it.always_on), heavy = t !== null && t > 10000;
   const pct = t === null ? 0 : t <= 0 ? 1 : Math.max(2, Math.log10(Math.max(t, 1)) / MAX * 100);
   const cmds = it.install.map(c => `<span class="p">$ </span>${esc(c)}`).join("\n");
   return `<article class="card" id="p${it.n}">
     <div class="top">
       <div class="title"><span class="num">${String(it.n).padStart(2, "0")}</span><h3>${esc(it.name)}</h3></div>
-      <div class="tags"><span class="tag ok" title="${esc(it.tested)}">Built ✓</span>${it.claude_ai ? '<span class="tag ai">Claude app zip</span>' : ""}<span class="tag">needs ${esc(it.needs.join(", "))}</span></div>
+      <div class="tags">${it.problems && it.problems.length ? '<span class="tag bad">Needs attention</span>' : it.verified.result === "pass" ? `<span class="tag ok" title="Install test passed ${esc(it.verified.date)}">Install test ✓</span>` : `<span class="tag bad">Install test failed</span>`}${it.zip ? '<span class="tag ai">Claude app zip</span>' : ""}<span class="tag">needs ${esc(it.needs.join(", "))}</span></div>
     </div>
     <a class="repo" href="https://github.com/${esc(it.repo)}" target="_blank" rel="noopener">github.com/${esc(it.repo)}</a>
+    <div class="stats"><span>★ <b>${stars(up.stars)}</b></span><span>Upstream updated <b>${esc(up.pushed || "—")}</b></span><span>Install test <b>${esc(it.verified.result)}</b> ${esc(it.verified.date)}</span></div>
     <p class="what">${esc(it.what)}</p>
+    ${(it.problems || []).map(p => `<div class="problem"><strong>${esc(p.kind)}:</strong> ${esc(p.msg)}</div>`).join("")}
     <div class="cost"><span>Per session</span><div class="track" aria-hidden="true"><div class="fill${heavy ? " heavy" : ""}" style="width:${pct}%"></div></div><output>${esc(it.always_on)}${t !== null ? " tok" : ""}</output></div>
     <div><div class="label">Install</div><div class="cmd"><pre>${cmds}</pre><button class="copy" type="button" data-copy="${esc(it.install.join("\n"))}">Copy</button></div></div>
     <div class="meta">
       <p><span class="label">Check</span><br><code>${esc(it.verify)}</code></p>
       <p><span class="label">Use</span><br>${esc(it.use)}</p>
-      <p><span class="label">Tested</span><br>${esc(it.tested)}</p>
       ${it.alt ? `<details><summary>Other ways to install</summary><p><code>${esc(it.alt)}</code></p></details>` : ""}
     </div>
     ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
@@ -170,5 +176,8 @@ out.addEventListener("click", e => {
   const fallback = () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; setTimeout(() => b.textContent = "Copy", 1500); };
   try { navigator.clipboard.writeText(text).then(done, fallback); } catch (x) { fallback(); }
 });
+const S = DATA.stats;
+document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.plugins, "Claude Code plugins"], [S.repos - S.plugins, "CLIs or installers"], [`${S.passing}/${S.repos}`, "passing install tests"], [S.zip_repos, "also run in the Claude app"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
+document.getElementById("checked").innerHTML = `Last checked ${esc(DATA.checked || DATA.generated)}` + (S.attention ? ` · <a href="#p${DATA.items.find(i => i.problems && i.problems.length).n}">${S.attention} need${S.attention === 1 ? "s" : ""} attention</a>` : " · everything OK");
 chipEls(); render();
 </script>

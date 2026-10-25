@@ -1,0 +1,8 @@
+SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 30)
+pass=0; fail=0
+for n in $SEL; do
+  c=$(verify_cmd "$n"); [ -z "$c" ] && continue
+  if ( eval "$c" ) >/dev/null 2>&1; then printf '  \033[32mPASS\033[0m %2d %s\n' "$n" "${NAMES[$((n-1))]}"; pass=$((pass+1))
+  else printf '  \033[90m----\033[0m %2d %s  (not installed or check failed: %s)\n' "$n" "${NAMES[$((n-1))]}" "$c"; fail=$((fail+1)); fi
+done
+echo "$pass passed, $fail not detected."
