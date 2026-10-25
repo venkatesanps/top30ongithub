@@ -3,6 +3,8 @@
 The 30 plugins from the "top 30 on GitHub (by job)" post, each traced to its real repository,
 with one installer, a verifier, a field guide, and upload-ready skill zips for the Claude app.
 
+**Field guide:** https://venkatesanps.github.io/top30ongithub/ (refreshed daily)
+
 A GitHub Action re-checks everything every day:
 
 - **New upstream commits** are re-pinned under `sources/`, and affected skill zips are rebuilt.
