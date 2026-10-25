@@ -44,14 +44,11 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
+      # Only OpenMontage and HyperFrames need FFmpeg; apt on the runner can hang, so use a static build.
       - name: Install FFmpeg
-        timeout-minutes: 8
-        run: |
-          if ! command -v ffmpeg >/dev/null; then
-            sudo apt-get -o DPkg::Lock::Timeout=120 update -qq
-            sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=120 install -y -qq --no-install-recommends ffmpeg </dev/null
-          fi
-          ffmpeg -version | head -1
+        uses: FedericoCarboni/setup-ffmpeg@v3
+        timeout-minutes: 5
+        continue-on-error: true
 
       - name: Install Claude Code CLI
         timeout-minutes: 8
