@@ -2,7 +2,7 @@
 
 Written by the daily refresh workflow, newest first.
 
-## 2026-10-25 13:52 UTC
+## 2026-10-25 18:52 UTC
 
 **Notes**
 - HyperFrames: npm:hyperframes 0.8.198 → 0.8.199
@@ -10,7 +10,7 @@ Written by the daily refresh workflow, newest first.
 
 **Install tests**: 1/1 passed
 
-## 2026-10-25 13:49 UTC
+## 2026-10-25 18:49 UTC
 
 **Upstream updates**
 - ECC (Everything Claude Code): [90606c8 → 4c28a7b](https://github.com/affaan-m/ECC/compare/90606c8315ee09cafc303515c5f33024db6b9882...4c28a7be9edac24f28ee8e54a958167894fa97a0)
