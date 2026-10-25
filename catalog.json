@@ -44,7 +44,7 @@
    "upstream": {
     "head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
     "license": "MIT",
-    "stars": 223722,
+    "stars": 223729,
     "pushed": "2026-04-20",
     "default_branch": "main"
    }
@@ -92,7 +92,7 @@
    "upstream": {
     "head": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
     "license": "MIT",
-    "stars": 303098,
+    "stars": 303100,
     "pushed": "2026-10-22",
     "default_branch": "main"
    }
@@ -125,7 +125,7 @@
    },
    "upstream": {
     "head": "4c28a7be9edac24f28ee8e54a958167894fa97a0",
-    "stars": 288679,
+    "stars": 288684,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main",
@@ -176,7 +176,7 @@
    "upstream": {
     "head": "aeac41d4d005999432bb7312f7ff06383a91d59d",
     "license": "MIT",
-    "stars": 110436,
+    "stars": 110441,
     "pushed": "2026-10-13",
     "default_branch": "main"
    }
@@ -224,7 +224,7 @@
    "upstream": {
     "head": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
     "license": "MIT",
-    "stars": 304960,
+    "stars": 304964,
     "pushed": "2026-10-23",
     "default_branch": "main"
    }
@@ -266,7 +266,7 @@
    "upstream": {
     "head": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
     "license": "MIT",
-    "stars": 176049,
+    "stars": 176053,
     "pushed": "2026-10-18",
     "default_branch": "main"
    }
@@ -310,7 +310,7 @@
      "npm:@santifer/career-ops": "1.38.0"
     },
     "pinned": "f4d7477c8d25f81e6e4a952b724378913ea8c86e",
-    "stars": 77225,
+    "stars": 77228,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -359,7 +359,7 @@
      "npm:rea-agents": "6.8.0"
     },
     "pinned": "db4d3abcda9be7c03cdc4cc97aa8f98b9cb49726",
-    "stars": 383540,
+    "stars": 383581,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -401,7 +401,7 @@
     "packages": {
      "pypi:graphifyy": "0.9.95"
     },
-    "stars": 135006,
+    "stars": 135010,
     "pushed": "2026-10-23",
     "license": "Apache-2.0",
     "default_branch": "v8"
@@ -471,7 +471,7 @@
    "upstream": {
     "head": "f3cd06a620e385ce15109ed6d3b70fc20c89eccc",
     "stars": 65430,
-    "pushed": "2026-10-23",
+    "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
    }
@@ -513,7 +513,7 @@
      "pypi:agent-reach": "0.1.0"
     },
     "pinned": "14c213405669414492bda0f8d52cc6531d062c45",
-    "stars": 102393,
+    "stars": 102395,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -557,7 +557,7 @@
     "packages": {
      "pypi:headroom-ai": "0.41.0"
     },
-    "stars": 77800,
+    "stars": 77802,
     "pushed": "2026-10-24",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -604,7 +604,7 @@
     "packages": {
      "npm:bmad-method": "6.12.4"
     },
-    "stars": 54539,
+    "stars": 54538,
     "pushed": "2026-10-20",
     "license": "NOASSERTION",
     "default_branch": "main"
@@ -640,7 +640,7 @@
    "upstream": {
     "head": "834e438ef66ac495683c7d3f4ab2dc249dd81de5",
     "pinned": "834e438ef66ac495683c7d3f4ab2dc249dd81de5",
-    "stars": 103051,
+    "stars": 103052,
     "pushed": "2026-10-25",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -676,7 +676,7 @@
    "upstream": {
     "head": "64d82101cac149125d28df888e3f2ea14a444dc5",
     "pinned": "64d82101cac149125d28df888e3f2ea14a444dc5",
-    "stars": 137674,
+    "stars": 137675,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -719,7 +719,7 @@
     "head": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "pinned": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "license": "Apache-2.0",
-    "stars": 114994,
+    "stars": 114996,
     "pushed": "2026-10-25",
     "default_branch": "main"
    }
@@ -803,7 +803,7 @@
     "head": "12af471f627f866411b4bd785b19646d3672784c",
     "pinned": "12af471f627f866411b4bd785b19646d3672784c",
     "license": "MIT",
-    "stars": 102391,
+    "stars": 102393,
     "pushed": "2026-10-25",
     "default_branch": "main"
    }
@@ -834,22 +834,17 @@
      "archify"
     ]
    },
-   "status": "attention",
-   "problems": [
-    {
-     "kind": "install",
-     "msg": "`npx skills add tt-a1i/archify -g` failed (exit 1):  | npm warn exec The following package was not found and will be installed: skills@1.7.4 | Interactive prompt required but stdin is not a TTY. Nothing was installed. Use --agent <name> (or --agent '*') and -y to run non-interactively."
-    }
-   ],
+   "status": "ok",
+   "problems": [],
    "verified": {
     "date": "2026-10-25",
-    "result": "fail"
+    "result": "pass"
    },
    "upstream": {
     "head": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
     "pinned": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
     "license": "Apache-2.0",
-    "stars": 89097,
+    "stars": 89101,
     "pushed": "2026-10-25",
     "default_branch": "main"
    }
@@ -890,7 +885,7 @@
    "upstream": {
     "head": "989575075fd67a9f3e4cde3bc6f3269bd0dc2cd9",
     "license": "MIT",
-    "stars": 60998,
+    "stars": 61001,
     "pushed": "2026-10-25",
     "default_branch": "main",
     "pinned": "989575075fd67a9f3e4cde3bc6f3269bd0dc2cd9"
@@ -941,7 +936,7 @@
     },
     "pinned": "3671d50f0ac9a662ce0615e85a256110c9cd720b",
     "license": "Apache-2.0",
-    "stars": 87442,
+    "stars": 87447,
     "pushed": "2026-10-25",
     "default_branch": "main"
    }
@@ -991,7 +986,7 @@
      "npm:ui-ux-pro-max-cli": "2.15.0"
     },
     "license": "MIT",
-    "stars": 140301,
+    "stars": 140306,
     "pushed": "2026-10-23",
     "default_branch": "main"
    }
@@ -1028,7 +1023,7 @@
    },
    "upstream": {
     "head": "78759bf62e9a1ef43e926ff9e50afa4cfe9a63cb",
-    "stars": 68060,
+    "stars": 68064,
     "pushed": "2026-10-24",
     "license": "MIT",
     "default_branch": "main"
@@ -1102,7 +1097,7 @@
    },
    "upstream": {
     "head": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-    "stars": 183718,
+    "stars": 183720,
     "pushed": "2026-10-09",
     "license": null,
     "default_branch": "main"
@@ -1145,7 +1140,7 @@
    },
    "upstream": {
     "head": "e01dbf433f46eeb91d39bf905e194162921019a3",
-    "stars": 71839,
+    "stars": 71840,
     "pushed": "2026-10-24",
     "license": "AGPL-3.0",
     "default_branch": "main"
@@ -1190,7 +1185,7 @@
    "upstream": {
     "head": "8c307f367c91bd974002f10f2be2965d642c13df",
     "license": "MIT",
-    "stars": 60533,
+    "stars": 60537,
     "pushed": "2026-10-16",
     "default_branch": "main"
    }
@@ -1232,10 +1227,10 @@
    "upstream": {
     "head": "42b84632a8d06cf86bd72633d03b38a7a8371a89",
     "packages": {
-     "npm:hyperframes": "0.8.198"
+     "npm:hyperframes": "0.8.199"
     },
     "pinned": "42b84632a8d06cf86bd72633d03b38a7a8371a89",
-    "stars": 72020,
+    "stars": 72024,
     "pushed": "2026-10-25",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -1277,7 +1272,7 @@
    "upstream": {
     "head": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
     "license": "MIT",
-    "stars": 58694,
+    "stars": 58695,
     "pushed": "2026-10-19",
     "default_branch": "main"
    }

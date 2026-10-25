@@ -40,7 +40,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-25: 30 repos, 29 passing install tests, 1 needing attention. Token costs measured with Claude Code._
+_Checked 2026-10-25: 30 repos, 30 passing install tests, 0 needing attention. Token costs measured with Claude Code._
 
 | # | Plugin | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
@@ -49,12 +49,12 @@ _Checked 2026-10-25: 30 repos, 29 passing install tests, 1 needing attention. To
 | 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 288.7k | 2026-10-25 | pass (2026-10-25) | ~33,456 | OK |
 | 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 110.4k | 2026-10-13 | pass (2026-10-25) | ~2,903 | OK |
 | 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 305k | 2026-10-23 | pass (2026-10-25) | ~706 | OK |
-| 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 176k | 2026-10-18 | pass (2026-10-25) | ~430 | OK |
+| 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 176.1k | 2026-10-18 | pass (2026-10-25) | ~430 | OK |
 | 7 | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | 77.2k | 2026-10-25 | pass (2026-10-25) | ~116 | OK |
-| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 383.5k | 2026-10-25 | pass (2026-10-25) | n/a (MCP) | OK |
+| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 383.6k | 2026-10-25 | pass (2026-10-25) | n/a (MCP) | OK |
 | 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 135k | 2026-10-23 | pass (2026-10-25) | n/a (CLI skill) | OK |
 | 10 | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 88.2k | 2026-10-22 | pass (2026-10-25) | ~870 | OK |
-| 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 65.4k | 2026-10-23 | pass (2026-10-25) | ~67 | OK |
+| 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 65.4k | 2026-10-25 | pass (2026-10-25) | ~67 | OK |
 | 12 | Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 102.4k | 2026-10-25 | pass (2026-10-25) | n/a (CLI skill) | OK |
 | 13 | Headroom | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | 77.8k | 2026-10-24 | pass (2026-10-25) | ~0 | OK |
 | 14 | BMAD Method | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) | 54.5k | 2026-10-20 | pass (2026-10-25) | per project | OK |
@@ -63,7 +63,7 @@ _Checked 2026-10-25: 30 repos, 29 passing install tests, 1 needing attention. To
 | 17 | Caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 115k | 2026-10-25 | pass (2026-10-25) | ~1,366 | OK |
 | 18 | GSD (Get Shit Done) | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) | 10.8k | 2026-10-25 | pass (2026-10-25) | n/a (commands) | OK |
 | 19 | Taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 102.4k | 2026-10-25 | pass (2026-10-25) | ~246 | OK |
-| 20 | Archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 89.1k | 2026-10-25 | fail (2026-10-25) | n/a (skill) | ⚠ `npx skills add tt-a1i/archify -g` failed (exit 1):  / npm warn exec The following package was not found and will be installed: skills@1.7.4 |
+| 20 | Archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 89.1k | 2026-10-25 | pass (2026-10-25) | n/a (skill) | OK |
 | 21 | Diagram Design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 61k | 2026-10-25 | pass (2026-10-25) | ~378 | OK |
 | 22 | Impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 87.4k | 2026-10-25 | pass (2026-10-25) | ~312 | OK |
 | 23 | UI UX Pro Max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 140.3k | 2026-10-23 | pass (2026-10-25) | ~709 | OK |
