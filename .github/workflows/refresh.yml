@@ -29,6 +29,8 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      DISABLE_AUTOUPDATER: "1"
+      CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -42,11 +44,22 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
-      - name: Install tools the plugins need
+      - name: Install FFmpeg
+        timeout-minutes: 8
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-          npm install --global @anthropic-ai/claude-code
-          claude --version
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get -o DPkg::Lock::Timeout=120 update -qq
+            sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Lock::Timeout=120 install -y -qq --no-install-recommends ffmpeg </dev/null
+          fi
+          ffmpeg -version | head -1
+
+      - name: Install Claude Code CLI
+        timeout-minutes: 8
+        env:
+          DISABLE_AUTOUPDATER: "1"
+        run: |
+          npm install --global --no-fund --no-audit @anthropic-ai/claude-code </dev/null
+          timeout 60 claude --version </dev/null
 
       - name: Decide test scope
         id: scope
@@ -58,21 +71,27 @@ jobs:
           fi
 
       - name: Check upstream repos
+        timeout-minutes: 15
         run: python3 scripts/kit.py check --all
 
       - name: Re-pin changed repos
+        timeout-minutes: 10
         run: python3 scripts/kit.py bump --changed
 
       - name: Rebuild skill zips
+        timeout-minutes: 25
         run: python3 scripts/kit.py pack ${{ steps.scope.outputs.which }}
 
       - name: Measure token cost per session
+        timeout-minutes: 30
         run: python3 scripts/kit.py costs ${{ steps.scope.outputs.which }}
 
       - name: Install tests
+        timeout-minutes: 120
         run: python3 scripts/kit.py smoke ${{ steps.scope.outputs.which }}
 
       - name: Render and report
+        timeout-minutes: 5
         run: |
           python3 scripts/kit.py render
           python3 scripts/kit.py report
