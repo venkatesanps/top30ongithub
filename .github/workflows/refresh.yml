@@ -58,6 +58,12 @@ jobs:
           npm install --global --no-fund --no-audit @anthropic-ai/claude-code </dev/null
           timeout 60 claude --version </dev/null
 
+      - name: Install uv (MCP servers)
+        timeout-minutes: 5
+        run: |
+          python3 -m pip install --quiet uv
+          uv --version; docker --version; java -version 2>&1 | head -1
+
       - name: Decide test scope
         id: scope
         run: |

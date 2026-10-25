@@ -118,3 +118,107 @@
 	path = sources/18-gsd-core
 	url = https://github.com/open-gsd/gsd-core.git
 	shallow = true
+[submodule "sources/31-snowflake-ai-kit"]
+	path = sources/31-snowflake-ai-kit
+	url = https://github.com/Snowflake-Labs/snowflake-ai-kit.git
+	shallow = true
+[submodule "sources/32-dbt-agent-skills"]
+	path = sources/32-dbt-agent-skills
+	url = https://github.com/dbt-labs/dbt-agent-skills.git
+	shallow = true
+[submodule "sources/33-dbt-mcp"]
+	path = sources/33-dbt-mcp
+	url = https://github.com/dbt-labs/dbt-mcp.git
+	shallow = true
+[submodule "sources/34-astronomer-agents"]
+	path = sources/34-astronomer-agents
+	url = https://github.com/astronomer/agents.git
+	shallow = true
+[submodule "sources/35-dbt-snowflake-monitoring"]
+	path = sources/35-dbt-snowflake-monitoring
+	url = https://github.com/get-select/dbt-snowflake-monitoring.git
+	shallow = true
+[submodule "sources/36-elementary"]
+	path = sources/36-elementary
+	url = https://github.com/elementary-data/elementary.git
+	shallow = true
+[submodule "sources/37-great_expectations"]
+	path = sources/37-great_expectations
+	url = https://github.com/great-expectations/great_expectations.git
+	shallow = true
+[submodule "sources/38-agent-toolkit-for-aws"]
+	path = sources/38-agent-toolkit-for-aws
+	url = https://github.com/aws/agent-toolkit-for-aws.git
+	shallow = true
+[submodule "sources/39-awslabs-mcp"]
+	path = sources/39-awslabs-mcp
+	url = https://github.com/awslabs/mcp.git
+	shallow = true
+[submodule "sources/40-oracle-mcp"]
+	path = sources/40-oracle-mcp
+	url = https://github.com/oracle/mcp.git
+	shallow = true
+[submodule "sources/41-sqlglot"]
+	path = sources/41-sqlglot
+	url = https://github.com/tobymao/sqlglot.git
+	shallow = true
+[submodule "sources/42-sqlfluff"]
+	path = sources/42-sqlfluff
+	url = https://github.com/sqlfluff/sqlfluff.git
+	shallow = true
+[submodule "sources/43-informatica-claude-plugins"]
+	path = sources/43-informatica-claude-plugins
+	url = https://github.com/forcedotcom/informatica-claude-plugins.git
+	shallow = true
+[submodule "sources/44-knowledge-work-plugins"]
+	path = sources/44-knowledge-work-plugins
+	url = https://github.com/anthropics/knowledge-work-plugins.git
+	shallow = true
+[submodule "sources/45-mcp-atlassian"]
+	path = sources/45-mcp-atlassian
+	url = https://github.com/sooperset/mcp-atlassian.git
+	shallow = true
+[submodule "sources/46-devlake"]
+	path = sources/46-devlake
+	url = https://github.com/apache/devlake.git
+	shallow = true
+[submodule "sources/47-middleware"]
+	path = sources/47-middleware
+	url = https://github.com/middlewarehq/middleware.git
+	shallow = true
+[submodule "sources/48-claude-code-monitoring-guide"]
+	path = sources/48-claude-code-monitoring-guide
+	url = https://github.com/anthropics/claude-code-monitoring-guide.git
+	shallow = true
+[submodule "sources/49-ccusage"]
+	path = sources/49-ccusage
+	url = https://github.com/ryoppippi/ccusage.git
+	shallow = true
+[submodule "sources/50-docker-otel-lgtm"]
+	path = sources/50-docker-otel-lgtm
+	url = https://github.com/grafana/docker-otel-lgtm.git
+	shallow = true
+[submodule "sources/51-mcp-grafana"]
+	path = sources/51-mcp-grafana
+	url = https://github.com/grafana/mcp-grafana.git
+	shallow = true
+[submodule "sources/52-keep"]
+	path = sources/52-keep
+	url = https://github.com/keephq/keep.git
+	shallow = true
+[submodule "sources/53-holmesgpt"]
+	path = sources/53-holmesgpt
+	url = https://github.com/HolmesGPT/holmesgpt.git
+	shallow = true
+[submodule "sources/54-uptime-kuma"]
+	path = sources/54-uptime-kuma
+	url = https://github.com/louislam/uptime-kuma.git
+	shallow = true
+[submodule "sources/55-dynatrace-mcp"]
+	path = sources/55-dynatrace-mcp
+	url = https://github.com/dynatrace-oss/dynatrace-mcp.git
+	shallow = true
+[submodule "sources/56-pagerduty-mcp-server"]
+	path = sources/56-pagerduty-mcp-server
+	url = https://github.com/PagerDuty/pagerduty-mcp-server.git
+	shallow = true

@@ -1,7 +1,17 @@
-# Top 30 Claude plugins, kept current
+# Top 30 Claude plugins, plus a data & ops toolkit, kept current
 
-The 30 plugins from the "top 30 on GitHub (by job)" post, each traced to its real repository,
-with one installer, a verifier, a field guide, and upload-ready skill zips for the Claude app.
+Two collections, each traced to its real repository, with one installer, a verifier, a field
+guide, and upload-ready skill zips for the Claude app:
+
+- **Top 30 from the post** (items 1–30, rows 1–5): coding, research, token savers, design, writing.
+- **Data & ops toolkit** (items 31–56, rows 6–9): Snowflake, dbt, Airflow and data quality; AWS,
+  Oracle and migrations; manager and team productivity (Jira/Confluence, DORA dashboards, AI
+  adoption); production monitoring for leadership, app developers and SRE / L2 / L3.
+
+**Playbooks** for putting them to work: [manager](playbooks/manager.md),
+[lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
+[production & SRE](playbooks/production-and-sre.md). Read
+[Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
 **Field guide:** https://venkatesanps.github.io/top30ongithub/ (refreshed daily)
 
@@ -10,7 +20,9 @@ A GitHub Action re-checks everything every day:
 - **New upstream commits** are re-pinned under `sources/`, and affected skill zips are rebuilt.
 - **Breakage** is caught early: repos that moved, were archived or renamed; marketplace or plugin
   names that no longer match our install commands; packages that vanished from npm/PyPI.
-- **Install tests** run on a fresh Linux machine for anything that changed, and for all 30 every Monday.
+- **Install tests** run on a fresh Linux machine for anything that changed or is untested, and for
+  everything every Monday. Dashboards are tested by pulling their images and validating their
+  compose files; a few items that need your own account (marked "manual") are only checked upstream.
 - **Token cost per session** is re-measured with `claude plugin details`.
 - Results go to the status table below, [CHANGELOG.md](CHANGELOG.md), the field guide
   (GitHub Pages), and one open issue labelled `upstream-attention` that closes itself when all is well.
@@ -19,22 +31,24 @@ A GitHub Action re-checks everything every day:
 
 ```bash
 git clone https://github.com/venkatesanps/top30ongithub.git && cd top30ongithub
-./install.sh --list            # all 30 with GitHub links and per-session token cost
+./install.sh --list            # everything, with GitHub links and per-session token cost
 ./install.sh --status          # health from the last daily check
 ./install.sh --dry-run 5 30    # show the exact commands first
 ./install.sh 5 30              # install Superpowers + I Have ADHD (asks before running each)
 ./install.sh row 4             # or a whole row
+./install.sh 41 42 45          # SQLGlot + SQLFluff + Jira/Confluence MCP (data & ops toolkit)
 ./verify.sh 5 30               # check they work
 git pull                       # later: pick up fixes from the daily check
 ```
 
 Restart Claude Code after installing plugins. Prerequisites only for items that need them:
-Claude Code, Node 22+ (24+ for GSD), Python 3.10+ (pipx recommended), Bun (gstack, Claude-Mem),
-git, FFmpeg (video tools).
+Claude Code, Node 22+ (24+ for GSD), Python 3.10+ (pipx recommended), uv (MCP servers),
+Docker (dashboards), Java 17+ (SQLcl), Bun (gstack, Claude-Mem), git, FFmpeg (video tools).
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 
-`claude-ai-skills/` holds ready-to-upload skill zips from 14 of the repos. Upload in
+`claude-ai-skills/` holds ready-to-upload skill zips from 16 of the repos, including dbt and
+Airflow skills. Upload in
 Settings → Capabilities → Skills, one zip per skill. Each zip includes its project's license;
 see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Start small: each enabled skill adds its
 description to every chat.
@@ -42,9 +56,11 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-25: 30 repos, 30 passing install tests, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
+_Checked 2026-10-25: 56 repos, 30 of 30 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
 
-| # | Plugin | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
+**Top 30 from the post**
+
+| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
 | 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 223.8k | 2026-04-20 | pass (2026-10-25) | ~66 | OK |
 | 2 | Matt Pocock Skills | [mattpocock/skills](https://github.com/mattpocock/skills) | 303.1k | 2026-10-22 | pass (2026-10-25) | ~1,169 | OK |
@@ -76,6 +92,37 @@ _Checked 2026-10-25: 30 repos, 30 passing install tests, 0 needing attention. To
 | 28 | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | 60.5k | 2026-10-16 | pass (2026-10-25) | ~90 | OK |
 | 29 | HyperFrames | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 72k | 2026-10-25 | pass (2026-10-25) | ~551 | OK |
 | 30 | I Have ADHD | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | 58.7k | 2026-10-19 | pass (2026-10-25) | ~67 | OK |
+
+**Data & ops toolkit**
+
+| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
+|---|---|---|---|---|---|---|---|
+| 31 | Snowflake AI Kit (Cortex Code) | [Snowflake-Labs/snowflake-ai-kit](https://github.com/Snowflake-Labs/snowflake-ai-kit) | — | — | untested (2026-10-25) | ~? | OK |
+| 32 | dbt Agent Skills | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | — | — | untested (2026-10-25) | ~? | OK |
+| 33 | dbt MCP server | [dbt-labs/dbt-mcp](https://github.com/dbt-labs/dbt-mcp) | — | — | untested (2026-10-25) | n/a | OK |
+| 34 | Astronomer Airflow agents | [astronomer/agents](https://github.com/astronomer/agents) | — | — | untested (2026-10-25) | ~? | OK |
+| 35 | Snowflake cost monitoring (dbt) | [get-select/dbt-snowflake-monitoring](https://github.com/get-select/dbt-snowflake-monitoring) | — | — | manual (2026-10-25) | n/a | OK |
+| 36 | Elementary (data observability) | [elementary-data/elementary](https://github.com/elementary-data/elementary) | — | — | untested (2026-10-25) | n/a | OK |
+| 37 | Great Expectations | [great-expectations/great_expectations](https://github.com/great-expectations/great_expectations) | — | — | untested (2026-10-25) | n/a | OK |
+| 38 | Agent Toolkit for AWS | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | — | — | untested (2026-10-25) | ~? | OK |
+| 39 | AWS MCP servers (data & ops) | [awslabs/mcp](https://github.com/awslabs/mcp) | — | — | untested (2026-10-25) | n/a | OK |
+| 40 | Oracle SQLcl MCP server | [oracle/mcp](https://github.com/oracle/mcp) | — | — | untested (2026-10-25) | n/a | OK |
+| 41 | SQLGlot | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | — | — | untested (2026-10-25) | n/a | OK |
+| 42 | SQLFluff | [sqlfluff/sqlfluff](https://github.com/sqlfluff/sqlfluff) | — | — | untested (2026-10-25) | n/a | OK |
+| 43 | Informatica for Claude (IDMC) | [forcedotcom/informatica-claude-plugins](https://github.com/forcedotcom/informatica-claude-plugins) | — | — | untested (2026-10-25) | ~? | OK |
+| 44 | Anthropic knowledge-work plugins | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | — | — | untested (2026-10-25) | ~? | OK |
+| 45 | Jira & Confluence MCP (Data Center) | [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian) | — | — | untested (2026-10-25) | n/a | OK |
+| 46 | Apache DevLake (DORA dashboards) | [apache/devlake](https://github.com/apache/devlake) | — | — | untested (2026-10-25) | n/a | OK |
+| 47 | Middleware (DORA metrics) | [middlewarehq/middleware](https://github.com/middlewarehq/middleware) | — | — | untested (2026-10-25) | n/a | OK |
+| 48 | Claude Code ROI monitoring | [anthropics/claude-code-monitoring-guide](https://github.com/anthropics/claude-code-monitoring-guide) | — | — | untested (2026-10-25) | n/a | OK |
+| 49 | ccusage | [ryoppippi/ccusage](https://github.com/ryoppippi/ccusage) | — | — | untested (2026-10-25) | n/a | OK |
+| 50 | Grafana OTel LGTM (all-in-one) | [grafana/docker-otel-lgtm](https://github.com/grafana/docker-otel-lgtm) | — | — | untested (2026-10-25) | n/a | OK |
+| 51 | Grafana MCP server | [grafana/mcp-grafana](https://github.com/grafana/mcp-grafana) | — | — | untested (2026-10-25) | n/a | OK |
+| 52 | Keep (alert hub & AIOps) | [keephq/keep](https://github.com/keephq/keep) | — | — | untested (2026-10-25) | n/a | OK |
+| 53 | HolmesGPT (AI SRE agent) | [HolmesGPT/holmesgpt](https://github.com/HolmesGPT/holmesgpt) | — | — | untested (2026-10-25) | n/a | OK |
+| 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | — | — | untested (2026-10-25) | n/a | OK |
+| 55 | Dynatrace MCP server | [dynatrace-oss/dynatrace-mcp](https://github.com/dynatrace-oss/dynatrace-mcp) | — | — | untested (2026-10-25) | n/a | OK |
+| 56 | PagerDuty MCP server | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | — | — | untested (2026-10-25) | n/a | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick
@@ -96,6 +143,7 @@ _Checked 2026-10-25: 30 repos, 30 passing install tests, 0 needing attention. To
 | `catalog.json` | Single source of truth: repo, install/verify commands, notes, zip config, upstream status. |
 | `install.sh`, `verify.sh` | Generated from the catalog. Bash 3.2 compatible. |
 | `claude-ai-skills/` | Skill zips + `_manifest.json` (skill, source path, upstream commit, license). |
+| `playbooks/` | Role playbooks and the at-work guardrails page. |
 | `guide/` | Field guide page (`index.html` is generated from `template.html`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
 | `scripts/kit.py` | The maintenance tool: `check`, `bump`, `pack`, `costs`, `smoke`, `render`, `report`. |

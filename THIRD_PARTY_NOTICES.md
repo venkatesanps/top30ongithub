@@ -19,3 +19,5 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [e85f3cbc2e](https://github.com/coreyhaines31/marketingskills/tree/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [8c307f367c](https://github.com/blader/humanizer/tree/8c307f367c91bd974002f10f2be2965d642c13df) |
 | 30-i-have-adhd | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | [1ecea1993b](https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6) |
+| 32-dbt | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | Apache-2.0 | [b8facde20b](https://github.com/dbt-labs/dbt-agent-skills/tree/b8facde20b7a92c40ce3e6b86b71c4b92aa44040) |
+| 34-airflow | [astronomer/agents](https://github.com/astronomer/agents) | Apache-2.0 | [486ee63d01](https://github.com/astronomer/agents/tree/486ee63d01f8126c52fbc92c36cd36ec31708dcd) |

@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Claude plugins kit — installs any of the 30 plugins with their official commands.
+# Claude plugins kit — installs the Top 30 plugins and the data & ops toolkit with their official commands.
 # Generated from catalog.json by scripts/kit.py render. Do not edit by hand.
 # Usage:
 #   ./install.sh                 interactive menu
 #   ./install.sh 1 5 30          install items by number
-#   ./install.sh row 3           install a whole row
+#   ./install.sh row 3           install a whole row (rows 6-9 are the data & ops toolkit)
 #   ./install.sh --list          list everything
 #   ./install.sh --status        health of every item from the last daily check
 #   ./install.sh --dry-run 3 17  show commands without running them
@@ -13,6 +13,7 @@
 set -u
 DRY=0; YES=0; SEL=""
 @@ARRAYS@@
+N=${#NAMES[@]}
 
 cmds_for() {  # prints one command per line for item $1
   case "$1" in
@@ -31,6 +32,9 @@ check_needs() {
       bun)    have bun || miss="$miss bun(https://bun.sh)";;
       git)    have git || miss="$miss git";;
       ffmpeg) have ffmpeg || miss="$miss ffmpeg";;
+      uv)     have uv || miss="$miss uv(https://docs.astral.sh/uv)";;
+      docker) have docker || miss="$miss docker";;
+      java)   have java || miss="$miss java(17+)";;
     esac
   done
   echo "$miss"
@@ -39,10 +43,11 @@ check_needs() {
 flag() { [ -n "${PROBLEMS[$1]}" ] && printf ' \033[33m⚠\033[0m' || true; }
 
 list_all() {
-  local r i
-  for r in 1 2 3 4 5; do
+  local r i last=""
+  for r in $(seq 1 ${#ROW_NAMES[@]}); do
+    if [ "${ROW_COLL[$((r-1))]}" != "$last" ]; then last="${ROW_COLL[$((r-1))]}"; printf '\n\033[1;4m%s\033[0m\n' "$last"; fi
     printf '\n\033[1mRow %s — %s\033[0m\n' "$r" "${ROW_NAMES[$((r-1))]}"
-    for i in $(seq 0 29); do
+    for i in $(seq 0 $((N-1))); do
       [ "${ROWS[$i]}" = "$r" ] || continue
       printf '  %2d. %-32s %-40s ~tokens/session: %s%s\n' "$((i+1))" "${NAMES[$i]}" "github.com/${REPOS[$i]}" "${COST[$i]}" "$(flag $i)"
     done
@@ -53,7 +58,7 @@ list_all() {
 show_status() {
   local i
   printf 'Catalog checked %s\n\n' "$CATALOG_DATE"
-  for i in $(seq 0 29); do
+  for i in $(seq 0 $((N-1))); do
     if [ -n "${PROBLEMS[$i]}" ]; then
       printf '  \033[33m⚠\033[0m %2d %-32s %s\n       %s\n' "$((i+1))" "${NAMES[$i]}" "install test: ${VERIFIED[$i]}" "${PROBLEMS[$i]}"
     else
@@ -64,7 +69,8 @@ show_status() {
 
 install_one() {
   local n=$1 i=$(( $1 - 1 ))
-  if [ "$n" -lt 1 ] || [ "$n" -gt 30 ]; then echo "Skip: $n is not 1-30"; return 1; fi
+  case "$n" in ''|*[!0-9]*) echo "Skip: '$n' is not a number"; return 1;; esac
+  if [ "$n" -lt 1 ] || [ "$n" -gt "$N" ]; then echo "Skip: $n is not 1-$N"; return 1; fi
   printf '\n\033[1m[%d] %s\033[0m  (github.com/%s)\n' "$n" "${NAMES[$i]}" "${REPOS[$i]}"
   [ -n "${NOTES[$i]}" ] && printf '  Note: %s\n' "${NOTES[$i]}"
   [ -n "${PROBLEMS[$i]}" ] && printf '  \033[33mNeeds attention (daily check %s): %s\033[0m\n' "$CATALOG_DATE" "${PROBLEMS[$i]}"
@@ -92,7 +98,7 @@ while [ $# -gt 0 ]; do
     --list|-l) list_all; exit 0;;
     --status|-s) show_status; exit 0;;
     -h|--help) sed -n '2,13p' "$0"; exit 0;;
-    row) shift; for i in $(seq 0 29); do [ "${ROWS[$i]}" = "${1:-0}" ] && SEL="$SEL $((i+1))"; done;;
+    row) shift; for i in $(seq 0 $((N-1))); do [ "${ROWS[$i]}" = "${1:-0}" ] && SEL="$SEL $((i+1))"; done;;
     *) SEL="$SEL $1";;
   esac
   shift
@@ -100,10 +106,10 @@ done
 
 if [ -z "$SEL" ]; then
   list_all
-  echo "Tip from the post: don't install all 30. Pick the row that matches your week, then one plugin from it."
+  echo "Tip: don't install everything. Pick the row that matches your week, then one item from it."
   printf 'Enter numbers (e.g. 5 30) or "row 3": '; read -r ans </dev/tty
   set -- $ans
-  if [ "${1:-}" = "row" ]; then for i in $(seq 0 29); do [ "${ROWS[$i]}" = "${2:-0}" ] && SEL="$SEL $((i+1))"; done; else SEL="$*"; fi
+  if [ "${1:-}" = "row" ]; then for i in $(seq 0 $((N-1))); do [ "${ROWS[$i]}" = "${2:-0}" ] && SEL="$SEL $((i+1))"; done; else SEL="$*"; fi
 fi
 
 for n in $SEL; do install_one "$n"; done

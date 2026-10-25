@@ -108,7 +108,7 @@ def select(c, argv, r=None):
     if not argv or argv == ["--changed"]:
         # changed upstream, plus anything whose last install test failed (so fixes get confirmed)
         ch = set(int(k) for k in (r or run_state())["changed"])
-        return [i for i in c["items"] if i["n"] in ch or i.get("verified", {}).get("result") == "fail"]
+        return [i for i in c["items"] if i["n"] in ch or i.get("verified", {}).get("result") in ("fail", "untested")]
     if argv == ["--all"]:
         return c["items"]
     want = {int(a) for a in argv}
@@ -500,7 +500,8 @@ def render_scripts(c):
     probs = ["; ".join(p["msg"] for p in it.get("problems", [])) for it in items]
     tpl = (ROOT / "scripts" / "install.sh.in").read_text()
     out = (tpl.replace("@@ARRAYS@@", "\n".join([
-        bash_arr("ROW_NAMES", [rows[str(i)] for i in range(1, 6)]),
+        bash_arr("ROW_NAMES", [rows[str(i)] for i in range(1, len(rows) + 1)]),
+        bash_arr("ROW_COLL", [c["collections"][next(it["collection"] for it in items if it["row"] == i)] for i in range(1, len(rows) + 1)]),
         bash_arr("NAMES", [i["name"] for i in items]),
         bash_arr("REPOS", [i["repo"] for i in items]),
         "ROWS=(" + " ".join(str(i["row"]) for i in items) + ")",
@@ -528,13 +529,16 @@ def render_scripts(c):
 def stats(c):
     man = json.loads((ZIPDIR / "_manifest.json").read_text())
     items = c["items"]
+    is_plugin = lambda i: any(l.startswith("claude plugin install") for l in i["install"])
     return {
         "repos": len(items),
-        "plugins": sum(1 for i in items if any(l.startswith("claude plugin install") for l in i["install"])),
+        "plugins": sum(1 for i in items if is_plugin(i)),
         "zips": len(man),
         "zip_repos": len({m["folder"] for m in man}),
         "passing": sum(1 for i in items if i["verified"]["result"] == "pass"),
+        "tested": sum(1 for i in items if i["verified"]["result"] in ("pass", "fail")),
         "attention": sum(1 for i in items if i.get("problems")),
+        "by_collection": {k: sum(1 for i in items if i["collection"] == k) for k in c["collections"]},
     }
 
 
@@ -553,16 +557,18 @@ def fmt_stars(n):
 def render_readme(c):
     st = stats(c)
     lines = [f"_Checked {c.get('checked', c['generated'])}: {st['repos']} repos, "
-             f"{st['passing']} passing install tests, {st['attention']} needing attention. "
-             f"Token costs measured with {c.get('costs_measured_with', 'Claude Code')}._", "",
-             "| # | Plugin | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |",
-             "|---|---|---|---|---|---|---|---|"]
-    for it in c["items"]:
-        up, v = it.get("upstream", {}), it["verified"]
-        status = "OK" if not it.get("problems") else "⚠ " + "; ".join(p["msg"] for p in it["problems"])[:140]
-        lines.append(f"| {it['n']} | {it['name']} | [{it['repo']}](https://github.com/{it['repo']}) | "
-                     f"{fmt_stars(up.get('stars'))} | {up.get('pushed') or '—'} | {v['result']} ({v['date']}) | "
-                     f"{it['always_on']} | {status.replace('|', '/')} |")
+             f"{st['passing']} of {st['tested']} install-tested items passing, {st['attention']} needing attention. "
+             f"Token costs measured with {c.get('costs_measured_with', 'Claude Code')}._"]
+    for key, label in c["collections"].items():
+        lines += ["", f"**{label}**", "",
+                  "| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |",
+                  "|---|---|---|---|---|---|---|---|"]
+        for it in (i for i in c["items"] if i["collection"] == key):
+            up, v = it.get("upstream", {}), it["verified"]
+            status = "OK" if not it.get("problems") else "⚠ " + "; ".join(p["msg"] for p in it["problems"])[:140]
+            lines.append(f"| {it['n']} | {it['name']} | [{it['repo']}](https://github.com/{it['repo']}) | "
+                         f"{fmt_stars(up.get('stars'))} | {up.get('pushed') or '—'} | {v['result']} ({v['date']}) | "
+                         f"{it['always_on']} | {status.replace('|', '/')} |")
     rd = ROOT / "README.md"
     t = rd.read_text()
     block = "<!-- status:start -->\n" + "\n".join(lines) + "\n<!-- status:end -->"
@@ -651,7 +657,7 @@ def cmd_validate(argv):
     """Consistency checks for CI: catalog fields, submodule pins, zips, generated files."""
     c, errs = load(), []
     need = {"n", "row", "name", "repo", "what", "needs", "install", "verify", "use", "always_on", "note",
-            "source", "status", "problems", "verified", "upstream"}
+            "source", "status", "problems", "verified", "upstream", "collection"}
     pins = pinned()
     if [i["n"] for i in c["items"]] != list(range(1, len(c["items"]) + 1)):
         errs.append("items must be numbered 1..N in order")
@@ -663,6 +669,8 @@ def cmd_validate(argv):
             errs.append(f"{it['n']}: {it.get('source')} is not a pinned submodule")
         if str(it.get("row")) not in c["rows"]:
             errs.append(f"{it['n']}: unknown row {it.get('row')}")
+        if it.get("collection") not in c.get("collections", {}):
+            errs.append(f"{it['n']}: unknown collection {it.get('collection')}")
     man = json.loads((ZIPDIR / "_manifest.json").read_text())
     for m in man:
         zp = ZIPDIR / m["folder"] / f"{m['skill']}.zip"

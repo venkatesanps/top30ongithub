@@ -1,4 +1,4 @@
-SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 30)
+SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 ${#NAMES[@]})
 pass=0; fail=0
 for n in $SEL; do
   c=$(verify_cmd "$n"); [ -z "$c" ] && continue

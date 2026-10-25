@@ -33,10 +33,36 @@ verify_cmd() {
     28) echo 'claude plugin list | grep -q humanizer@humanizer' ;;
     29) echo 'npx -y hyperframes doctor' ;;
     30) echo 'claude plugin list | grep -q i-have-adhd' ;;
+    31) echo 'claude plugin list | grep -q snowflake-cortex-code' ;;
+    32) echo 'claude plugin list | grep -q '\''dbt@dbt-agent-marketplace'\''' ;;
+    33) echo 'command -v dbt-mcp' ;;
+    34) echo 'claude plugin list | grep -q astronomer-data' ;;
+    35) echo 'grep -q dbt_snowflake_monitoring packages.yml' ;;
+    36) echo 'edr --help >/dev/null' ;;
+    37) echo 'python3 -c '\''import great_expectations'\''' ;;
+    38) echo 'claude plugin list | grep -q aws-data-analytics' ;;
+    39) echo 'command -v awslabs.cloudwatch-mcp-server' ;;
+    40) echo '~/sqlcl/bin/sql -V' ;;
+    41) echo 'python3 -c "import sqlglot; print(sqlglot.transpile('\''SELECT NVL(a, 0), SYSDATE FROM dual'\'', read='\''oracle'\'', write='\''snowflake'\'')[0])"' ;;
+    42) echo 'sqlfluff version' ;;
+    43) echo 'claude plugin list | grep -q informatica-for-claude-platform' ;;
+    44) echo 'claude plugin list | grep -q '\''engineering@knowledge-work-plugins'\''' ;;
+    45) echo 'mcp-atlassian --help >/dev/null' ;;
+    46) echo 'cd ~/devlake && docker compose ps --status running | grep -q devlake' ;;
+    47) echo 'docker ps --filter name=middleware --filter status=running | grep -q middleware' ;;
+    48) echo 'test -f ~/claude-code-monitoring-guide/claude_code_roi_full.md' ;;
+    49) echo 'ccusage --help >/dev/null' ;;
+    50) echo 'docker ps --filter name=lgtm --filter status=running | grep -q lgtm' ;;
+    51) echo 'command -v mcp-grafana' ;;
+    52) echo 'cd ~/keep && docker compose ps --status running | grep -q keep' ;;
+    53) echo 'holmes version' ;;
+    54) echo 'docker ps --filter name=uptime-kuma --filter status=running | grep -q uptime-kuma' ;;
+    55) echo 'command -v mcp-server-dynatrace' ;;
+    56) echo 'command -v pagerduty-mcp' ;;
   esac
 }
-NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD')
-SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 30)
+NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD' 'Snowflake AI Kit (Cortex Code)' 'dbt Agent Skills' 'dbt MCP server' 'Astronomer Airflow agents' 'Snowflake cost monitoring (dbt)' 'Elementary (data observability)' 'Great Expectations' 'Agent Toolkit for AWS' 'AWS MCP servers (data & ops)' 'Oracle SQLcl MCP server' SQLGlot SQLFluff 'Informatica for Claude (IDMC)' 'Anthropic knowledge-work plugins' 'Jira & Confluence MCP (Data Center)' 'Apache DevLake (DORA dashboards)' 'Middleware (DORA metrics)' 'Claude Code ROI monitoring' ccusage 'Grafana OTel LGTM (all-in-one)' 'Grafana MCP server' 'Keep (alert hub & AIOps)' 'HolmesGPT (AI SRE agent)' 'Uptime Kuma (status pages)' 'Dynatrace MCP server' 'PagerDuty MCP server')
+SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 ${#NAMES[@]})
 pass=0; fail=0
 for n in $SEL; do
   c=$(verify_cmd "$n"); [ -z "$c" ] && continue
