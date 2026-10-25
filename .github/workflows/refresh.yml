@@ -98,7 +98,7 @@ jobs:
         run: |
           git config user.name "top30 refresh bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A -- . ':!sources' ':!build'
+          git add -A -- . ':!sources'
           if git diff --cached --quiet; then
             echo "Nothing changed."
           else

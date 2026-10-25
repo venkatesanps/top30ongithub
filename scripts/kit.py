@@ -126,6 +126,23 @@ MOVED = re.compile(r"(no longer (?:the active home|maintained|actively (?:develo
 GH_LINK = re.compile(r"github\.com/([\w.-]+/[\w.-]+)")
 
 
+RENAMES = []
+
+
+def apply_rename(it, old, new):
+    """Point every field and the submodule URL at the repo's new home (old URLs only redirect)."""
+    pat = re.compile(re.escape(old), re.I)
+    for k in ("repo", "alt", "verify", "use", "note", "what"):
+        if isinstance(it.get(k), str):
+            it[k] = pat.sub(new, it[k])
+    it["install"] = [pat.sub(new, x) for x in it["install"]]
+    if "ci" in it and it["ci"].get("install"):
+        it["ci"]["install"] = [pat.sub(new, x) for x in it["ci"]["install"]]
+    gm = ROOT / ".gitmodules"
+    gm.write_text(re.sub(rf"https://github\.com/{re.escape(old)}\.git", f"https://github.com/{new}.git", gm.read_text(), flags=re.I))
+    RENAMES.append((it["name"], old, new))
+
+
 def check_item(it):
     repo, probs, up = it["repo"], [], it.setdefault("upstream", {})
     head = ls_remote(repo)
@@ -140,7 +157,9 @@ def check_item(it):
         if meta.get("archived"):
             probs.append({"kind": "archived", "msg": "Upstream repo is archived (read-only)."})
         if meta["full_name"].lower() != repo.lower():
-            probs.append({"kind": "renamed", "msg": f"Repo now lives at github.com/{meta['full_name']}."})
+            # GitHub's API names the canonical repo after a transfer/rename: follow it everywhere.
+            apply_rename(it, repo, meta["full_name"])
+            repo = it["repo"]
     readme = raw(repo, "README.md") or ""
     head_text = readme[:4000]
     m = MOVED.search(head_text)
@@ -212,6 +231,9 @@ def cmd_check(argv):
         for m in oldp - {p["msg"] for p in probs}:
             r["notes"].append(f"✓ {it['name']}: resolved — {m}")
         log(f"{it['n']:2d} {it['name']:32s} {'CHANGED' if str(it['n']) in r['changed'] else 'same   '} {len(probs)} problem(s)")
+    for name, old, new in RENAMES:
+        r["notes"].append(f"{name}: repo moved from github.com/{old} to github.com/{new}; catalog and install commands updated automatically")
+    RENAMES.clear()
     c["checked"] = TODAY
     save(c)
     save_run(r)
