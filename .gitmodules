@@ -1,6 +1,6 @@
 [submodule "sources/01-andrej-karpathy-skills"]
 	path = sources/01-andrej-karpathy-skills
-	url = https://github.com/forrestchang/andrej-karpathy-skills.git
+	url = https://github.com/multica-ai/andrej-karpathy-skills.git
 	shallow = true
 [submodule "sources/02-mattpocock-skills"]
 	path = sources/02-mattpocock-skills
@@ -24,7 +24,7 @@
 	shallow = true
 [submodule "sources/07-career-ops"]
 	path = sources/07-career-ops
-	url = https://github.com/santifer/career-ops.git
+	url = https://github.com/career-ops-hq/career-ops.git
 	shallow = true
 [submodule "sources/08-rea"]
 	path = sources/08-rea
@@ -36,7 +36,7 @@
 	shallow = true
 [submodule "sources/10-understand-anything"]
 	path = sources/10-understand-anything
-	url = https://github.com/Lum1104/Understand-Anything.git
+	url = https://github.com/Egonex-AI/Understand-Anything.git
 	shallow = true
 [submodule "sources/11-last30days-skill"]
 	path = sources/11-last30days-skill
@@ -48,7 +48,7 @@
 	shallow = true
 [submodule "sources/13-headroom"]
 	path = sources/13-headroom
-	url = https://github.com/chopratejas/headroom.git
+	url = https://github.com/headroomlabs-ai/headroom.git
 	shallow = true
 [submodule "sources/14-bmad-method"]
 	path = sources/14-bmad-method

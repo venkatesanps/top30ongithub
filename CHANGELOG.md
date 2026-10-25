@@ -5,16 +5,38 @@ Written by the daily refresh workflow.
 ## 2026-10-25
 
 **Upstream updates**
-- Career Ops: [dff0d65 → f4d7477](https://github.com/santifer/career-ops/compare/dff0d65ec613c5688a080073fa809398d0f1c39a...f4d7477c8d25f81e6e4a952b724378913ea8c86e)
-- REA (Reverse Engineer Anything): [aba487e → a174892](https://github.com/morluto/rea/compare/aba487eec0303b3392dbea7f33846617158aad3f...a174892e3e52b58e74df5b9f53ba4d0e0617177c)
-- Agent Reach: [beabda7 → 14c2134](https://github.com/Panniantong/Agent-Reach/compare/beabda7486e9a666360b18cdb5c0e759c2c4d20f...14c213405669414492bda0f8d52cc6531d062c45)
-- Claude-Mem: [75fc021 → 834e438](https://github.com/thedotmack/claude-mem/compare/75fc021a40655cbdd258f0e070f55a03ea9c8642...834e438ef66ac495683c7d3f4ab2dc249dd81de5)
-- gstack: [00100f1 → 64d8210](https://github.com/garrytan/gstack/compare/00100f1598dcfc192f0f0f2d3345b6825737932a...64d82101cac149125d28df888e3f2ea14a444dc5)
-- Caveman: [1f951fb → 9b68f7e](https://github.com/JuliusBrussee/caveman/compare/1f951fb4ad40ba63302c6e7f987147e034d599d9...9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4)
-- GSD (Get Shit Done): [354d727 → 754e886](https://github.com/open-gsd/gsd-core/compare/354d727bf364fd58389e88e88c96ce78afe5ad3c...754e886bffaf2947648177d6371cd8705f42ab9b)
-- Taste: [6010f91 → 12af471](https://github.com/Leonxlnx/taste-skill/compare/6010f91a9935f1c167dfc500fb1a475681892e6b...12af471f627f866411b4bd785b19646d3672784c)
-- Archify: [25cf370 → 81c6be8](https://github.com/tt-a1i/archify/compare/25cf37080fc8b1dbe758a4efc3935b55f3327083...81c6be8d87090670c45d08a8f97f9d29c5af0bec)
-- Impeccable: [9368675 → 658b4ce](https://github.com/pbakaus/impeccable/compare/936867543ac2576920d663cc9803597f6044f3ac...658b4ce2942171ed5b3b3bec7e9d99456ba86e5e)
-- HyperFrames: [e26d330 → b2124b2](https://github.com/heygen-com/hyperframes/compare/e26d3308878962a1deed046e1288121897f79859...b2124b2a5631a9fbec9383a1697b7c63c8966a03)
+- ECC (Everything Claude Code): [90606c8 → 4c28a7b](https://github.com/affaan-m/ECC/compare/90606c8315ee09cafc303515c5f33024db6b9882...4c28a7be9edac24f28ee8e54a958167894fa97a0)
+- REA (Reverse Engineer Anything): [a174892 → db4d3ab](https://github.com/morluto/rea/compare/a174892e3e52b58e74df5b9f53ba4d0e0617177c...db4d3abcda9be7c03cdc4cc97aa8f98b9cb49726)
+- Diagram Design: [0b9b10c → 9895750](https://github.com/cathrynlavery/diagram-design/compare/0b9b10cab3dbf695642fa1a6c4b4f60df9083689...989575075fd67a9f3e4cde3bc6f3269bd0dc2cd9)
+- Impeccable: [658b4ce → 3671d50](https://github.com/pbakaus/impeccable/compare/658b4ce2942171ed5b3b3bec7e9d99456ba86e5e...3671d50f0ac9a662ce0615e85a256110c9cd720b)
+- HyperFrames: [b2124b2 → 42b8463](https://github.com/heygen-com/hyperframes/compare/b2124b2a5631a9fbec9383a1697b7c63c8966a03...42b84632a8d06cf86bd72633d03b38a7a8371a89)
 
-**Install tests**: 3/3 passed
+**Notes**
+- Karpathy Skills: repo moved from github.com/forrestchang/andrej-karpathy-skills to github.com/multica-ai/andrej-karpathy-skills; catalog and install commands updated automatically
+- Career Ops: repo moved from github.com/santifer/career-ops to github.com/career-ops-hq/career-ops; catalog and install commands updated automatically
+- Understand Anything: repo moved from github.com/Lum1104/Understand-Anything to github.com/Egonex-AI/Understand-Anything; catalog and install commands updated automatically
+- Headroom: repo moved from github.com/chopratejas/headroom to github.com/headroomlabs-ai/headroom; catalog and install commands updated automatically
+- Karpathy Skills: per-session tokens ~105 → ~66
+- Matt Pocock Skills: per-session tokens ~1,651 → ~1,169
+- ECC (Everything Claude Code): per-session tokens ~47,561 → ~33,456
+- Agent Skills (Addy Osmani): per-session tokens ~3,669 → ~2,903
+- Superpowers: per-session tokens ~848 → ~706
+- Ponytail: per-session tokens ~641 → ~430
+- Understand Anything: per-session tokens ~1,148 → ~870
+- Last 30 Days: per-session tokens ~105 → ~67
+- Headroom: per-session tokens ~0 (hooks) → ~0
+- Claude-Mem: per-session tokens ~2,775 → ~2,060
+- Caveman: per-session tokens ~1,991 → ~1,366
+- Taste: per-session tokens ~349 → ~246
+- Diagram Design: per-session tokens ~596 → ~378
+- Impeccable: per-session tokens ~439 → ~312
+- UI UX Pro Max: per-session tokens ~1,067 → ~709
+- PPT Master: per-session tokens ~206 → ~139
+- Marketing Skills: per-session tokens ~15,682 → ~10,604
+- Skills by Anthropic: per-session tokens ~1,030 + ~1,223 → ~759 + ~939
+- Humanizer: per-session tokens ~144 → ~90
+- HyperFrames: per-session tokens ~783 → ~551
+- I Have ADHD: per-session tokens ~106 → ~67
+- ⚠ Archify: install test failed
+
+**Install tests**: 29/30 passed (failed: Archify)
