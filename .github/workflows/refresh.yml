@@ -123,8 +123,10 @@ jobs:
           path: guide
 
   pages:
+    # Needs Settings → Pages → Source: "GitHub Actions" turned on once; until then this job is skipped over.
     needs: refresh
     runs-on: ubuntu-latest
+    continue-on-error: true
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
