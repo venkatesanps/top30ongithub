@@ -818,7 +818,7 @@
     "node"
    ],
    "install": [
-    "npx skills add tt-a1i/archify -g"
+    "npx -y skills add tt-a1i/archify -g -a claude-code --yes"
    ],
    "alt": "Manual: copy the archify/ folder into ~/.claude/skills/",
    "verify": "node ~/.claude/skills/archify/bin/archify.mjs doctor",

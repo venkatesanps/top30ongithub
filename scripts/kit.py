@@ -106,8 +106,9 @@ def pinned():
 
 def select(c, argv, r=None):
     if not argv or argv == ["--changed"]:
+        # changed upstream, plus anything whose last install test failed (so fixes get confirmed)
         ch = set(int(k) for k in (r or run_state())["changed"])
-        return [i for i in c["items"] if i["n"] in ch]
+        return [i for i in c["items"] if i["n"] in ch or i.get("verified", {}).get("result") == "fail"]
     if argv == ["--all"]:
         return c["items"]
     want = {int(a) for a in argv}
@@ -403,6 +404,8 @@ def cmd_costs(argv):
     if not shutil.which("claude"):
         log("claude CLI not found; skipping cost measurement")
         return
+    ver = subprocess.run(["claude", "--version"], capture_output=True, text=True, timeout=60).stdout.strip()
+    measured = 0
     for it in select(c, argv, r):
         lines = [l for l in it["install"] if l.startswith("claude plugin")]
         ids = [re.match(r"claude plugin install (\S+)", l).group(1) for l in lines if l.startswith("claude plugin install")]
@@ -424,9 +427,12 @@ def cmd_costs(argv):
             if new != it["always_on"]:
                 r["notes"].append(f"{it['name']}: per-session tokens {it['always_on']} → {new}")
                 it["always_on"] = new
+            measured += 1
             log(f"{it['n']:2d} {it['name']:32s} {new}")
         else:
             log(f"{it['n']:2d} {it['name']:32s} could not measure (kept {it['always_on']})")
+    if measured:
+        c["costs_measured_with"] = f"{ver or 'Claude Code'} on {TODAY}"
     save(c)
     save_run(r)
 
@@ -547,7 +553,8 @@ def fmt_stars(n):
 def render_readme(c):
     st = stats(c)
     lines = [f"_Checked {c.get('checked', c['generated'])}: {st['repos']} repos, "
-             f"{st['passing']} passing install tests, {st['attention']} needing attention._", "",
+             f"{st['passing']} passing install tests, {st['attention']} needing attention. "
+             f"Token costs measured with {c.get('costs_measured_with', 'Claude Code')}._", "",
              "| # | Plugin | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |",
              "|---|---|---|---|---|---|---|---|"]
     for it in c["items"]:

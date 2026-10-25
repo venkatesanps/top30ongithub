@@ -105,7 +105,7 @@ footer { margin-top: 36px; color: var(--muted); font-size: 13px; display: grid; 
   <main id="out"></main>
 
   <footer>
-    <p>Token figures come from <code>claude plugin details</code>: the tokens a plugin adds to every Claude Code session before you invoke anything. Bars use a log scale.</p>
+    <p>Token figures come from <code>claude plugin details</code>: the tokens a plugin adds to every Claude Code session before you invoke anything. They are estimates and shift between CLI versions; these were measured with <span id="costver"></span>. Bars use a log scale.</p>
     <p>"Install test" means the install commands ran on a fresh Linux machine in GitHub Actions and the item's check command passed. A few items use a non-interactive variant there (BMAD, REA, OpenMontage); see <code>ci</code> in catalog.json.</p>
     <p>Stars and update dates come from the GitHub API at the last check. The star counts in the original post don't match these in several cases.</p>
     <p>Source, history and the daily job: <a href="https://github.com/venkatesanps/top30ongithub">github.com/venkatesanps/top30ongithub</a>.</p>
@@ -179,5 +179,6 @@ out.addEventListener("click", e => {
 const S = DATA.stats;
 document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.plugins, "Claude Code plugins"], [S.repos - S.plugins, "CLIs or installers"], [`${S.passing}/${S.repos}`, "passing install tests"], [S.zip_repos, "also run in the Claude app"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
 document.getElementById("checked").innerHTML = `Last checked ${esc(DATA.checked || DATA.generated)}` + (S.attention ? ` · <a href="#p${DATA.items.find(i => i.problems && i.problems.length).n}">${S.attention} need${S.attention === 1 ? "s" : ""} attention</a>` : " · everything OK");
+document.getElementById("costver").textContent = DATA.costs_measured_with || "Claude Code";
 chipEls(); render();
 </script>

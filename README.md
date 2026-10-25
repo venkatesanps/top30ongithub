@@ -40,7 +40,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-25: 30 repos, 29 passing install tests, 1 needing attention._
+_Checked 2026-10-25: 30 repos, 29 passing install tests, 1 needing attention. Token costs measured with Claude Code._
 
 | # | Plugin | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
@@ -78,7 +78,7 @@ _Checked 2026-10-25: 30 repos, 29 passing install tests, 1 needing attention._
 
 ## Things worth knowing before you pick
 
-- **Token cost**: ECC adds ~47.6k tokens to every session and Marketing Skills ~15.7k; most single-skill plugins add 100–850.
+- **Token cost**: ECC and Marketing Skills are by far the heaviest (see the table); most single-skill plugins add under 1k tokens per session. The figures are Claude Code's own estimates and shift between CLI versions.
 - **GSD moved**: `gsd-build/get-shit-done` was archived; it continues as `open-gsd/gsd-core` (Node 24+).
 - **Caveman**: an independent placebo test (skill-placebo) found no significant output-token saving on Opus 5.5.
 - **REA**: fake "REA.exe" copies circulate. Use only github.com/morluto/rea, rea.tools, or npm `rea-agents`.

@@ -45,7 +45,7 @@ cmds_for() {  # prints one command per line for item $1
     17) printf '%b\n' 'claude plugin marketplace add JuliusBrussee/caveman\nclaude plugin install caveman@caveman' ;;
     18) printf '%b\n' 'npx @opengsd/gsd-core@latest --claude --global' ;;
     19) printf '%b\n' 'claude plugin marketplace add Leonxlnx/taste-skill\nclaude plugin install taste-skill@taste-skill' ;;
-    20) printf '%b\n' 'npx skills add tt-a1i/archify -g' ;;
+    20) printf '%b\n' 'npx -y skills add tt-a1i/archify -g -a claude-code --yes' ;;
     21) printf '%b\n' 'claude plugin marketplace add cathrynlavery/diagram-design\nclaude plugin install diagram-design@diagram-design' ;;
     22) printf '%b\n' 'claude plugin marketplace add pbakaus/impeccable\nclaude plugin install impeccable@impeccable' ;;
     23) printf '%b\n' 'claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill\nclaude plugin install ui-ux-pro-max@ui-ux-pro-max-skill' ;;
