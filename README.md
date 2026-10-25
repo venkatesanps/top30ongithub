@@ -40,19 +40,19 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-25: 30 repos, 30 passing install tests, 0 needing attention. Token costs measured with Claude Code._
+_Checked 2026-10-25: 30 repos, 30 passing install tests, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
 
 | # | Plugin | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 223.7k | 2026-04-20 | pass (2026-10-25) | ~66 | OK |
+| 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 223.8k | 2026-04-20 | pass (2026-10-25) | ~66 | OK |
 | 2 | Matt Pocock Skills | [mattpocock/skills](https://github.com/mattpocock/skills) | 303.1k | 2026-10-22 | pass (2026-10-25) | ~1,169 | OK |
-| 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 288.7k | 2026-10-25 | pass (2026-10-25) | ~33,456 | OK |
-| 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 110.4k | 2026-10-13 | pass (2026-10-25) | ~2,903 | OK |
+| 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 288.7k | 2026-10-25 | pass (2026-10-25) | ~33,468 | OK |
+| 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 110.5k | 2026-10-13 | pass (2026-10-25) | ~2,903 | OK |
 | 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 305k | 2026-10-23 | pass (2026-10-25) | ~706 | OK |
 | 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 176.1k | 2026-10-18 | pass (2026-10-25) | ~430 | OK |
 | 7 | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | 77.2k | 2026-10-25 | pass (2026-10-25) | ~116 | OK |
-| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 383.6k | 2026-10-25 | pass (2026-10-25) | n/a (MCP) | OK |
-| 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 135k | 2026-10-23 | pass (2026-10-25) | n/a (CLI skill) | OK |
+| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 383.8k | 2026-10-25 | pass (2026-10-25) | n/a (MCP) | OK |
+| 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 135.1k | 2026-10-23 | pass (2026-10-25) | n/a (CLI skill) | OK |
 | 10 | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 88.2k | 2026-10-22 | pass (2026-10-25) | ~870 | OK |
 | 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 65.4k | 2026-10-25 | pass (2026-10-25) | ~67 | OK |
 | 12 | Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 102.4k | 2026-10-25 | pass (2026-10-25) | n/a (CLI skill) | OK |
@@ -61,11 +61,11 @@ _Checked 2026-10-25: 30 repos, 30 passing install tests, 0 needing attention. To
 | 15 | Claude-Mem | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 103.1k | 2026-10-25 | pass (2026-10-25) | ~2,060 | OK |
 | 16 | gstack | [garrytan/gstack](https://github.com/garrytan/gstack) | 137.7k | 2026-10-25 | pass (2026-10-25) | n/a (skills dir) | OK |
 | 17 | Caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 115k | 2026-10-25 | pass (2026-10-25) | ~1,366 | OK |
-| 18 | GSD (Get Shit Done) | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) | 10.8k | 2026-10-25 | pass (2026-10-25) | n/a (commands) | OK |
+| 18 | GSD (Get Shit Done) | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) | 10.9k | 2026-10-25 | pass (2026-10-25) | n/a (commands) | OK |
 | 19 | Taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 102.4k | 2026-10-25 | pass (2026-10-25) | ~246 | OK |
 | 20 | Archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 89.1k | 2026-10-25 | pass (2026-10-25) | n/a (skill) | OK |
 | 21 | Diagram Design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 61k | 2026-10-25 | pass (2026-10-25) | ~378 | OK |
-| 22 | Impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 87.4k | 2026-10-25 | pass (2026-10-25) | ~312 | OK |
+| 22 | Impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 87.5k | 2026-10-25 | pass (2026-10-25) | ~312 | OK |
 | 23 | UI UX Pro Max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 140.3k | 2026-10-23 | pass (2026-10-25) | ~709 | OK |
 | 24 | PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 68.1k | 2026-10-24 | pass (2026-10-25) | ~139 | OK |
 | 25 | Marketing Skills | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | 56.5k | 2026-10-22 | pass (2026-10-25) | ~10,604 | OK |

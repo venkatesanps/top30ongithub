@@ -2,6 +2,21 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-25 19:45 UTC
+
+**Upstream updates**
+- ECC (Everything Claude Code): [4c28a7b → e494799](https://github.com/affaan-m/ECC/compare/4c28a7be9edac24f28ee8e54a958167894fa97a0...e49479937753c8aca5a09aa76dbe2eea1b68f187)
+- REA (Reverse Engineer Anything): [a174892 → 1173c0a](https://github.com/morluto/rea/compare/a174892e3e52b58e74df5b9f53ba4d0e0617177c...1173c0a9dc1b352a60943a491462294db8f353ae)
+- Claude-Mem: [834e438 → a8e6943](https://github.com/thedotmack/claude-mem/compare/834e438ef66ac495683c7d3f4ab2dc249dd81de5...a8e69430a74095305e76a483077968736d5db1f2)
+- Diagram Design: [0b9b10c → 9b672ce](https://github.com/cathrynlavery/diagram-design/compare/0b9b10cab3dbf695642fa1a6c4b4f60df9083689...9b672cea0ec48d2e9863c9920a114b68582f4eab)
+- Impeccable: [658b4ce → 3671d50](https://github.com/pbakaus/impeccable/compare/658b4ce2942171ed5b3b3bec7e9d99456ba86e5e...3671d50f0ac9a662ce0615e85a256110c9cd720b)
+- HyperFrames: [b2124b2 → c509182](https://github.com/heygen-com/hyperframes/compare/b2124b2a5631a9fbec9383a1697b7c63c8966a03...c50918277ae69b45677c200e95575faec5fd1519)
+
+**Notes**
+- ECC (Everything Claude Code): per-session tokens ~33,456 → ~33,468
+
+**Install tests**: 6/6 passed
+
 ## 2026-10-25 18:52 UTC
 
 **Notes**
