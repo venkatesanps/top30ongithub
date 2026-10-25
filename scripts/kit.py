@@ -155,7 +155,7 @@ def check_item(it):
         up.update(stars=meta.get("stargazers_count"), pushed=(meta.get("pushed_at") or "")[:10],
                   license=(meta.get("license") or {}).get("spdx_id") or up.get("license"),
                   default_branch=meta.get("default_branch"))
-        if meta.get("archived"):
+        if meta.get("archived") and not it.get("archived_ok"):
             probs.append({"kind": "archived", "msg": "Upstream repo is archived (read-only)."})
         if meta["full_name"].lower() != repo.lower():
             # GitHub's API names the canonical repo after a transfer/rename: follow it everywhere.
@@ -165,7 +165,8 @@ def check_item(it):
     head_text = readme[:4000]
     m = MOVED.search(head_text)
     if m:
-        near = head_text[m.start(): m.start() + 500]
+        # only links in the same section as the notice count (not e.g. a link to a prerequisite tool)
+        near = re.split(r"\n#{1,6} ", head_text[m.start(): m.start() + 400])[0]
         others = [l.rstrip(".") for l in GH_LINK.findall(near) if l.lower().rstrip(".") != repo.lower()]
         if others:
             probs.append({"kind": "moved", "msg": f"README says the project moved (points to github.com/{others[0]})."})

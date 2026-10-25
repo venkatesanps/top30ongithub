@@ -57,11 +57,11 @@ verify_cmd() {
     52) echo 'cd ~/keep && docker compose ps --status running | grep -q keep' ;;
     53) echo 'holmes version' ;;
     54) echo 'docker ps --filter name=uptime-kuma --filter status=running | grep -q uptime-kuma' ;;
-    55) echo 'command -v mcp-server-dynatrace' ;;
-    56) echo 'command -v pagerduty-mcp' ;;
+    55) echo 'claude plugin list | grep -q '\''dynatrace@dynatrace-for-ai'\''' ;;
+    56) echo 'claude mcp get pagerduty >/dev/null' ;;
   esac
 }
-NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD' 'Snowflake AI Kit (Cortex Code)' 'dbt Agent Skills' 'dbt MCP server' 'Astronomer Airflow agents' 'Snowflake cost monitoring (dbt)' 'Elementary (data observability)' 'Great Expectations' 'Agent Toolkit for AWS' 'AWS MCP servers (data & ops)' 'Oracle SQLcl MCP server' SQLGlot SQLFluff 'Informatica for Claude (IDMC)' 'Anthropic knowledge-work plugins' 'Jira & Confluence MCP (Data Center)' 'Apache DevLake (DORA dashboards)' 'Middleware (DORA metrics)' 'Claude Code ROI monitoring' ccusage 'Grafana OTel LGTM (all-in-one)' 'Grafana MCP server' 'Keep (alert hub & AIOps)' 'HolmesGPT (AI SRE agent)' 'Uptime Kuma (status pages)' 'Dynatrace MCP server' 'PagerDuty MCP server')
+NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD' 'Snowflake AI Kit (Cortex Code)' 'dbt Agent Skills' 'dbt MCP server' 'Astronomer Airflow agents' 'Snowflake cost monitoring (dbt)' 'Elementary (data observability)' 'Great Expectations' 'Agent Toolkit for AWS' 'AWS MCP servers (data & ops)' 'Oracle SQLcl MCP server' SQLGlot SQLFluff 'Informatica for Claude (IDMC)' 'Anthropic knowledge-work plugins' 'Jira & Confluence MCP (Data Center)' 'Apache DevLake (DORA dashboards)' 'Middleware (DORA metrics)' 'Claude Code ROI monitoring' ccusage 'Grafana OTel LGTM (all-in-one)' 'Grafana MCP server' 'Keep (alert hub & AIOps)' 'HolmesGPT (AI SRE agent)' 'Uptime Kuma (status pages)' 'Dynatrace for AI (plugin + MCP)' 'PagerDuty MCP server (hosted)')
 SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 ${#NAMES[@]})
 pass=0; fail=0
 for n in $SEL; do

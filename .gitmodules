@@ -214,9 +214,9 @@
 	path = sources/54-uptime-kuma
 	url = https://github.com/louislam/uptime-kuma.git
 	shallow = true
-[submodule "sources/55-dynatrace-mcp"]
-	path = sources/55-dynatrace-mcp
-	url = https://github.com/dynatrace-oss/dynatrace-mcp.git
+[submodule "sources/55-dynatrace-for-ai"]
+	path = sources/55-dynatrace-for-ai
+	url = https://github.com/Dynatrace/dynatrace-for-ai.git
 	shallow = true
 [submodule "sources/56-pagerduty-mcp-server"]
 	path = sources/56-pagerduty-mcp-server

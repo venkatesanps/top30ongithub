@@ -56,7 +56,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-25: 56 repos, 55 of 55 install-tested items passing, 2 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
+_Checked 2026-10-25: 56 repos, 53 of 53 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
 
 **Top 30 from the post**
 
@@ -121,8 +121,8 @@ _Checked 2026-10-25: 56 repos, 55 of 55 install-tested items passing, 2 needing 
 | 52 | Keep (alert hub & AIOps) | [keephq/keep](https://github.com/keephq/keep) | 12.4k | 2026-10-22 | pass (2026-10-25) | n/a | OK |
 | 53 | HolmesGPT (AI SRE agent) | [HolmesGPT/holmesgpt](https://github.com/HolmesGPT/holmesgpt) | 3.7k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
 | 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | 92.9k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
-| 55 | Dynatrace MCP server | [dynatrace-oss/dynatrace-mcp](https://github.com/dynatrace-oss/dynatrace-mcp) | 137 | 2026-08-26 | pass (2026-10-25) | n/a | ⚠ Upstream repo is archived (read-only). |
-| 56 | PagerDuty MCP server | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | pass (2026-10-25) | n/a | ⚠ Upstream repo is archived (read-only).; README says the project moved (points to github.com/astral-sh/uv). |
+| 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | — | — | untested (2026-10-25) | ~? | OK |
+| 56 | PagerDuty MCP server (hosted) | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | untested (2026-10-25) | n/a | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

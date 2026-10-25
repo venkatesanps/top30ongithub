@@ -2317,84 +2317,51 @@
    "n": 55,
    "collection": "dataops",
    "row": 9,
-   "name": "Dynatrace MCP server",
-   "repo": "dynatrace-oss/dynatrace-mcp",
-   "what": "Dynatrace's MCP server: Claude queries problems, logs, metrics and traces with DQL, and looks up vulnerabilities and service ownership.",
+   "name": "Dynatrace for AI (plugin + MCP)",
+   "repo": "Dynatrace/dynatrace-for-ai",
+   "what": "Dynatrace's official Claude Code plugin: skills plus the Dynatrace MCP server to query problems, logs, metrics and traces with DQL, and look up vulnerabilities and service ownership.",
    "needs": [
-    "node"
+    "claude"
    ],
    "install": [
-    "npm install --global @dynatrace-oss/dynatrace-mcp-server"
+    "claude plugin marketplace add Dynatrace/dynatrace-for-ai",
+    "claude plugin install dynatrace@dynatrace-for-ai"
    ],
-   "alt": "claude mcp add dynatrace -e DT_ENVIRONMENT=https://abc123.apps.dynatrace.com -- mcp-server-dynatrace",
-   "verify": "command -v mcp-server-dynatrace",
-   "use": "'List open problems affecting the trade-capture service and their root-cause entity.'",
-   "note": "Dynatrace queries can incur cost (Grail scans); set a budget.",
-   "packages": [
-    {
-     "npm": "@dynatrace-oss/dynatrace-mcp-server"
-    }
-   ],
-   "always_on": "n/a",
-   "source": "sources/55-dynatrace-mcp",
-   "status": "attention",
-   "problems": [
-    {
-     "kind": "archived",
-     "msg": "Upstream repo is archived (read-only)."
-    }
-   ],
-   "upstream": {
-    "head": "2a2d442f5c3de1fdf9585f64e1bca07437296ce5",
-    "stars": 137,
-    "pushed": "2026-08-26",
-    "license": "MIT",
-    "default_branch": "main",
-    "packages": {
-     "npm:@dynatrace-oss/dynatrace-mcp-server": "2.1.2"
-    },
-    "pinned": "2a2d442f5c3de1fdf9585f64e1bca07437296ce5"
-   },
+   "alt": "Remote (no local install): claude mcp add --transport http dynatrace https://<env>.apps.dynatrace.com/platform-reserved/mcp-gateway/v0.1/servers/dynatrace-mcp/mcp  · CLI: brew install dynatrace-oss/tap/dtctl",
+   "verify": "claude plugin list | grep -q 'dynatrace@dynatrace-for-ai'",
+   "use": "export DT_ENVIRONMENT=https://<env>.apps.dynatrace.com DT_PLATFORM_TOKEN=..., start Claude Code, then 'list open problems affecting the trade-capture service'.",
+   "note": "Replaces dynatrace-oss/dynatrace-mcp, archived after v2.1.2. One of the heavier plugins (skills plus the full MCP tool list). Grail queries can incur cost; scope the platform token to read-only.",
+   "always_on": "~?",
+   "source": "sources/55-dynatrace-for-ai",
+   "status": "ok",
+   "problems": [],
+   "upstream": {},
    "verified": {
     "date": "2026-10-25",
-    "result": "pass"
+    "result": "untested"
    }
   },
   {
    "n": 56,
    "collection": "dataops",
    "row": 9,
-   "name": "PagerDuty MCP server",
+   "name": "PagerDuty MCP server (hosted)",
    "repo": "PagerDuty/pagerduty-mcp-server",
-   "what": "PagerDuty's official MCP server: incidents, on-call schedules, escalation policies and services from Claude.",
+   "what": "PagerDuty's official hosted MCP server: incidents, on-call schedules, escalation policies and services from Claude, signed in with OAuth.",
    "needs": [
-    "uv"
+    "claude"
    ],
    "install": [
-    "uv tool install pagerduty-mcp"
+    "claude mcp add --scope user --transport http pagerduty https://mcp.pagerduty.com/mcp"
    ],
-   "alt": "claude mcp add pagerduty -e PAGERDUTY_USER_API_KEY=... -- pagerduty-mcp",
-   "verify": "command -v pagerduty-mcp",
-   "use": "'Who is on call for data-platform tonight, and what fired in the last 7 days?'",
-   "note": "Read-only by default; pass --enable-write-tools only when needed.",
-   "packages": [
-    {
-     "pypi": "pagerduty-mcp"
-    }
-   ],
+   "alt": "The old local server (uvx pagerduty-mcp) still works but no longer gets updates.",
+   "verify": "claude mcp get pagerduty >/dev/null",
+   "use": "Run /mcp in Claude Code to sign in, then 'who is on call for data-platform tonight, and what fired in the last 7 days?'",
+   "note": "PagerDuty moved development to this hosted server and archived the local repo, which is tracked here for notices.",
    "always_on": "n/a",
    "source": "sources/56-pagerduty-mcp-server",
-   "status": "attention",
-   "problems": [
-    {
-     "kind": "archived",
-     "msg": "Upstream repo is archived (read-only)."
-    },
-    {
-     "kind": "moved",
-     "msg": "README says the project moved (points to github.com/astral-sh/uv)."
-    }
-   ],
+   "status": "ok",
+   "problems": [],
    "upstream": {
     "head": "dcfbdb82e1a63584bf5c37b43007561498b06dc7",
     "stars": 79,
@@ -2408,8 +2375,9 @@
    },
    "verified": {
     "date": "2026-10-25",
-    "result": "pass"
-   }
+    "result": "untested"
+   },
+   "archived_ok": true
   }
  ],
  "schema": 2,
