@@ -621,13 +621,13 @@ def cmd_report(argv):
                     + (f" (failed: {', '.join(fails)})" if fails else ""))
     if not body:
         body = ["No upstream changes."]
-    entry = f"## {TODAY}\n\n" + "\n".join(body).strip() + "\n"
+    stamp = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     cl = ROOT / "CHANGELOG.md"
-    old = cl.read_text() if cl.exists() else "# Changelog\n\nWritten by the daily refresh workflow.\n"
-    head, _, rest = old.partition("\n## ")
-    if f"## {TODAY}\n" in old:  # same-day rerun: replace today's entry
-        rest = re.sub(rf"^{TODAY}\n.*?(?=^\d{{4}}-\d\d-\d\d\n|\Z)", "", rest, flags=re.S | re.M)
-    cl.write_text(head.rstrip() + "\n\n" + entry + ("\n## " + rest if rest.strip() else ""))
+    old = cl.read_text() if cl.exists() else "# Changelog\n\nWritten by the daily refresh workflow, newest first.\n"
+    if ups or r["notes"] or smoke:  # quiet days add no entry
+        head, sep, rest = old.partition("\n## ")
+        entry = f"## {stamp}\n\n" + "\n".join(body).strip() + "\n"
+        cl.write_text(head.rstrip() + "\n\n" + entry + (sep + rest if sep else ""))
     title = (f"Refresh {TODAY}: {len(ups)} upstream update(s)"
              + (f", {sum(1 for v in smoke.values() if v != 'pass')} failing install test(s)" if smoke else ""))
     (BUILD / "commit-msg.txt").write_text(title + "\n\n" + "\n".join(body) + "\n")
