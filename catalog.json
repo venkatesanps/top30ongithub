@@ -1,0 +1,658 @@
+{
+ "generated": "2026-10-24",
+ "rows": {
+  "1": "Code like a senior",
+  "2": "Research and understanding",
+  "3": "Big projects, fewer tokens",
+  "4": "Design and visuals",
+  "5": "Writing and video"
+ },
+ "items": [
+  {
+   "n": 1,
+   "row": 1,
+   "name": "Karpathy Skills",
+   "repo": "forrestchang/andrej-karpathy-skills",
+   "what": "One CLAUDE.md / skill with four rules: think first, simplicity, surgical changes, goal-driven.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add forrestchang/andrej-karpathy-skills",
+    "claude plugin install andrej-karpathy-skills@karpathy-skills"
+   ],
+   "alt": "Per project instead: curl -o CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md",
+   "verify": "claude plugin list | grep -q andrej-karpathy-skills",
+   "use": "Automatic once installed.",
+   "always_on": "~105",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 2,
+   "row": 1,
+   "name": "Matt Pocock Skills",
+   "repo": "mattpocock/skills",
+   "what": "Engineering skills that grill your plan before code: grill-me, tdd, to-spec, diagnosing-bugs, code-review.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add mattpocock/skills",
+    "claude plugin install mattpocock-skills@mattpocock"
+   ],
+   "alt": "npx skills@latest add mattpocock/skills",
+   "verify": "claude plugin list | grep -q mattpocock-skills",
+   "use": "Run /setup-matt-pocock-skills once per repo, then /grill-me.",
+   "always_on": "~1,651",
+   "tested": "Installed from GitHub",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 3,
+   "row": 1,
+   "name": "ECC (Everything Claude Code)",
+   "repo": "affaan-m/ECC",
+   "what": "Huge harness: 408 skills, 71 agents, hooks, memory, AgentShield security scan.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add affaan-m/ECC",
+    "claude plugin install ecc@ecc"
+   ],
+   "alt": "Rule packs are separate: clone the repo and copy rules/common (+ your language) into ~/.claude/rules/.",
+   "verify": "claude plugin list | grep -q 'ecc@ecc'",
+   "use": "/plugin configure ecc@ecc to set hook options.",
+   "always_on": "~47,561",
+   "tested": "Installed + validated",
+   "claude_ai": false,
+   "note": "Heaviest by far: ~47.6k tokens added to every session. Only download from github.com/affaan-m/ECC or npm ecc-universal."
+  },
+  {
+   "n": 4,
+   "row": 1,
+   "name": "Agent Skills (Addy Osmani)",
+   "repo": "addyosmani/agent-skills",
+   "what": "Senior-engineer lifecycle: /spec, /plan, /build, /test, /review, /code-simplify, /ship.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add addyosmani/agent-skills",
+    "claude plugin install agent-skills@addy-agent-skills"
+   ],
+   "alt": "npx skills add addyosmani/agent-skills",
+   "verify": "claude plugin list | grep -q agent-skills@addy-agent-skills",
+   "use": "/spec then /plan then /build.",
+   "always_on": "~3,669",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 5,
+   "row": 1,
+   "name": "Superpowers",
+   "repo": "obra/superpowers",
+   "what": "Brainstorm, write plan, TDD, subagent execution, code review, verification before done.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add obra/superpowers-marketplace",
+    "claude plugin install superpowers@superpowers-marketplace"
+   ],
+   "alt": "Also in Anthropic's plugin directory: /plugin install superpowers (search 'superpowers' in /plugin).",
+   "verify": "claude plugin list | grep -q superpowers@",
+   "use": "Automatic; starts with brainstorming before code.",
+   "always_on": "~848",
+   "tested": "Installed from GitHub",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 6,
+   "row": 1,
+   "name": "Ponytail",
+   "repo": "DietrichGebert/ponytail",
+   "what": "Lazy-senior-dev rules: write the least code that works, mark every shortcut.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add DietrichGebert/ponytail",
+    "claude plugin install ponytail@ponytail"
+   ],
+   "alt": "Cursor/Windsurf/Cline: copy the matching rules file from the repo.",
+   "verify": "claude plugin list | grep -q ponytail@ponytail",
+   "use": "/ponytail:ponytail ultra, /ponytail:ponytail-review",
+   "always_on": "~641",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 7,
+   "row": 2,
+   "name": "Career Ops",
+   "repo": "santifer/career-ops",
+   "what": "Job-search command center: scores job posts against your CV, tailors ATS PDFs, tracks applications.",
+   "needs": [
+    "claude",
+    "node",
+    "git"
+   ],
+   "install": [
+    "git clone --depth 1 https://github.com/santifer/career-ops.git ~/career-ops",
+    "cd ~/career-ops && npm install"
+   ],
+   "alt": "npx @santifer/career-ops init",
+   "verify": "test -f ~/career-ops/package.json && test -d ~/career-ops/node_modules",
+   "use": "cd ~/career-ops, add cv.md, run claude, then /career-ops <job URL>.",
+   "always_on": "~116",
+   "tested": "Plugin installed + validated",
+   "claude_ai": false,
+   "note": "Works as a project folder. Draft-only: never submits applications."
+  },
+  {
+   "n": 8,
+   "row": 2,
+   "name": "REA (Reverse Engineer Anything)",
+   "repo": "morluto/rea",
+   "what": "CLI + MCP that lets the agent decompile and explain how an app works without its source.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npm install --global rea-agents",
+    "rea setup"
+   ],
+   "alt": "npx -y rea-agents analyze /Applications/Notes.app",
+   "verify": "rea --version && rea doctor",
+   "use": "Ask: 'Use REA to explain how search works in the Notes app.'",
+   "always_on": "n/a (MCP)",
+   "tested": "CLI 6.7.0 built; doctor runs",
+   "claude_ai": false,
+   "note": "Setup targets macOS (installs Homebrew + Hopper). Fake trojan 'REA.exe' copies exist: only use github.com/morluto/rea, rea.tools or npm rea-agents."
+  },
+  {
+   "n": 9,
+   "row": 2,
+   "name": "Graphify",
+   "repo": "Graphify-Labs/graphify",
+   "what": "Turns a folder of code, docs, PDFs and images into a queryable knowledge graph.",
+   "needs": [
+    "python"
+   ],
+   "install": [
+    "pipx install graphifyy || python3 -m pip install --user graphifyy",
+    "graphify install"
+   ],
+   "alt": "python3 -m pip install graphifyy && graphify install",
+   "verify": "graphify --version",
+   "use": "/graphify . in Claude Code, or graphify update <path> (code-only, no LLM).",
+   "always_on": "n/a (CLI skill)",
+   "tested": "0.9.95 built; mapped a repo: 958 nodes offline",
+   "claude_ai": false,
+   "note": "PyPI name is graphifyy (double y)."
+  },
+  {
+   "n": 10,
+   "row": 2,
+   "name": "Understand Anything",
+   "repo": "Lum1104/Understand-Anything",
+   "what": "Multi-agent codebase analysis into an interactive graph dashboard, guided tours, diff impact.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add Lum1104/Understand-Anything",
+    "claude plugin install understand-anything@understand-anything"
+   ],
+   "alt": "Other agents: curl -fsSL https://raw.githubusercontent.com/Lum1104/Understand-Anything/main/install.sh | bash -s codex",
+   "verify": "claude plugin list | grep -q understand-anything",
+   "use": "/understand then /understand-dashboard",
+   "always_on": "~1,148",
+   "tested": "Installed + validated",
+   "claude_ai": false,
+   "note": "First /understand on a big repo burns a lot of tokens; later runs are incremental."
+  },
+  {
+   "n": 11,
+   "row": 2,
+   "name": "Last 30 Days",
+   "repo": "mvanhorn/last30days-skill",
+   "what": "Researches a topic across Reddit, X, YouTube, HN, GitHub and the web over the last 30 days.",
+   "needs": [
+    "claude",
+    "python"
+   ],
+   "install": [
+    "claude plugin marketplace add mvanhorn/last30days-skill",
+    "claude plugin install last30days@last30days-skill"
+   ],
+   "alt": "git clone https://github.com/mvanhorn/last30days-skill.git ~/.claude/skills/last30days",
+   "verify": "claude plugin list | grep -q last30days",
+   "use": "/last30days <topic>; run /last30days setup to add API keys.",
+   "always_on": "~105",
+   "tested": "Installed + validated",
+   "claude_ai": false,
+   "note": "More sources unlock with keys in ~/.config/last30days/.env. Runs take 2-8 minutes."
+  },
+  {
+   "n": 12,
+   "row": 2,
+   "name": "Agent Reach",
+   "repo": "Panniantong/Agent-Reach",
+   "what": "One CLI that lets the agent read X, Reddit, YouTube transcripts, GitHub, RSS and more.",
+   "needs": [
+    "python"
+   ],
+   "install": [
+    "pipx install git+https://github.com/Panniantong/Agent-Reach.git || python3 -m pip install --user git+https://github.com/Panniantong/Agent-Reach.git",
+    "agent-reach setup"
+   ],
+   "alt": "npx skills add Panniantong/Agent-Reach@agent-reach",
+   "verify": "agent-reach doctor",
+   "use": "Ask the agent to read a tweet, Reddit thread or YouTube video.",
+   "always_on": "n/a (CLI skill)",
+   "tested": "1.6.0 built; doctor OK",
+   "claude_ai": false,
+   "note": "Many guides still show 'agent-reach install --env=auto'; v1.6 replaced it with 'agent-reach setup'. X/Reddit need a login (agent-reach login <channel>); cookies stay local."
+  },
+  {
+   "n": 13,
+   "row": 3,
+   "name": "Headroom",
+   "repo": "chopratejas/headroom",
+   "what": "Compresses tool output, logs, files and history before the model reads them.",
+   "needs": [
+    "python",
+    "claude"
+   ],
+   "install": [
+    "pipx install headroom-ai || python3 -m pip install --user headroom-ai",
+    "claude plugin marketplace add chopratejas/headroom",
+    "claude plugin install headroom@headroom-marketplace"
+   ],
+   "alt": "Full ML compressors (large download): pipx install \"headroom-ai[all]\". Or skip the plugin and run: headroom wrap claude",
+   "verify": "headroom --version",
+   "use": "headroom perf to see savings; headroom unwrap claude to undo.",
+   "always_on": "~0 (hooks)",
+   "tested": "CLI 0.41.0 built; plugin installed",
+   "claude_ai": false,
+   "note": "README itself says 15-20% savings for coding agents (60-95% is for JSON-heavy data)."
+  },
+  {
+   "n": 14,
+   "row": 3,
+   "name": "BMAD Method",
+   "repo": "bmad-code-org/BMAD-METHOD",
+   "what": "Agile team of agents: analyst, PM, architect, dev, QA with stories and reviews.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx bmad-method install"
+   ],
+   "alt": "Non-interactive: npx bmad-method install --yes --modules bmm --tools claude-code. v7 preview: npx skills add bmad-code-org/BMAD-METHOD",
+   "verify": "test -d .claude && ls .claude",
+   "use": "Run inside a project folder, then /bmad-help.",
+   "always_on": "per project",
+   "tested": "v6 installed: 29 skills",
+   "claude_ai": false,
+   "note": "Installs per project (run it in the project folder)."
+  },
+  {
+   "n": 15,
+   "row": 3,
+   "name": "Claude-Mem",
+   "repo": "thedotmack/claude-mem",
+   "what": "Captures what happens in sessions and injects compressed memory into new ones.",
+   "needs": [
+    "claude",
+    "bun"
+   ],
+   "install": [
+    "claude plugin marketplace add thedotmack/claude-mem",
+    "claude plugin install claude-mem@thedotmack"
+   ],
+   "alt": "",
+   "verify": "claude plugin list | grep -q claude-mem@thedotmack",
+   "use": "Automatic; search with the mem-search skill.",
+   "always_on": "~2,775",
+   "tested": "Installed; fails naming-policy validation (cosmetic)",
+   "claude_ai": false,
+   "note": "Runs a background worker (Bun). Data lives in ~/.claude-mem."
+  },
+  {
+   "n": 16,
+   "row": 3,
+   "name": "gstack",
+   "repo": "garrytan/gstack",
+   "what": "Garry Tan's setup: CEO/eng/design plan reviews, /review, /qa, /ship, /retro and more.",
+   "needs": [
+    "git",
+    "bun"
+   ],
+   "install": [
+    "git clone --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack",
+    "cd ~/.claude/skills/gstack && ./setup"
+   ],
+   "alt": "",
+   "verify": "test -f ~/.claude/skills/gstack/SKILL.md",
+   "use": "/office-hours, /plan-ceo-review, /review, /ship",
+   "always_on": "n/a (skills dir)",
+   "tested": "v1.91 installed (browser part needs Chromium download)",
+   "claude_ai": false,
+   "note": "Its setup asks you to add CLAUDE.md lines telling Claude to use gstack's /browse instead of Claude in Chrome."
+  },
+  {
+   "n": 17,
+   "row": 3,
+   "name": "Caveman",
+   "repo": "JuliusBrussee/caveman",
+   "what": "Makes replies terse caveman-speak; also compresses CLAUDE.md files.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add JuliusBrussee/caveman",
+    "claude plugin install caveman@caveman"
+   ],
+   "alt": "",
+   "verify": "claude plugin list | grep -q caveman@caveman",
+   "use": "/caveman, /caveman-compress CLAUDE.md",
+   "always_on": "~1,991",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": "An independent placebo test (skill-placebo) found no significant output-token saving and ~14% higher cost on Opus 5.5."
+  },
+  {
+   "n": 18,
+   "row": 3,
+   "name": "GSD (Get Shit Done)",
+   "repo": "open-gsd/gsd-core",
+   "what": "Spec-driven phases with fresh subagent contexts so big builds don't drift.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx @opengsd/gsd-core@latest --claude --global"
+   ],
+   "alt": "Old package (archived May 2026): npx get-shit-done-cc --claude --global",
+   "verify": "ls ~/.claude/skills | grep -q gsd-help",
+   "use": "/gsd-help, then /gsd-new-project",
+   "always_on": "n/a (commands)",
+   "tested": "gsd-core 1.18 installed",
+   "claude_ai": false,
+   "note": "gsd-build/get-shit-done moved to open-gsd/gsd-core. gsd-core declares Node 24+ (worked on 22 with a warning)."
+  },
+  {
+   "n": 19,
+   "row": 4,
+   "name": "Taste",
+   "repo": "Leonxlnx/taste-skill",
+   "what": "Anti-template frontend art direction: picks a deliberate visual direction, runs a preflight review.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add Leonxlnx/taste-skill",
+    "claude plugin install taste-skill@taste-skill"
+   ],
+   "alt": "npx skills add https://github.com/Leonxlnx/taste-skill --skill design-taste-frontend",
+   "verify": "claude plugin list | grep -q taste-skill",
+   "use": "Automatic on landing pages and redesigns.",
+   "always_on": "~349",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 20,
+   "row": 4,
+   "name": "Archify",
+   "repo": "tt-a1i/archify",
+   "what": "Architecture, workflow, sequence, data-flow and lifecycle diagrams as one interactive HTML file.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx skills add tt-a1i/archify -g"
+   ],
+   "alt": "Manual: copy the archify/ folder into ~/.claude/skills/",
+   "verify": "node ~/.claude/skills/archify/bin/archify.mjs doctor",
+   "use": "'Use archify to draw a high-level architecture of this repo.'",
+   "always_on": "n/a (skill)",
+   "tested": "doctor OK; demo diagram rendered",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 21,
+   "row": 4,
+   "name": "Diagram Design",
+   "repo": "cathrynlavery/diagram-design",
+   "what": "Editorial, on-brand diagrams (40+ types) as HTML/SVG/PNG.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add cathrynlavery/diagram-design",
+    "claude plugin install diagram-design@diagram-design"
+   ],
+   "alt": "npx skills add https://github.com/cathrynlavery/diagram-design --skill diagram-design",
+   "verify": "claude plugin list | grep -q diagram-design",
+   "use": "Ask for a diagram; it asks for brand tokens first.",
+   "always_on": "~596",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 22,
+   "row": 4,
+   "name": "Impeccable",
+   "repo": "pbakaus/impeccable",
+   "what": "Design language for agents: 23 commands (critique, polish, audit) and anti-pattern detectors.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add pbakaus/impeccable",
+    "claude plugin install impeccable@impeccable"
+   ],
+   "alt": "npx impeccable install",
+   "verify": "claude plugin list | grep -q impeccable@impeccable",
+   "use": "/impeccable init once, then /impeccable critique <target>",
+   "always_on": "~439",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 23,
+   "row": 4,
+   "name": "UI UX Pro Max",
+   "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+   "what": "Searchable catalog of UI styles, palettes, font pairings and UX rules across stacks.",
+   "needs": [
+    "claude",
+    "python"
+   ],
+   "install": [
+    "claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill",
+    "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill"
+   ],
+   "alt": "npm install -g ui-ux-pro-max-cli && uipro init --ai claude --global",
+   "verify": "claude plugin list | grep -q ui-ux-pro-max",
+   "use": "Automatic on UI work.",
+   "always_on": "~1,067",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 24,
+   "row": 4,
+   "name": "PPT Master",
+   "repo": "hugohe3/ppt-master",
+   "what": "Turns a PDF, DOCX, URL or Markdown into a natively editable PowerPoint (real shapes, not images).",
+   "needs": [
+    "claude",
+    "python",
+    "git"
+   ],
+   "install": [
+    "git clone --depth 1 https://github.com/hugohe3/ppt-master.git ~/ppt-master",
+    "python3 -m pip install --user -r ~/ppt-master/requirements.txt",
+    "claude plugin marketplace add hugohe3/ppt-master",
+    "claude plugin install ppt-master@ppt-master"
+   ],
+   "alt": "",
+   "verify": "claude plugin list | grep -q ppt-master",
+   "use": "'Make a deck from this PDF.'",
+   "always_on": "~206",
+   "tested": "Installed + validated",
+   "claude_ai": false,
+   "note": "Repo is ~110 MB. If pip refuses (macOS 'externally-managed'), create a venv in ~/ppt-master first."
+  },
+  {
+   "n": 25,
+   "row": 5,
+   "name": "Marketing Skills",
+   "repo": "coreyhaines31/marketingskills",
+   "what": "52 marketing skills: copywriting, SEO audit, CRO, pricing, email sequences, ads.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add coreyhaines31/marketingskills",
+    "claude plugin install marketing-skills@marketingskills"
+   ],
+   "alt": "Pick a few: npx skills add coreyhaines31/marketingskills --skill page-cro copywriting",
+   "verify": "claude plugin list | grep -q marketing-skills",
+   "use": "Start with the product-marketing-context skill.",
+   "always_on": "~15,682",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": "~15.7k tokens per session for all 52. Installing only the skills you need is much lighter."
+  },
+  {
+   "n": 26,
+   "row": 5,
+   "name": "Skills by Anthropic",
+   "repo": "anthropics/skills",
+   "what": "Official skills: Word, Excel, PowerPoint, PDF, skill-creator, frontend-design, MCP builder.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add anthropics/skills",
+    "claude plugin install document-skills@anthropic-agent-skills",
+    "claude plugin install example-skills@anthropic-agent-skills"
+   ],
+   "alt": "",
+   "verify": "claude plugin list | grep -q document-skills",
+   "use": "Automatic when you ask for a .docx/.xlsx/.pptx/.pdf.",
+   "always_on": "~1,030 + ~1,223",
+   "tested": "Installed from GitHub",
+   "claude_ai": false,
+   "note": "The Claude app already has these built in; this is for Claude Code."
+  },
+  {
+   "n": 27,
+   "row": 5,
+   "name": "OpenMontage",
+   "repo": "calesthio/OpenMontage",
+   "what": "Agentic video studio: research, script, assets, edit and render with 12 pipelines.",
+   "needs": [
+    "git",
+    "python",
+    "node",
+    "ffmpeg"
+   ],
+   "install": [
+    "git clone --depth 1 https://github.com/calesthio/OpenMontage.git ~/OpenMontage",
+    "cd ~/OpenMontage && make setup"
+   ],
+   "alt": "",
+   "verify": "cd ~/OpenMontage && make preflight",
+   "use": "Open Claude Code in ~/OpenMontage and describe the video.",
+   "always_on": "per project",
+   "tested": "make install + preflight OK (local FFmpeg tools ready)",
+   "claude_ai": false,
+   "note": "AGPL-3.0. Generation providers (Veo, Kling, ElevenLabs...) need your own API keys; stock/archive and FFmpeg paths are free."
+  },
+  {
+   "n": 28,
+   "row": 5,
+   "name": "Humanizer",
+   "repo": "blader/humanizer",
+   "what": "Removes AI-writing tells (based on Wikipedia's Signs of AI writing) with a second audit pass.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add blader/humanizer",
+    "claude plugin install humanizer@humanizer"
+   ],
+   "alt": "git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer",
+   "verify": "claude plugin list | grep -q humanizer@humanizer",
+   "use": "/humanizer <paste text>",
+   "always_on": "~144",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  },
+  {
+   "n": 29,
+   "row": 5,
+   "name": "HyperFrames",
+   "repo": "heygen-com/hyperframes",
+   "what": "HeyGen's HTML-to-video renderer with agent skills for captions, transitions, website-to-video.",
+   "needs": [
+    "claude",
+    "node",
+    "ffmpeg"
+   ],
+   "install": [
+    "claude plugin marketplace add heygen-com/hyperframes",
+    "claude plugin install hyperframes@hyperframes",
+    "npx -y hyperframes browser ensure"
+   ],
+   "alt": "npx skills add heygen-com/hyperframes",
+   "verify": "npx -y hyperframes doctor",
+   "use": "/hyperframes 'Make a 10-second product intro.'",
+   "always_on": "~783",
+   "tested": "Installed + validated; doctor needs headless Chrome (browser ensure)",
+   "claude_ai": false,
+   "note": ""
+  },
+  {
+   "n": 30,
+   "row": 5,
+   "name": "I Have ADHD",
+   "repo": "ayghri/i-have-adhd",
+   "what": "Ten rules: answer first, numbered steps, max 5 items, no preamble or recap.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add ayghri/i-have-adhd",
+    "claude plugin install i-have-adhd@i-have-adhd"
+   ],
+   "alt": "",
+   "verify": "claude plugin list | grep -q i-have-adhd",
+   "use": "/i-have-adhd once per session; 'stop adhd mode' to turn off.",
+   "always_on": "~106",
+   "tested": "Installed + validated",
+   "claude_ai": true,
+   "note": ""
+  }
+ ]
+}

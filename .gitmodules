@@ -1,0 +1,124 @@
+[submodule "sources/01-andrej-karpathy-skills"]
+	path = sources/01-andrej-karpathy-skills
+	url = https://github.com/forrestchang/andrej-karpathy-skills.git
+	shallow = true
+[submodule "sources/02-mattpocock-skills"]
+	path = sources/02-mattpocock-skills
+	url = https://github.com/mattpocock/skills.git
+	shallow = true
+[submodule "sources/03-ecc"]
+	path = sources/03-ecc
+	url = https://github.com/affaan-m/ECC.git
+	shallow = true
+[submodule "sources/04-agent-skills"]
+	path = sources/04-agent-skills
+	url = https://github.com/addyosmani/agent-skills.git
+	shallow = true
+[submodule "sources/05-superpowers"]
+	path = sources/05-superpowers
+	url = https://github.com/obra/superpowers.git
+	shallow = true
+[submodule "sources/06-ponytail"]
+	path = sources/06-ponytail
+	url = https://github.com/DietrichGebert/ponytail.git
+	shallow = true
+[submodule "sources/07-career-ops"]
+	path = sources/07-career-ops
+	url = https://github.com/santifer/career-ops.git
+	shallow = true
+[submodule "sources/08-rea"]
+	path = sources/08-rea
+	url = https://github.com/morluto/rea.git
+	shallow = true
+[submodule "sources/09-graphify"]
+	path = sources/09-graphify
+	url = https://github.com/Graphify-Labs/graphify.git
+	shallow = true
+[submodule "sources/10-understand-anything"]
+	path = sources/10-understand-anything
+	url = https://github.com/Lum1104/Understand-Anything.git
+	shallow = true
+[submodule "sources/11-last30days-skill"]
+	path = sources/11-last30days-skill
+	url = https://github.com/mvanhorn/last30days-skill.git
+	shallow = true
+[submodule "sources/12-agent-reach"]
+	path = sources/12-agent-reach
+	url = https://github.com/Panniantong/Agent-Reach.git
+	shallow = true
+[submodule "sources/13-headroom"]
+	path = sources/13-headroom
+	url = https://github.com/chopratejas/headroom.git
+	shallow = true
+[submodule "sources/14-bmad-method"]
+	path = sources/14-bmad-method
+	url = https://github.com/bmad-code-org/BMAD-METHOD.git
+	shallow = true
+[submodule "sources/15-claude-mem"]
+	path = sources/15-claude-mem
+	url = https://github.com/thedotmack/claude-mem.git
+	shallow = true
+[submodule "sources/16-gstack"]
+	path = sources/16-gstack
+	url = https://github.com/garrytan/gstack.git
+	shallow = true
+[submodule "sources/17-caveman"]
+	path = sources/17-caveman
+	url = https://github.com/JuliusBrussee/caveman.git
+	shallow = true
+[submodule "sources/18-get-shit-done"]
+	path = sources/18-get-shit-done
+	url = https://github.com/gsd-build/get-shit-done.git
+	shallow = true
+[submodule "sources/19-taste-skill"]
+	path = sources/19-taste-skill
+	url = https://github.com/Leonxlnx/taste-skill.git
+	shallow = true
+[submodule "sources/20-archify"]
+	path = sources/20-archify
+	url = https://github.com/tt-a1i/archify.git
+	shallow = true
+[submodule "sources/21-diagram-design"]
+	path = sources/21-diagram-design
+	url = https://github.com/cathrynlavery/diagram-design.git
+	shallow = true
+[submodule "sources/22-impeccable"]
+	path = sources/22-impeccable
+	url = https://github.com/pbakaus/impeccable.git
+	shallow = true
+[submodule "sources/23-ui-ux-pro-max-skill"]
+	path = sources/23-ui-ux-pro-max-skill
+	url = https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
+	shallow = true
+[submodule "sources/24-ppt-master"]
+	path = sources/24-ppt-master
+	url = https://github.com/hugohe3/ppt-master.git
+	shallow = true
+[submodule "sources/25-marketingskills"]
+	path = sources/25-marketingskills
+	url = https://github.com/coreyhaines31/marketingskills.git
+	shallow = true
+[submodule "sources/26-anthropics-skills"]
+	path = sources/26-anthropics-skills
+	url = https://github.com/anthropics/skills.git
+	shallow = true
+[submodule "sources/27-openmontage"]
+	path = sources/27-openmontage
+	url = https://github.com/calesthio/OpenMontage.git
+	shallow = true
+[submodule "sources/28-humanizer"]
+	path = sources/28-humanizer
+	url = https://github.com/blader/humanizer.git
+	shallow = true
+[submodule "sources/29-hyperframes"]
+	path = sources/29-hyperframes
+	url = https://github.com/heygen-com/hyperframes.git
+	shallow = true
+[submodule "sources/30-i-have-adhd"]
+	path = sources/30-i-have-adhd
+	url = https://github.com/ayghri/i-have-adhd.git
+	shallow = true
+[submodule "sources/18b-gsd-core"]
+	path = sources/18b-gsd-core
+	url = https://github.com/open-gsd/gsd-core.git
+	shallow = true

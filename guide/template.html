@@ -1,0 +1,174 @@
+<title>Claude Plugins Field Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a single scannable column of plugin cards under a sticky row filter; commands set like terminal lines */
+:root {
+  --bg: #f5f6f9; --surface: #ffffff; --ink: #161b2e; --muted: #5a6178; --line: #dfe2ec;
+  --accent: #2f4fd6; --accent-soft: #e6eafc; --code-bg: #eef0f6;
+  --ok: #1d7a4f; --ok-soft: #e1f3ea; --warn: #a3520b; --warn-soft: #fbeedd; --bar: #9aa7d8;
+  --f-display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1220; --surface: #171b2c; --ink: #e8eaf4; --muted: #9aa1ba; --line: #2a3047;
+  --accent: #91a6ff; --accent-soft: #232a4a; --code-bg: #1e2336;
+  --ok: #6fd3a2; --ok-soft: #173326; --warn: #f2a65e; --warn-soft: #3a2614; --bar: #4c5a95; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1220; --surface: #171b2c; --ink: #e8eaf4; --muted: #9aa1ba; --line: #2a3047;
+  --accent: #91a6ff; --accent-soft: #232a4a; --code-bg: #1e2336;
+  --ok: #6fd3a2; --ok-soft: #173326; --warn: #f2a65e; --warn-soft: #3a2614; --bar: #4c5a95; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 56px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.1; letter-spacing: -0.01em; }
+.lede { color: var(--muted); max-width: 62ch; margin: 10px 0 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 14px; }
+.facts b { font-family: var(--f-display); font-size: 18px; color: var(--ink); margin-right: 4px; }
+.facts li { color: var(--muted); }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.filters { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); margin: 22px 0 6px; padding-block: 10px; border-bottom: 1px solid var(--line); }
+.chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; font: 600 13px var(--f-display); border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.chip:focus-visible, .copy:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sortrow { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; }
+
+.rowhead { display: flex; align-items: baseline; gap: 10px; margin: 28px 0 10px; }
+.rowhead h2 { font-size: 20px; }
+.rowhead span { color: var(--muted); font-size: 13px; }
+.list { display: grid; gap: 12px; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 10px; min-width: 0; }
+.top { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+.title { display: flex; gap: 10px; align-items: baseline; min-width: 0; }
+.num { font: 600 13px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.card h3 { font-size: 18px; }
+.repo { font: 13px var(--f-mono); color: var(--accent); text-decoration: none; word-break: break-all; }
+.repo:hover { text-decoration: underline; }
+.what { margin: 0; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--code-bg); color: var(--muted); }
+.tag.ok { background: var(--ok-soft); color: var(--ok); }
+.tag.ai { background: var(--accent-soft); color: var(--accent); }
+
+.cost { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
+.track { height: 6px; background: var(--code-bg); border-radius: 3px; overflow: hidden; }
+.fill { height: 100%; background: var(--bar); border-radius: 3px; }
+.fill.heavy { background: var(--warn); }
+.cost output { font: 12px var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+
+.cmd { position: relative; background: var(--code-bg); border-radius: 8px; padding: 10px 44px 10px 12px; overflow-x: auto; }
+.cmd pre { margin: 0; font: 12.5px/1.6 var(--f-mono); white-space: pre; }
+.cmd pre .p { color: var(--muted); user-select: none; }
+.copy { position: absolute; top: 6px; right: 6px; font: 600 11px var(--f-display); border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 5px; padding: 4px 7px; cursor: pointer; }
+.label { font: 600 11px var(--f-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.meta { display: grid; gap: 6px; font-size: 14px; }
+.meta p { margin: 0; }
+.meta code { font: 12.5px var(--f-mono); background: var(--code-bg); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+.note { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 8px 10px; border-radius: 0 6px 6px 0; font-size: 14px; }
+details summary { cursor: pointer; color: var(--accent); font-size: 13px; }
+footer { margin-top: 36px; color: var(--muted); font-size: 13px; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color .15s; } .card:hover { border-color: var(--bar); } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Claude Plugins Field Guide</h1>
+    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, each traced to its real repository, installed and checked on Oct 24, 2026. Pick the row that matches your week and add one.</p>
+    <ul class="facts">
+      <li><b>30</b>repos found</li>
+      <li><b>23</b>Claude Code plugins</li>
+      <li><b>7</b>CLIs or installers</li>
+      <li><b>30/30</b>built here</li>
+      <li><b>16</b>also run in the Claude app</li>
+    </ul>
+  </header>
+
+  <nav class="filters" aria-label="Filter by job">
+    <div class="chips" id="chips"></div>
+    <div class="sortrow">
+      <span id="count"></span>
+      <label for="sort">Order <select id="sort"><option value="row">By job</option><option value="cost">Lightest first</option></select></label>
+    </div>
+  </nav>
+
+  <main id="out"></main>
+
+  <footer>
+    <p>Token figures come from <code>claude plugin details</code>: the tokens a plugin adds to every Claude Code session before you invoke anything. Bars use a log scale.</p>
+    <p>"Built here" means the install ran in a clean Linux workspace and its health check passed. Two steps couldn't finish only because that workspace blocks browser downloads: gstack's Chromium and HyperFrames' headless Chrome. Both download normally on your machine.</p>
+    <p>Star counts in the original post don't match the repos' own numbers in several cases, so they're left out here.</p>
+  </footer>
+</div>
+
+<script>
+const DATA = /*CATALOG*/null;
+const out = document.getElementById("out"), chips = document.getElementById("chips"), count = document.getElementById("count"), sortSel = document.getElementById("sort");
+let row = "all";
+try { row = localStorage.getItem("row") || "all"; sortSel.value = localStorage.getItem("sort") || "row"; } catch (e) {}
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tok = s => { const m = String(s).match(/~?([\d,]+)/); return m && /^~/.test(String(s).trim()) ? m[1].split("+")[0].replace(/,/g, "") * 1 + (String(s).match(/\+\s*~?([\d,]+)/) ? String(s).match(/\+\s*~?([\d,]+)/)[1].replace(/,/g, "") * 1 : 0) : null; };
+const MAX = Math.log10(50000);
+
+function chipEls() {
+  const opts = [["all", "All 30"]].concat(Object.entries(DATA.rows).map(([k, v]) => [k, k + " · " + v]));
+  chips.innerHTML = opts.map(([k, v]) => `<button class="chip" type="button" data-row="${k}" aria-pressed="${k === row}">${esc(v)}</button>`).join("");
+}
+
+function card(it) {
+  const t = tok(it.always_on), heavy = t !== null && t > 10000;
+  const pct = t === null ? 0 : t <= 0 ? 1 : Math.max(2, Math.log10(Math.max(t, 1)) / MAX * 100);
+  const cmds = it.install.map(c => `<span class="p">$ </span>${esc(c)}`).join("\n");
+  return `<article class="card" id="p${it.n}">
+    <div class="top">
+      <div class="title"><span class="num">${String(it.n).padStart(2, "0")}</span><h3>${esc(it.name)}</h3></div>
+      <div class="tags"><span class="tag ok" title="${esc(it.tested)}">Built ✓</span>${it.claude_ai ? '<span class="tag ai">Claude app zip</span>' : ""}<span class="tag">needs ${esc(it.needs.join(", "))}</span></div>
+    </div>
+    <a class="repo" href="https://github.com/${esc(it.repo)}" target="_blank" rel="noopener">github.com/${esc(it.repo)}</a>
+    <p class="what">${esc(it.what)}</p>
+    <div class="cost"><span>Per session</span><div class="track" aria-hidden="true"><div class="fill${heavy ? " heavy" : ""}" style="width:${pct}%"></div></div><output>${esc(it.always_on)}${t !== null ? " tok" : ""}</output></div>
+    <div><div class="label">Install</div><div class="cmd"><pre>${cmds}</pre><button class="copy" type="button" data-copy="${esc(it.install.join("\n"))}">Copy</button></div></div>
+    <div class="meta">
+      <p><span class="label">Check</span><br><code>${esc(it.verify)}</code></p>
+      <p><span class="label">Use</span><br>${esc(it.use)}</p>
+      <p><span class="label">Tested</span><br>${esc(it.tested)}</p>
+      ${it.alt ? `<details><summary>Other ways to install</summary><p><code>${esc(it.alt)}</code></p></details>` : ""}
+    </div>
+    ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
+  </article>`;
+}
+
+function render() {
+  let items = DATA.items.filter(it => row === "all" || String(it.row) === row);
+  const byCost = sortSel.value === "cost";
+  if (byCost) items = items.slice().sort((a, b) => (tok(a.always_on) ?? -1) - (tok(b.always_on) ?? -1));
+  count.textContent = `${items.length} plugin${items.length === 1 ? "" : "s"}`;
+  if (byCost) { out.innerHTML = `<div class="list">${items.map(card).join("")}</div>`; return; }
+  const groups = {};
+  items.forEach(it => (groups[it.row] = groups[it.row] || []).push(it));
+  out.innerHTML = Object.keys(groups).map(r => `<section><div class="rowhead"><h2>${esc(DATA.rows[r])}</h2><span>Row ${r}</span></div><div class="list">${groups[r].map(card).join("")}</div></section>`).join("");
+}
+
+chips.addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  row = b.dataset.row; try { localStorage.setItem("row", row); } catch (x) {}
+  chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b)); render();
+});
+sortSel.addEventListener("change", () => { try { localStorage.setItem("sort", sortSel.value); } catch (x) {} render(); });
+out.addEventListener("click", e => {
+  const b = e.target.closest(".copy"); if (!b) return;
+  const text = b.dataset.copy, done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1500); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; setTimeout(() => b.textContent = "Copy", 1500); };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (x) { fallback(); }
+});
+chipEls(); render();
+</script>

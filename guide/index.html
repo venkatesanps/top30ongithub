@@ -1,0 +1,174 @@
+<title>Claude Plugins Field Guide</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a single scannable column of plugin cards under a sticky row filter; commands set like terminal lines */
+:root {
+  --bg: #f5f6f9; --surface: #ffffff; --ink: #161b2e; --muted: #5a6178; --line: #dfe2ec;
+  --accent: #2f4fd6; --accent-soft: #e6eafc; --code-bg: #eef0f6;
+  --ok: #1d7a4f; --ok-soft: #e1f3ea; --warn: #a3520b; --warn-soft: #fbeedd; --bar: #9aa7d8;
+  --f-display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1220; --surface: #171b2c; --ink: #e8eaf4; --muted: #9aa1ba; --line: #2a3047;
+  --accent: #91a6ff; --accent-soft: #232a4a; --code-bg: #1e2336;
+  --ok: #6fd3a2; --ok-soft: #173326; --warn: #f2a65e; --warn-soft: #3a2614; --bar: #4c5a95; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1220; --surface: #171b2c; --ink: #e8eaf4; --muted: #9aa1ba; --line: #2a3047;
+  --accent: #91a6ff; --accent-soft: #232a4a; --code-bg: #1e2336;
+  --ok: #6fd3a2; --ok-soft: #173326; --warn: #f2a65e; --warn-soft: #3a2614; --bar: #4c5a95; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 28px 56px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 6vw, 40px); line-height: 1.1; letter-spacing: -0.01em; }
+.lede { color: var(--muted); max-width: 62ch; margin: 10px 0 0; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 18px 0 0; padding: 0; list-style: none; font-size: 14px; }
+.facts b { font-family: var(--f-display); font-size: 18px; color: var(--ink); margin-right: 4px; }
+.facts li { color: var(--muted); }
+
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.filters { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); margin: 22px 0 6px; padding-block: 10px; border-bottom: 1px solid var(--line); }
+.chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; font: 600 13px var(--f-display); border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.chip:focus-visible, .copy:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.sortrow { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+select { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 4px 6px; }
+
+.rowhead { display: flex; align-items: baseline; gap: 10px; margin: 28px 0 10px; }
+.rowhead h2 { font-size: 20px; }
+.rowhead span { color: var(--muted); font-size: 13px; }
+.list { display: grid; gap: 12px; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: grid; gap: 10px; min-width: 0; }
+.top { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+.title { display: flex; gap: 10px; align-items: baseline; min-width: 0; }
+.num { font: 600 13px var(--f-mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.card h3 { font-size: 18px; }
+.repo { font: 13px var(--f-mono); color: var(--accent); text-decoration: none; word-break: break-all; }
+.repo:hover { text-decoration: underline; }
+.what { margin: 0; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 4px; background: var(--code-bg); color: var(--muted); }
+.tag.ok { background: var(--ok-soft); color: var(--ok); }
+.tag.ai { background: var(--accent-soft); color: var(--accent); }
+
+.cost { display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center; font-size: 12px; color: var(--muted); }
+.track { height: 6px; background: var(--code-bg); border-radius: 3px; overflow: hidden; }
+.fill { height: 100%; background: var(--bar); border-radius: 3px; }
+.fill.heavy { background: var(--warn); }
+.cost output { font: 12px var(--f-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+
+.cmd { position: relative; background: var(--code-bg); border-radius: 8px; padding: 10px 44px 10px 12px; overflow-x: auto; }
+.cmd pre { margin: 0; font: 12.5px/1.6 var(--f-mono); white-space: pre; }
+.cmd pre .p { color: var(--muted); user-select: none; }
+.copy { position: absolute; top: 6px; right: 6px; font: 600 11px var(--f-display); border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 5px; padding: 4px 7px; cursor: pointer; }
+.label { font: 600 11px var(--f-display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.meta { display: grid; gap: 6px; font-size: 14px; }
+.meta p { margin: 0; }
+.meta code { font: 12.5px var(--f-mono); background: var(--code-bg); padding: 1px 5px; border-radius: 4px; word-break: break-word; }
+.note { border-left: 3px solid var(--warn); background: var(--warn-soft); padding: 8px 10px; border-radius: 0 6px 6px 0; font-size: 14px; }
+details summary { cursor: pointer; color: var(--accent); font-size: 13px; }
+footer { margin-top: 36px; color: var(--muted); font-size: 13px; display: grid; gap: 6px; }
+@media (prefers-reduced-motion: no-preference) { .card { transition: border-color .15s; } .card:hover { border-color: var(--bar); } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Claude Plugins Field Guide</h1>
+    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, each traced to its real repository, installed and checked on Oct 24, 2026. Pick the row that matches your week and add one.</p>
+    <ul class="facts">
+      <li><b>30</b>repos found</li>
+      <li><b>23</b>Claude Code plugins</li>
+      <li><b>7</b>CLIs or installers</li>
+      <li><b>30/30</b>built here</li>
+      <li><b>14</b>also run in the Claude app</li>
+    </ul>
+  </header>
+
+  <nav class="filters" aria-label="Filter by job">
+    <div class="chips" id="chips"></div>
+    <div class="sortrow">
+      <span id="count"></span>
+      <label for="sort">Order <select id="sort"><option value="row">By job</option><option value="cost">Lightest first</option></select></label>
+    </div>
+  </nav>
+
+  <main id="out"></main>
+
+  <footer>
+    <p>Token figures come from <code>claude plugin details</code>: the tokens a plugin adds to every Claude Code session before you invoke anything. Bars use a log scale.</p>
+    <p>"Built here" means the install ran in a clean Linux workspace and its health check passed. Two steps couldn't finish only because that workspace blocks browser downloads: gstack's Chromium and HyperFrames' headless Chrome. Both download normally on your machine.</p>
+    <p>Star counts in the original post don't match the repos' own numbers in several cases, so they're left out here.</p>
+  </footer>
+</div>
+
+<script>
+const DATA = {"generated": "2026-10-24", "rows": {"1": "Code like a senior", "2": "Research and understanding", "3": "Big projects, fewer tokens", "4": "Design and visuals", "5": "Writing and video"}, "items": [{"n": 1, "row": 1, "name": "Karpathy Skills", "repo": "forrestchang/andrej-karpathy-skills", "what": "One CLAUDE.md / skill with four rules: think first, simplicity, surgical changes, goal-driven.", "needs": ["claude"], "install": ["claude plugin marketplace add forrestchang/andrej-karpathy-skills", "claude plugin install andrej-karpathy-skills@karpathy-skills"], "alt": "Per project instead: curl -o CLAUDE.md https://raw.githubusercontent.com/forrestchang/andrej-karpathy-skills/main/CLAUDE.md", "verify": "claude plugin list | grep -q andrej-karpathy-skills", "use": "Automatic once installed.", "always_on": "~105", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 2, "row": 1, "name": "Matt Pocock Skills", "repo": "mattpocock/skills", "what": "Engineering skills that grill your plan before code: grill-me, tdd, to-spec, diagnosing-bugs, code-review.", "needs": ["claude"], "install": ["claude plugin marketplace add mattpocock/skills", "claude plugin install mattpocock-skills@mattpocock"], "alt": "npx skills@latest add mattpocock/skills", "verify": "claude plugin list | grep -q mattpocock-skills", "use": "Run /setup-matt-pocock-skills once per repo, then /grill-me.", "always_on": "~1,651", "tested": "Installed from GitHub", "claude_ai": true, "note": ""}, {"n": 3, "row": 1, "name": "ECC (Everything Claude Code)", "repo": "affaan-m/ECC", "what": "Huge harness: 408 skills, 71 agents, hooks, memory, AgentShield security scan.", "needs": ["claude"], "install": ["claude plugin marketplace add affaan-m/ECC", "claude plugin install ecc@ecc"], "alt": "Rule packs are separate: clone the repo and copy rules/common (+ your language) into ~/.claude/rules/.", "verify": "claude plugin list | grep -q 'ecc@ecc'", "use": "/plugin configure ecc@ecc to set hook options.", "always_on": "~47,561", "tested": "Installed + validated", "claude_ai": false, "note": "Heaviest by far: ~47.6k tokens added to every session. Only download from github.com/affaan-m/ECC or npm ecc-universal."}, {"n": 4, "row": 1, "name": "Agent Skills (Addy Osmani)", "repo": "addyosmani/agent-skills", "what": "Senior-engineer lifecycle: /spec, /plan, /build, /test, /review, /code-simplify, /ship.", "needs": ["claude"], "install": ["claude plugin marketplace add addyosmani/agent-skills", "claude plugin install agent-skills@addy-agent-skills"], "alt": "npx skills add addyosmani/agent-skills", "verify": "claude plugin list | grep -q agent-skills@addy-agent-skills", "use": "/spec then /plan then /build.", "always_on": "~3,669", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 5, "row": 1, "name": "Superpowers", "repo": "obra/superpowers", "what": "Brainstorm, write plan, TDD, subagent execution, code review, verification before done.", "needs": ["claude"], "install": ["claude plugin marketplace add obra/superpowers-marketplace", "claude plugin install superpowers@superpowers-marketplace"], "alt": "Also in Anthropic's plugin directory: /plugin install superpowers (search 'superpowers' in /plugin).", "verify": "claude plugin list | grep -q superpowers@", "use": "Automatic; starts with brainstorming before code.", "always_on": "~848", "tested": "Installed from GitHub", "claude_ai": true, "note": ""}, {"n": 6, "row": 1, "name": "Ponytail", "repo": "DietrichGebert/ponytail", "what": "Lazy-senior-dev rules: write the least code that works, mark every shortcut.", "needs": ["claude"], "install": ["claude plugin marketplace add DietrichGebert/ponytail", "claude plugin install ponytail@ponytail"], "alt": "Cursor/Windsurf/Cline: copy the matching rules file from the repo.", "verify": "claude plugin list | grep -q ponytail@ponytail", "use": "/ponytail:ponytail ultra, /ponytail:ponytail-review", "always_on": "~641", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 7, "row": 2, "name": "Career Ops", "repo": "santifer/career-ops", "what": "Job-search command center: scores job posts against your CV, tailors ATS PDFs, tracks applications.", "needs": ["claude", "node", "git"], "install": ["git clone --depth 1 https://github.com/santifer/career-ops.git ~/career-ops", "cd ~/career-ops && npm install"], "alt": "npx @santifer/career-ops init", "verify": "test -f ~/career-ops/package.json && test -d ~/career-ops/node_modules", "use": "cd ~/career-ops, add cv.md, run claude, then /career-ops <job URL>.", "always_on": "~116", "tested": "Plugin installed + validated", "claude_ai": false, "note": "Works as a project folder. Draft-only: never submits applications."}, {"n": 8, "row": 2, "name": "REA (Reverse Engineer Anything)", "repo": "morluto/rea", "what": "CLI + MCP that lets the agent decompile and explain how an app works without its source.", "needs": ["node"], "install": ["npm install --global rea-agents", "rea setup"], "alt": "npx -y rea-agents analyze /Applications/Notes.app", "verify": "rea --version && rea doctor", "use": "Ask: 'Use REA to explain how search works in the Notes app.'", "always_on": "n/a (MCP)", "tested": "CLI 6.7.0 built; doctor runs", "claude_ai": false, "note": "Setup targets macOS (installs Homebrew + Hopper). Fake trojan 'REA.exe' copies exist: only use github.com/morluto/rea, rea.tools or npm rea-agents."}, {"n": 9, "row": 2, "name": "Graphify", "repo": "Graphify-Labs/graphify", "what": "Turns a folder of code, docs, PDFs and images into a queryable knowledge graph.", "needs": ["python"], "install": ["pipx install graphifyy || python3 -m pip install --user graphifyy", "graphify install"], "alt": "python3 -m pip install graphifyy && graphify install", "verify": "graphify --version", "use": "/graphify . in Claude Code, or graphify update <path> (code-only, no LLM).", "always_on": "n/a (CLI skill)", "tested": "0.9.95 built; mapped a repo: 958 nodes offline", "claude_ai": false, "note": "PyPI name is graphifyy (double y)."}, {"n": 10, "row": 2, "name": "Understand Anything", "repo": "Lum1104/Understand-Anything", "what": "Multi-agent codebase analysis into an interactive graph dashboard, guided tours, diff impact.", "needs": ["claude"], "install": ["claude plugin marketplace add Lum1104/Understand-Anything", "claude plugin install understand-anything@understand-anything"], "alt": "Other agents: curl -fsSL https://raw.githubusercontent.com/Lum1104/Understand-Anything/main/install.sh | bash -s codex", "verify": "claude plugin list | grep -q understand-anything", "use": "/understand then /understand-dashboard", "always_on": "~1,148", "tested": "Installed + validated", "claude_ai": false, "note": "First /understand on a big repo burns a lot of tokens; later runs are incremental."}, {"n": 11, "row": 2, "name": "Last 30 Days", "repo": "mvanhorn/last30days-skill", "what": "Researches a topic across Reddit, X, YouTube, HN, GitHub and the web over the last 30 days.", "needs": ["claude", "python"], "install": ["claude plugin marketplace add mvanhorn/last30days-skill", "claude plugin install last30days@last30days-skill"], "alt": "git clone https://github.com/mvanhorn/last30days-skill.git ~/.claude/skills/last30days", "verify": "claude plugin list | grep -q last30days", "use": "/last30days <topic>; run /last30days setup to add API keys.", "always_on": "~105", "tested": "Installed + validated", "claude_ai": false, "note": "More sources unlock with keys in ~/.config/last30days/.env. Runs take 2-8 minutes."}, {"n": 12, "row": 2, "name": "Agent Reach", "repo": "Panniantong/Agent-Reach", "what": "One CLI that lets the agent read X, Reddit, YouTube transcripts, GitHub, RSS and more.", "needs": ["python"], "install": ["pipx install git+https://github.com/Panniantong/Agent-Reach.git || python3 -m pip install --user git+https://github.com/Panniantong/Agent-Reach.git", "agent-reach setup"], "alt": "npx skills add Panniantong/Agent-Reach@agent-reach", "verify": "agent-reach doctor", "use": "Ask the agent to read a tweet, Reddit thread or YouTube video.", "always_on": "n/a (CLI skill)", "tested": "1.6.0 built; doctor OK", "claude_ai": false, "note": "Many guides still show 'agent-reach install --env=auto'; v1.6 replaced it with 'agent-reach setup'. X/Reddit need a login (agent-reach login <channel>); cookies stay local."}, {"n": 13, "row": 3, "name": "Headroom", "repo": "chopratejas/headroom", "what": "Compresses tool output, logs, files and history before the model reads them.", "needs": ["python", "claude"], "install": ["pipx install headroom-ai || python3 -m pip install --user headroom-ai", "claude plugin marketplace add chopratejas/headroom", "claude plugin install headroom@headroom-marketplace"], "alt": "Full ML compressors (large download): pipx install \"headroom-ai[all]\". Or skip the plugin and run: headroom wrap claude", "verify": "headroom --version", "use": "headroom perf to see savings; headroom unwrap claude to undo.", "always_on": "~0 (hooks)", "tested": "CLI 0.41.0 built; plugin installed", "claude_ai": false, "note": "README itself says 15-20% savings for coding agents (60-95% is for JSON-heavy data)."}, {"n": 14, "row": 3, "name": "BMAD Method", "repo": "bmad-code-org/BMAD-METHOD", "what": "Agile team of agents: analyst, PM, architect, dev, QA with stories and reviews.", "needs": ["node"], "install": ["npx bmad-method install"], "alt": "Non-interactive: npx bmad-method install --yes --modules bmm --tools claude-code. v7 preview: npx skills add bmad-code-org/BMAD-METHOD", "verify": "test -d .claude && ls .claude", "use": "Run inside a project folder, then /bmad-help.", "always_on": "per project", "tested": "v6 installed: 29 skills", "claude_ai": false, "note": "Installs per project (run it in the project folder)."}, {"n": 15, "row": 3, "name": "Claude-Mem", "repo": "thedotmack/claude-mem", "what": "Captures what happens in sessions and injects compressed memory into new ones.", "needs": ["claude", "bun"], "install": ["claude plugin marketplace add thedotmack/claude-mem", "claude plugin install claude-mem@thedotmack"], "alt": "", "verify": "claude plugin list | grep -q claude-mem@thedotmack", "use": "Automatic; search with the mem-search skill.", "always_on": "~2,775", "tested": "Installed; fails naming-policy validation (cosmetic)", "claude_ai": false, "note": "Runs a background worker (Bun). Data lives in ~/.claude-mem."}, {"n": 16, "row": 3, "name": "gstack", "repo": "garrytan/gstack", "what": "Garry Tan's setup: CEO/eng/design plan reviews, /review, /qa, /ship, /retro and more.", "needs": ["git", "bun"], "install": ["git clone --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack", "cd ~/.claude/skills/gstack && ./setup"], "alt": "", "verify": "test -f ~/.claude/skills/gstack/SKILL.md", "use": "/office-hours, /plan-ceo-review, /review, /ship", "always_on": "n/a (skills dir)", "tested": "v1.91 installed (browser part needs Chromium download)", "claude_ai": false, "note": "Its setup asks you to add CLAUDE.md lines telling Claude to use gstack's /browse instead of Claude in Chrome."}, {"n": 17, "row": 3, "name": "Caveman", "repo": "JuliusBrussee/caveman", "what": "Makes replies terse caveman-speak; also compresses CLAUDE.md files.", "needs": ["claude"], "install": ["claude plugin marketplace add JuliusBrussee/caveman", "claude plugin install caveman@caveman"], "alt": "", "verify": "claude plugin list | grep -q caveman@caveman", "use": "/caveman, /caveman-compress CLAUDE.md", "always_on": "~1,991", "tested": "Installed + validated", "claude_ai": true, "note": "An independent placebo test (skill-placebo) found no significant output-token saving and ~14% higher cost on Opus 5.5."}, {"n": 18, "row": 3, "name": "GSD (Get Shit Done)", "repo": "open-gsd/gsd-core", "what": "Spec-driven phases with fresh subagent contexts so big builds don't drift.", "needs": ["node"], "install": ["npx @opengsd/gsd-core@latest --claude --global"], "alt": "Old package (archived May 2026): npx get-shit-done-cc --claude --global", "verify": "ls ~/.claude/skills | grep -q gsd-help", "use": "/gsd-help, then /gsd-new-project", "always_on": "n/a (commands)", "tested": "gsd-core 1.18 installed", "claude_ai": false, "note": "gsd-build/get-shit-done moved to open-gsd/gsd-core. gsd-core declares Node 24+ (worked on 22 with a warning)."}, {"n": 19, "row": 4, "name": "Taste", "repo": "Leonxlnx/taste-skill", "what": "Anti-template frontend art direction: picks a deliberate visual direction, runs a preflight review.", "needs": ["claude"], "install": ["claude plugin marketplace add Leonxlnx/taste-skill", "claude plugin install taste-skill@taste-skill"], "alt": "npx skills add https://github.com/Leonxlnx/taste-skill --skill design-taste-frontend", "verify": "claude plugin list | grep -q taste-skill", "use": "Automatic on landing pages and redesigns.", "always_on": "~349", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 20, "row": 4, "name": "Archify", "repo": "tt-a1i/archify", "what": "Architecture, workflow, sequence, data-flow and lifecycle diagrams as one interactive HTML file.", "needs": ["node"], "install": ["npx skills add tt-a1i/archify -g"], "alt": "Manual: copy the archify/ folder into ~/.claude/skills/", "verify": "node ~/.claude/skills/archify/bin/archify.mjs doctor", "use": "'Use archify to draw a high-level architecture of this repo.'", "always_on": "n/a (skill)", "tested": "doctor OK; demo diagram rendered", "claude_ai": true, "note": ""}, {"n": 21, "row": 4, "name": "Diagram Design", "repo": "cathrynlavery/diagram-design", "what": "Editorial, on-brand diagrams (40+ types) as HTML/SVG/PNG.", "needs": ["claude"], "install": ["claude plugin marketplace add cathrynlavery/diagram-design", "claude plugin install diagram-design@diagram-design"], "alt": "npx skills add https://github.com/cathrynlavery/diagram-design --skill diagram-design", "verify": "claude plugin list | grep -q diagram-design", "use": "Ask for a diagram; it asks for brand tokens first.", "always_on": "~596", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 22, "row": 4, "name": "Impeccable", "repo": "pbakaus/impeccable", "what": "Design language for agents: 23 commands (critique, polish, audit) and anti-pattern detectors.", "needs": ["claude"], "install": ["claude plugin marketplace add pbakaus/impeccable", "claude plugin install impeccable@impeccable"], "alt": "npx impeccable install", "verify": "claude plugin list | grep -q impeccable@impeccable", "use": "/impeccable init once, then /impeccable critique <target>", "always_on": "~439", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 23, "row": 4, "name": "UI UX Pro Max", "repo": "nextlevelbuilder/ui-ux-pro-max-skill", "what": "Searchable catalog of UI styles, palettes, font pairings and UX rules across stacks.", "needs": ["claude", "python"], "install": ["claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill", "claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill"], "alt": "npm install -g ui-ux-pro-max-cli && uipro init --ai claude --global", "verify": "claude plugin list | grep -q ui-ux-pro-max", "use": "Automatic on UI work.", "always_on": "~1,067", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 24, "row": 4, "name": "PPT Master", "repo": "hugohe3/ppt-master", "what": "Turns a PDF, DOCX, URL or Markdown into a natively editable PowerPoint (real shapes, not images).", "needs": ["claude", "python", "git"], "install": ["git clone --depth 1 https://github.com/hugohe3/ppt-master.git ~/ppt-master", "python3 -m pip install --user -r ~/ppt-master/requirements.txt", "claude plugin marketplace add hugohe3/ppt-master", "claude plugin install ppt-master@ppt-master"], "alt": "", "verify": "claude plugin list | grep -q ppt-master", "use": "'Make a deck from this PDF.'", "always_on": "~206", "tested": "Installed + validated", "claude_ai": false, "note": "Repo is ~110 MB. If pip refuses (macOS 'externally-managed'), create a venv in ~/ppt-master first."}, {"n": 25, "row": 5, "name": "Marketing Skills", "repo": "coreyhaines31/marketingskills", "what": "52 marketing skills: copywriting, SEO audit, CRO, pricing, email sequences, ads.", "needs": ["claude"], "install": ["claude plugin marketplace add coreyhaines31/marketingskills", "claude plugin install marketing-skills@marketingskills"], "alt": "Pick a few: npx skills add coreyhaines31/marketingskills --skill page-cro copywriting", "verify": "claude plugin list | grep -q marketing-skills", "use": "Start with the product-marketing-context skill.", "always_on": "~15,682", "tested": "Installed + validated", "claude_ai": true, "note": "~15.7k tokens per session for all 52. Installing only the skills you need is much lighter."}, {"n": 26, "row": 5, "name": "Skills by Anthropic", "repo": "anthropics/skills", "what": "Official skills: Word, Excel, PowerPoint, PDF, skill-creator, frontend-design, MCP builder.", "needs": ["claude"], "install": ["claude plugin marketplace add anthropics/skills", "claude plugin install document-skills@anthropic-agent-skills", "claude plugin install example-skills@anthropic-agent-skills"], "alt": "", "verify": "claude plugin list | grep -q document-skills", "use": "Automatic when you ask for a .docx/.xlsx/.pptx/.pdf.", "always_on": "~1,030 + ~1,223", "tested": "Installed from GitHub", "claude_ai": false, "note": "The Claude app already has these built in; this is for Claude Code."}, {"n": 27, "row": 5, "name": "OpenMontage", "repo": "calesthio/OpenMontage", "what": "Agentic video studio: research, script, assets, edit and render with 12 pipelines.", "needs": ["git", "python", "node", "ffmpeg"], "install": ["git clone --depth 1 https://github.com/calesthio/OpenMontage.git ~/OpenMontage", "cd ~/OpenMontage && make setup"], "alt": "", "verify": "cd ~/OpenMontage && make preflight", "use": "Open Claude Code in ~/OpenMontage and describe the video.", "always_on": "per project", "tested": "make install + preflight OK (local FFmpeg tools ready)", "claude_ai": false, "note": "AGPL-3.0. Generation providers (Veo, Kling, ElevenLabs...) need your own API keys; stock/archive and FFmpeg paths are free."}, {"n": 28, "row": 5, "name": "Humanizer", "repo": "blader/humanizer", "what": "Removes AI-writing tells (based on Wikipedia's Signs of AI writing) with a second audit pass.", "needs": ["claude"], "install": ["claude plugin marketplace add blader/humanizer", "claude plugin install humanizer@humanizer"], "alt": "git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer", "verify": "claude plugin list | grep -q humanizer@humanizer", "use": "/humanizer <paste text>", "always_on": "~144", "tested": "Installed + validated", "claude_ai": true, "note": ""}, {"n": 29, "row": 5, "name": "HyperFrames", "repo": "heygen-com/hyperframes", "what": "HeyGen's HTML-to-video renderer with agent skills for captions, transitions, website-to-video.", "needs": ["claude", "node", "ffmpeg"], "install": ["claude plugin marketplace add heygen-com/hyperframes", "claude plugin install hyperframes@hyperframes", "npx -y hyperframes browser ensure"], "alt": "npx skills add heygen-com/hyperframes", "verify": "npx -y hyperframes doctor", "use": "/hyperframes 'Make a 10-second product intro.'", "always_on": "~783", "tested": "Installed + validated; doctor needs headless Chrome (browser ensure)", "claude_ai": false, "note": ""}, {"n": 30, "row": 5, "name": "I Have ADHD", "repo": "ayghri/i-have-adhd", "what": "Ten rules: answer first, numbered steps, max 5 items, no preamble or recap.", "needs": ["claude"], "install": ["claude plugin marketplace add ayghri/i-have-adhd", "claude plugin install i-have-adhd@i-have-adhd"], "alt": "", "verify": "claude plugin list | grep -q i-have-adhd", "use": "/i-have-adhd once per session; 'stop adhd mode' to turn off.", "always_on": "~106", "tested": "Installed + validated", "claude_ai": true, "note": ""}]};
+const out = document.getElementById("out"), chips = document.getElementById("chips"), count = document.getElementById("count"), sortSel = document.getElementById("sort");
+let row = "all";
+try { row = localStorage.getItem("row") || "all"; sortSel.value = localStorage.getItem("sort") || "row"; } catch (e) {}
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const tok = s => { s = String(s); if (!/^~/.test(s.trim())) return null; return s.split("+").reduce((a, p) => a + (+(p.match(/[\d,]+/) || ["0"])[0].replace(/,/g, "")), 0); };
+const MAX = Math.log10(50000);
+
+function chipEls() {
+  const opts = [["all", "All 30"]].concat(Object.entries(DATA.rows).map(([k, v]) => [k, k + " · " + v]));
+  chips.innerHTML = opts.map(([k, v]) => `<button class="chip" type="button" data-row="${k}" aria-pressed="${k === row}">${esc(v)}</button>`).join("");
+}
+
+function card(it) {
+  const t = tok(it.always_on), heavy = t !== null && t > 10000;
+  const pct = t === null ? 0 : t <= 0 ? 1 : Math.max(2, Math.log10(Math.max(t, 1)) / MAX * 100);
+  const cmds = it.install.map(c => `<span class="p">$ </span>${esc(c)}`).join("\n");
+  return `<article class="card" id="p${it.n}">
+    <div class="top">
+      <div class="title"><span class="num">${String(it.n).padStart(2, "0")}</span><h3>${esc(it.name)}</h3></div>
+      <div class="tags"><span class="tag ok" title="${esc(it.tested)}">Built ✓</span>${it.claude_ai ? '<span class="tag ai">Claude app zip</span>' : ""}<span class="tag">needs ${esc(it.needs.join(", "))}</span></div>
+    </div>
+    <a class="repo" href="https://github.com/${esc(it.repo)}" target="_blank" rel="noopener">github.com/${esc(it.repo)}</a>
+    <p class="what">${esc(it.what)}</p>
+    <div class="cost"><span>Per session</span><div class="track" aria-hidden="true"><div class="fill${heavy ? " heavy" : ""}" style="width:${pct}%"></div></div><output>${esc(it.always_on)}${t !== null ? " tok" : ""}</output></div>
+    <div><div class="label">Install</div><div class="cmd"><pre>${cmds}</pre><button class="copy" type="button" data-copy="${esc(it.install.join("\n"))}">Copy</button></div></div>
+    <div class="meta">
+      <p><span class="label">Check</span><br><code>${esc(it.verify)}</code></p>
+      <p><span class="label">Use</span><br>${esc(it.use)}</p>
+      <p><span class="label">Tested</span><br>${esc(it.tested)}</p>
+      ${it.alt ? `<details><summary>Other ways to install</summary><p><code>${esc(it.alt)}</code></p></details>` : ""}
+    </div>
+    ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
+  </article>`;
+}
+
+function render() {
+  let items = DATA.items.filter(it => row === "all" || String(it.row) === row);
+  const byCost = sortSel.value === "cost";
+  if (byCost) items = items.slice().sort((a, b) => (tok(a.always_on) ?? -1) - (tok(b.always_on) ?? -1));
+  count.textContent = `${items.length} plugin${items.length === 1 ? "" : "s"}`;
+  if (byCost) { out.innerHTML = `<div class="list">${items.map(card).join("")}</div>`; return; }
+  const groups = {};
+  items.forEach(it => (groups[it.row] = groups[it.row] || []).push(it));
+  out.innerHTML = Object.keys(groups).map(r => `<section><div class="rowhead"><h2>${esc(DATA.rows[r])}</h2><span>Row ${r}</span></div><div class="list">${groups[r].map(card).join("")}</div></section>`).join("");
+}
+
+chips.addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  row = b.dataset.row; try { localStorage.setItem("row", row); } catch (x) {}
+  chips.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b)); render();
+});
+sortSel.addEventListener("change", () => { try { localStorage.setItem("sort", sortSel.value); } catch (x) {} render(); });
+out.addEventListener("click", e => {
+  const b = e.target.closest(".copy"); if (!b) return;
+  const text = b.dataset.copy, done = () => { b.textContent = "Copied"; setTimeout(() => b.textContent = "Copy", 1500); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents(b.previousElementSibling); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; setTimeout(() => b.textContent = "Copy", 1500); };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch (x) { fallback(); }
+});
+chipEls(); render();
+</script>

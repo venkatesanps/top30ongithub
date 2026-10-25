@@ -1,0 +1,30 @@
+01|1. Code like a senior|Karpathy Skills|forrestchang/andrej-karpathy-skills
+02|1. Code like a senior|Matt Pocock Skills|mattpocock/skills|mattpocock-skills
+03|1. Code like a senior|ECC (Everything Claude Code)|affaan-m/ECC
+04|1. Code like a senior|Agent Skills (Addy Osmani)|addyosmani/agent-skills
+05|1. Code like a senior|Superpowers|obra/superpowers
+06|1. Code like a senior|Ponytail|DietrichGebert/ponytail
+07|2. Research and understanding|Career Ops|santifer/career-ops
+08|2. Research and understanding|REA (Reverse Engineer Anything)|morluto/rea
+09|2. Research and understanding|Graphify|Graphify-Labs/graphify
+10|2. Research and understanding|Understand Anything|Lum1104/Understand-Anything
+11|2. Research and understanding|Last 30 Days|mvanhorn/last30days-skill
+12|2. Research and understanding|Agent Reach|Panniantong/Agent-Reach
+13|3. Big projects, fewer tokens|Headroom|chopratejas/headroom
+14|3. Big projects, fewer tokens|BMAD Method|bmad-code-org/BMAD-METHOD
+15|3. Big projects, fewer tokens|Claude-Mem|thedotmack/claude-mem
+16|3. Big projects, fewer tokens|gstack|garrytan/gstack
+17|3. Big projects, fewer tokens|Caveman|JuliusBrussee/caveman
+18|3. Big projects, fewer tokens|GSD (Get Shit Done)|gsd-build/get-shit-done
+19|4. Design and visuals|Taste|Leonxlnx/taste-skill
+20|4. Design and visuals|Archify|tt-a1i/archify
+21|4. Design and visuals|Diagram Design|cathrynlavery/diagram-design
+22|4. Design and visuals|Impeccable|pbakaus/impeccable
+23|4. Design and visuals|UI UX Pro Max|nextlevelbuilder/ui-ux-pro-max-skill
+24|4. Design and visuals|PPT Master|hugohe3/ppt-master
+25|5. Writing and video|Marketing Skills|coreyhaines31/marketingskills
+26|5. Writing and video|Skills by Anthropic|anthropics/skills|anthropics-skills
+27|5. Writing and video|OpenMontage|calesthio/OpenMontage
+28|5. Writing and video|Humanizer|blader/humanizer
+29|5. Writing and video|HyperFrames|heygen-com/hyperframes
+30|5. Writing and video|I Have ADHD|ayghri/i-have-adhd

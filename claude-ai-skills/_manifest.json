@@ -1,0 +1,530 @@
+[
+ {
+  "folder": "01-karpathy",
+  "skill": "karpathy-guidelines",
+  "status": "ok",
+  "bytes": 1460
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "productivity/grill-me",
+  "status": "ok",
+  "bytes": 495
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "engineering/tdd",
+  "status": "ok",
+  "bytes": 4017
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "engineering/to-spec",
+  "status": "ok",
+  "bytes": 1773
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "engineering/diagnosing-bugs",
+  "status": "ok",
+  "bytes": 5227
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "engineering/code-review",
+  "status": "ok",
+  "bytes": 3421
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "engineering/domain-modeling",
+  "status": "ok",
+  "bytes": 4722
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "productivity/handoff",
+  "status": "ok",
+  "bytes": 895
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "productivity/teach",
+  "status": "ok",
+  "bytes": 9196
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "spec-driven-development",
+  "status": "ok",
+  "bytes": 5625
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "planning-and-task-breakdown",
+  "status": "ok",
+  "bytes": 4496
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "code-review-and-quality",
+  "status": "ok",
+  "bytes": 8787
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "debugging-and-error-recovery",
+  "status": "ok",
+  "bytes": 4838
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "security-and-hardening",
+  "status": "ok",
+  "bytes": 13512
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "api-and-interface-design",
+  "status": "ok",
+  "bytes": 6255
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "documentation-and-adrs",
+  "status": "ok",
+  "bytes": 5024
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "idea-refine",
+  "status": "ok",
+  "bytes": 18031
+ },
+ {
+  "folder": "04-agent-skills",
+  "skill": "interview-me",
+  "status": "ok",
+  "bytes": 6142
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "brainstorming",
+  "status": "ok",
+  "bytes": 30006
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "writing-plans",
+  "status": "ok",
+  "bytes": 4524
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "executing-plans",
+  "status": "ok",
+  "bytes": 8665
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "systematic-debugging",
+  "status": "ok",
+  "bytes": 19361
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "test-driven-development",
+  "status": "ok",
+  "bytes": 8043
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "verification-before-completion",
+  "status": "ok",
+  "bytes": 1885
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "requesting-code-review",
+  "status": "ok",
+  "bytes": 4667
+ },
+ {
+  "folder": "05-superpowers",
+  "skill": "receiving-code-review",
+  "status": "ok",
+  "bytes": 2879
+ },
+ {
+  "folder": "06-ponytail",
+  "skill": "ponytail",
+  "status": "ok",
+  "bytes": 1865
+ },
+ {
+  "folder": "06-ponytail",
+  "skill": "ponytail-review",
+  "status": "ok",
+  "bytes": 2649
+ },
+ {
+  "folder": "17-caveman",
+  "skill": "caveman",
+  "status": "ok",
+  "bytes": 4162
+ },
+ {
+  "folder": "19-taste",
+  "skill": "taste-skill",
+  "status": "ok",
+  "bytes": 761242
+ },
+ {
+  "folder": "20-archify",
+  "skill": "archify",
+  "status": "ok",
+  "bytes": 4483054
+ },
+ {
+  "folder": "21-diagram-design",
+  "skill": "diagram-design",
+  "status": "ok",
+  "bytes": 1321688
+ },
+ {
+  "folder": "22-impeccable",
+  "skill": "impeccable",
+  "status": "ok",
+  "bytes": 847523
+ },
+ {
+  "folder": "23-ui-ux-pro-max",
+  "skill": "ui-ux-pro-max",
+  "status": "ok",
+  "bytes": 568484
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "ab-testing",
+  "status": "ok",
+  "bytes": 12005
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "ad-creative",
+  "status": "ok",
+  "bytes": 85306
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "ads",
+  "status": "ok",
+  "bytes": 73570
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "ai-seo",
+  "status": "ok",
+  "bytes": 69834
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "analytics",
+  "status": "ok",
+  "bytes": 15439
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "aso",
+  "status": "ok",
+  "bytes": 20491
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "attribution",
+  "status": "ok",
+  "bytes": 30465
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "churn-prevention",
+  "status": "ok",
+  "bytes": 18077
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "co-marketing",
+  "status": "ok",
+  "bytes": 8940
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "cold-email",
+  "status": "ok",
+  "bytes": 32303
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "community-marketing",
+  "status": "ok",
+  "bytes": 6706
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "competitor-profiling",
+  "status": "ok",
+  "bytes": 13260
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "competitors",
+  "status": "ok",
+  "bytes": 10554
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "content-strategy",
+  "status": "ok",
+  "bytes": 14889
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "conversion-tracking",
+  "status": "ok",
+  "bytes": 236510
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "copy-editing",
+  "status": "ok",
+  "bytes": 15929
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "copywriting",
+  "status": "ok",
+  "bytes": 25275
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "cro",
+  "status": "ok",
+  "bytes": 11000
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "customer-research",
+  "status": "ok",
+  "bytes": 17818
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "directory-submissions",
+  "status": "ok",
+  "bytes": 32708
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "emails",
+  "status": "ok",
+  "bytes": 13851
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "events",
+  "status": "ok",
+  "bytes": 19616
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "free-tools",
+  "status": "ok",
+  "bytes": 7652
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "image",
+  "status": "ok",
+  "bytes": 10528
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "influencer-marketing",
+  "status": "ok",
+  "bytes": 23306
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "launch",
+  "status": "ok",
+  "bytes": 11314
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "lead-magnets",
+  "status": "ok",
+  "bytes": 18486
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "link-building",
+  "status": "ok",
+  "bytes": 13837
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "marketing-council",
+  "status": "ok",
+  "bytes": 33832
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "marketing-ideas",
+  "status": "ok",
+  "bytes": 11838
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "marketing-loops",
+  "status": "ok",
+  "bytes": 42848
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "marketing-plan",
+  "status": "ok",
+  "bytes": 105266
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "marketing-psychology",
+  "status": "ok",
+  "bytes": 8738
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "offers",
+  "status": "ok",
+  "bytes": 34588
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "onboarding",
+  "status": "ok",
+  "bytes": 12241
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "paywalls",
+  "status": "ok",
+  "bytes": 5255
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "popups",
+  "status": "ok",
+  "bytes": 5243
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "pricing",
+  "status": "ok",
+  "bytes": 17484
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "product-marketing",
+  "status": "ok",
+  "bytes": 9902
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "programmatic-seo",
+  "status": "ok",
+  "bytes": 9567
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "prospecting",
+  "status": "ok",
+  "bytes": 44431
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "public-relations",
+  "status": "ok",
+  "bytes": 34205
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "referrals",
+  "status": "ok",
+  "bytes": 24405
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "revops",
+  "status": "ok",
+  "bytes": 24527
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "sales-enablement",
+  "status": "ok",
+  "bytes": 29591
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "schema",
+  "status": "ok",
+  "bytes": 6270
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "seo-audit",
+  "status": "ok",
+  "bytes": 28825
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "signup",
+  "status": "ok",
+  "bytes": 4792
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "site-architecture",
+  "status": "ok",
+  "bytes": 18001
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "sms",
+  "status": "ok",
+  "bytes": 25229
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "social",
+  "status": "ok",
+  "bytes": 37245
+ },
+ {
+  "folder": "25-marketing",
+  "skill": "video",
+  "status": "ok",
+  "bytes": 17822
+ },
+ {
+  "folder": "28-humanizer",
+  "skill": ".",
+  "status": "ok",
+  "bytes": 12745
+ },
+ {
+  "folder": "30-i-have-adhd",
+  "skill": "i-have-adhd",
+  "status": "ok",
+  "bytes": 5141
+ }
+]
