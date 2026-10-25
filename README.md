@@ -56,7 +56,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-25: 56 repos, 53 of 53 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
+_Checked 2026-10-25: 56 repos, 55 of 55 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-25._
 
 **Top 30 from the post**
 
@@ -76,7 +76,7 @@ _Checked 2026-10-25: 56 repos, 53 of 53 install-tested items passing, 0 needing 
 | 12 | Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 102.4k | 2026-10-25 | pass (2026-10-25) | n/a (CLI skill) | OK |
 | 13 | Headroom | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | 77.8k | 2026-10-24 | pass (2026-10-25) | ~0 | OK |
 | 14 | BMAD Method | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) | 54.5k | 2026-10-20 | pass (2026-10-25) | per project | OK |
-| 15 | Claude-Mem | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 103.1k | 2026-10-25 | pass (2026-10-25) | ~2,060 | OK |
+| 15 | Claude-Mem | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 103.1k | 2026-10-25 | pass (2026-10-25) | ~2,065 | OK |
 | 16 | gstack | [garrytan/gstack](https://github.com/garrytan/gstack) | 137.7k | 2026-10-25 | pass (2026-10-25) | n/a (skills dir) | OK |
 | 17 | Caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 115k | 2026-10-25 | pass (2026-10-25) | ~1,366 | OK |
 | 18 | GSD (Get Shit Done) | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) | 10.9k | 2026-10-25 | pass (2026-10-25) | n/a (commands) | OK |
@@ -106,7 +106,7 @@ _Checked 2026-10-25: 56 repos, 53 of 53 install-tested items passing, 0 needing 
 | 37 | Great Expectations | [fivetran/great_expectations](https://github.com/fivetran/great_expectations) | 11.9k | 2026-10-22 | pass (2026-10-25) | n/a | OK |
 | 38 | Agent Toolkit for AWS | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | 3.3k | 2026-10-23 | pass (2026-10-25) | ~4,762 + ~3,855 | OK |
 | 39 | AWS MCP servers (data & ops) | [awslabs/mcp](https://github.com/awslabs/mcp) | 9.8k | 2026-10-23 | pass (2026-10-25) | n/a | OK |
-| 40 | Oracle SQLcl MCP server | [oracle/mcp](https://github.com/oracle/mcp) | 467 | 2026-10-23 | pass (2026-10-25) | n/a | OK |
+| 40 | Oracle SQLcl MCP server | [oracle/mcp](https://github.com/oracle/mcp) | 468 | 2026-10-23 | pass (2026-10-25) | n/a | OK |
 | 41 | SQLGlot | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | 9.7k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
 | 42 | SQLFluff | [sqlfluff/sqlfluff](https://github.com/sqlfluff/sqlfluff) | 10k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
 | 43 | Informatica for Claude (IDMC) | [forcedotcom/informatica-claude-plugins](https://github.com/forcedotcom/informatica-claude-plugins) | 1 | 2026-09-15 | pass (2026-10-25) | ~234 | OK |
@@ -121,8 +121,8 @@ _Checked 2026-10-25: 56 repos, 53 of 53 install-tested items passing, 0 needing 
 | 52 | Keep (alert hub & AIOps) | [keephq/keep](https://github.com/keephq/keep) | 12.4k | 2026-10-22 | pass (2026-10-25) | n/a | OK |
 | 53 | HolmesGPT (AI SRE agent) | [HolmesGPT/holmesgpt](https://github.com/HolmesGPT/holmesgpt) | 3.7k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
 | 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | 92.9k | 2026-10-25 | pass (2026-10-25) | n/a | OK |
-| 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | — | — | untested (2026-10-25) | ~? | OK |
-| 56 | PagerDuty MCP server (hosted) | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | untested (2026-10-25) | n/a | OK |
+| 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | 167 | 2026-10-23 | pass (2026-10-25) | ~5,459 | OK |
+| 56 | PagerDuty MCP server (hosted) | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | pass (2026-10-25) | n/a | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

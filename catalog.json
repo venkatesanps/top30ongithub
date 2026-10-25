@@ -48,7 +48,7 @@
    "upstream": {
     "head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
     "license": "MIT",
-    "stars": 223754,
+    "stars": 223761,
     "pushed": "2026-04-20",
     "default_branch": "main"
    },
@@ -97,7 +97,7 @@
    "upstream": {
     "head": "5beb35b040e3de97e54fa9e386d7e42d15c295c2",
     "license": "MIT",
-    "stars": 303137,
+    "stars": 303144,
     "pushed": "2026-10-22",
     "default_branch": "main"
    },
@@ -131,7 +131,7 @@
    },
    "upstream": {
     "head": "e49479937753c8aca5a09aa76dbe2eea1b68f187",
-    "stars": 288739,
+    "stars": 288740,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main",
@@ -183,7 +183,7 @@
    "upstream": {
     "head": "aeac41d4d005999432bb7312f7ff06383a91d59d",
     "license": "MIT",
-    "stars": 110462,
+    "stars": 110465,
     "pushed": "2026-10-13",
     "default_branch": "main"
    },
@@ -232,7 +232,7 @@
    "upstream": {
     "head": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
     "license": "MIT",
-    "stars": 304988,
+    "stars": 304994,
     "pushed": "2026-10-23",
     "default_branch": "main"
    },
@@ -275,7 +275,7 @@
    "upstream": {
     "head": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
     "license": "MIT",
-    "stars": 176088,
+    "stars": 176091,
     "pushed": "2026-10-18",
     "default_branch": "main"
    },
@@ -320,7 +320,7 @@
      "npm:@santifer/career-ops": "1.38.0"
     },
     "pinned": "f4d7477c8d25f81e6e4a952b724378913ea8c86e",
-    "stars": 77249,
+    "stars": 77250,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -370,7 +370,7 @@
      "npm:rea-agents": "6.8.0"
     },
     "pinned": "1173c0a9dc1b352a60943a491462294db8f353ae",
-    "stars": 383851,
+    "stars": 383907,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -413,7 +413,7 @@
     "packages": {
      "pypi:graphifyy": "0.9.95"
     },
-    "stars": 135066,
+    "stars": 135074,
     "pushed": "2026-10-23",
     "license": "Apache-2.0",
     "default_branch": "v8"
@@ -484,7 +484,7 @@
    },
    "upstream": {
     "head": "f3cd06a620e385ce15109ed6d3b70fc20c89eccc",
-    "stars": 65436,
+    "stars": 65435,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -528,7 +528,7 @@
      "pypi:agent-reach": "0.1.0"
     },
     "pinned": "14c213405669414492bda0f8d52cc6531d062c45",
-    "stars": 102424,
+    "stars": 102425,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -573,7 +573,7 @@
     "packages": {
      "pypi:headroom-ai": "0.41.0"
     },
-    "stars": 77807,
+    "stars": 77808,
     "pushed": "2026-10-24",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -621,7 +621,7 @@
     "packages": {
      "npm:bmad-method": "6.12.4"
     },
-    "stars": 54540,
+    "stars": 54541,
     "pushed": "2026-10-20",
     "license": "NOASSERTION",
     "default_branch": "main"
@@ -645,7 +645,7 @@
    "alt": "",
    "verify": "claude plugin list | grep -q claude-mem@thedotmack",
    "use": "Automatic; search with the mem-search skill.",
-   "always_on": "~2,060",
+   "always_on": "~2,065",
    "tested": "Installed; fails naming-policy validation (cosmetic)",
    "note": "Runs a background worker (Bun). Data lives in ~/.claude-mem.",
    "source": "sources/15-claude-mem",
@@ -656,9 +656,9 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "b1cfce1aa443b117b075e23e32087d2eef8fb0e8",
-    "pinned": "b1cfce1aa443b117b075e23e32087d2eef8fb0e8",
-    "stars": 103070,
+    "head": "d9b36b66dc68da92af9df238e4c4debab587ba62",
+    "pinned": "d9b36b66dc68da92af9df238e4c4debab587ba62",
+    "stars": 103071,
     "pushed": "2026-10-25",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -695,7 +695,7 @@
    "upstream": {
     "head": "64d82101cac149125d28df888e3f2ea14a444dc5",
     "pinned": "64d82101cac149125d28df888e3f2ea14a444dc5",
-    "stars": 137685,
+    "stars": 137684,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -739,7 +739,7 @@
     "head": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "pinned": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "license": "Apache-2.0",
-    "stars": 115012,
+    "stars": 115013,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -825,7 +825,7 @@
     "head": "12af471f627f866411b4bd785b19646d3672784c",
     "pinned": "12af471f627f866411b4bd785b19646d3672784c",
     "license": "MIT",
-    "stars": 102416,
+    "stars": 102419,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -867,7 +867,7 @@
     "head": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
     "pinned": "81c6be8d87090670c45d08a8f97f9d29c5af0bec",
     "license": "Apache-2.0",
-    "stars": 89121,
+    "stars": 89120,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -909,7 +909,7 @@
    "upstream": {
     "head": "4a5fe680e8560651958b18e08766a67bbadd43bb",
     "license": "MIT",
-    "stars": 61013,
+    "stars": 61016,
     "pushed": "2026-10-25",
     "default_branch": "main",
     "pinned": "4a5fe680e8560651958b18e08766a67bbadd43bb"
@@ -961,7 +961,7 @@
     },
     "pinned": "3671d50f0ac9a662ce0615e85a256110c9cd720b",
     "license": "Apache-2.0",
-    "stars": 87502,
+    "stars": 87511,
     "pushed": "2026-10-25",
     "default_branch": "main"
    },
@@ -1012,7 +1012,7 @@
      "npm:ui-ux-pro-max-cli": "2.15.0"
     },
     "license": "MIT",
-    "stars": 140321,
+    "stars": 140323,
     "pushed": "2026-10-23",
     "default_branch": "main"
    },
@@ -1091,7 +1091,7 @@
    "upstream": {
     "head": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
     "license": "MIT",
-    "stars": 56496,
+    "stars": 56495,
     "pushed": "2026-10-22",
     "default_branch": "main"
    },
@@ -1126,7 +1126,7 @@
    },
    "upstream": {
     "head": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-    "stars": 183736,
+    "stars": 183737,
     "pushed": "2026-10-09",
     "license": null,
     "default_branch": "main"
@@ -1170,7 +1170,7 @@
    },
    "upstream": {
     "head": "e01dbf433f46eeb91d39bf905e194162921019a3",
-    "stars": 71851,
+    "stars": 71854,
     "pushed": "2026-10-24",
     "license": "AGPL-3.0",
     "default_branch": "main"
@@ -1216,7 +1216,7 @@
    "upstream": {
     "head": "8c307f367c91bd974002f10f2be2965d642c13df",
     "license": "MIT",
-    "stars": 60547,
+    "stars": 60549,
     "pushed": "2026-10-16",
     "default_branch": "main"
    },
@@ -1257,12 +1257,12 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "70187a13b59118cf056f3bcdcd0c0df8f453a9f8",
+    "head": "c163330a16b90108190549a61bcebba39deae6c6",
     "packages": {
      "npm:hyperframes": "0.8.199"
     },
-    "pinned": "70187a13b59118cf056f3bcdcd0c0df8f453a9f8",
-    "stars": 72055,
+    "pinned": "c163330a16b90108190549a61bcebba39deae6c6",
+    "stars": 72061,
     "pushed": "2026-10-25",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -1728,7 +1728,7 @@
    "problems": [],
    "upstream": {
     "head": "58cf8b7fd71f23908e32de88ef59613399ac952c",
-    "stars": 467,
+    "stars": 468,
     "pushed": "2026-10-23",
     "license": "UPL-1.0",
     "default_branch": "main",
@@ -1887,7 +1887,7 @@
    "problems": [],
    "upstream": {
     "head": "33d3dea41a341b341d4f5da2e8801ae0c89be2b8",
-    "stars": 32943,
+    "stars": 32942,
     "pushed": "2026-10-24",
     "license": "Apache-2.0",
     "default_branch": "main",
@@ -2092,7 +2092,7 @@
    "problems": [],
    "upstream": {
     "head": "b40f51149d117e7c01b5f92466bae44e39c66a10",
-    "stars": 19174,
+    "stars": 19173,
     "pushed": "2026-10-25",
     "license": "NOASSERTION",
     "default_branch": "main",
@@ -2302,7 +2302,7 @@
    "problems": [],
    "upstream": {
     "head": "413857f1f04ae18bdea7f0ed0273c1902679df68",
-    "stars": 92900,
+    "stars": 92901,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "master",
@@ -2331,14 +2331,21 @@
    "verify": "claude plugin list | grep -q 'dynatrace@dynatrace-for-ai'",
    "use": "export DT_ENVIRONMENT=https://<env>.apps.dynatrace.com DT_PLATFORM_TOKEN=..., start Claude Code, then 'list open problems affecting the trade-capture service'.",
    "note": "Replaces dynatrace-oss/dynatrace-mcp, archived after v2.1.2. One of the heavier plugins (skills plus the full MCP tool list). Grail queries can incur cost; scope the platform token to read-only.",
-   "always_on": "~?",
+   "always_on": "~5,459",
    "source": "sources/55-dynatrace-for-ai",
    "status": "ok",
    "problems": [],
-   "upstream": {},
+   "upstream": {
+    "head": "4f9aa71f9802aa6db0a4069ae5619eb3392ff411",
+    "stars": 167,
+    "pushed": "2026-10-23",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "4f9aa71f9802aa6db0a4069ae5619eb3392ff411"
+   },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    }
   },
   {
@@ -2375,7 +2382,7 @@
    },
    "verified": {
     "date": "2026-10-25",
-    "result": "untested"
+    "result": "pass"
    },
    "archived_ok": true
   }

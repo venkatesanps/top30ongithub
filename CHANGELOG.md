@@ -2,6 +2,18 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-25 20:24 UTC
+
+**Upstream updates**
+- Claude-Mem: [b1cfce1 → d9b36b6](https://github.com/thedotmack/claude-mem/compare/b1cfce1aa443b117b075e23e32087d2eef8fb0e8...d9b36b66dc68da92af9df238e4c4debab587ba62)
+- HyperFrames: [70187a1 → c163330](https://github.com/heygen-com/hyperframes/compare/70187a13b59118cf056f3bcdcd0c0df8f453a9f8...c163330a16b90108190549a61bcebba39deae6c6)
+
+**Notes**
+- Claude-Mem: per-session tokens ~2,060 → ~2,065
+- Dynatrace for AI (plugin + MCP): per-session tokens ~? → ~5,459
+
+**Install tests**: 4/4 passed
+
 ## 2026-10-25 20:19 UTC
 
 **Upstream updates**
