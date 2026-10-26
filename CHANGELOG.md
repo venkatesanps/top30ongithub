@@ -2,6 +2,36 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-26 17:34 UTC
+
+**Upstream updates**
+- Career Ops: [3be8310 → 75ea69f](https://github.com/career-ops-hq/career-ops/compare/3be831095a6e2e65345bbaf7de484781c5fced12...75ea69f514e33a32029e575d17fc90b5285a49e6)
+- REA (Reverse Engineer Anything): [0211a07 → 1ce9f31](https://github.com/morluto/rea/compare/0211a07ec5c43b2f8cbdbcd80f3f3619773a7b72...1ce9f317be4c5c9b8c8efb6e6260d4e4c933ab4d)
+- Graphify: [92741d1 → dac0634](https://github.com/Graphify-Labs/graphify/compare/92741d162b2094ffc2fed58cfbd8ee823e9da62c...dac063456bc1f5d92354ec3936fd9dd1513a83f3)
+- Headroom: [3fef15d → a904210](https://github.com/headroomlabs-ai/headroom/compare/3fef15d376d9899f77a28464e2e91f8b99514930...a90421083a781990b877d34fdaba0bc1b6cf6c4d)
+- gstack: [6154b6e → 39b06e2](https://github.com/garrytan/gstack/compare/6154b6ea1d53b8359a3a6253ae5a10033979ba8c...39b06e22afeabe25d73f5b7617427cc3f7dc2b68)
+- GSD (Get Shit Done): [f2a1fee → b25f65d](https://github.com/open-gsd/gsd-core/compare/f2a1feedd16d5f01e49820bb6a5c4160c76943a6...b25f65d8f994c9b2b0e6e6f8c783c86bc147876e)
+- Impeccable: [6743a34 → 989c484](https://github.com/pbakaus/impeccable/compare/6743a347db6229848348024388033e830ae4af42...989c484c091d26f10fa102767eefc0da2e62ec67)
+- HyperFrames: [9652a63 → 0979e32](https://github.com/heygen-com/hyperframes/compare/9652a6324ada60b27f91c413155740399a6c2d5d...0979e32a8dd7cbf951829ce7fb6298528aba5c9a)
+- dbt MCP server: [c9d616b → 3274e6b](https://github.com/dbt-labs/dbt-mcp/compare/c9d616b03a448f4690851c788b888156cfb68462...3274e6bea45e1461fbe7ca116dd6ce2b862b28ae)
+- Oracle SQLcl MCP server: [58cf8b7 → 3efd709](https://github.com/oracle/mcp/compare/58cf8b7fd71f23908e32de88ef59613399ac952c...3efd70951985192a64782af077472bd49bd91841)
+- SQLGlot: [114999a → 8709510](https://github.com/tobymao/sqlglot/compare/114999ae6787cbdb7ea630710b82ad2849711e08...8709510f9a097d937e3058b82ededfe703625801)
+- SQLFluff: [27e8422 → 692629b](https://github.com/sqlfluff/sqlfluff/compare/27e84221e56410432bed4843e0a0853fbd4622ac...692629bba783560619e0c041817efbd1d62af809)
+- Apache DevLake (DORA dashboards): [6c6e20d → e32a6e7](https://github.com/apache/devlake/compare/6c6e20de29e0566bbad40639e2278e8421046ffb...e32a6e7e97ed84fb4b4a68d07c62ec4d35f67351)
+- Grafana OTel LGTM (all-in-one): [9433777 → 7c436e6](https://github.com/grafana/docker-otel-lgtm/compare/943377739ba82994469161033ebfe1f7d57173ee...7c436e6ecd5ba52f6ea66e9a7d44d3d91a08244a)
+- Grafana MCP server: [61f1b1a → 9d038c5](https://github.com/grafana/mcp-grafana/compare/61f1b1a5869f16b0c7d56b6cbe980d195d352fe8...9d038c5e296ed99201f07273623aab56cf78e9b5)
+- HolmesGPT (AI SRE agent): [3957f36 → 49804bd](https://github.com/HolmesGPT/holmesgpt/compare/3957f368a4e35255f3fa83f397475ff36aa54193...49804bde566633d4e945952e01c6bf99df6df7ab)
+- Uptime Kuma (status pages): [be2b440 → 8b6038e](https://github.com/louislam/uptime-kuma/compare/be2b4409657a2873b4b08946509dad7a1bf59588...8b6038e29614ac5b2738779c4446157667a2a7a5)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.95 → 0.9.96
+- GSD (Get Shit Done): npm:@opengsd/gsd-core 1.18.0 → 1.19.0
+- HyperFrames: npm:hyperframes 0.8.203 → 0.8.205
+- dbt MCP server: pypi:dbt-mcp 2.7.0 → 2.8.0
+- SQLGlot: pypi:sqlglot 30.24.0 → 30.25.0
+
+**Install tests**: 56/56 passed
+
 ## 2026-10-26 12:49 UTC
 
 **Upstream updates**
