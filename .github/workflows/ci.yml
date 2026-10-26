@@ -40,3 +40,6 @@ jobs:
           ./install.sh --status > /dev/null
           ./install.sh --dry-run row 1 row 5 > /dev/null
           python3 -m py_compile scripts/kit.py
+
+      - name: Skill tests
+        run: python3 tests/datadog/test_dd_collect.py

@@ -10,7 +10,7 @@ pipeline so the numbers agree.
 | **Technology leadership** | Are we up? Are we meeting our promises? Is it getting better? | SLO and error-budget summary per service, incidents and MTTR per month, a status page | **54** Uptime Kuma status page; Grafana SLO dashboard on **50**; DevLake (**46**) for change failure rate and time to restore |
 | **Application developers** | Is my release healthy? Where is the time going? | RED metrics (rate, errors, duration) per endpoint, traces, logs for my service, deploy markers | **50** Grafana OTel LGTM (traces, metrics, logs); **51** Grafana MCP to ask questions in Claude |
 | **L2 support** | What's firing, what's related, who owns it? | One deduplicated alert queue with service ownership and runbook links | **52** Keep (pulls in Splunk, Dynatrace, Datadog, Prometheus, PagerDuty...); **56** PagerDuty hosted MCP; **44** `operations` runbooks |
-| **L3 / SRE** | What's the root cause, and what changed? | Correlated metrics, traces and logs around the alert window, recent deploys and config changes | **53** HolmesGPT; **55** Dynatrace for AI; **51** Grafana MCP; **39** AWS CloudWatch MCP |
+| **L3 / SRE** | What's the root cause, and what changed? | Correlated metrics, traces and logs around the alert window, recent deploys and config changes | **57** Datadog app investigator; **53** HolmesGPT; **55** Dynatrace for AI; **51** Grafana MCP; **39** AWS CloudWatch MCP |
 | **Data platform** | Did the data land, on time, correct, at what cost? | Freshness, test results, anomaly alerts, Snowflake credits by warehouse | **36** Elementary; **35** dbt-snowflake-monitoring; **34** Airflow agents |
 
 ## A one-afternoon trial (laptop or sandbox)
@@ -43,6 +43,6 @@ pipeline so the numbers agree.
 ## Using what your firm already runs
 
 Most large firms already have Splunk, Dynatrace, Datadog or Grafana. Before standing up new
-servers, connect Claude to the existing ones (Dynatrace for AI **55**, Grafana MCP **51**, Datadog's
-plugin in the knowledge-work marketplace, Splunk's own MCP app) with read-only tokens. Then
+servers, connect Claude to the existing ones (Dynatrace for AI **55**, Grafana MCP **51**, Datadog via
+**57**, Splunk's own MCP app) with read-only tokens. Then
 use Keep and HolmesGPT on top.

@@ -1,0 +1,14 @@
+{
+  "name": "top30ongithub",
+  "owner": { "name": "venkatesanps" },
+  "metadata": { "description": "Skills built in the top30ongithub kit", "version": "0.1.0" },
+  "plugins": [
+    {
+      "name": "top30-ops",
+      "source": "./plugins/top30-ops",
+      "description": "Datadog app investigator: read-only logs, traces, monitors, deploys and incidents for one service, written up as an investigation report.",
+      "version": "0.1.0",
+      "category": "observability"
+    }
+  ]
+}

@@ -222,3 +222,7 @@
 	path = sources/56-pagerduty-mcp-server
 	url = https://github.com/PagerDuty/pagerduty-mcp-server.git
 	shallow = true
+[submodule "sources/57-claude-code-plugin"]
+	path = sources/57-claude-code-plugin
+	url = https://github.com/datadog-labs/claude-code-plugin.git
+	shallow = true

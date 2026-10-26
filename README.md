@@ -45,6 +45,19 @@ Restart Claude Code after installing plugins. Prerequisites only for items that 
 Claude Code, Node 22+ (24+ for GSD), Python 3.10+ (pipx recommended), uv (MCP servers),
 Docker (dashboards), Java 17+ (SQLcl), Bun (gstack, Claude-Mem), git, FFmpeg (video tools).
 
+## Skills built here
+
+This repo is also a Claude Code plugin marketplace with its own skills:
+
+```bash
+/plugin install top30-ops --marketplace venkatesanps/top30ongithub
+# or: claude plugin marketplace add venkatesanps/top30ongithub && claude plugin install top30-ops@top30ongithub
+```
+
+| Skill | What it does |
+|---|---|
+| `datadog-app-investigator` | Signs in through Datadog's official plugin (OAuth) and collects one service's error logs, slow and failing endpoints, alerting monitors, SLOs, deploys, incidents and error-tracking issues into an investigation report. Read-only, masks personal data. Has a key-based fallback script (`dd_collect.py`) and a test suite (`tests/datadog/`). Install with item **57**. |
+
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 
 `claude-ai-skills/` holds ready-to-upload skill zips from 16 of the repos, including dbt and
@@ -56,7 +69,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-26: 56 repos, 55 of 55 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-26._
+_Checked 2026-10-26: 57 repos, 55 of 55 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-26._
 
 **Top 30 from the post**
 
@@ -123,6 +136,7 @@ _Checked 2026-10-26: 56 repos, 55 of 55 install-tested items passing, 0 needing 
 | 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | 92.9k | 2026-10-26 | pass (2026-10-26) | n/a | OK |
 | 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | 168 | 2026-10-23 | pass (2026-10-26) | ~5,459 | OK |
 | 56 | PagerDuty MCP server (hosted) | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | pass (2026-10-26) | n/a | OK |
+| 57 | Datadog app investigator | [datadog-labs/claude-code-plugin](https://github.com/datadog-labs/claude-code-plugin) | — | — | untested (2026-10-26) | ~? | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick
@@ -146,6 +160,8 @@ _Checked 2026-10-26: 56 repos, 55 of 55 install-tested items passing, 0 needing 
 | `playbooks/` | Role playbooks and the at-work guardrails page. |
 | `guide/` | Field guide page (`index.html` is generated from `template.html`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
+| `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-ops`). |
+| `tests/` | Tests for the skills built here. |
 | `scripts/kit.py` | The maintenance tool: `check`, `bump`, `pack`, `costs`, `smoke`, `render`, `report`. |
 | `.github/workflows/` | `refresh.yml` (daily), `ci.yml` (on every push/PR). |
 

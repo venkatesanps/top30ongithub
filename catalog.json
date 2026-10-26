@@ -2388,6 +2388,36 @@
     "result": "pass"
    },
    "archived_ok": true
+  },
+  {
+   "n": 57,
+   "row": 9,
+   "collection": "dataops",
+   "name": "Datadog app investigator",
+   "repo": "datadog-labs/claude-code-plugin",
+   "what": "Datadog's official plugin (OAuth login, read-only MCP tools) plus this kit's investigator skill: one report per service with error patterns, slow and failing endpoints, alerting monitors, SLOs, deploys, incidents and next steps.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add anthropics/knowledge-work-plugins",
+    "claude plugin install datadog@knowledge-work-plugins",
+    "claude plugin marketplace add venkatesanps/top30ongithub",
+    "claude plugin install top30-ops@top30ongithub"
+   ],
+   "alt": "No MCP allowed? The skill's scripts/dd_collect.py does the same with read-only API and application keys from your shell (DD_SITE, DD_API_KEY, DD_APPLICATION_KEY).",
+   "verify": "claude plugin list | grep -q 'top30-ops@top30ongithub' && claude plugin list | grep -q 'datadog@knowledge-work-plugins'",
+   "use": "Run /ddsetup once (pick your Datadog site, sign in in the browser), then: 'investigate orders-api in prod for the last hour'.",
+   "note": "Read-only: the skill uses only Datadog's read tools and masks emails, card numbers and tokens from log lines. Use a Datadog role with read access to the services you support.",
+   "always_on": "~?",
+   "source": "sources/57-claude-code-plugin",
+   "status": "ok",
+   "problems": [],
+   "upstream": {},
+   "verified": {
+    "date": "2026-10-26",
+    "result": "untested"
+   }
   }
  ],
  "schema": 2,

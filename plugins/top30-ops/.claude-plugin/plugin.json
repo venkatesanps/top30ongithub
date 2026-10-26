@@ -1,0 +1,8 @@
+{
+  "name": "top30-ops",
+  "version": "0.1.0",
+  "description": "Ops skills from the top30ongithub kit. datadog-app-investigator collects logs, traces, monitors, deploys and incidents for one service from Datadog (read-only) and writes an investigation report.",
+  "author": { "name": "venkatesanps" },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": ["datadog", "observability", "sre", "incident", "logs"]
+}
