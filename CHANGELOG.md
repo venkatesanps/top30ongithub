@@ -2,6 +2,36 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-26 12:24 UTC
+
+**Upstream updates**
+- ECC (Everything Claude Code): [e494799 → 25278e7](https://github.com/affaan-m/ECC/compare/e49479937753c8aca5a09aa76dbe2eea1b68f187...25278e7d7b6cf6e6a4e7a6c8e10f14ff22f0eb5b)
+- Career Ops: [f4d7477 → 4b9c53c](https://github.com/career-ops-hq/career-ops/compare/f4d7477c8d25f81e6e4a952b724378913ea8c86e...4b9c53c8bb122ac9bdcf03456073719c54c2dd26)
+- REA (Reverse Engineer Anything): [1173c0a → e3066c1](https://github.com/morluto/rea/compare/1173c0a9dc1b352a60943a491462294db8f353ae...e3066c1705316b53b08f84814ae929eb6563e511)
+- Understand Anything: [e24fcf6 → 4e6d329](https://github.com/Egonex-AI/Understand-Anything/compare/e24fcf6d371bcfa529bc110bacb1bb43de1b8d33...4e6d3299017a7432da15957874992837a315c5b4)
+- Last 30 Days: [f3cd06a → 6f9052c](https://github.com/mvanhorn/last30days-skill/compare/f3cd06a620e385ce15109ed6d3b70fc20c89eccc...6f9052cca8fcafad9055c438b7b3f9112f2ee20f)
+- Claude-Mem: [d9b36b6 → 7325fb7](https://github.com/thedotmack/claude-mem/compare/d9b36b66dc68da92af9df238e4c4debab587ba62...7325fb7818ff7426665d85922db642ec0931bdcd)
+- gstack: [64d8210 → 8018ba5](https://github.com/garrytan/gstack/compare/64d82101cac149125d28df888e3f2ea14a444dc5...8018ba52feab92262087e7236dc10d1b10e8c355)
+- GSD (Get Shit Done): [754e886 → f2a1fee](https://github.com/open-gsd/gsd-core/compare/754e886bffaf2947648177d6371cd8705f42ab9b...f2a1feedd16d5f01e49820bb6a5c4160c76943a6)
+- Diagram Design: [4a5fe68 → b8f3617](https://github.com/cathrynlavery/diagram-design/compare/4a5fe680e8560651958b18e08766a67bbadd43bb...b8f36171da6e1bce05c3eb984969e5d4e7cb3a20)
+- Impeccable: [3671d50 → 6743a34](https://github.com/pbakaus/impeccable/compare/3671d50f0ac9a662ce0615e85a256110c9cd720b...6743a347db6229848348024388033e830ae4af42)
+- UI UX Pro Max: [d14efff → 28b3b8d](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/d14efff8ed1faa4187f004f79926f428c8074ec7...28b3b8dee8c976df4fa3e94aed4e092ad43fcb03)
+- HyperFrames: [c163330 → ff0a563](https://github.com/heygen-com/hyperframes/compare/c163330a16b90108190549a61bcebba39deae6c6...ff0a56340b768f1b7ff8c3bd0ffa32c9f2c07853)
+- Agent Toolkit for AWS: [e8c6309 → bcec7a6](https://github.com/aws/agent-toolkit-for-aws/compare/e8c630949189f03b3dd77388c86b06a7f2f911a9...bcec7a6182a3354dd2c839d8cff9fb02fcf5b7d8)
+- SQLGlot: [78b24a7 → c514be0](https://github.com/tobymao/sqlglot/compare/78b24a744adb8d5dc0eb285f067087338b60f266...c514be049b382191d6ba010c2af4765d9b8cca57)
+- SQLFluff: [c99bc3f → 27e8422](https://github.com/sqlfluff/sqlfluff/compare/c99bc3fe81355f261b22b96b80a18761c565c00e...27e84221e56410432bed4843e0a0853fbd4622ac)
+- ccusage: [b40f511 → e351d84](https://github.com/ccusage/ccusage/compare/b40f51149d117e7c01b5f92466bae44e39c66a10...e351d846191a0176520e8b3d8151dd80a60bc7e4)
+- Grafana OTel LGTM (all-in-one): [15a9933 → 9433777](https://github.com/grafana/docker-otel-lgtm/compare/15a9933443087607cd3fa1d6286d735c73d4977b...943377739ba82994469161033ebfe1f7d57173ee)
+- Grafana MCP server: [e97cd44 → b34ec14](https://github.com/grafana/mcp-grafana/compare/e97cd4479eb40d25bc8d466db1651c29ce0c783e...b34ec142eccf49a5ed220f4540a72326e0dd46a6)
+- HolmesGPT (AI SRE agent): [5924ad0 → 3957f36](https://github.com/HolmesGPT/holmesgpt/compare/5924ad0997b861f0b86d7b3ed702a61a86df2af6...3957f368a4e35255f3fa83f397475ff36aa54193)
+- Uptime Kuma (status pages): [413857f → be2b440](https://github.com/louislam/uptime-kuma/compare/413857f1f04ae18bdea7f0ed0273c1902679df68...be2b4409657a2873b4b08946509dad7a1bf59588)
+
+**Notes**
+- HyperFrames: npm:hyperframes 0.8.199 → 0.8.203
+- Claude-Mem: per-session tokens ~2,065 → ~2,113
+
+**Install tests**: 55/55 passed
+
 ## 2026-10-25 20:24 UTC
 
 **Upstream updates**

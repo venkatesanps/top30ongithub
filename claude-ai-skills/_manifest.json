@@ -251,25 +251,25 @@
   "folder": "21-diagram-design",
   "skill": "diagram-design",
   "path": "skills/diagram-design",
-  "bytes": 1322813,
+  "bytes": 1324854,
   "license": "MIT",
-  "commit": "4a5fe680e8560651958b18e08766a67bbadd43bb"
+  "commit": "b8f36171da6e1bce05c3eb984969e5d4e7cb3a20"
  },
  {
   "folder": "22-impeccable",
   "skill": "impeccable",
   "path": "plugin/skills/impeccable",
-  "bytes": 851364,
+  "bytes": 853163,
   "license": "Apache-2.0",
-  "commit": "3671d50f0ac9a662ce0615e85a256110c9cd720b"
+  "commit": "6743a347db6229848348024388033e830ae4af42"
  },
  {
   "folder": "23-ui-ux-pro-max",
   "skill": "ui-ux-pro-max",
   "path": ".claude/skills/ui-ux-pro-max",
-  "bytes": 569237,
+  "bytes": 569241,
   "license": "MIT",
-  "commit": "d14efff8ed1faa4187f004f79926f428c8074ec7"
+  "commit": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03"
  },
  {
   "folder": "25-marketing",
