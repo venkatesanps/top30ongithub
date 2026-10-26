@@ -69,20 +69,20 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-26: 57 repos, 55 of 55 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-26._
+_Checked 2026-10-26: 57 repos, 56 of 56 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-26._
 
 **Top 30 from the post**
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 224.1k | 2026-04-20 | pass (2026-10-26) | ~66 | OK |
+| 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 224.2k | 2026-04-20 | pass (2026-10-26) | ~66 | OK |
 | 2 | Matt Pocock Skills | [mattpocock/skills](https://github.com/mattpocock/skills) | 303.7k | 2026-10-22 | pass (2026-10-26) | ~1,169 | OK |
-| 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 289.2k | 2026-10-26 | pass (2026-10-26) | ~33,468 | OK |
-| 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 110.6k | 2026-10-13 | pass (2026-10-26) | ~2,903 | OK |
+| 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 289.3k | 2026-10-26 | pass (2026-10-26) | ~33,468 | OK |
+| 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 110.7k | 2026-10-13 | pass (2026-10-26) | ~2,903 | OK |
 | 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 305.4k | 2026-10-23 | pass (2026-10-26) | ~706 | OK |
 | 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 176.6k | 2026-10-18 | pass (2026-10-26) | ~430 | OK |
 | 7 | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | 77.4k | 2026-10-26 | pass (2026-10-26) | ~116 | OK |
-| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 388.3k | 2026-10-26 | pass (2026-10-26) | n/a (MCP) | OK |
+| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 388.5k | 2026-10-26 | pass (2026-10-26) | n/a (MCP) | OK |
 | 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 135.7k | 2026-10-23 | pass (2026-10-26) | n/a (CLI skill) | OK |
 | 10 | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 88.3k | 2026-10-26 | pass (2026-10-26) | ~870 | OK |
 | 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 65.5k | 2026-10-26 | pass (2026-10-26) | ~67 | OK |
@@ -94,14 +94,14 @@ _Checked 2026-10-26: 57 repos, 55 of 55 install-tested items passing, 0 needing 
 | 17 | Caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 115.2k | 2026-10-26 | pass (2026-10-26) | ~1,366 | OK |
 | 18 | GSD (Get Shit Done) | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) | 10.9k | 2026-10-26 | pass (2026-10-26) | n/a (commands) | OK |
 | 19 | Taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 102.7k | 2026-10-26 | pass (2026-10-26) | ~246 | OK |
-| 20 | Archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 89.5k | 2026-10-26 | pass (2026-10-26) | n/a (skill) | OK |
+| 20 | Archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 89.6k | 2026-10-26 | pass (2026-10-26) | n/a (skill) | OK |
 | 21 | Diagram Design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 61.2k | 2026-10-26 | pass (2026-10-26) | ~378 | OK |
 | 22 | Impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 88.5k | 2026-10-26 | pass (2026-10-26) | ~312 | OK |
 | 23 | UI UX Pro Max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 140.7k | 2026-10-26 | pass (2026-10-26) | ~709 | OK |
 | 24 | PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 68.7k | 2026-10-24 | pass (2026-10-26) | ~139 | OK |
 | 25 | Marketing Skills | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | 56.6k | 2026-10-22 | pass (2026-10-26) | ~10,604 | OK |
 | 26 | Skills by Anthropic | [anthropics/skills](https://github.com/anthropics/skills) | 183.9k | 2026-10-09 | pass (2026-10-26) | ~759 + ~939 | OK |
-| 27 | OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 72k | 2026-10-24 | pass (2026-10-26) | per project | OK |
+| 27 | OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 72.1k | 2026-10-24 | pass (2026-10-26) | per project | OK |
 | 28 | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | 60.8k | 2026-10-16 | pass (2026-10-26) | ~90 | OK |
 | 29 | HyperFrames | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 72.6k | 2026-10-26 | pass (2026-10-26) | ~551 | OK |
 | 30 | I Have ADHD | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | 58.8k | 2026-10-19 | pass (2026-10-26) | ~67 | OK |
@@ -136,7 +136,7 @@ _Checked 2026-10-26: 57 repos, 55 of 55 install-tested items passing, 0 needing 
 | 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | 92.9k | 2026-10-26 | pass (2026-10-26) | n/a | OK |
 | 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | 168 | 2026-10-23 | pass (2026-10-26) | ~5,459 | OK |
 | 56 | PagerDuty MCP server (hosted) | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | pass (2026-10-26) | n/a | OK |
-| 57 | Datadog app investigator | [datadog-labs/claude-code-plugin](https://github.com/datadog-labs/claude-code-plugin) | — | — | untested (2026-10-26) | ~? | OK |
+| 57 | Datadog app investigator | [datadog-labs/claude-code-plugin](https://github.com/datadog-labs/claude-code-plugin) | 17 | 2026-10-23 | pass (2026-10-26) | ~455 + ~94 | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

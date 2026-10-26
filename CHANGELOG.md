@@ -2,6 +2,21 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-26 12:49 UTC
+
+**Upstream updates**
+- Career Ops: [4b9c53c → 3be8310](https://github.com/career-ops-hq/career-ops/compare/4b9c53c8bb122ac9bdcf03456073719c54c2dd26...3be831095a6e2e65345bbaf7de484781c5fced12)
+- REA (Reverse Engineer Anything): [e3066c1 → 0211a07](https://github.com/morluto/rea/compare/e3066c1705316b53b08f84814ae929eb6563e511...0211a07ec5c43b2f8cbdbcd80f3f3619773a7b72)
+- gstack: [8018ba5 → 6154b6e](https://github.com/garrytan/gstack/compare/8018ba52feab92262087e7236dc10d1b10e8c355...6154b6ea1d53b8359a3a6253ae5a10033979ba8c)
+- HyperFrames: [ff0a563 → 9652a63](https://github.com/heygen-com/hyperframes/compare/ff0a56340b768f1b7ff8c3bd0ffa32c9f2c07853...9652a6324ada60b27f91c413155740399a6c2d5d)
+- SQLGlot: [c514be0 → 114999a](https://github.com/tobymao/sqlglot/compare/c514be049b382191d6ba010c2af4765d9b8cca57...114999ae6787cbdb7ea630710b82ad2849711e08)
+- Grafana MCP server: [b34ec14 → 61f1b1a](https://github.com/grafana/mcp-grafana/compare/b34ec142eccf49a5ed220f4540a72326e0dd46a6...61f1b1a5869f16b0c7d56b6cbe980d195d352fe8)
+
+**Notes**
+- Datadog app investigator: per-session tokens ~? → ~455 + ~94
+
+**Install tests**: 56/56 passed
+
 ## 2026-10-26 12:24 UTC
 
 **Upstream updates**
