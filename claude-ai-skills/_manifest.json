@@ -13,7 +13,7 @@
   "path": "skills/engineering/code-review",
   "bytes": 4165,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "02-mattpocock",
@@ -21,7 +21,7 @@
   "path": "skills/engineering/diagnosing-bugs",
   "bytes": 5979,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "02-mattpocock",
@@ -29,7 +29,7 @@
   "path": "skills/engineering/domain-modeling",
   "bytes": 5474,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "02-mattpocock",
@@ -37,7 +37,7 @@
   "path": "skills/productivity/grill-me",
   "bytes": 1233,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "02-mattpocock",
@@ -45,7 +45,7 @@
   "path": "skills/productivity/handoff",
   "bytes": 1631,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "02-mattpocock",
@@ -53,7 +53,7 @@
   "path": "skills/engineering/tdd",
   "bytes": 4745,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "02-mattpocock",
@@ -61,7 +61,7 @@
   "path": "skills/productivity/teach",
   "bytes": 9928,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "02-mattpocock",
@@ -69,7 +69,7 @@
   "path": "skills/engineering/to-spec",
   "bytes": 2509,
   "license": "MIT",
-  "commit": "5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+  "commit": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
  },
  {
   "folder": "04-agent-skills",
@@ -251,9 +251,9 @@
   "folder": "21-diagram-design",
   "skill": "diagram-design",
   "path": "skills/diagram-design",
-  "bytes": 1325474,
+  "bytes": 1337096,
   "license": "MIT",
-  "commit": "97d795138448f6a739a0cebc3d9beb37a42077f1"
+  "commit": "c7588454ee986827ec0321cf006616ce9f89c3c2"
  },
  {
   "folder": "22-impeccable",
@@ -261,7 +261,7 @@
   "path": "plugin/skills/impeccable",
   "bytes": 853162,
   "license": "Apache-2.0",
-  "commit": "414603bf14c7a344edb466bb1f85690c77ce8b7d"
+  "commit": "d34c87e1a00989ae8dbdd7f6b30b70f23319e860"
  },
  {
   "folder": "23-ui-ux-pro-max",

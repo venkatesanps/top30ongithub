@@ -6,15 +6,15 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | Folder | Project | License | Commit |
 |---|---|---|---|
 | 01-karpathy | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | MIT | [2c60614193](https://github.com/multica-ai/andrej-karpathy-skills/tree/2c606141936f1eeef17fa3043a72095b4765b9c2) |
-| 02-mattpocock | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT | [5beb35b040](https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2) |
+| 02-mattpocock | [mattpocock/skills](https://github.com/mattpocock/skills) | MIT | [59db609eb1](https://github.com/mattpocock/skills/tree/59db609eb1e18aaf59b63284d0e52255aff0c63c) |
 | 04-agent-skills | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | MIT | [aeac41d4d0](https://github.com/addyosmani/agent-skills/tree/aeac41d4d005999432bb7312f7ff06383a91d59d) |
 | 05-superpowers | [obra/superpowers](https://github.com/obra/superpowers) | MIT | [2ce8aa15d0](https://github.com/obra/superpowers/tree/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b) |
 | 06-ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | MIT | [09c434ab73](https://github.com/DietrichGebert/ponytail/tree/09c434ab73ca43761c5d8b0c5d341926c2fba710) |
 | 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [9b68f7ed12](https://github.com/JuliusBrussee/caveman/tree/9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4) |
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [12af471f62](https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c) |
 | 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [81c6be8d87](https://github.com/tt-a1i/archify/tree/81c6be8d87090670c45d08a8f97f9d29c5af0bec) |
-| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [97d7951384](https://github.com/cathrynlavery/diagram-design/tree/97d795138448f6a739a0cebc3d9beb37a42077f1) |
-| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [414603bf14](https://github.com/pbakaus/impeccable/tree/414603bf14c7a344edb466bb1f85690c77ce8b7d) |
+| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [c7588454ee](https://github.com/cathrynlavery/diagram-design/tree/c7588454ee986827ec0321cf006616ce9f89c3c2) |
+| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [d34c87e1a0](https://github.com/pbakaus/impeccable/tree/d34c87e1a00989ae8dbdd7f6b30b70f23319e860) |
 | 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [28b3b8dee8](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/28b3b8dee8c976df4fa3e94aed4e092ad43fcb03) |
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [17772c7a80](https://github.com/coreyhaines31/marketingskills/tree/17772c7a80b7b8c7a47af30f648374cd8bd8adc5) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [8c307f367c](https://github.com/blader/humanizer/tree/8c307f367c91bd974002f10f2be2965d642c13df) |

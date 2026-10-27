@@ -2,6 +2,42 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-27 16:45 UTC
+
+**Upstream updates**
+- Matt Pocock Skills: [5beb35b → 59db609](https://github.com/mattpocock/skills/compare/5beb35b040e3de97e54fa9e386d7e42d15c295c2...59db609eb1e18aaf59b63284d0e52255aff0c63c)
+- Career Ops: [b936419 → b5e4c26](https://github.com/career-ops-hq/career-ops/compare/b936419e9abe0e8305f26b9f0507b3e45e06819f...b5e4c26f21efee31559296495d794c9a9564a714)
+- REA (Reverse Engineer Anything): [82d3ab7 → 65f1c44](https://github.com/morluto/rea/compare/82d3ab7aa8a41e702a876004be3e73d61ed70443...65f1c447344a423fa2785847dbcea1e9a9e2454a)
+- Last 30 Days: [828634f → e06af25](https://github.com/mvanhorn/last30days-skill/compare/828634ffdfe80b13aefd0187d3a950a32f34b01a...e06af25a9a78487b75e8509e0e1687fec137176e)
+- gstack: [f375b87 → 1f246e3](https://github.com/garrytan/gstack/compare/f375b873de3c7935bfc3422aa10463fd7b660779...1f246e3505eac788abf570d1e3f552ef939bee7f)
+- GSD (Get Shit Done): [0953105 → d909640](https://github.com/open-gsd/gsd-core/compare/09531059d1b594dedde802f39e02ecc71f437e4d...d90964063dda547f97b05f174158ca46ffc516f7)
+- Diagram Design: [97d7951 → c758845](https://github.com/cathrynlavery/diagram-design/compare/97d795138448f6a739a0cebc3d9beb37a42077f1...c7588454ee986827ec0321cf006616ce9f89c3c2)
+- Impeccable: [414603b → d34c87e](https://github.com/pbakaus/impeccable/compare/414603bf14c7a344edb466bb1f85690c77ce8b7d...d34c87e1a00989ae8dbdd7f6b30b70f23319e860)
+- PPT Master: [78759bf → f3660bf](https://github.com/hugohe3/ppt-master/compare/78759bf62e9a1ef43e926ff9e50afa4cfe9a63cb...f3660bfcd20bc07c29260b7e330261a01a2b5a6d)
+- HyperFrames: [725f069 → 98e7743](https://github.com/heygen-com/hyperframes/compare/725f069cb9508a0726f0f47a7acd34c35ac45e71...98e774384efdc785c7d49947948e796a8b8b4004)
+- dbt MCP server: [3274e6b → b631809](https://github.com/dbt-labs/dbt-mcp/compare/3274e6bea45e1461fbe7ca116dd6ce2b862b28ae...b6318090c6d32c5fa83477d6e74f3a34f4ccf61c)
+- Agent Toolkit for AWS: [4a1eb72 → a4f8167](https://github.com/aws/agent-toolkit-for-aws/compare/4a1eb728573bfbad03b3f2a1da642a0654808625...a4f81675de74f05b2a3f559c65fa190366c0c805)
+- AWS MCP servers (data & ops): [68e7613 → 02cd0aa](https://github.com/awslabs/mcp/compare/68e7613b36c2705b2786509fd5b3d0fc6aa02e72...02cd0aaaac1edc7f7066a99bbf53380014eba50b)
+- SQLGlot: [feb0e08 → e88e67e](https://github.com/tobymao/sqlglot/compare/feb0e08aba28a29590596bb3f5761fbaeb0e98b9...e88e67e6c8f5fe8992419f6920dac66cca8f12a8)
+- SQLFluff: [692629b → 0d01dde](https://github.com/sqlfluff/sqlfluff/compare/692629bba783560619e0c041817efbd1d62af809...0d01dde1bf5eca51f0d2ec1bb3f26ca751c48deb)
+- Apache DevLake (DORA dashboards): [e32a6e7 → eba2b5b](https://github.com/apache/devlake/compare/e32a6e7e97ed84fb4b4a68d07c62ec4d35f67351...eba2b5b84b0595cec4434500f457aae8d007bcec)
+- ccusage: [154e13b → 0c76c3e](https://github.com/ccusage/ccusage/compare/154e13bb6658778e774821bc5d0f6a92dcc9ae36...0c76c3e72b3a553be46f02feb9a9dbfab06e9fe9)
+- Grafana OTel LGTM (all-in-one): [f75d7a7 → e251f4f](https://github.com/grafana/docker-otel-lgtm/compare/f75d7a731d5b91f3388634cf36f900bda8daa09f...e251f4f3a57bfa76315a271940422c28731ba459)
+- Grafana MCP server: [9d038c5 → e41b596](https://github.com/grafana/mcp-grafana/compare/9d038c5e296ed99201f07273623aab56cf78e9b5...e41b5962411b17e311a33006982815701c336bb9)
+- Uptime Kuma (status pages): [1e810c4 → 6da8aa1](https://github.com/louislam/uptime-kuma/compare/1e810c41e841f40c1f1391dea3d458026df154bf...6da8aa12b128f519f1de72920aaf1d8b9e01987b)
+- Ruflo (agent swarms): [bf76869 → b49078c](https://github.com/ruvnet/ruflo/compare/bf76869089351242300dbbf5c9233006d0028ccf...b49078cc40945d2a81ab1dd9d0faeccd04f827f5)
+- context-mode: [8435702 → da399d3](https://github.com/mksglu/context-mode/compare/843570277671ae4df0df9137e8a5b9da2d89171b...da399d384f03ae9c28d955c2e56c834c56d6ea93)
+- CC Switch (desktop): [e55d8a2 → 983113a](https://github.com/farion1231/cc-switch/compare/e55d8a21b3897b595b746e9f2139716b2931641d...983113a132ab1754e6bb1fab3994fb3b23d15f62)
+
+**Notes**
+- HyperFrames: npm:hyperframes 0.8.206 → 0.8.209
+- dbt MCP server: pypi:dbt-mcp 2.8.0 → 2.9.0
+- AWS MCP servers (data & ops): pypi:awslabs.billing-cost-management-mcp-server 0.0.42 → 0.0.43
+- Diagram Design: per-session tokens ~378 → ~380
+- Agent Toolkit for AWS: per-session tokens ~4,762 + ~3,855 → ~4,761 + ~3,855
+
+**Install tests**: 22/22 passed
+
 ## 2026-10-27 02:59 UTC
 
 **Upstream updates**
