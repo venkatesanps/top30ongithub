@@ -60,9 +60,18 @@ verify_cmd() {
     55) echo 'claude plugin list | grep -q '\''dynatrace@dynatrace-for-ai'\''' ;;
     56) echo 'claude mcp get pagerduty >/dev/null' ;;
     57) echo 'claude plugin list | grep -q '\''top30-ops@top30ongithub'\'' && claude plugin list | grep -q '\''datadog@knowledge-work-plugins'\''' ;;
+    58) echo 'claude plugin list | grep -q ruflo-core@ruflo' ;;
+    59) echo 'claude plugin list | grep -q data-engineering@claude-code-workflows' ;;
+    60) echo 'claude plugin list | grep -q planning-with-files@' ;;
+    61) echo 'rtk --version' ;;
+    62) echo 'claude plugin list | grep -q context-mode@context-mode' ;;
+    63) echo 'test -f ~/.claude/skills/video-shotcraft/SKILL.md' ;;
+    64) echo 'test -d /Applications/CC\ Switch.app || command -v cc-switch' ;;
+    65) echo 'claude plugin list | grep -q pm-execution@pm-skills' ;;
+    66) echo 'claude plugin list | grep -q vpe-advisor@claude-code-skills' ;;
   esac
 }
-NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD' 'Snowflake AI Kit (Cortex Code)' 'dbt Agent Skills' 'dbt MCP server' 'Astronomer Airflow agents' 'Snowflake cost monitoring (dbt)' 'Elementary (data observability)' 'Great Expectations' 'Agent Toolkit for AWS' 'AWS MCP servers (data & ops)' 'Oracle SQLcl MCP server' SQLGlot SQLFluff 'Informatica for Claude (IDMC)' 'Anthropic knowledge-work plugins' 'Jira & Confluence MCP (Data Center)' 'Apache DevLake (DORA dashboards)' 'Middleware (DORA metrics)' 'Claude Code ROI monitoring' ccusage 'Grafana OTel LGTM (all-in-one)' 'Grafana MCP server' 'Keep (alert hub & AIOps)' 'HolmesGPT (AI SRE agent)' 'Uptime Kuma (status pages)' 'Dynatrace for AI (plugin + MCP)' 'PagerDuty MCP server (hosted)' 'Datadog app investigator')
+NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD' 'Snowflake AI Kit (Cortex Code)' 'dbt Agent Skills' 'dbt MCP server' 'Astronomer Airflow agents' 'Snowflake cost monitoring (dbt)' 'Elementary (data observability)' 'Great Expectations' 'Agent Toolkit for AWS' 'AWS MCP servers (data & ops)' 'Oracle SQLcl MCP server' SQLGlot SQLFluff 'Informatica for Claude (IDMC)' 'Anthropic knowledge-work plugins' 'Jira & Confluence MCP (Data Center)' 'Apache DevLake (DORA dashboards)' 'Middleware (DORA metrics)' 'Claude Code ROI monitoring' ccusage 'Grafana OTel LGTM (all-in-one)' 'Grafana MCP server' 'Keep (alert hub & AIOps)' 'HolmesGPT (AI SRE agent)' 'Uptime Kuma (status pages)' 'Dynatrace for AI (plugin + MCP)' 'PagerDuty MCP server (hosted)' 'Datadog app investigator' 'Ruflo (agent swarms)' 'wshobson agents (plugin packs)' planning-with-files 'rtk (OSS edition)' context-mode video-shotcraft 'CC Switch (desktop)' pm-skills 'claude-skills (380+ skills)')
 SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 ${#NAMES[@]})
 pass=0; fail=0
 for n in $SEL; do

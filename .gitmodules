@@ -226,3 +226,39 @@
 	path = sources/57-claude-code-plugin
 	url = https://github.com/datadog-labs/claude-code-plugin.git
 	shallow = true
+[submodule "sources/58-ruflo"]
+	path = sources/58-ruflo
+	url = https://github.com/ruvnet/ruflo.git
+	shallow = true
+[submodule "sources/59-agents"]
+	path = sources/59-agents
+	url = https://github.com/wshobson/agents.git
+	shallow = true
+[submodule "sources/60-planning-with-files"]
+	path = sources/60-planning-with-files
+	url = https://github.com/OthmanAdi/planning-with-files.git
+	shallow = true
+[submodule "sources/61-rtk"]
+	path = sources/61-rtk
+	url = https://github.com/rtk-ai/rtk.git
+	shallow = true
+[submodule "sources/62-context-mode"]
+	path = sources/62-context-mode
+	url = https://github.com/mksglu/context-mode.git
+	shallow = true
+[submodule "sources/63-video-shotcraft"]
+	path = sources/63-video-shotcraft
+	url = https://github.com/Vincentwei1021/video-shotcraft.git
+	shallow = true
+[submodule "sources/64-cc-switch"]
+	path = sources/64-cc-switch
+	url = https://github.com/farion1231/cc-switch.git
+	shallow = true
+[submodule "sources/65-pm-skills"]
+	path = sources/65-pm-skills
+	url = https://github.com/phuryn/pm-skills.git
+	shallow = true
+[submodule "sources/66-claude-skills"]
+	path = sources/66-claude-skills
+	url = https://github.com/alirezarezvani/claude-skills.git
+	shallow = true

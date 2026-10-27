@@ -42,4 +42,7 @@ jobs:
           python3 -m py_compile scripts/kit.py
 
       - name: Skill tests
-        run: python3 tests/datadog/test_dd_collect.py
+        run: |
+          python3 tests/datadog/test_dd_collect.py
+          python3 tests/ab/test_ab.py
+          python3 -m py_compile scripts/ab.py

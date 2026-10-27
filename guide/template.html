@@ -46,6 +46,12 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
 .chips::-webkit-scrollbar { display: none; }
 .chip { flex: none; font: 600 13px var(--f-display); border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+.advice { margin: 18px 0; padding: 14px 16px; border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 10px; background: var(--surface); }
+.advice h2 { margin: 0 0 6px; font: 700 16px var(--f-display); }
+.advice ul { margin: 0 0 8px; padding-left: 18px; }
+.advice li { margin: 3px 0; }
+.advice p { margin: 0; color: var(--muted); font-size: 13px; }
+.pos { font: 600 12px var(--f-mono); color: var(--accent); margin: 14px 0 -6px; }
 .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
 .chip:focus-visible, .copy:focus-visible, a:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sortrow { display: flex; gap: 10px; align-items: center; justify-content: space-between; margin-top: 8px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
@@ -92,7 +98,7 @@ footer { margin-top: 36px; color: var(--muted); font-size: 13px; display: grid; 
 <div class="wrap">
   <header>
     <h1>Claude Plugins Field Guide</h1>
-    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, plus a data &amp; ops toolkit for Snowflake, dbt, AWS, Oracle, team metrics and production monitoring. Every entry is traced to its real repository; a daily job re-checks them, re-tests installs and refreshes this page.</p>
+    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, plus a data &amp; ops toolkit for Snowflake, dbt, AWS, Oracle, team metrics and production monitoring, and the "20 GitHub projects to open first". Every entry is traced to its real repository; a daily job re-checks them, re-tests installs and refreshes this page.</p>
     <p class="lede">Trying these at work? Read <a href="https://github.com/venkatesanps/top30ongithub/blob/main/playbooks/before-you-try-at-work.md">Before you try this at work</a> and the <a href="https://github.com/venkatesanps/top30ongithub/tree/main/playbooks">role playbooks</a> first.</p>
     <ul class="facts" id="facts"></ul>
     <p class="checked" id="checked"></p>
@@ -128,7 +134,7 @@ const stars = n => n == null ? "—" : n >= 1000 ? (n / 1000).toFixed(n >= 10000
 const MAX = Math.log10(50000);
 
 function chipEls() {
-  const opts = [["all", `All ${DATA.items.length}`]].concat(Object.entries(DATA.collections).map(([k, v]) => ["c:" + k, v]), Object.entries(DATA.rows).map(([k, v]) => [k, k + " · " + v]));
+  const opts = [["all", `All ${DATA.items.length}`]].concat(Object.entries(DATA.lists || {}).map(([k, v]) => ["l:" + k, v.label]), Object.entries(DATA.collections).map(([k, v]) => ["c:" + k, v]), Object.entries(DATA.rows).map(([k, v]) => [k, k + " · " + v]));
   chips.innerHTML = opts.map(([k, v]) => `<button class="chip" type="button" data-row="${k}" aria-pressed="${k === row}">${esc(v)}</button>`).join("");
 }
 
@@ -158,8 +164,16 @@ function card(it) {
 }
 
 function render() {
-  let items = DATA.items.filter(it => row === "all" || (row.startsWith("c:") ? it.collection === row.slice(2) : String(it.row) === row));
+  const lst = row.startsWith("l:") && (DATA.lists || {})[row.slice(2)];
+  if (row.startsWith("l:") && !lst) row = "all";
+  let items = lst ? lst.items.map(n => DATA.items[n - 1]) : DATA.items.filter(it => row === "all" || (row.startsWith("c:") ? it.collection === row.slice(2) : String(it.row) === row));
   const byCost = sortSel.value === "cost";
+  if (lst && !byCost) {
+    count.textContent = `${items.length} plugins`;
+    out.innerHTML = `<aside class="advice"><h2>Before you open all ${items.length}</h2><ul>${lst.advice.map(a => `<li>${esc(a)}</li>`).join("")}</ul><p>The post's order is kept below; the small number on each card is its number in this kit, for <code>./install.sh N</code>.</p></aside>` +
+      `<div class="list">${items.map((it, i) => `<div class="pos">${i + 1} of ${items.length}</div>` + card(it)).join("")}</div>`;
+    return;
+  }
   if (byCost) items = items.slice().sort((a, b) => (tok(a.always_on) ?? -1) - (tok(b.always_on) ?? -1));
   count.textContent = `${items.length} plugin${items.length === 1 ? "" : "s"}`;
   if (byCost) { out.innerHTML = `<div class="list">${items.map(card).join("")}</div>`; return; }
@@ -186,7 +200,7 @@ out.addEventListener("click", e => {
   try { navigator.clipboard.writeText(text).then(done, fallback); } catch (x) { fallback(); }
 });
 const S = DATA.stats;
-document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.by_collection.top30, "from the post"], [S.by_collection.dataops, "data & ops tools"], [`${S.passing}/${S.tested}`, "passing install tests"], [S.zips, "Claude app skill zips"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
+document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.by_collection.top30, "from the post"], [S.by_collection.dataops, "data & ops tools"], [((DATA.lists || {}).open20 || {items: []}).items.length, "to open first"], [`${S.passing}/${S.tested}`, "passing install tests"], [S.zips, "Claude app skill zips"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
 document.getElementById("checked").innerHTML = `Last checked ${esc(DATA.checked || DATA.generated)}` + (S.attention ? ` · <a href="#p${DATA.items.find(i => i.problems && i.problems.length).n}">${S.attention} need${S.attention === 1 ? "s" : ""} attention</a>` : " · everything OK");
 document.getElementById("costver").textContent = DATA.costs_measured_with || "Claude Code";
 chipEls(); render();

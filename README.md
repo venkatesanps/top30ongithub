@@ -1,12 +1,15 @@
-# Top 30 Claude plugins, plus a data & ops toolkit, kept current
+# Top 30 Claude plugins, a data & ops toolkit, and the 20 to open first, kept current
 
-Two collections, each traced to its real repository, with one installer, a verifier, a field
+Three collections, each traced to its real repository, with one installer, a verifier, a field
 guide, and upload-ready skill zips for the Claude app:
 
 - **Top 30 from the post** (items 1–30, rows 1–5): coding, research, token savers, design, writing.
 - **Data & ops toolkit** (items 31–56, rows 6–9): Snowflake, dbt, Airflow and data quality; AWS,
   Oracle and migrations; manager and team productivity (Jira/Confluence, DORA dashboards, AI
   adoption); production monitoring for leadership, app developers and SRE / L2 / L3.
+- **[20 to open first](#20-github-projects-to-open-first)** (items 58–66, rows 10–12, plus 11 already
+  here): agent harnesses, memory, token savers, product and everyday tools, with a script to test
+  each one before and after.
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
@@ -45,6 +48,66 @@ Restart Claude Code after installing plugins. Prerequisites only for items that 
 Claude Code, Node 22+ (24+ for GSD), Python 3.10+ (pipx recommended), uv (MCP servers),
 Docker (dashboards), Java 17+ (SQLcl), Bun (gstack, Claude-Mem), git, FFmpeg (video tools).
 
+## 20 GitHub projects to open first
+
+The "20 GitHub projects you should open first" list, in its own order. Eleven were already in
+this kit; the other nine are items 58–66. Every one is pinned, install-tested and checked daily.
+`./install.sh --open20` prints the list, and the field guide has a "20 to open first" filter.
+
+<!-- list:open20:start -->
+| Post # | Catalog # | Name | Repo | Tokens/session | Install test |
+|---|---|---|---|---|---|
+| 1 | [3](#status) | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | ~33,468 | pass |
+| 2 | [4](#status) | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | ~2,903 | pass |
+| 3 | [58](#status) | Ruflo (agent swarms) | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | ~? | untested |
+| 4 | [59](#status) | wshobson agents (plugin packs) | [wshobson/agents](https://github.com/wshobson/agents) | ~? | untested |
+| 5 | [15](#status) | Claude-Mem | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | ~2,113 | pass |
+| 6 | [60](#status) | planning-with-files | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | ~? | untested |
+| 7 | [9](#status) | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | n/a (CLI skill) | pass |
+| 8 | [10](#status) | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | ~870 | pass |
+| 9 | [6](#status) | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | ~430 | pass |
+| 10 | [61](#status) | rtk (OSS edition) | [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | n/a | untested |
+| 11 | [13](#status) | Headroom | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | ~0 | pass |
+| 12 | [62](#status) | context-mode | [mksglu/context-mode](https://github.com/mksglu/context-mode) | ~? | untested |
+| 13 | [23](#status) | UI UX Pro Max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | ~709 | pass |
+| 14 | [19](#status) | Taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | ~246 | pass |
+| 15 | [63](#status) | video-shotcraft | [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | n/a | untested |
+| 16 | [12](#status) | Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | n/a (CLI skill) | pass |
+| 17 | [64](#status) | CC Switch (desktop) | [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | n/a | manual |
+| 18 | [65](#status) | pm-skills | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | ~? | untested |
+| 19 | [66](#status) | claude-skills (380+ skills) | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | ~? | untested |
+| 20 | [7](#status) | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | ~116 | pass |
+<!-- list:open20:end -->
+
+**The post's advice, which this kit agrees with:**
+
+1. **Start with 3, not 20:** one for memory, one for tokens, one for your actual job. For a
+   manager and lead data engineer, a reasonable first three:
+   - *Memory:* **15** Claude-Mem (remembers across sessions; ~2.1k tokens/session and a background
+     worker), or the lighter **60** planning-with-files for long, multi-day tasks.
+   - *Tokens:* **61** rtk (OSS) compresses command output before Claude reads it and adds almost
+     nothing to context; **13** Headroom is the alternative.
+   - *Your job:* **59** wshobson `data-engineering` as a lead data engineer, or **66** `vpe-advisor`
+     (DORA and cycle-time analysis) / **65** `pm-execution` as a manager.
+2. **Run the same task before and after.** Keep only what makes the result better or cheaper.
+   `scripts/ab.py` does this for you: it copies a sandbox repo, runs the same prompt headless with
+   the plugin off and on, and compares cost, tokens, turns and whether your check passed:
+
+   ```bash
+   ./install.sh 65
+   python3 scripts/ab.py --plugin pm-execution@pm-skills --runs 3 \
+     --prompt "Write a one-page PRD for a Snowflake cost dashboard into PRD.md" \
+     --repo ~/sandbox --check "test -s PRD.md"
+   ```
+
+   Three runs show a direction, not proof. For a careful, placebo-controlled comparison see
+   [skill-placebo](https://github.com/simonether/skill-placebo): in its September 2026 run on
+   Opus 5.5, 2 of 9 popular skills beat a same-length placebo (Ponytail and Agent Skills), and
+   none was measurably cheaper than no skill at all. The notes on items 4, 6 and 60 say what it found.
+3. **Every plugin you add loads into context, so more isn't free.** The "Tokens/session" column
+   is measured daily with `claude plugin details`. ECC (**3**) alone adds about 33k tokens to every
+   session. Disable what you aren't using with `claude plugin disable <name>`.
+
 ## Skills built here
 
 This repo is also a Claude Code plugin marketplace with its own skills:
@@ -69,7 +132,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-26: 57 repos, 56 of 56 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-26._
+_Checked 2026-10-26: 66 repos, 56 of 56 install-tested items passing, 0 needing attention. Token costs measured with 2.1.310 (Claude Code) on 2026-10-26._
 
 **Top 30 from the post**
 
@@ -137,6 +200,20 @@ _Checked 2026-10-26: 57 repos, 56 of 56 install-tested items passing, 0 needing 
 | 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | 169 | 2026-10-23 | pass (2026-10-26) | ~5,459 | OK |
 | 56 | PagerDuty MCP server (hosted) | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | pass (2026-10-26) | n/a | OK |
 | 57 | Datadog app investigator | [datadog-labs/claude-code-plugin](https://github.com/datadog-labs/claude-code-plugin) | 17 | 2026-10-23 | pass (2026-10-26) | ~455 + ~94 | OK |
+
+**From '20 projects to open first'**
+
+| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
+|---|---|---|---|---|---|---|---|
+| 58 | Ruflo (agent swarms) | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | — | — | untested (2026-10-26) | ~? | OK |
+| 59 | wshobson agents (plugin packs) | [wshobson/agents](https://github.com/wshobson/agents) | — | — | untested (2026-10-26) | ~? | OK |
+| 60 | planning-with-files | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | — | — | untested (2026-10-26) | ~? | OK |
+| 61 | rtk (OSS edition) | [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | — | — | untested (2026-10-26) | n/a | OK |
+| 62 | context-mode | [mksglu/context-mode](https://github.com/mksglu/context-mode) | — | — | untested (2026-10-26) | ~? | OK |
+| 63 | video-shotcraft | [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | — | — | untested (2026-10-26) | n/a | OK |
+| 64 | CC Switch (desktop) | [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | — | — | manual (2026-10-26) | n/a | OK |
+| 65 | pm-skills | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | — | — | untested (2026-10-26) | ~? | OK |
+| 66 | claude-skills (380+ skills) | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | — | — | untested (2026-10-26) | ~? | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick
@@ -148,6 +225,9 @@ _Checked 2026-10-26: 57 repos, 56 of 56 install-tested items passing, 0 needing 
 - **gstack** asks you to add CLAUDE.md lines making Claude use its own /browse instead of Claude in Chrome.
 - **OpenMontage** is AGPL-3.0; its AI generation providers need your own API keys.
 - **Claude-Mem** fails Claude Code's plugin-name policy check (names can't start with "claude-") but installs and runs.
+- **Licences in the "20 to open first" additions**: context-mode is Elastic License 2.0 (source-available, not open source); rtk's default download adds a BUSL-1.1 engine, so the installer uses the Apache-2.0 OSS edition. Everything else added there is MIT or Apache-2.0.
+- **rtk** says its 60–90% figure is smaller bash output, not an equally smaller bill. `rtk init -g` adds a hook and edits your global CLAUDE.md.
+- **CC Switch** is a desktop app that stores your provider API keys locally; at work, use only providers your firm approves.
 - **Skills by Anthropic** (docx/xlsx/pptx/pdf) are already built into the Claude app; install them only for Claude Code.
 
 ## How it's put together
@@ -161,7 +241,8 @@ _Checked 2026-10-26: 57 repos, 56 of 56 install-tested items passing, 0 needing 
 | `guide/` | Field guide page (`index.html` is generated from `template.html`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
 | `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-ops`). |
-| `tests/` | Tests for the skills built here. |
+| `scripts/ab.py` | Before/after test for one plugin: same task with it off and on, cost, tokens and pass rate compared. |
+| `tests/` | Tests for the skills and scripts built here (run in CI, no network). |
 | `scripts/kit.py` | The maintenance tool: `check`, `bump`, `pack`, `costs`, `smoke`, `render`, `report`. |
 | `.github/workflows/` | `refresh.yml` (daily), `ci.yml` (on every push/PR). |
 

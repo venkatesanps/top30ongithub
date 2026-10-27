@@ -7,6 +7,8 @@ Goal: every engineer saves real time on daily work within a month, and you can s
 - Two or three volunteers install a small set: **30** I Have ADHD (answers first), **1** Karpathy
   Skills (fewer surprise edits), **5** Superpowers or **4** Agent Skills (plan, test, verify).
 - Each keeps a note: task, time before, time with the assistant, what went wrong.
+- Before adding a plugin to the team set, run it through `scripts/ab.py` on a real task from
+  your backlog (same prompt, plugin off vs on). No better result or lower cost, no place in the set.
 - Write the team's `CLAUDE.md`: stack, naming, test commands, "never do" list.
 
 ## Week 2 — pick three daily tasks to target
@@ -29,7 +31,8 @@ Run a 30-minute session per task: the lead shows one real example end to end.
 
 - Turn on the Claude Code ROI stack (**48**) or collect `ccusage` totals (**49**).
 - Compare: PR cycle time, failed-job time-to-fix, and the volunteers' notes from week 1.
-- Keep what helped, drop what didn't, and write down why (the next team will ask).
+- Keep what helped, drop what didn't, and write down why (the next team will ask). Each plugin
+  you keep adds to every session's context, so the team set should stay small.
 
 ## Habits that make it stick
 

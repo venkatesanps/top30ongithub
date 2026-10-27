@@ -512,7 +512,9 @@ def render_scripts(c):
         bash_arr("COST", [i["always_on"] for i in items]),
         bash_arr("PROBLEMS", probs),
         bash_arr("VERIFIED", [f"{i['verified']['result']} {i['verified']['date']}" for i in items]),
-        f"CATALOG_DATE={q(c.get('checked', c['generated']))}"]))
+        f"CATALOG_DATE={q(c.get('checked', c['generated']))}",
+        "OPEN20=(" + " ".join(str(n) for n in c.get("lists", {}).get("open20", {}).get("items", [])) + ")",
+        bash_arr("OPEN20_ADVICE", c.get("lists", {}).get("open20", {}).get("advice", []))]))
            .replace("@@CASES@@", "\n".join(cases)))
     (ROOT / "install.sh").write_text(out)
     v = ["#!/usr/bin/env bash", "# Checks that installed plugins work. ./verify.sh (all)  or  ./verify.sh 5 30",
@@ -572,6 +574,15 @@ def render_readme(c):
                          f"{it['always_on']} | {status.replace('|', '/')} |")
     rd = ROOT / "README.md"
     t = rd.read_text()
+    by_n = {i["n"]: i for i in c["items"]}
+    for key, lst in c.get("lists", {}).items():
+        ll = ["| Post # | Catalog # | Name | Repo | Tokens/session | Install test |", "|---|---|---|---|---|---|"]
+        for pos, n in enumerate(lst["items"], 1):
+            it = by_n[n]
+            ll.append(f"| {pos} | [{n}](#status) | {it['name']} | [{it['repo']}](https://github.com/{it['repo']}) | "
+                      f"{it['always_on']} | {it['verified']['result']} |")
+        t = re.sub(rf"<!-- list:{key}:start -->.*?<!-- list:{key}:end -->",
+                   lambda _: f"<!-- list:{key}:start -->\n" + "\n".join(ll) + f"\n<!-- list:{key}:end -->", t, flags=re.S)
     block = "<!-- status:start -->\n" + "\n".join(lines) + "\n<!-- status:end -->"
     t = re.sub(r"<!-- status:start -->.*?<!-- status:end -->", lambda _: block, t, flags=re.S)
     rd.write_text(t)
@@ -672,6 +683,12 @@ def cmd_validate(argv):
             errs.append(f"{it['n']}: unknown row {it.get('row')}")
         if it.get("collection") not in c.get("collections", {}):
             errs.append(f"{it['n']}: unknown collection {it.get('collection')}")
+    for key, lst in c.get("lists", {}).items():
+        bad = [n for n in lst.get("items", []) if not 1 <= n <= len(c["items"])]
+        if bad or len(set(lst.get("items", []))) != len(lst.get("items", [])):
+            errs.append(f"list {key}: unknown or repeated items {bad}")
+        if f"<!-- list:{key}:start -->" not in (ROOT / "README.md").read_text():
+            errs.append(f"list {key}: README has no <!-- list:{key}:start --> block")
     man = json.loads((ZIPDIR / "_manifest.json").read_text())
     for m in man:
         zp = ZIPDIR / m["folder"] / f"{m['skill']}.zip"
