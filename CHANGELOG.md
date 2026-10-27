@@ -2,6 +2,44 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-27 02:59 UTC
+
+**Upstream updates**
+- Career Ops: [f4d7477 → b936419](https://github.com/career-ops-hq/career-ops/compare/f4d7477c8d25f81e6e4a952b724378913ea8c86e...b936419e9abe0e8305f26b9f0507b3e45e06819f)
+- REA (Reverse Engineer Anything): [a174892 → 82d3ab7](https://github.com/morluto/rea/compare/a174892e3e52b58e74df5b9f53ba4d0e0617177c...82d3ab7aa8a41e702a876004be3e73d61ed70443)
+- Last 30 Days: [6f9052c → 828634f](https://github.com/mvanhorn/last30days-skill/compare/6f9052cca8fcafad9055c438b7b3f9112f2ee20f...828634ffdfe80b13aefd0187d3a950a32f34b01a)
+- Headroom: [a904210 → 17d38e5](https://github.com/headroomlabs-ai/headroom/compare/a90421083a781990b877d34fdaba0bc1b6cf6c4d...17d38e5699b7d7c69ac6addcd762f39e42dd7f00)
+- Claude-Mem: [834e438 → 35f2ec0](https://github.com/thedotmack/claude-mem/compare/834e438ef66ac495683c7d3f4ab2dc249dd81de5...35f2ec0eb5b2b1e745564db4ce1ecec58eb331e7)
+- gstack: [64d8210 → f375b87](https://github.com/garrytan/gstack/compare/64d82101cac149125d28df888e3f2ea14a444dc5...f375b873de3c7935bfc3422aa10463fd7b660779)
+- GSD (Get Shit Done): [754e886 → 0953105](https://github.com/open-gsd/gsd-core/compare/754e886bffaf2947648177d6371cd8705f42ab9b...09531059d1b594dedde802f39e02ecc71f437e4d)
+- Diagram Design: [0b9b10c → 97d7951](https://github.com/cathrynlavery/diagram-design/compare/0b9b10cab3dbf695642fa1a6c4b4f60df9083689...97d795138448f6a739a0cebc3d9beb37a42077f1)
+- Impeccable: [658b4ce → 414603b](https://github.com/pbakaus/impeccable/compare/658b4ce2942171ed5b3b3bec7e9d99456ba86e5e...414603bf14c7a344edb466bb1f85690c77ce8b7d)
+- UI UX Pro Max: [d14efff → 28b3b8d](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/d14efff8ed1faa4187f004f79926f428c8074ec7...28b3b8dee8c976df4fa3e94aed4e092ad43fcb03)
+- Marketing Skills: [e85f3cb → 17772c7](https://github.com/coreyhaines31/marketingskills/compare/e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b...17772c7a80b7b8c7a47af30f648374cd8bd8adc5)
+- HyperFrames: [b2124b2 → 725f069](https://github.com/heygen-com/hyperframes/compare/b2124b2a5631a9fbec9383a1697b7c63c8966a03...725f069cb9508a0726f0f47a7acd34c35ac45e71)
+- Agent Toolkit for AWS: [bcec7a6 → 4a1eb72](https://github.com/aws/agent-toolkit-for-aws/compare/bcec7a6182a3354dd2c839d8cff9fb02fcf5b7d8...4a1eb728573bfbad03b3f2a1da642a0654808625)
+- AWS MCP servers (data & ops): [24c3970 → 68e7613](https://github.com/awslabs/mcp/compare/24c39705d1d762cb6ebdd72b23f757a67b7a36c2...68e7613b36c2705b2786509fd5b3d0fc6aa02e72)
+- SQLGlot: [8709510 → feb0e08](https://github.com/tobymao/sqlglot/compare/8709510f9a097d937e3058b82ededfe703625801...feb0e08aba28a29590596bb3f5761fbaeb0e98b9)
+- Anthropic knowledge-work plugins: [33d3dea → c75fda0](https://github.com/anthropics/knowledge-work-plugins/compare/33d3dea41a341b341d4f5da2e8801ae0c89be2b8...c75fda00ff0e41c8ee331ae312c8a07f1967653b)
+- ccusage: [e351d84 → 154e13b](https://github.com/ccusage/ccusage/compare/e351d846191a0176520e8b3d8151dd80a60bc7e4...154e13bb6658778e774821bc5d0f6a92dcc9ae36)
+- Grafana OTel LGTM (all-in-one): [7c436e6 → f75d7a7](https://github.com/grafana/docker-otel-lgtm/compare/7c436e6ecd5ba52f6ea66e9a7d44d3d91a08244a...f75d7a731d5b91f3388634cf36f900bda8daa09f)
+- Uptime Kuma (status pages): [8b6038e → 1e810c4](https://github.com/louislam/uptime-kuma/compare/8b6038e29614ac5b2738779c4446157667a2a7a5...1e810c41e841f40c1f1391dea3d458026df154bf)
+
+**Notes**
+- Headroom: pypi:headroom-ai 0.41.0 → 0.42.0
+- Impeccable: npm:impeccable 4.7.0 → 4.8.0
+- HyperFrames: npm:hyperframes 0.8.205 → 0.8.206
+- ccusage: npm:ccusage 20.0.44 → 20.0.45
+- Marketing Skills: per-session tokens ~10,604 → ~10,626
+- Ruflo (agent swarms): per-session tokens ~? → ~427
+- wshobson agents (plugin packs): per-session tokens ~? → ~492 + ~903 + ~111
+- planning-with-files: per-session tokens ~? → ~736
+- context-mode: per-session tokens ~? → ~631
+- pm-skills: per-session tokens ~? → ~1,580
+- claude-skills (380+ skills): per-session tokens ~? → ~4,040 + ~159 + ~182
+
+**Install tests**: 27/27 passed
+
 ## 2026-10-26 17:34 UTC
 
 **Upstream updates**
