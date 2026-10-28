@@ -2,6 +2,20 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-28 13:10 UTC
+
+**Upstream updates**
+- REA (Reverse Engineer Anything): [23e7c4e → b9a8f8e](https://github.com/morluto/rea/compare/23e7c4e8e2a713ab40221cc83752c721be1ed062...b9a8f8e9f25feb9cc97bf4960748f2bdf8c898bc)
+- gstack: [9e3308f → 4b8c03b](https://github.com/garrytan/gstack/compare/9e3308f65adf547b7e4776e5ed22467a2649d2ee...4b8c03bea9d1c7b51257f6267a4831ee0da8aa20)
+- HyperFrames: [2d3033c → eba596d](https://github.com/heygen-com/hyperframes/compare/2d3033c719bc82ea4a82fe4d7141e0669ab9a14d...eba596d026347d2e25a95692d77bd0ca2b830fe3)
+- Grafana MCP server: [5636094 → e6c4f98](https://github.com/grafana/mcp-grafana/compare/563609466ce403df8b2e88118e6eceb6edf5ce71...e6c4f984539e2e55640d6c8b889b2974dfb940d5)
+
+**Notes**
+- ⚠ OpenMontage: github.com/calesthio/OpenMontage did not answer git ls-remote
+- ✓ Claude Code Action (GitHub): install test passes again
+
+**Install tests**: 5/5 passed
+
 ## 2026-10-28 13:02 UTC
 
 **Upstream updates**

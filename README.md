@@ -125,7 +125,7 @@ works, in the post's order. Skills (item 26) was already here; the other five ar
 | 3 | [26](#status) | Skills by Anthropic | [anthropics/skills](https://github.com/anthropics/skills) | ~759 + ~939 | pass |
 | 4 | [69](#status) | Claude Agent SDK (Python) | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | n/a | pass |
 | 5 | [70](#status) | Claude Code (the CLI) | [anthropics/claude-code](https://github.com/anthropics/claude-code) | n/a | pass |
-| 6 | [71](#status) | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | n/a | fail |
+| 6 | [71](#status) | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | n/a | pass |
 <!-- list:anthropic6:end -->
 
 The post's pitch: build one agent with these and you become the person your team brings AI
@@ -170,7 +170,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-28: 71 repos, 68 of 69 install-tested items passing, 1 needing attention. Token costs measured with 2.1.312 (Claude Code) on 2026-10-28._
+_Checked 2026-10-28: 71 repos, 69 of 69 install-tested items passing, 1 needing attention. Token costs measured with 2.1.312 (Claude Code) on 2026-10-28._
 
 **Top 30 from the post**
 
@@ -183,7 +183,7 @@ _Checked 2026-10-28: 71 repos, 68 of 69 install-tested items passing, 1 needing 
 | 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 307k | 2026-10-23 | pass (2026-10-26) | ~706 | OK |
 | 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 178.7k | 2026-10-18 | pass (2026-10-26) | ~430 | OK |
 | 7 | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | 78.1k | 2026-10-28 | pass (2026-10-28) | ~116 | OK |
-| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 400.2k | 2026-10-28 | pass (2026-10-28) | n/a (MCP) | OK |
+| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 400.3k | 2026-10-28 | pass (2026-10-28) | n/a (MCP) | OK |
 | 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 137.4k | 2026-10-27 | pass (2026-10-28) | n/a (CLI skill) | OK |
 | 10 | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 88.7k | 2026-10-26 | pass (2026-10-26) | ~870 | OK |
 | 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 65.8k | 2026-10-27 | pass (2026-10-27) | ~67 | OK |
@@ -202,8 +202,8 @@ _Checked 2026-10-28: 71 repos, 68 of 69 install-tested items passing, 1 needing 
 | 24 | PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 70k | 2026-10-28 | pass (2026-10-28) | ~139 | OK |
 | 25 | Marketing Skills | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | 57k | 2026-10-27 | pass (2026-10-28) | ~10,629 | OK |
 | 26 | Skills by Anthropic | [anthropics/skills](https://github.com/anthropics/skills) | 184.4k | 2026-10-09 | pass (2026-10-26) | ~759 + ~939 | OK |
-| 27 | OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 72.6k | 2026-10-24 | pass (2026-10-26) | per project | OK |
-| 28 | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | 61.7k | 2026-10-28 | pass (2026-10-28) | ~90 | OK |
+| 27 | OpenMontage | [calesthio/OpenMontage](https://github.com/calesthio/OpenMontage) | 72.6k | 2026-10-24 | pass (2026-10-26) | per project | ⚠ github.com/calesthio/OpenMontage did not answer git ls-remote |
+| 28 | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | 61.8k | 2026-10-28 | pass (2026-10-28) | ~90 | OK |
 | 29 | HyperFrames | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 74.4k | 2026-10-28 | pass (2026-10-28) | ~551 | OK |
 | 30 | I Have ADHD | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | 59.2k | 2026-10-19 | pass (2026-10-26) | ~67 | OK |
 
@@ -261,7 +261,7 @@ _Checked 2026-10-28: 71 repos, 68 of 69 install-tested items passing, 1 needing 
 | 68 | Claude quickstarts | [anthropics/claude-quickstarts](https://github.com/anthropics/claude-quickstarts) | 19k | 2026-10-23 | pass (2026-10-28) | n/a | OK |
 | 69 | Claude Agent SDK (Python) | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | 8.4k | 2026-10-28 | pass (2026-10-28) | n/a | OK |
 | 70 | Claude Code (the CLI) | [anthropics/claude-code](https://github.com/anthropics/claude-code) | 153.7k | 2026-10-27 | pass (2026-10-28) | n/a | OK |
-| 71 | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | 9.7k | 2026-10-27 | fail (2026-10-28) | n/a | ⚠ `cp templates/claude-code-action/* ~/claude-learn/claude-code-action/` failed (exit 1): cp: cannot stat 'templates/claude-code-action/*': No |
+| 71 | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | 9.7k | 2026-10-27 | pass (2026-10-28) | n/a | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

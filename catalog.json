@@ -52,7 +52,7 @@
    "upstream": {
     "head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
     "license": "MIT",
-    "stars": 225765,
+    "stars": 225766,
     "pushed": "2026-04-20",
     "default_branch": "main"
    },
@@ -101,7 +101,7 @@
    "upstream": {
     "head": "59db609eb1e18aaf59b63284d0e52255aff0c63c",
     "license": "MIT",
-    "stars": 305329,
+    "stars": 305348,
     "pushed": "2026-10-27",
     "default_branch": "main",
     "pinned": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
@@ -136,7 +136,7 @@
    },
    "upstream": {
     "head": "25278e7d7b6cf6e6a4e7a6c8e10f14ff22f0eb5b",
-    "stars": 291364,
+    "stars": 291370,
     "pushed": "2026-10-26",
     "license": "MIT",
     "default_branch": "main",
@@ -188,7 +188,7 @@
    "upstream": {
     "head": "aeac41d4d005999432bb7312f7ff06383a91d59d",
     "license": "MIT",
-    "stars": 111324,
+    "stars": 111325,
     "pushed": "2026-10-13",
     "default_branch": "main"
    },
@@ -237,7 +237,7 @@
    "upstream": {
     "head": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
     "license": "MIT",
-    "stars": 306968,
+    "stars": 306974,
     "pushed": "2026-10-23",
     "default_branch": "main"
    },
@@ -280,7 +280,7 @@
    "upstream": {
     "head": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
     "license": "MIT",
-    "stars": 178679,
+    "stars": 178695,
     "pushed": "2026-10-18",
     "default_branch": "main"
    },
@@ -325,7 +325,7 @@
      "npm:@santifer/career-ops": "1.38.0"
     },
     "pinned": "a6d7526c05861b1df9b70c011f8b1a84c44252ac",
-    "stars": 78130,
+    "stars": 78131,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "main"
@@ -370,12 +370,12 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "23e7c4e8e2a713ab40221cc83752c721be1ed062",
+    "head": "b9a8f8e9f25feb9cc97bf4960748f2bdf8c898bc",
     "packages": {
      "npm:rea-agents": "6.8.0"
     },
-    "pinned": "23e7c4e8e2a713ab40221cc83752c721be1ed062",
-    "stars": 400196,
+    "pinned": "b9a8f8e9f25feb9cc97bf4960748f2bdf8c898bc",
+    "stars": 400252,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "main"
@@ -418,7 +418,7 @@
     "packages": {
      "pypi:graphifyy": "0.9.97"
     },
-    "stars": 137379,
+    "stars": 137388,
     "pushed": "2026-10-27",
     "license": "Apache-2.0",
     "default_branch": "v8",
@@ -454,7 +454,7 @@
    },
    "upstream": {
     "head": "4e6d3299017a7432da15957874992837a315c5b4",
-    "stars": 88683,
+    "stars": 88685,
     "pushed": "2026-10-26",
     "license": "MIT",
     "default_branch": "main",
@@ -536,7 +536,7 @@
      "pypi:agent-reach": "0.1.0"
     },
     "pinned": "14c213405669414492bda0f8d52cc6531d062c45",
-    "stars": 105307,
+    "stars": 105314,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -581,7 +581,7 @@
     "packages": {
      "pypi:headroom-ai": "0.42.0"
     },
-    "stars": 78097,
+    "stars": 78099,
     "pushed": "2026-10-28",
     "license": "Apache-2.0",
     "default_branch": "main",
@@ -630,7 +630,7 @@
     "packages": {
      "npm:bmad-method": "6.12.4"
     },
-    "stars": 54671,
+    "stars": 54672,
     "pushed": "2026-10-27",
     "license": "NOASSERTION",
     "default_branch": "main"
@@ -702,9 +702,9 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "9e3308f65adf547b7e4776e5ed22467a2649d2ee",
-    "pinned": "9e3308f65adf547b7e4776e5ed22467a2649d2ee",
-    "stars": 138019,
+    "head": "4b8c03bea9d1c7b51257f6267a4831ee0da8aa20",
+    "pinned": "4b8c03bea9d1c7b51257f6267a4831ee0da8aa20",
+    "stars": 138020,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "main"
@@ -748,7 +748,7 @@
     "head": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "pinned": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "license": "Apache-2.0",
-    "stars": 115673,
+    "stars": 115675,
     "pushed": "2026-10-28",
     "default_branch": "main"
    },
@@ -834,7 +834,7 @@
     "head": "12af471f627f866411b4bd785b19646d3672784c",
     "pinned": "12af471f627f866411b4bd785b19646d3672784c",
     "license": "MIT",
-    "stars": 104035,
+    "stars": 104046,
     "pushed": "2026-10-28",
     "default_branch": "main"
    },
@@ -918,7 +918,7 @@
    "upstream": {
     "head": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1",
     "license": "MIT",
-    "stars": 62223,
+    "stars": 62229,
     "pushed": "2026-10-27",
     "default_branch": "main",
     "pinned": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1"
@@ -970,7 +970,7 @@
     },
     "pinned": "8409a564d1baee90b2dde4f7a8f06288838e3921",
     "license": "Apache-2.0",
-    "stars": 91361,
+    "stars": 91375,
     "pushed": "2026-10-28",
     "default_branch": "main"
    },
@@ -1021,7 +1021,7 @@
      "npm:ui-ux-pro-max-cli": "2.15.0"
     },
     "license": "MIT",
-    "stars": 141863,
+    "stars": 141868,
     "pushed": "2026-10-26",
     "default_branch": "main",
     "pinned": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03"
@@ -1060,7 +1060,7 @@
    },
    "upstream": {
     "head": "6fbac39e1d06a66ce3a8724b9366cb878b793f99",
-    "stars": 70030,
+    "stars": 70034,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "main",
@@ -1102,7 +1102,7 @@
    "upstream": {
     "head": "0cd9b3a0ef4c411a1d690419ce843f2a1da32cce",
     "license": "MIT",
-    "stars": 57015,
+    "stars": 57019,
     "pushed": "2026-10-27",
     "default_branch": "main",
     "pinned": "0cd9b3a0ef4c411a1d690419ce843f2a1da32cce"
@@ -1138,7 +1138,7 @@
    },
    "upstream": {
     "head": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-    "stars": 184396,
+    "stars": 184399,
     "pushed": "2026-10-09",
     "license": null,
     "default_branch": "main"
@@ -1174,15 +1174,20 @@
      "cd ~/OpenMontage && make install"
     ]
    },
-   "status": "ok",
-   "problems": [],
+   "status": "attention",
+   "problems": [
+    {
+     "kind": "unreachable",
+     "msg": "github.com/calesthio/OpenMontage did not answer git ls-remote"
+    }
+   ],
    "verified": {
     "date": "2026-10-26",
     "result": "pass"
    },
    "upstream": {
     "head": "e01dbf433f46eeb91d39bf905e194162921019a3",
-    "stars": 72616,
+    "stars": 72617,
     "pushed": "2026-10-24",
     "license": "AGPL-3.0",
     "default_branch": "main"
@@ -1228,7 +1233,7 @@
    "upstream": {
     "head": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
     "license": "MIT",
-    "stars": 61748,
+    "stars": 61755,
     "pushed": "2026-10-28",
     "default_branch": "main",
     "pinned": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0"
@@ -1270,12 +1275,12 @@
     "result": "pass"
    },
    "upstream": {
-    "head": "2d3033c719bc82ea4a82fe4d7141e0669ab9a14d",
+    "head": "eba596d026347d2e25a95692d77bd0ca2b830fe3",
     "packages": {
      "npm:hyperframes": "0.8.211"
     },
-    "pinned": "2d3033c719bc82ea4a82fe4d7141e0669ab9a14d",
-    "stars": 74380,
+    "pinned": "eba596d026347d2e25a95692d77bd0ca2b830fe3",
+    "stars": 74389,
     "pushed": "2026-10-28",
     "license": "Apache-2.0",
     "default_branch": "main"
@@ -1318,7 +1323,7 @@
    "upstream": {
     "head": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
     "license": "MIT",
-    "stars": 59152,
+    "stars": 59155,
     "pushed": "2026-10-19",
     "default_branch": "main"
    },
@@ -1610,7 +1615,7 @@
    "problems": [],
    "upstream": {
     "head": "99f4d0cca81de00db3af8859e16127e9b9927dae",
-    "stars": 11907,
+    "stars": 11908,
     "pushed": "2026-10-22",
     "license": "Apache-2.0",
     "default_branch": "develop",
@@ -1649,7 +1654,7 @@
    "problems": [],
    "upstream": {
     "head": "b08b99f38098c30c0ee1a781accd8e349e5b145c",
-    "stars": 3324,
+    "stars": 3325,
     "pushed": "2026-10-28",
     "license": "Apache-2.0",
     "default_branch": "main",
@@ -2186,7 +2191,7 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "563609466ce403df8b2e88118e6eceb6edf5ce71",
+    "head": "e6c4f984539e2e55640d6c8b889b2974dfb940d5",
     "stars": 3621,
     "pushed": "2026-10-28",
     "license": "Apache-2.0",
@@ -2194,7 +2199,7 @@
     "packages": {
      "pypi:mcp-grafana": "2.1.1"
     },
-    "pinned": "563609466ce403df8b2e88118e6eceb6edf5ce71"
+    "pinned": "e6c4f984539e2e55640d6c8b889b2974dfb940d5"
    },
    "verified": {
     "date": "2026-10-28",
@@ -2272,7 +2277,7 @@
    "problems": [],
    "upstream": {
     "head": "753cd68a42c1ca05867f7577e3bdfcc5d59553e6",
-    "stars": 3713,
+    "stars": 3714,
     "pushed": "2026-10-28",
     "license": "Apache-2.0",
     "default_branch": "master",
@@ -2315,7 +2320,7 @@
    "problems": [],
    "upstream": {
     "head": "6da8aa12b128f519f1de72920aaf1d8b9e01987b",
-    "stars": 93024,
+    "stars": 93026,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "master",
@@ -2460,7 +2465,7 @@
    "problems": [],
    "upstream": {
     "head": "77a3465030402c7f9684c50a6feb1caad9fc67f9",
-    "stars": 79878,
+    "stars": 79881,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "main",
@@ -2609,7 +2614,7 @@
    "problems": [],
    "upstream": {
     "head": "397137b0cfc2007f48f837c52958f9ec811db9c5",
-    "stars": 32634,
+    "stars": 32637,
     "pushed": "2026-10-28",
     "license": "NOASSERTION",
     "default_branch": "main",
@@ -2643,7 +2648,7 @@
    "problems": [],
    "upstream": {
     "head": "55359eb609ee919ca7bf22559ff61ef53c49335e",
-    "stars": 14280,
+    "stars": 14282,
     "pushed": "2026-10-28",
     "license": "Apache-2.0",
     "default_branch": "main",
@@ -2678,7 +2683,7 @@
    "problems": [],
    "upstream": {
     "head": "6d6b7162f122ac0ce1356a14688c8c4f712db3c8",
-    "stars": 149663,
+    "stars": 149666,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "main",
@@ -2902,7 +2907,7 @@
    "problems": [],
    "upstream": {
     "head": "58d6da1e34d6cd1c6379dcbf568bd66f5f9b6102",
-    "stars": 153681,
+    "stars": 153683,
     "pushed": "2026-10-27",
     "license": null,
     "default_branch": "main",
@@ -2934,13 +2939,8 @@
    "use": "Copy a workflow into your repo's .github/workflows/; each file's header lists the secrets it needs.",
    "always_on": "n/a",
    "source": "sources/71-claude-code-action",
-   "status": "attention",
-   "problems": [
-    {
-     "kind": "install",
-     "msg": "`cp templates/claude-code-action/* ~/claude-learn/claude-code-action/` failed (exit 1): cp: cannot stat 'templates/claude-code-action/*': No such file or directory"
-    }
-   ],
+   "status": "ok",
+   "problems": [],
    "upstream": {
     "head": "d70510b174a1244958df0b03166a54912811f3e6",
     "stars": 9682,
@@ -2951,7 +2951,7 @@
    },
    "verified": {
     "date": "2026-10-28",
-    "result": "fail"
+    "result": "pass"
    }
   }
  ],
