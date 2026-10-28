@@ -2932,12 +2932,6 @@
    ],
    "verify": "test -s ~/claude-learn/claude-code-action/claude.yml && test -s ~/claude-learn/claude-code-action/sql-review-bedrock.yml",
    "use": "Copy a workflow into your repo's .github/workflows/; each file's header lists the secrets it needs.",
-   "ci": {
-    "install": [
-     "mkdir -p ~/claude-learn/claude-code-action",
-     "cp templates/claude-code-action/* ~/claude-learn/claude-code-action/"
-    ]
-   },
    "always_on": "n/a",
    "source": "sources/71-claude-code-action",
    "status": "attention",
