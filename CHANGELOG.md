@@ -2,6 +2,32 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-28 17:20 UTC
+
+**Upstream updates**
+- Career Ops: [a6d7526 → 4cd1863](https://github.com/career-ops-hq/career-ops/compare/a6d7526c05861b1df9b70c011f8b1a84c44252ac...4cd18636dd249c92f0406d08670e56218b4ae4fa)
+- REA (Reverse Engineer Anything): [b9a8f8e → dfa0689](https://github.com/morluto/rea/compare/b9a8f8e9f25feb9cc97bf4960748f2bdf8c898bc...dfa06898906920bbbedc9a2f21eb1f5ddd132fed)
+- Last 30 Days: [e06af25 → 7efc0ef](https://github.com/mvanhorn/last30days-skill/compare/e06af25a9a78487b75e8509e0e1687fec137176e...7efc0ef764765ed9ceff5ce1204462b35b89d680)
+- Headroom: [f10725e → 3c6f82b](https://github.com/headroomlabs-ai/headroom/compare/f10725e6b9940d8bc2fcde950c86f8ac97543cb6...3c6f82b06091206379106f8fe1a54f2400ed7a93)
+- gstack: [4b8c03b → 61e201e](https://github.com/garrytan/gstack/compare/4b8c03bea9d1c7b51257f6267a4831ee0da8aa20...61e201ec08bcf59163ef2d3a69a26e334a536c04)
+- GSD (Get Shit Done): [fbd5d1e → d37ff11](https://github.com/open-gsd/gsd-core/compare/fbd5d1ef89d78bc413c092b08c196314b2880708...d37ff11b47258b560f0cf8f1132b42ecd90e0c79)
+- Impeccable: [8409a56 → 7510e23](https://github.com/pbakaus/impeccable/compare/8409a564d1baee90b2dde4f7a8f06288838e3921...7510e233b228864606888d252abacf5e7148bf87)
+- HyperFrames: [eba596d → c9017f4](https://github.com/heygen-com/hyperframes/compare/eba596d026347d2e25a95692d77bd0ca2b830fe3...c9017f45f4b8c38e11396a70a3d05d3432c58b48)
+- SQLFluff: [0c3ba19 → 5ecad33](https://github.com/sqlfluff/sqlfluff/compare/0c3ba19a3913f9034dd65e894acfd94a63e6629f...5ecad33baf2e4c609bae3d67ef33910824d6a0ee)
+- Apache DevLake (DORA dashboards): [8d1d29a → 21af7cd](https://github.com/apache/devlake/compare/8d1d29a24d31f198ca006d1c71682a19032d71b7...21af7cddf3bb55cd685662dea2b62e68e3196d86)
+- Grafana OTel LGTM (all-in-one): [bb079bd → 418e85d](https://github.com/grafana/docker-otel-lgtm/compare/bb079bd05cb1ffbf2debfe4ef4f8124ca5c6e738...418e85d2f4efe03e6fd66eb124b42c47999260a4)
+- Grafana MCP server: [e6c4f98 → 0f5eebe](https://github.com/grafana/mcp-grafana/compare/e6c4f984539e2e55640d6c8b889b2974dfb940d5...0f5eebe984a091ab2e4fb86413f7009a1651295b)
+- Uptime Kuma (status pages): [6da8aa1 → 2e8bf7d](https://github.com/louislam/uptime-kuma/compare/6da8aa12b128f519f1de72920aaf1d8b9e01987b...2e8bf7da56f7d14093f595a4b3ffce14caf11632)
+- Dynatrace for AI (plugin + MCP): [4f9aa71 → 0c0375c](https://github.com/Dynatrace/dynatrace-for-ai/compare/4f9aa71f9802aa6db0a4069ae5619eb3392ff411...0c0375cbf15d902a8f7975dd51a6decfdf46f864)
+- Ruflo (agent swarms): [77a3465 → 7387295](https://github.com/ruvnet/ruflo/compare/77a3465030402c7f9684c50a6feb1caad9fc67f9...7387295568883490d609317ec719aa8f8e80d410)
+- video-shotcraft: [55359eb → c81ec74](https://github.com/Vincentwei1021/video-shotcraft/compare/55359eb609ee919ca7bf22559ff61ef53c49335e...c81ec74186350cc97a74e231cb38444cea0d4ff8)
+
+**Notes**
+- ✓ OpenMontage: resolved — github.com/calesthio/OpenMontage did not answer git ls-remote
+- HyperFrames: npm:hyperframes 0.8.211 → 0.8.212
+
+**Install tests**: 16/16 passed
+
 ## 2026-10-28 13:10 UTC
 
 **Upstream updates**

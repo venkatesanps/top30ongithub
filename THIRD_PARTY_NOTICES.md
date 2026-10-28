@@ -14,7 +14,7 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [12af471f62](https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c) |
 | 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [d6059331ab](https://github.com/tt-a1i/archify/tree/d6059331abbddb49bca380ff46dca8ce33158b04) |
 | 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [0cf73c3fcc](https://github.com/cathrynlavery/diagram-design/tree/0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1) |
-| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [8409a564d1](https://github.com/pbakaus/impeccable/tree/8409a564d1baee90b2dde4f7a8f06288838e3921) |
+| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [7510e233b2](https://github.com/pbakaus/impeccable/tree/7510e233b228864606888d252abacf5e7148bf87) |
 | 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [28b3b8dee8](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/28b3b8dee8c976df4fa3e94aed4e092ad43fcb03) |
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [0cd9b3a0ef](https://github.com/coreyhaines31/marketingskills/tree/0cd9b3a0ef4c411a1d690419ce843f2a1da32cce) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [0ef9fe5bc3](https://github.com/blader/humanizer/tree/0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0) |
