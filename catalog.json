@@ -12,7 +12,8 @@
   "9": "Production monitoring & SRE",
   "10": "Agent harnesses, plans & memory",
   "11": "Token savers",
-  "12": "Product, video & everyday tools"
+  "12": "Product, video & everyday tools",
+  "13": "Learn & build with Anthropic's repos"
  },
  "items": [
   {
@@ -2758,6 +2759,159 @@
     "date": "2026-10-27",
     "result": "pass"
    }
+  },
+  {
+   "n": 67,
+   "row": 13,
+   "collection": "anthropic",
+   "alt": "No install: the Google Sheets version linked from the README. AWS shops: the AmazonBedrock folder runs the same course on Bedrock (boto3).",
+   "note": "The notebooks call Claude 3 Haiku and Sonnet, which Anthropic retired (Haiku 3 on April 20, 2026), so the install switches them to Claude Haiku 4.5. Newer models (4.6+) reject the temperature and prefill settings the lessons use. No licence file upstream: fine to learn from, not to redistribute.",
+   "name": "Prompt engineering tutorial",
+   "repo": "anthropics/prompt-eng-interactive-tutorial",
+   "what": "Anthropic's 9-chapter interactive course in Jupyter notebooks: prompt structure, clarity, roles, separating data from instructions, output formatting, step-by-step thinking, examples, avoiding hallucinations, complex prompts (incl. financial services). Appendix: chaining, tool use, retrieval.",
+   "needs": [
+    "git",
+    "python",
+    "uv"
+   ],
+   "install": [
+    "git clone --depth 1 https://github.com/anthropics/prompt-eng-interactive-tutorial.git ~/claude-learn/prompt-eng-interactive-tutorial",
+    "python3 -c \"import pathlib;[p.write_text(p.read_text(encoding='utf-8').replace('claude-3-haiku-20240307','claude-haiku-4-5-20251001').replace('claude-3-sonnet-20240229','claude-haiku-4-5-20251001'),encoding='utf-8') for p in (pathlib.Path.home()/'claude-learn/prompt-eng-interactive-tutorial/Anthropic 1P').glob('*.ipynb')]\"",
+    "uv tool install jupyterlab --with anthropic --with pip"
+   ],
+   "verify": "jupyter-lab --version && test -f ~/claude-learn/prompt-eng-interactive-tutorial/'Anthropic 1P'/09_Complex_Prompts_from_Scratch.ipynb && ! grep -rq claude-3- ~/claude-learn/prompt-eng-interactive-tutorial/'Anthropic 1P'",
+   "use": "cd ~/claude-learn/prompt-eng-interactive-tutorial/'Anthropic 1P' && jupyter-lab   then open 00_Tutorial_How-To and paste a Console API key",
+   "always_on": "n/a",
+   "source": "sources/67-prompt-eng-interactive-tutorial",
+   "status": "ok",
+   "problems": [],
+   "upstream": {},
+   "verified": {
+    "date": "2026-10-28",
+    "result": "untested"
+   }
+  },
+  {
+   "n": 68,
+   "row": 13,
+   "collection": "anthropic",
+   "alt": "",
+   "note": "Each app has its own dependencies (Node, Python, Docker for computer use). Starting points, not production code.",
+   "name": "Claude quickstarts",
+   "repo": "anthropics/claude-quickstarts",
+   "what": "17 deployable starter apps on the Claude API: customer support agent, financial data analyst, computer and browser use, an autonomous coding agent on the Agent SDK, and Managed Agents apps (Slack and Linear bots, a daily Slack/GitHub brief, an SEC-filings knowledge wiki, Sentry triage).",
+   "needs": [
+    "git"
+   ],
+   "install": [
+    "git clone --depth 1 https://github.com/anthropics/claude-quickstarts.git ~/claude-learn/claude-quickstarts"
+   ],
+   "verify": "test -d ~/claude-learn/claude-quickstarts/financial-data-analyst && test -d ~/claude-learn/claude-quickstarts/managed-agents/daily-brief",
+   "use": "Start with financial-data-analyst or managed-agents/daily-brief; each folder's README has its setup. Needs an API key.",
+   "always_on": "n/a",
+   "source": "sources/68-claude-quickstarts",
+   "status": "ok",
+   "problems": [],
+   "upstream": {},
+   "verified": {
+    "date": "2026-10-28",
+    "result": "untested"
+   }
+  },
+  {
+   "n": 69,
+   "row": 13,
+   "collection": "anthropic",
+   "alt": "Any Python 3.10+ environment: pip install claude-agent-sdk. TypeScript: npm install @anthropic-ai/claude-agent-sdk",
+   "note": "Uses whatever Claude Code auth the machine has: your login, ANTHROPIC_API_KEY, or CLAUDE_CODE_USE_BEDROCK=1 with AWS credentials. Governed by Anthropic's Commercial Terms.",
+   "name": "Claude Agent SDK (Python)",
+   "repo": "anthropics/claude-agent-sdk-python",
+   "what": "The Claude Code agent loop as a Python library: your own tools (in-process MCP), hooks that allow or deny each action, subagents, budgets. Bundles the Claude Code CLI. This kit includes a working example, examples/sql-review-agent: a read-only Snowflake SQL reviewer.",
+   "needs": [
+    "uv"
+   ],
+   "install": [
+    "uv venv -q --python 3.12 ~/claude-learn/agent-venv",
+    "uv pip install -q --python ~/claude-learn/agent-venv claude-agent-sdk sqlglot"
+   ],
+   "verify": "~/claude-learn/agent-venv/bin/python -c 'import claude_agent_sdk, sqlglot'",
+   "use": "From this kit's folder: ~/claude-learn/agent-venv/bin/python examples/sql-review-agent/agent.py examples/sql-review-agent/sample",
+   "packages": [
+    {
+     "pypi": "claude-agent-sdk"
+    }
+   ],
+   "always_on": "n/a",
+   "source": "sources/69-claude-agent-sdk-python",
+   "status": "ok",
+   "problems": [],
+   "upstream": {},
+   "verified": {
+    "date": "2026-10-28",
+    "result": "untested"
+   }
+  },
+  {
+   "n": 70,
+   "row": 13,
+   "collection": "anthropic",
+   "alt": "brew install --cask claude-code  ·  Windows: irm https://claude.ai/install.ps1 | iex  ·  winget install Anthropic.ClaudeCode (npm install is deprecated)",
+   "note": "The GitHub repo holds docs, issues and the changelog; the source isn't open (Anthropic's Commercial Terms). Official plugins live in anthropics/claude-plugins-official.",
+   "name": "Claude Code (the CLI)",
+   "repo": "anthropics/claude-code",
+   "what": "The agent in your terminal: reads the codebase, edits files, runs commands, handles git. Every plugin in this kit runs inside it.",
+   "needs": [],
+   "install": [
+    "curl -fsSL https://claude.ai/install.sh | bash"
+   ],
+   "verify": "claude --version",
+   "use": "cd your-repo && claude",
+   "packages": [
+    {
+     "npm": "@anthropic-ai/claude-code"
+    }
+   ],
+   "always_on": "n/a",
+   "source": "sources/70-claude-code",
+   "status": "ok",
+   "problems": [],
+   "upstream": {},
+   "verified": {
+    "date": "2026-10-28",
+    "result": "untested"
+   }
+  },
+  {
+   "n": 71,
+   "row": 13,
+   "collection": "anthropic",
+   "alt": "Inside a repo you admin: run claude, then /install-github-app (direct Anthropic API only)",
+   "note": "Runs on your own runners; code goes to the model provider you choose (Anthropic, Bedrock, Vertex or Foundry). Repo admin rights needed. At work, use your firm's approved provider and GitHub App.",
+   "name": "Claude Code Action (GitHub)",
+   "repo": "anthropics/claude-code-action",
+   "what": "Claude Code in GitHub Actions: tag @claude on a PR or issue to get an answer, a review or a pushed fix; or run it on every PR. Installs two ready workflows from this kit: @claude mentions (Anthropic API) and a Snowflake SQL review on Amazon Bedrock via OIDC.",
+   "needs": [],
+   "install": [
+    "mkdir -p ~/claude-learn/claude-code-action",
+    "for f in claude.yml sql-review-bedrock.yml sql_checks.py; do curl -fsSL https://raw.githubusercontent.com/venkatesanps/top30ongithub/main/templates/claude-code-action/$f -o ~/claude-learn/claude-code-action/$f; done"
+   ],
+   "verify": "test -s ~/claude-learn/claude-code-action/claude.yml && test -s ~/claude-learn/claude-code-action/sql-review-bedrock.yml",
+   "use": "Copy a workflow into your repo's .github/workflows/; each file's header lists the secrets it needs.",
+   "ci": {
+    "install": [
+     "mkdir -p ~/claude-learn/claude-code-action",
+     "cp templates/claude-code-action/* ~/claude-learn/claude-code-action/"
+    ]
+   },
+   "always_on": "n/a",
+   "source": "sources/71-claude-code-action",
+   "status": "ok",
+   "problems": [],
+   "upstream": {},
+   "verified": {
+    "date": "2026-10-28",
+    "result": "untested"
+   }
   }
  ],
  "schema": 2,
@@ -2766,7 +2920,8 @@
  "collections": {
   "top30": "Top 30 from the post",
   "dataops": "Data & ops toolkit",
-  "open20": "From '20 projects to open first'"
+  "open20": "From '20 projects to open first'",
+  "anthropic": "Anthropic's repos to build with"
  },
  "lists": {
   "open20": {
@@ -2797,6 +2952,27 @@
     "Start with 3, not 20: one for memory, one for tokens, one for your actual job.",
     "Run the same task before and after. Keep only what makes the result better or cheaper.",
     "Every plugin you add loads into context, so more isn't free."
+   ],
+   "heading": "Before you open all 20",
+   "source": "From the post \"20 GitHub projects you should open first\"."
+  },
+  "anthropic6": {
+   "label": "Anthropic's 6 to build with",
+   "items": [
+    67,
+    68,
+    26,
+    69,
+    70,
+    71
+   ],
+   "heading": "Build one agent, not six demos",
+   "source": "From the post on Anthropic's six GitHub repos to build with.",
+   "advice": [
+    "Learn the prompt basics first (67): a couple of evenings, and every agent after it is cheaper and more reliable.",
+    "Build one agent for a real, repetitive task on your team. examples/sql-review-agent is a working start: a custom tool, a read-only guard and a budget cap.",
+    "Put it where the team already works: claude-code-action runs it on every pull request (a Bedrock version is included).",
+    "Measure it like any tool: same task before and after, keep it only if it's better or cheaper."
    ]
   }
  }

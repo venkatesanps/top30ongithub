@@ -1,6 +1,6 @@
-# Top 30 Claude plugins, a data & ops toolkit, and the 20 to open first, kept current
+# Top 30 Claude plugins, a data & ops toolkit, the 20 to open first, and Anthropic's build repos, kept current
 
-Three collections, each traced to its real repository, with one installer, a verifier, a field
+Four collections, each traced to its real repository, with one installer, a verifier, a field
 guide, and upload-ready skill zips for the Claude app:
 
 - **Top 30 from the post** (items 1–30, rows 1–5): coding, research, token savers, design, writing.
@@ -10,6 +10,9 @@ guide, and upload-ready skill zips for the Claude app:
 - **[20 to open first](#20-github-projects-to-open-first)** (items 58–66, rows 10–12, plus 11 already
   here): agent harnesses, memory, token savers, product and everyday tools, with a script to test
   each one before and after.
+- **[Anthropic's 6 to build with](#anthropics-6-repos-to-build-with)** (items 67–71, row 13, plus 26):
+  the prompt tutorial, quickstarts, Agent SDK, Claude Code and Claude Code Action, with a working
+  Snowflake SQL review agent and GitHub workflows (including Amazon Bedrock) you can copy.
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
@@ -52,7 +55,7 @@ Docker (dashboards), Java 17+ (SQLcl), Bun (gstack, Claude-Mem), git, FFmpeg (vi
 
 The "20 GitHub projects you should open first" list, in its own order. Eleven were already in
 this kit; the other nine are items 58–66. Every one is pinned, install-tested and checked daily.
-`./install.sh --open20` prints the list, and the field guide has a "20 to open first" filter.
+`./install.sh --show open20` prints the list, and the field guide has a "20 to open first" filter.
 
 <!-- list:open20:start -->
 | Post # | Catalog # | Name | Repo | Tokens/session | Install test |
@@ -108,6 +111,41 @@ this kit; the other nine are items 58–66. Every one is pinned, install-tested 
    is measured daily with `claude plugin details`. ECC (**3**) alone adds about 33k tokens to every
    session. Disable what you aren't using with `claude plugin disable <name>`.
 
+## Anthropic's 6 repos to build with
+
+Anthropic's own repos for learning to prompt, building an agent and running it where your team
+works, in the post's order. Skills (item 26) was already here; the other five are items 67–71.
+`./install.sh --show anthropic6` prints the list.
+
+<!-- list:anthropic6:start -->
+| Post # | Catalog # | Name | Repo | Tokens/session | Install test |
+|---|---|---|---|---|---|
+| 1 | [67](#status) | Prompt engineering tutorial | [anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) | n/a | untested |
+| 2 | [68](#status) | Claude quickstarts | [anthropics/claude-quickstarts](https://github.com/anthropics/claude-quickstarts) | n/a | untested |
+| 3 | [26](#status) | Skills by Anthropic | [anthropics/skills](https://github.com/anthropics/skills) | ~759 + ~939 | pass |
+| 4 | [69](#status) | Claude Agent SDK (Python) | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | n/a | untested |
+| 5 | [70](#status) | Claude Code (the CLI) | [anthropics/claude-code](https://github.com/anthropics/claude-code) | n/a | untested |
+| 6 | [71](#status) | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | n/a | untested |
+<!-- list:anthropic6:end -->
+
+The post's pitch: build one agent with these and you become the person your team brings AI
+projects to. To make that concrete for a data team, this kit includes one:
+
+- **[examples/sql-review-agent](examples/sql-review-agent/)**: a read-only Snowflake SQL reviewer
+  built on the Agent SDK. A custom tool runs sqlglot checks, a hook blocks every write and any
+  path outside the folder, and a budget cap stops runaway cost. On the samples it found all seven
+  planted problems for about $0.10 with Sonnet.
+- **[templates/claude-code-action](templates/claude-code-action/)**: `claude.yml` (tag @claude on
+  issues and PRs) and `sql-review-bedrock.yml` (reviews every PR that touches `.sql`, on Amazon
+  Bedrock through GitHub OIDC, so there's no Anthropic API key and traffic stays in your AWS account).
+
+Two things that changed upstream since these repos were written:
+
+- **The tutorial's model was retired.** The notebooks call Claude 3 Haiku, which Anthropic
+  retired on April 20, 2026. `./install.sh 67` switches them to Claude Haiku 4.5. Newer
+  models (4.6 and later) reject the `temperature` and prefill settings the lessons use.
+- **npm install of Claude Code is deprecated.** Item 70 uses the native installer.
+
 ## Skills built here
 
 This repo is also a Claude Code plugin marketplace with its own skills:
@@ -132,7 +170,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-10-27: 66 repos, 64 of 64 install-tested items passing, 0 needing attention. Token costs measured with 2.1.311 (Claude Code) on 2026-10-27._
+_Checked 2026-10-27: 71 repos, 64 of 64 install-tested items passing, 0 needing attention. Token costs measured with 2.1.311 (Claude Code) on 2026-10-27._
 
 **Top 30 from the post**
 
@@ -214,6 +252,16 @@ _Checked 2026-10-27: 66 repos, 64 of 64 install-tested items passing, 0 needing 
 | 64 | CC Switch (desktop) | [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 149.3k | 2026-10-27 | manual (2026-10-26) | n/a | OK |
 | 65 | pm-skills | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 27.4k | 2026-10-16 | pass (2026-10-27) | ~1,580 | OK |
 | 66 | claude-skills (380+ skills) | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 28.8k | 2026-10-27 | pass (2026-10-27) | ~4,040 + ~159 + ~182 | OK |
+
+**Anthropic's repos to build with**
+
+| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
+|---|---|---|---|---|---|---|---|
+| 67 | Prompt engineering tutorial | [anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) | — | — | untested (2026-10-28) | n/a | OK |
+| 68 | Claude quickstarts | [anthropics/claude-quickstarts](https://github.com/anthropics/claude-quickstarts) | — | — | untested (2026-10-28) | n/a | OK |
+| 69 | Claude Agent SDK (Python) | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | — | — | untested (2026-10-28) | n/a | OK |
+| 70 | Claude Code (the CLI) | [anthropics/claude-code](https://github.com/anthropics/claude-code) | — | — | untested (2026-10-28) | n/a | OK |
+| 71 | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | — | — | untested (2026-10-28) | n/a | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick
@@ -241,6 +289,8 @@ _Checked 2026-10-27: 66 repos, 64 of 64 install-tested items passing, 0 needing 
 | `guide/` | Field guide page (`index.html` is generated from `template.html`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
 | `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-ops`). |
+| `examples/sql-review-agent/` | A working Agent SDK agent: read-only Snowflake SQL review with a custom tool, guard hook and budget cap. |
+| `templates/claude-code-action/` | GitHub workflows to copy: @claude mentions, and SQL review on Amazon Bedrock. `sql_checks.py` there is a copy of the agent's `checks.py` (CI keeps them identical). |
 | `scripts/ab.py` | Before/after test for one plugin: same task with it off and on, cost, tokens and pass rate compared. |
 | `tests/` | Tests for the skills and scripts built here (run in CI, no network). |
 | `scripts/kit.py` | The maintenance tool: `check`, `bump`, `pack`, `costs`, `smoke`, `render`, `report`. |

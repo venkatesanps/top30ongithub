@@ -262,3 +262,23 @@
 	path = sources/66-claude-skills
 	url = https://github.com/alirezarezvani/claude-skills.git
 	shallow = true
+[submodule "sources/67-prompt-eng-interactive-tutorial"]
+	path = sources/67-prompt-eng-interactive-tutorial
+	url = https://github.com/anthropics/prompt-eng-interactive-tutorial.git
+	shallow = true
+[submodule "sources/68-claude-quickstarts"]
+	path = sources/68-claude-quickstarts
+	url = https://github.com/anthropics/claude-quickstarts.git
+	shallow = true
+[submodule "sources/69-claude-agent-sdk-python"]
+	path = sources/69-claude-agent-sdk-python
+	url = https://github.com/anthropics/claude-agent-sdk-python.git
+	shallow = true
+[submodule "sources/70-claude-code"]
+	path = sources/70-claude-code
+	url = https://github.com/anthropics/claude-code.git
+	shallow = true
+[submodule "sources/71-claude-code-action"]
+	path = sources/71-claude-code-action
+	url = https://github.com/anthropics/claude-code-action.git
+	shallow = true

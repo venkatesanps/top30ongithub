@@ -393,7 +393,7 @@ def env_for(home):
 
 def sh(cmd, env, cwd, timeout=900):
     try:
-        p = subprocess.run(["bash", "-c", cmd], env=env, cwd=cwd, capture_output=True, text=True,
+        p = subprocess.run(["bash", "-o", "pipefail", "-c", cmd], env=env, cwd=cwd, capture_output=True, text=True,
                            timeout=timeout, input="\n" * 50)
         return p.returncode, (p.stdout + p.stderr)
     except subprocess.TimeoutExpired as e:
@@ -492,6 +492,17 @@ def bash_arr(name, vals):
     return f"{name}=(" + " ".join(q(v) for v in vals) + ")"
 
 
+def list_funcs(lists):
+    """bash 3.2 has no associative arrays, so each list becomes a case branch."""
+    items = "".join(f"    {k}) echo '{' '.join(map(str, v['items']))}' ;;\n" for k, v in lists.items())
+    labels = "".join(f"    {k}) echo {q(v['label'])} ;;\n" for k, v in lists.items())
+    advice = "".join(f"    {k}) printf '%s\\n' " + " ".join(q(a) for a in v.get("advice", [])) + " ;;\n" for k, v in lists.items())
+    return (f"LIST_NAMES={q(' '.join(lists))}\n"
+            f"list_items() {{\n  case \"$1\" in\n{items}  esac\n}}\n"
+            f"list_label() {{\n  case \"$1\" in\n{labels}  esac\n}}\n"
+            f"list_advice() {{\n  case \"$1\" in\n{advice}  esac\n}}")
+
+
 def render_scripts(c):
     items, rows = c["items"], c["rows"]
     cases = []
@@ -513,8 +524,7 @@ def render_scripts(c):
         bash_arr("PROBLEMS", probs),
         bash_arr("VERIFIED", [f"{i['verified']['result']} {i['verified']['date']}" for i in items]),
         f"CATALOG_DATE={q(c.get('checked', c['generated']))}",
-        "OPEN20=(" + " ".join(str(n) for n in c.get("lists", {}).get("open20", {}).get("items", [])) + ")",
-        bash_arr("OPEN20_ADVICE", c.get("lists", {}).get("open20", {}).get("advice", []))]))
+        list_funcs(c.get("lists", {}))]))
            .replace("@@CASES@@", "\n".join(cases)))
     (ROOT / "install.sh").write_text(out)
     v = ["#!/usr/bin/env bash", "# Checks that installed plugins work. ./verify.sh (all)  or  ./verify.sh 5 30",

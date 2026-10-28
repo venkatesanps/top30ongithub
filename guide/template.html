@@ -98,7 +98,7 @@ footer { margin-top: 36px; color: var(--muted); font-size: 13px; display: grid; 
 <div class="wrap">
   <header>
     <h1>Claude Plugins Field Guide</h1>
-    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, plus a data &amp; ops toolkit for Snowflake, dbt, AWS, Oracle, team metrics and production monitoring, and the "20 GitHub projects to open first". Every entry is traced to its real repository; a daily job re-checks them, re-tests installs and refreshes this page.</p>
+    <p class="lede">The 30 plugins from the "top 30 on GitHub (by job)" post, plus a data &amp; ops toolkit for Snowflake, dbt, AWS, Oracle, team metrics and production monitoring, the "20 GitHub projects to open first", and Anthropic's own repos for building agents. Every entry is traced to its real repository; a daily job re-checks them, re-tests installs and refreshes this page.</p>
     <p class="lede">Trying these at work? Read <a href="https://github.com/venkatesanps/top30ongithub/blob/main/playbooks/before-you-try-at-work.md">Before you try this at work</a> and the <a href="https://github.com/venkatesanps/top30ongithub/tree/main/playbooks">role playbooks</a> first.</p>
     <ul class="facts" id="facts"></ul>
     <p class="checked" id="checked"></p>
@@ -170,7 +170,7 @@ function render() {
   const byCost = sortSel.value === "cost";
   if (lst && !byCost) {
     count.textContent = `${items.length} plugins`;
-    out.innerHTML = `<aside class="advice"><h2>Before you open all ${items.length}</h2><ul>${lst.advice.map(a => `<li>${esc(a)}</li>`).join("")}</ul><p>The post's order is kept below; the small number on each card is its number in this kit, for <code>./install.sh N</code>.</p></aside>` +
+    out.innerHTML = `<aside class="advice"><h2>${esc(lst.heading || "Before you start")}</h2><ul>${lst.advice.map(a => `<li>${esc(a)}</li>`).join("")}</ul><p>${esc(lst.source || "")} Order kept as listed; the small number on each card is its number in this kit, for <code>./install.sh N</code>.</p></aside>` +
       `<div class="list">${items.map((it, i) => `<div class="pos">${i + 1} of ${items.length}</div>` + card(it)).join("")}</div>`;
     return;
   }
@@ -200,7 +200,7 @@ out.addEventListener("click", e => {
   try { navigator.clipboard.writeText(text).then(done, fallback); } catch (x) { fallback(); }
 });
 const S = DATA.stats;
-document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.by_collection.top30, "from the post"], [S.by_collection.dataops, "data & ops tools"], [((DATA.lists || {}).open20 || {items: []}).items.length, "to open first"], [`${S.passing}/${S.tested}`, "passing install tests"], [S.zips, "Claude app skill zips"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
+document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.by_collection.top30, "from the post"], [S.by_collection.dataops, "data & ops tools"], [S.by_collection.open20, "from the 20-to-open list"], [S.by_collection.anthropic, "Anthropic build repos"], [`${S.passing}/${S.tested}`, "passing install tests"], [S.zips, "Claude app skill zips"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
 document.getElementById("checked").innerHTML = `Last checked ${esc(DATA.checked || DATA.generated)}` + (S.attention ? ` · <a href="#p${DATA.items.find(i => i.problems && i.problems.length).n}">${S.attention} need${S.attention === 1 ? "s" : ""} attention</a>` : " · everything OK");
 document.getElementById("costver").textContent = DATA.costs_measured_with || "Claude Code";
 chipEls(); render();

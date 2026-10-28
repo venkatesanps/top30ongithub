@@ -6,7 +6,7 @@
 #   ./install.sh 1 5 30          install items by number
 #   ./install.sh row 3           install a whole row (6-9: data & ops; 10-12: the 20 to open first)
 #   ./install.sh --list          list everything
-#   ./install.sh --open20        the "20 projects to open first" list, in the post's order
+#   ./install.sh --show open20   a curated list in its post's order (--show alone names the lists)
 #   ./install.sh --status        health of every item from the last daily check
 #   ./install.sh --dry-run 3 17  show commands without running them
 #   ./install.sh --yes 30        skip the per-item confirmation
@@ -84,18 +84,22 @@ install_one() {
   while IFS= read -r line; do
     [ -z "$line" ] && continue
     echo "  > $line"
-    ( eval "$line" ) || { rc=$?; break; }
+    ( set -o pipefail; eval "$line" ) || { rc=$?; break; }
   done <<EOF
 $(cmds_for "$n")
 EOF
   if [ $rc = 0 ]; then printf '  \033[32mDone.\033[0m Use: %s\n' "${USES[$i]}"; OK="$OK $n"; else printf '  \033[31mFailed (exit %s).\033[0m\n' "$rc"; FAILED="$FAILED $n"; fi
 }
 
-show_open20() {
-  echo "20 GitHub projects to open first (post order -> item number here):"
-  p=1; for n in "${OPEN20[@]}"; do printf '  %2s. [%2s] %-32s %s\n' "$p" "$n" "${NAMES[$((n-1))]}" "${COST[$((n-1))]}"; p=$((p+1)); done
-  echo; for a in "${OPEN20_ADVICE[@]}"; do echo "  * $a"; done
-  echo "  Compare before/after with: python3 scripts/ab.py --help"
+show_list() {
+  if [ -z "${1:-}" ] || [ -z "$(list_items "$1")" ]; then
+    echo "Lists:"; for k in $LIST_NAMES; do printf '  %-12s %s\n' "$k" "$(list_label "$k")"; done
+    echo "Show one with: ./install.sh --show <name>"; return 0
+  fi
+  echo "$(list_label "$1") (list order -> item number here):"
+  p=1; for n in $(list_items "$1"); do printf '  %2s. [%2s] %-34s %s\n' "$p" "$n" "${NAMES[$((n-1))]}" "${COST[$((n-1))]}"; p=$((p+1)); done
+  echo; list_advice "$1" | while IFS= read -r a; do echo "  * $a"; done
+  echo "  Compare a plugin before/after with: python3 scripts/ab.py --help"
 }
 
 OK=""; FAILED=""
@@ -106,7 +110,8 @@ while [ $# -gt 0 ]; do
     --list|-l) list_all; exit 0;;
     --status|-s) show_status; exit 0;;
     -h|--help) sed -n '2,13p' "$0"; exit 0;;
-    --open20) show_open20; exit 0;;
+    --show) show_list "${2:-}"; exit 0;;
+    --open20) show_list open20; exit 0;;
     row) shift; for i in $(seq 0 $((N-1))); do [ "${ROWS[$i]}" = "${1:-0}" ] && SEL="$SEL $((i+1))"; done;;
     *) SEL="$SEL $1";;
   esac

@@ -41,8 +41,17 @@ jobs:
           ./install.sh --dry-run row 1 row 5 > /dev/null
           python3 -m py_compile scripts/kit.py
 
-      - name: Skill tests
+      - name: Workflow templates
         run: |
+          cmp examples/sql-review-agent/checks.py templates/claude-code-action/sql_checks.py
+          pip install --quiet actionlint-py
+          mkdir -p /tmp/al/.github/workflows && cp templates/claude-code-action/*.yml /tmp/al/.github/workflows/
+          cd /tmp/al && git init -q && actionlint
+
+      - name: Skill and example tests
+        run: |
+          pip install --quiet sqlglot claude-agent-sdk
+          python3 tests/sql_agent/test_sql_agent.py
           python3 tests/datadog/test_dd_collect.py
           python3 tests/ab/test_ab.py
           python3 -m py_compile scripts/ab.py

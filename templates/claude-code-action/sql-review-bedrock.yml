@@ -1,0 +1,79 @@
+# Reviews SQL in every pull request that touches .sql files, through Amazon Bedrock.
+# No Anthropic API key: AWS credentials come from GitHub OIDC, comments are posted by your own
+# GitHub App. Deterministic sqlglot checks run first and Claude reviews with their output.
+#
+# Setup (ask your platform team; nothing here is specific to one firm):
+#   1. An IAM role GitHub OIDC can assume, allowed to invoke your approved Claude model on Bedrock.
+#      Repository secret AWS_ROLE_TO_ASSUME = its ARN. Variable AWS_REGION, e.g. us-east-1.
+#   2. Repository variable BEDROCK_MODEL_ID = a Claude model or inference-profile ID your account
+#      can use (aws bedrock list-inference-profiles lists them).
+#   3. A GitHub App with Contents read and Pull requests write; secrets APP_ID, APP_PRIVATE_KEY.
+#   4. Copy sql_checks.py (from the same folder as this file) to .github/scripts/sql_checks.py.
+# Copy this file to .github/workflows/sql-review.yml.
+name: SQL review (Claude on Bedrock)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - "**/*.sql"
+
+permissions:
+  contents: read
+  pull-requests: read
+  id-token: write # required for AWS OIDC
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Deterministic SQL checks on changed files
+        id: lint
+        run: |
+          pip install --quiet sqlglot
+          git diff --name-only --diff-filter=AM "origin/${{ github.base_ref }}...HEAD" -- '*.sql' > changed.txt || true
+          if [ -s changed.txt ]; then
+            tr '\n' '\0' < changed.txt | xargs -0 python3 .github/scripts/sql_checks.py > sql-findings.json
+          else
+            echo '[]' > sql-findings.json
+          fi
+          echo "Changed SQL files:"; cat changed.txt
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Claude SQL review
+        uses: anthropics/claude-code-action@v1
+        with:
+          use_bedrock: "true"
+          github_token: ${{ steps.app-token.outputs.token }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
+
+            Review the Snowflake SQL changed in this pull request (files in changed.txt; the PR
+            branch is checked out). sql-findings.json holds findings from a SQL parser: confirm
+            each one and do not contradict it. Then add what a parser can't see: wrong join keys
+            or grain, missing deduplication, non-idempotent loads, filters on the wrong column,
+            hard-coded dates. Only flag what you can point to in the diff; never guess at data.
+            Post inline comments for specific lines and one summary comment with a table
+            (File:line | Severity | Issue | Fix), errors first. Do not change any files.
+          claude_args: |
+            --model ${{ vars.BEDROCK_MODEL_ID }}
+            --max-turns 20
+            --allowedTools "Read,Glob,Grep,mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"
