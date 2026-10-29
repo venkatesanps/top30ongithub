@@ -52,7 +52,7 @@
    "upstream": {
     "head": "2c606141936f1eeef17fa3043a72095b4765b9c2",
     "license": "MIT",
-    "stars": 225854,
+    "stars": 226312,
     "pushed": "2026-04-20",
     "default_branch": "main"
    },
@@ -95,16 +95,16 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "59db609eb1e18aaf59b63284d0e52255aff0c63c",
+    "head": "a496f5513d4a4cf889bc48e189e579f4b0bdf6aa",
     "license": "MIT",
-    "stars": 305562,
-    "pushed": "2026-10-27",
+    "stars": 306393,
+    "pushed": "2026-10-29",
     "default_branch": "main",
-    "pinned": "59db609eb1e18aaf59b63284d0e52255aff0c63c"
+    "pinned": "a496f5513d4a4cf889bc48e189e579f4b0bdf6aa"
    },
    "collection": "top30"
   },
@@ -136,7 +136,7 @@
    },
    "upstream": {
     "head": "25278e7d7b6cf6e6a4e7a6c8e10f14ff22f0eb5b",
-    "stars": 291529,
+    "stars": 292479,
     "pushed": "2026-10-26",
     "license": "MIT",
     "default_branch": "main",
@@ -160,7 +160,7 @@
    "alt": "npx skills add addyosmani/agent-skills",
    "verify": "claude plugin list | grep -q agent-skills@addy-agent-skills",
    "use": "/spec then /plan then /build.",
-   "always_on": "~2,903",
+   "always_on": "~2,947",
    "tested": "Installed + validated",
    "note": "Independent placebo test (skill-placebo, Sep 2026, Opus 5.5, 15 coding tasks): 5% cheaper than a same-length placebo, same pass rate.",
    "source": "sources/04-agent-skills",
@@ -182,15 +182,16 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-26",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+    "head": "eb07f19f52c2669f2364897aaa293e2aaddd7b1c",
     "license": "MIT",
-    "stars": 111381,
-    "pushed": "2026-10-13",
-    "default_branch": "main"
+    "stars": 111673,
+    "pushed": "2026-10-29",
+    "default_branch": "main",
+    "pinned": "eb07f19f52c2669f2364897aaa293e2aaddd7b1c"
    },
    "collection": "top30"
   },
@@ -237,7 +238,7 @@
    "upstream": {
     "head": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b",
     "license": "MIT",
-    "stars": 307210,
+    "stars": 308223,
     "pushed": "2026-10-23",
     "default_branch": "main"
    },
@@ -274,15 +275,16 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-26",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "09c434ab73ca43761c5d8b0c5d341926c2fba710",
+    "head": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
     "license": "MIT",
-    "stars": 178913,
-    "pushed": "2026-10-18",
-    "default_branch": "main"
+    "stars": 179919,
+    "pushed": "2026-10-29",
+    "default_branch": "main",
+    "pinned": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846"
    },
    "collection": "top30"
   },
@@ -316,17 +318,17 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "4cd18636dd249c92f0406d08670e56218b4ae4fa",
+    "head": "2622650e97b13626c6f7dfff894d330008cd3f0f",
     "packages": {
      "npm:@santifer/career-ops": "1.38.0"
     },
-    "pinned": "4cd18636dd249c92f0406d08670e56218b4ae4fa",
-    "stars": 78237,
-    "pushed": "2026-10-28",
+    "pinned": "2622650e97b13626c6f7dfff894d330008cd3f0f",
+    "stars": 78614,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main"
    },
@@ -366,17 +368,17 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "dfa06898906920bbbedc9a2f21eb1f5ddd132fed",
+    "head": "c0c3902207d6b1a33709e42b80c7e570da7db964",
     "packages": {
      "npm:rea-agents": "6.8.0"
     },
-    "pinned": "dfa06898906920bbbedc9a2f21eb1f5ddd132fed",
-    "stars": 401335,
-    "pushed": "2026-10-28",
+    "pinned": "c0c3902207d6b1a33709e42b80c7e570da7db964",
+    "stars": 406667,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main"
    },
@@ -418,7 +420,7 @@
     "packages": {
      "pypi:graphifyy": "0.9.97"
     },
-    "stars": 137577,
+    "stars": 138457,
     "pushed": "2026-10-27",
     "license": "Apache-2.0",
     "default_branch": "v8",
@@ -454,7 +456,7 @@
    },
    "upstream": {
     "head": "4e6d3299017a7432da15957874992837a315c5b4",
-    "stars": 88727,
+    "stars": 88879,
     "pushed": "2026-10-26",
     "license": "MIT",
     "default_branch": "main",
@@ -491,7 +493,7 @@
    },
    "upstream": {
     "head": "7efc0ef764765ed9ceff5ce1204462b35b89d680",
-    "stars": 65769,
+    "stars": 65859,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "main",
@@ -536,7 +538,7 @@
      "pypi:agent-reach": "0.1.0"
     },
     "pinned": "14c213405669414492bda0f8d52cc6531d062c45",
-    "stars": 105462,
+    "stars": 106152,
     "pushed": "2026-10-25",
     "license": "MIT",
     "default_branch": "main"
@@ -573,19 +575,19 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "3c6f82b06091206379106f8fe1a54f2400ed7a93",
+    "head": "a2d4fe72381e186651466ee94e92ce9d8d1396cc",
     "packages": {
      "pypi:headroom-ai": "0.42.0"
     },
-    "stars": 78127,
-    "pushed": "2026-10-28",
+    "stars": 78242,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
-    "pinned": "3c6f82b06091206379106f8fe1a54f2400ed7a93"
+    "pinned": "a2d4fe72381e186651466ee94e92ce9d8d1396cc"
    },
    "collection": "top30"
   },
@@ -630,7 +632,7 @@
     "packages": {
      "npm:bmad-method": "6.12.4"
     },
-    "stars": 54680,
+    "stars": 54741,
     "pushed": "2026-10-27",
     "license": "NOASSERTION",
     "default_branch": "main"
@@ -661,14 +663,14 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "8e91e3abb0f4536d374095193c18d72fa9d92b05",
-    "pinned": "8e91e3abb0f4536d374095193c18d72fa9d92b05",
-    "stars": 103955,
-    "pushed": "2026-10-28",
+    "head": "7b45644019c22585e121a93fcc35e7c2d6ff5e28",
+    "pinned": "7b45644019c22585e121a93fcc35e7c2d6ff5e28",
+    "stars": 104464,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main"
    },
@@ -698,14 +700,14 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "61e201ec08bcf59163ef2d3a69a26e334a536c04",
-    "pinned": "61e201ec08bcf59163ef2d3a69a26e334a536c04",
-    "stars": 138047,
-    "pushed": "2026-10-28",
+    "head": "319ef500ca2ff1294e0e08e90afef94d75222367",
+    "pinned": "319ef500ca2ff1294e0e08e90afef94d75222367",
+    "stars": 138154,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main"
    },
@@ -748,8 +750,8 @@
     "head": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "pinned": "9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4",
     "license": "Apache-2.0",
-    "stars": 115741,
-    "pushed": "2026-10-28",
+    "stars": 116022,
+    "pushed": "2026-10-29",
     "default_branch": "main"
    },
    "collection": "top30"
@@ -781,17 +783,17 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "d37ff11b47258b560f0cf8f1132b42ecd90e0c79",
+    "head": "e2cd587e053a7e5d22ff67742d81d3611f3cc62a",
     "packages": {
      "npm:@opengsd/gsd-core": "1.19.0"
     },
-    "pinned": "d37ff11b47258b560f0cf8f1132b42ecd90e0c79",
-    "stars": 10962,
-    "pushed": "2026-10-28",
+    "pinned": "e2cd587e053a7e5d22ff67742d81d3611f3cc62a",
+    "stars": 10998,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "next"
    },
@@ -834,8 +836,8 @@
     "head": "12af471f627f866411b4bd785b19646d3672784c",
     "pinned": "12af471f627f866411b4bd785b19646d3672784c",
     "license": "MIT",
-    "stars": 104194,
-    "pushed": "2026-10-28",
+    "stars": 105301,
+    "pushed": "2026-10-29",
     "default_branch": "main"
    },
    "collection": "top30"
@@ -869,15 +871,15 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "d6059331abbddb49bca380ff46dca8ce33158b04",
-    "pinned": "d6059331abbddb49bca380ff46dca8ce33158b04",
+    "head": "e3920894b0f30db7d5fc7d7d4ece57b304c17015",
+    "pinned": "e3920894b0f30db7d5fc7d7d4ece57b304c17015",
     "license": "Apache-2.0",
-    "stars": 90899,
-    "pushed": "2026-10-28",
+    "stars": 91362,
+    "pushed": "2026-10-29",
     "default_branch": "main"
    },
    "collection": "top30"
@@ -918,7 +920,7 @@
    "upstream": {
     "head": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1",
     "license": "MIT",
-    "stars": 62356,
+    "stars": 62826,
     "pushed": "2026-10-27",
     "default_branch": "main",
     "pinned": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1"
@@ -960,18 +962,18 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "7510e233b228864606888d252abacf5e7148bf87",
+    "head": "e945845762eb5898b2b705dcc763a6f1818fdf33",
     "packages": {
      "npm:impeccable": "4.8.0"
     },
-    "pinned": "7510e233b228864606888d252abacf5e7148bf87",
+    "pinned": "e945845762eb5898b2b705dcc763a6f1818fdf33",
     "license": "Apache-2.0",
-    "stars": 92107,
-    "pushed": "2026-10-28",
+    "stars": 94844,
+    "pushed": "2026-10-29",
     "default_branch": "main"
    },
    "collection": "top30"
@@ -1021,7 +1023,7 @@
      "npm:ui-ux-pro-max-cli": "2.15.0"
     },
     "license": "MIT",
-    "stars": 141972,
+    "stars": 142436,
     "pushed": "2026-10-26",
     "default_branch": "main",
     "pinned": "28b3b8dee8c976df4fa3e94aed4e092ad43fcb03"
@@ -1055,16 +1057,16 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "6fbac39e1d06a66ce3a8724b9366cb878b793f99",
-    "stars": 70172,
-    "pushed": "2026-10-28",
+    "head": "15baa7c570f12c78cd9ac6ead897724571e32e87",
+    "stars": 70785,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
-    "pinned": "6fbac39e1d06a66ce3a8724b9366cb878b793f99"
+    "pinned": "15baa7c570f12c78cd9ac6ead897724571e32e87"
    },
    "collection": "top30"
   },
@@ -1096,16 +1098,16 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "0cd9b3a0ef4c411a1d690419ce843f2a1da32cce",
+    "head": "820ad2c1c0ac4cc350158bd7912c753681a7d173",
     "license": "MIT",
-    "stars": 57063,
-    "pushed": "2026-10-27",
+    "stars": 57273,
+    "pushed": "2026-10-29",
     "default_branch": "main",
-    "pinned": "0cd9b3a0ef4c411a1d690419ce843f2a1da32cce"
+    "pinned": "820ad2c1c0ac4cc350158bd7912c753681a7d173"
    },
    "collection": "top30"
   },
@@ -1133,15 +1135,16 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-26",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-    "stars": 184454,
-    "pushed": "2026-10-09",
+    "head": "ca45fc496a3436251f191354091d557da31c15b5",
+    "stars": 184721,
+    "pushed": "2026-10-28",
     "license": null,
-    "default_branch": "main"
+    "default_branch": "main",
+    "pinned": "ca45fc496a3436251f191354091d557da31c15b5"
    },
    "collection": "top30"
   },
@@ -1177,15 +1180,16 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-26",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "e01dbf433f46eeb91d39bf905e194162921019a3",
-    "stars": 72680,
-    "pushed": "2026-10-24",
+    "head": "195eab24478dc9363326aec437aefc3701635ddf",
+    "stars": 72950,
+    "pushed": "2026-10-28",
     "license": "AGPL-3.0",
-    "default_branch": "main"
+    "default_branch": "main",
+    "pinned": "195eab24478dc9363326aec437aefc3701635ddf"
    },
    "collection": "top30"
   },
@@ -1228,7 +1232,7 @@
    "upstream": {
     "head": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
     "license": "MIT",
-    "stars": 61859,
+    "stars": 62268,
     "pushed": "2026-10-28",
     "default_branch": "main",
     "pinned": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0"
@@ -1266,17 +1270,17 @@
    "status": "ok",
    "problems": [],
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    },
    "upstream": {
-    "head": "c9017f45f4b8c38e11396a70a3d05d3432c58b48",
+    "head": "4e2a1c215a42c6d262b8c635df9d5edff80e8830",
     "packages": {
-     "npm:hyperframes": "0.8.212"
+     "npm:hyperframes": "0.8.216"
     },
-    "pinned": "c9017f45f4b8c38e11396a70a3d05d3432c58b48",
-    "stars": 74546,
-    "pushed": "2026-10-28",
+    "pinned": "4e2a1c215a42c6d262b8c635df9d5edff80e8830",
+    "stars": 75316,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main"
    },
@@ -1318,7 +1322,7 @@
    "upstream": {
     "head": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
     "license": "MIT",
-    "stars": 59190,
+    "stars": 59323,
     "pushed": "2026-10-19",
     "default_branch": "main"
    },
@@ -1390,7 +1394,7 @@
    "upstream": {
     "license": "Apache-2.0",
     "head": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040",
-    "stars": 747,
+    "stars": 748,
     "pushed": "2026-10-22",
     "default_branch": "main",
     "pinned": "b8facde20b7a92c40ce3e6b86b71c4b92aa44040"
@@ -1427,18 +1431,18 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "b6318090c6d32c5fa83477d6e74f3a34f4ccf61c",
+    "head": "88cfb9ffe08e97ed45cf935516906d3e817dce92",
     "stars": 614,
-    "pushed": "2026-10-27",
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
     "packages": {
      "pypi:dbt-mcp": "2.9.0"
     },
-    "pinned": "b6318090c6d32c5fa83477d6e74f3a34f4ccf61c"
+    "pinned": "88cfb9ffe08e97ed45cf935516906d3e817dce92"
    },
    "verified": {
-    "date": "2026-10-27",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -1489,17 +1493,17 @@
    "problems": [],
    "upstream": {
     "license": "Apache-2.0",
-    "head": "486ee63d01f8126c52fbc92c36cd36ec31708dcd",
-    "stars": 456,
-    "pushed": "2026-10-14",
+    "head": "35b9610bb2710c37ca11326c4cbf7818b6725fec",
+    "stars": 458,
+    "pushed": "2026-10-29",
     "default_branch": "main",
     "packages": {
      "pypi:astro-airflow-mcp": "0.9.1"
     },
-    "pinned": "486ee63d01f8126c52fbc92c36cd36ec31708dcd"
+    "pinned": "35b9610bb2710c37ca11326c4cbf7818b6725fec"
    },
    "verified": {
-    "date": "2026-10-26",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -1610,7 +1614,7 @@
    "problems": [],
    "upstream": {
     "head": "99f4d0cca81de00db3af8859e16127e9b9927dae",
-    "stars": 11908,
+    "stars": 11907,
     "pushed": "2026-10-22",
     "license": "Apache-2.0",
     "default_branch": "develop",
@@ -1648,15 +1652,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "b08b99f38098c30c0ee1a781accd8e349e5b145c",
-    "stars": 3327,
-    "pushed": "2026-10-28",
+    "head": "96a27f273291299666bcc004c7b19f27e7d9986a",
+    "stars": 3339,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
-    "pinned": "b08b99f38098c30c0ee1a781accd8e349e5b145c"
+    "pinned": "96a27f273291299666bcc004c7b19f27e7d9986a"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -1696,9 +1700,9 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "465295e27059789a5a4cee33b2ec327cd40568a4",
-    "stars": 9842,
-    "pushed": "2026-10-28",
+    "head": "1524b38927ab876dc46714ba2158d33fa5432b28",
+    "stars": 9849,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
     "packages": {
@@ -1706,10 +1710,10 @@
      "pypi:awslabs.cloudwatch-mcp-server": "0.3.1",
      "pypi:awslabs.billing-cost-management-mcp-server": "0.0.43"
     },
-    "pinned": "465295e27059789a5a4cee33b2ec327cd40568a4"
+    "pinned": "1524b38927ab876dc46714ba2158d33fa5432b28"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -1782,18 +1786,18 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "a32ef6365267049425dd93f45eb7af361466b854",
-    "stars": 9730,
-    "pushed": "2026-10-28",
+    "head": "94afaf0b31884056c42601c5335cf4de1d3ffdb9",
+    "stars": 9735,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
     "packages": {
      "pypi:sqlglot": "30.25.0"
     },
-    "pinned": "a32ef6365267049425dd93f45eb7af361466b854"
+    "pinned": "94afaf0b31884056c42601c5335cf4de1d3ffdb9"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -1824,18 +1828,18 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "5ecad33baf2e4c609bae3d67ef33910824d6a0ee",
-    "stars": 9999,
-    "pushed": "2026-10-28",
+    "head": "d4b0d74593a3f4571fc6bcfda3df44f21695d347",
+    "stars": 10004,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
     "packages": {
      "pypi:sqlfluff": "4.4.0"
     },
-    "pinned": "5ecad33baf2e4c609bae3d67ef33910824d6a0ee"
+    "pinned": "d4b0d74593a3f4571fc6bcfda3df44f21695d347"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -1900,8 +1904,8 @@
    "problems": [],
    "upstream": {
     "head": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d",
-    "stars": 33591,
-    "pushed": "2026-10-28",
+    "stars": 33797,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
     "pinned": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
@@ -1939,7 +1943,7 @@
    "problems": [],
    "upstream": {
     "head": "0a5d2427144d72f5aade07d4fabd385421cec401",
-    "stars": 6060,
+    "stars": 6066,
     "pushed": "2026-09-19",
     "license": "MIT",
     "default_branch": "main",
@@ -1983,15 +1987,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "21af7cddf3bb55cd685662dea2b62e68e3196d86",
-    "stars": 3179,
-    "pushed": "2026-10-28",
+    "head": "625e512a49966a5814793276474c812204c825ef",
+    "stars": 3180,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
-    "pinned": "21af7cddf3bb55cd685662dea2b62e68e3196d86"
+    "pinned": "625e512a49966a5814793276474c812204c825ef"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2104,18 +2108,18 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "b8ad727170fc0dabe35cbf7b940f0a3f9fba475b",
-    "stars": 19221,
-    "pushed": "2026-10-28",
+    "head": "757b457f91028948f2cef22deeecf70f38fddfd8",
+    "stars": 19247,
+    "pushed": "2026-10-29",
     "license": "NOASSERTION",
     "default_branch": "main",
     "packages": {
      "npm:ccusage": "20.0.45"
     },
-    "pinned": "b8ad727170fc0dabe35cbf7b940f0a3f9fba475b"
+    "pinned": "757b457f91028948f2cef22deeecf70f38fddfd8"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2147,15 +2151,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "418e85d2f4efe03e6fd66eb124b42c47999260a4",
-    "stars": 2075,
-    "pushed": "2026-10-28",
+    "head": "428770b3bd18c5e67c205a6ca8e342c5483853c1",
+    "stars": 2076,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
-    "pinned": "418e85d2f4efe03e6fd66eb124b42c47999260a4"
+    "pinned": "428770b3bd18c5e67c205a6ca8e342c5483853c1"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2186,18 +2190,18 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "0f5eebe984a091ab2e4fb86413f7009a1651295b",
-    "stars": 3622,
-    "pushed": "2026-10-28",
+    "head": "8dfa4c56950b01ac00b7dd4bc833fd4b4c0b7b91",
+    "stars": 3627,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
     "packages": {
      "pypi:mcp-grafana": "2.1.1"
     },
-    "pinned": "0f5eebe984a091ab2e4fb86413f7009a1651295b"
+    "pinned": "8dfa4c56950b01ac00b7dd4bc833fd4b4c0b7b91"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2233,7 +2237,7 @@
    "problems": [],
    "upstream": {
     "head": "e5cd8698c89071d00635e6f0f544c748ae7c6b60",
-    "stars": 12454,
+    "stars": 12458,
     "pushed": "2026-10-22",
     "license": "NOASSERTION",
     "default_branch": "main",
@@ -2271,18 +2275,18 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "753cd68a42c1ca05867f7577e3bdfcc5d59553e6",
-    "stars": 3716,
-    "pushed": "2026-10-28",
+    "head": "257ecf3f374a0e283405b58c28baf22dba6a87ae",
+    "stars": 3725,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "master",
     "packages": {
      "pypi:holmesgpt": "0.45.0"
     },
-    "pinned": "753cd68a42c1ca05867f7577e3bdfcc5d59553e6"
+    "pinned": "257ecf3f374a0e283405b58c28baf22dba6a87ae"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2315,8 +2319,8 @@
    "problems": [],
    "upstream": {
     "head": "2e8bf7da56f7d14093f595a4b3ffce14caf11632",
-    "stars": 93034,
-    "pushed": "2026-10-28",
+    "stars": 93060,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "master",
     "pinned": "2e8bf7da56f7d14093f595a4b3ffce14caf11632"
@@ -2344,20 +2348,20 @@
    "verify": "claude plugin list | grep -q 'dynatrace@dynatrace-for-ai'",
    "use": "export DT_ENVIRONMENT=https://<env>.apps.dynatrace.com DT_PLATFORM_TOKEN=..., start Claude Code, then 'list open problems affecting the trade-capture service'.",
    "note": "Replaces dynatrace-oss/dynatrace-mcp, archived after v2.1.2. One of the heavier plugins (skills plus the full MCP tool list). Grail queries can incur cost; scope the platform token to read-only.",
-   "always_on": "~5,459",
+   "always_on": "~5,935",
    "source": "sources/55-dynatrace-for-ai",
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "0c0375cbf15d902a8f7975dd51a6decfdf46f864",
-    "stars": 169,
-    "pushed": "2026-10-28",
+    "head": "f1abd8dae1f067e485bbd508a1ebe6003f9fc624",
+    "stars": 171,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
-    "pinned": "0c0375cbf15d902a8f7975dd51a6decfdf46f864"
+    "pinned": "f1abd8dae1f067e485bbd508a1ebe6003f9fc624"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2425,7 +2429,7 @@
    "problems": [],
    "upstream": {
     "head": "195f570c002beab3d7bd342739034d0019aa4863",
-    "stars": 17,
+    "stars": 18,
     "pushed": "2026-10-23",
     "license": "Apache-2.0",
     "default_branch": "main",
@@ -2459,15 +2463,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "7387295568883490d609317ec719aa8f8e80d410",
-    "stars": 79925,
-    "pushed": "2026-10-28",
+    "head": "7f6fb3345b7f4ea1d7acc4905ea88bad29136066",
+    "stars": 80098,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
-    "pinned": "7387295568883490d609317ec719aa8f8e80d410"
+    "pinned": "7f6fb3345b7f4ea1d7acc4905ea88bad29136066"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2497,7 +2501,7 @@
    "problems": [],
    "upstream": {
     "head": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
-    "stars": 41923,
+    "stars": 41978,
     "pushed": "2026-10-26",
     "license": "MIT",
     "default_branch": "main",
@@ -2531,15 +2535,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "dcdfb278de53fdb69b2067ea173dbb1de45345a3",
-    "stars": 27736,
+    "head": "5d29800bf8b919ca9a88ee7885b90050b5cb64ed",
+    "stars": 27751,
     "pushed": "2026-10-28",
     "license": "MIT",
     "default_branch": "master",
-    "pinned": "dcdfb278de53fdb69b2067ea173dbb1de45345a3"
+    "pinned": "5d29800bf8b919ca9a88ee7885b90050b5cb64ed"
    },
    "verified": {
-    "date": "2026-10-27",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2572,15 +2576,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "e05c7bdfacfcfe1f845d11f47339e4eae63eb3f5",
-    "stars": 84869,
-    "pushed": "2026-10-26",
+    "head": "7e92da00a5cf737dc87850505aa3dea603454613",
+    "stars": 84976,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "develop",
-    "pinned": "e05c7bdfacfcfe1f845d11f47339e4eae63eb3f5"
+    "pinned": "7e92da00a5cf737dc87850505aa3dea603454613"
    },
    "verified": {
-    "date": "2026-10-27",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2608,15 +2612,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "397137b0cfc2007f48f837c52958f9ec811db9c5",
-    "stars": 32665,
-    "pushed": "2026-10-28",
+    "head": "49b318b5b894d286cda891732287400d9b43cea3",
+    "stars": 32815,
+    "pushed": "2026-10-29",
     "license": "NOASSERTION",
     "default_branch": "main",
-    "pinned": "397137b0cfc2007f48f837c52958f9ec811db9c5"
+    "pinned": "49b318b5b894d286cda891732287400d9b43cea3"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2642,15 +2646,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "c81ec74186350cc97a74e231cb38444cea0d4ff8",
-    "stars": 14349,
-    "pushed": "2026-10-28",
+    "head": "1266a3ec4831289c4d893d42dd5102723658039a",
+    "stars": 14629,
+    "pushed": "2026-10-29",
     "license": "Apache-2.0",
     "default_branch": "main",
-    "pinned": "c81ec74186350cc97a74e231cb38444cea0d4ff8"
+    "pinned": "1266a3ec4831289c4d893d42dd5102723658039a"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2677,12 +2681,12 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "6d6b7162f122ac0ce1356a14688c8c4f712db3c8",
-    "stars": 149714,
-    "pushed": "2026-10-28",
+    "head": "4ed071500b07ba5801be84c96ddb4e03bdf48a2d",
+    "stars": 150042,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
-    "pinned": "6d6b7162f122ac0ce1356a14688c8c4f712db3c8"
+    "pinned": "4ed071500b07ba5801be84c96ddb4e03bdf48a2d"
    },
    "verified": {
     "date": "2026-10-26",
@@ -2712,15 +2716,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "07b34f64ee828df08953f505b7f747aef85ae7c6",
-    "stars": 27477,
-    "pushed": "2026-10-16",
+    "head": "53f3494abbb300e559c2b1dd7a2777f1583f7353",
+    "stars": 27514,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
-    "pinned": "07b34f64ee828df08953f505b7f747aef85ae7c6"
+    "pinned": "53f3494abbb300e559c2b1dd7a2777f1583f7353"
    },
    "verified": {
-    "date": "2026-10-27",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2749,15 +2753,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "5434623a788ec3105d238328cfe554e1e2242ff7",
-    "stars": 28896,
-    "pushed": "2026-10-27",
+    "head": "0496583603e56cdd5022dd61c823bd784a80a752",
+    "stars": 28968,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
-    "pinned": "5434623a788ec3105d238328cfe554e1e2242ff7"
+    "pinned": "0496583603e56cdd5022dd61c823bd784a80a752"
    },
    "verified": {
-    "date": "2026-10-27",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2788,7 +2792,7 @@
    "problems": [],
    "upstream": {
     "head": "0d277542e927652da25b0014c9b346723af55881",
-    "stars": 38890,
+    "stars": 38920,
     "pushed": "2026-08-28",
     "license": null,
     "default_branch": "master",
@@ -2821,15 +2825,15 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "930ad10bb2e21a9ef97fe1a88d2037e18a24465c",
-    "stars": 19037,
-    "pushed": "2026-10-28",
+    "head": "1a18c340ca42b9137d991637afe867bdcf70a9ce",
+    "stars": 19047,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
-    "pinned": "930ad10bb2e21a9ef97fe1a88d2037e18a24465c"
+    "pinned": "1a18c340ca42b9137d991637afe867bdcf70a9ce"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2861,18 +2865,18 @@
    "status": "ok",
    "problems": [],
    "upstream": {
-    "head": "2d485201617258867dd0f74b9e7307056f5938fe",
-    "stars": 8375,
-    "pushed": "2026-10-28",
+    "head": "27858cbba9ecee26a06a90b8d39d3b5596121d11",
+    "stars": 8385,
+    "pushed": "2026-10-29",
     "license": "MIT",
     "default_branch": "main",
     "packages": {
      "pypi:claude-agent-sdk": "0.2.174"
     },
-    "pinned": "2d485201617258867dd0f74b9e7307056f5938fe"
+    "pinned": "27858cbba9ecee26a06a90b8d39d3b5596121d11"
    },
    "verified": {
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "result": "pass"
    }
   },
@@ -2902,7 +2906,7 @@
    "problems": [],
    "upstream": {
     "head": "58d6da1e34d6cd1c6379dcbf568bd66f5f9b6102",
-    "stars": 153708,
+    "stars": 153838,
     "pushed": "2026-10-27",
     "license": null,
     "default_branch": "main",
@@ -2938,7 +2942,7 @@
    "problems": [],
    "upstream": {
     "head": "d70510b174a1244958df0b03166a54912811f3e6",
-    "stars": 9690,
+    "stars": 9704,
     "pushed": "2026-10-27",
     "license": "MIT",
     "default_branch": "main",
@@ -2951,8 +2955,8 @@
   }
  ],
  "schema": 2,
- "checked": "2026-10-28",
- "costs_measured_with": "2.1.312 (Claude Code) on 2026-10-28",
+ "checked": "2026-10-29",
+ "costs_measured_with": "2.1.312 (Claude Code) on 2026-10-29",
  "collections": {
   "top30": "Top 30 from the post",
   "dataops": "Data & ops toolkit",
