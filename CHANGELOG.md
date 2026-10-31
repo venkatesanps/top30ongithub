@@ -2,6 +2,22 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-31 16:10 UTC
+
+**Upstream updates**
+- Matt Pocock Skills: [a496f55 → 4ae2317](https://github.com/mattpocock/skills/compare/a496f5513d4a4cf889bc48e189e579f4b0bdf6aa...4ae2317ddb22b046e26455e4f9c9b3aaaf62212d)
+- Career Ops: [3e60bda → 89cccea](https://github.com/career-ops-hq/career-ops/compare/3e60bdaf37f15ce309b238c46e92301ced1337cf...89cccea4744fb27dc712cdff0bc0782b1c244a6b)
+- REA (Reverse Engineer Anything): [23de10b → 2d5dec2](https://github.com/morluto/rea/compare/23de10bb2849cdce8ddbe70504aa7cc57de75a98...2d5dec26c31662764c9adfe3ff996174901b8d49)
+- gstack: [71af16c → 0cd2b4a](https://github.com/garrytan/gstack/compare/71af16c60bbdfdf13d2beaf9225c8bd14f24a3c9...0cd2b4a9f9445c5ef3ac715b996ab67ff75f9833)
+- Impeccable: [b7a8917 → 2f97a85](https://github.com/pbakaus/impeccable/compare/b7a89176e4e87422b40f98adabceb051dbb5448b...2f97a85a4a87a80066a693bd3546b092bd300772)
+- Uptime Kuma (status pages): [a766419 → dc52394](https://github.com/louislam/uptime-kuma/compare/a7664195e5cee6b3059a446dff3818b22db82cff...dc523943abad1378cf934618aba701fd49e1c2ba)
+- Ruflo (agent swarms): [0d94037 → 49adc54](https://github.com/ruvnet/ruflo/compare/0d94037eb149967cba66daad2898563892c53a02...49adc540a051916f6b8fad2c3dc30f8fba8c1bc3)
+- rtk (OSS edition): [6c2313a → 41e6912](https://github.com/rtk-ai/rtk/compare/6c2313a6616b81408d776b39921a934e39f841ae...41e691223add2667e5f79639f9277e81fd763d85)
+- context-mode: [1e64208 → baf6a55](https://github.com/mksglu/context-mode/compare/1e64208082f9ee10d1f6a8f60be5da723349ee47...baf6a5510790cba7e9d5c2f5399354f54a962bb1)
+- CC Switch (desktop): [e49d12a → 66d530d](https://github.com/farion1231/cc-switch/compare/e49d12a5f90b70107cc4e69b6621d2e218524890...66d530d6efb68e57f51a97217b0146684f1990bd)
+
+**Install tests**: 9/9 passed
+
 ## 2026-10-31 11:08 UTC
 
 **Upstream updates**
