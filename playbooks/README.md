@@ -9,3 +9,4 @@ How to turn the catalog into better days at work. Numbers like **45** refer to `
 | [Lead data engineer](lead-data-engineer.md) | Oracle/Informatica → Snowflake, dbt, Airflow, AWS, data quality, cost. |
 | [Team rollout](team-rollout.md) | A four-week plan to get a team using these well, and measuring it. |
 | [Production monitoring and SRE](production-and-sre.md) | Dashboards and flows for leadership, app developers, L2 and L3. |
+| [Claude features worth setting up](claude-features.md) | Projects, memory, CLAUDE.md, skills, thinking, artifacts, Design, Chrome, scheduled tasks, prompt caching: fact-checked, with work prompts. |

@@ -50,8 +50,9 @@ jobs:
 
       - name: Skill and example tests
         run: |
-          pip install --quiet sqlglot claude-agent-sdk
+          pip install --quiet sqlglot claude-agent-sdk anthropic
           python3 tests/sql_agent/test_sql_agent.py
+          python3 tests/caching/test_cache_demo.py
           python3 tests/datadog/test_dd_collect.py
           python3 tests/ab/test_ab.py
           python3 -m py_compile scripts/ab.py

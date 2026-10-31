@@ -16,7 +16,8 @@ guide, and upload-ready skill zips for the Claude app:
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
-[production & SRE](playbooks/production-and-sre.md). Read
+[production & SRE](playbooks/production-and-sre.md), and
+[Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work). Read
 [Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
 **Field guide:** https://venkatesanps.github.io/top30ongithub/ (refreshed daily)
@@ -291,6 +292,7 @@ _Checked 2026-10-30: 71 repos, 69 of 69 install-tested items passing, 0 needing 
 | `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-ops`). |
 | `examples/sql-review-agent/` | A working Agent SDK agent: read-only Snowflake SQL review with a custom tool, guard hook and budget cap. |
 | `templates/claude-code-action/` | GitHub workflows to copy: @claude mentions, and SQL review on Amazon Bedrock. `sql_checks.py` there is a copy of the agent's `checks.py` (CI keeps them identical). |
+| `examples/prompt-caching/` | Measures what prompt caching saves on your own document, from the API's usage numbers (write premium included). |
 | `scripts/ab.py` | Before/after test for one plugin: same task with it off and on, cost, tokens and pass rate compared. |
 | `tests/` | Tests for the skills and scripts built here (run in CI, no network). |
 | `scripts/kit.py` | The maintenance tool: `check`, `bump`, `pack`, `costs`, `smoke`, `render`, `report`. |
