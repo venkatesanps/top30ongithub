@@ -2,6 +2,58 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-10-31 11:08 UTC
+
+**Upstream updates**
+- Agent Skills (Addy Osmani): [eb07f19 → 8bfcc1f](https://github.com/addyosmani/agent-skills/compare/eb07f19f52c2669f2364897aaa293e2aaddd7b1c...8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e)
+- Career Ops: [086d8c3 → 3e60bda](https://github.com/career-ops-hq/career-ops/compare/086d8c376bf0373998756a681b168f2228b55ab1...3e60bdaf37f15ce309b238c46e92301ced1337cf)
+- REA (Reverse Engineer Anything): [675d407 → 23de10b](https://github.com/morluto/rea/compare/675d4076de1af5052f01709a9cf4cdf0cc3e2c67...23de10bb2849cdce8ddbe70504aa7cc57de75a98)
+- Graphify: [0a8cd4e → a0946f9](https://github.com/Graphify-Labs/graphify/compare/0a8cd4e1e342235fe53e881fb5d591bf0460071f...a0946f962af31b19bff941b453f6dae9a7077c7a)
+- Claude-Mem: [e715c4e → 70aa400](https://github.com/thedotmack/claude-mem/compare/e715c4ef51466e14de4c7bf47ce8bf98b137bda4...70aa40042cfb8157a0d84954b9c0d2b30b50af80)
+- gstack: [e474a4f → 71af16c](https://github.com/garrytan/gstack/compare/e474a4fb53560752e2dff4cf1cb0a869f3b5b622...71af16c60bbdfdf13d2beaf9225c8bd14f24a3c9)
+- GSD (Get Shit Done): [7d68e2b → 1ec5c81](https://github.com/open-gsd/gsd-core/compare/7d68e2b7267a45af9d987b19f172bb55b3a9379f...1ec5c812b79dc1cc487d0873d18b03449b11c106)
+- Archify: [f325d86 → a406594](https://github.com/tt-a1i/archify/compare/f325d86230553e1dd15d3464324f1fcd01f02352...a4065941f12be7967436261d9934784e381d423c)
+- Impeccable: [df3a4ab → b7a8917](https://github.com/pbakaus/impeccable/compare/df3a4abe7d0840d5f60324812c432e00b66a4e75...b7a89176e4e87422b40f98adabceb051dbb5448b)
+- UI UX Pro Max: [28b3b8d → 9a3f14f](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/28b3b8dee8c976df4fa3e94aed4e092ad43fcb03...9a3f14f7423037ccb8feeb4fee7482291b9c820e)
+- Marketing Skills: [820ad2c → 88c79f6](https://github.com/coreyhaines31/marketingskills/compare/820ad2c1c0ac4cc350158bd7912c753681a7d173...88c79f6528a9347420e57ceb1fff9a60de651768)
+- HyperFrames: [1116077 → a04b45a](https://github.com/heygen-com/hyperframes/compare/1116077dabf5bacde60e566578e85068e6777b17...a04b45a6db0d1f724be9cf1985c3b13657195f0d)
+- dbt MCP server: [b7d2860 → 7b93533](https://github.com/dbt-labs/dbt-mcp/compare/b7d2860ad80fddd54daa61a7abfc8c8bc685c198...7b93533a212ed7221eec45903966bae029a5d189)
+- Agent Toolkit for AWS: [e208651 → 8eee01d](https://github.com/aws/agent-toolkit-for-aws/compare/e208651cceec8bef760a8712a8a320aeebcac93b...8eee01d92fc1b2573e5169149ef6844b3d77ed81)
+- AWS MCP servers (data & ops): [99c7f0e → c6951b9](https://github.com/awslabs/mcp/compare/99c7f0e3a33c9f286ec3d90fce8438581d492f21...c6951b9a09d0860550ebabd1a4ba66e36cb7212e)
+- SQLGlot: [e2585b0 → 6de2df3](https://github.com/tobymao/sqlglot/compare/e2585b0330f33a569a1ec6c1e6be5a04aca1442d...6de2df31b0ae8b21155828f575a14dc8903c1b9b)
+- SQLFluff: [9755176 → 0bbacd2](https://github.com/sqlfluff/sqlfluff/compare/97551769341f0425a31b72703ad7ce3267b3dd4b...0bbacd2c31762ca8ce70f2ba6ceac1273709440d)
+- Apache DevLake (DORA dashboards): [9309e7e → a69a954](https://github.com/apache/devlake/compare/9309e7ef2e91fb070212269ae45f9b313d9a9efc...a69a954f799d0795e610984a647cd1bef1672cc1)
+- ccusage: [71e022a → 201336c](https://github.com/ccusage/ccusage/compare/71e022a8edf98b41b5715b77b17b3ea5a166498b...201336cd1df8ea5b5e2f853c9ebc6d2bdbf46c9c)
+- Grafana MCP server: [74ddb1d → 75b18ba](https://github.com/grafana/mcp-grafana/compare/74ddb1d277bec3aecc663dc1d2f987b6d4344dc3...75b18ba325497946d8cb93608222655a5db77e24)
+- Uptime Kuma (status pages): [73a50f9 → a766419](https://github.com/louislam/uptime-kuma/compare/73a50f9ce043f08865c03e8b9a67057cf185182e...a7664195e5cee6b3059a446dff3818b22db82cff)
+- Ruflo (agent swarms): [243bc57 → 0d94037](https://github.com/ruvnet/ruflo/compare/243bc57f0bf24aad06b84f4140cce0009618ddf6...0d94037eb149967cba66daad2898563892c53a02)
+- wshobson agents (plugin packs): [0874a27 → 7e2fb55](https://github.com/wshobson/agents/compare/0874a27b17a22e2b7c2e2bcd725768e0803cad06...7e2fb559cf4b824b27f1fec49fe88f7511066d26)
+- planning-with-files: [5d29800 → b6580cd](https://github.com/OthmanAdi/planning-with-files/compare/5d29800bf8b919ca9a88ee7885b90050b5cb64ed...b6580cd24af1d8a95ab268794456e05608a1afd3)
+- rtk (OSS edition): [ae7e42e → 6c2313a](https://github.com/rtk-ai/rtk/compare/ae7e42e96aa00af59b065c3e65a13c3858115f64...6c2313a6616b81408d776b39921a934e39f841ae)
+- context-mode: [e1feaaa → 1e64208](https://github.com/mksglu/context-mode/compare/e1feaaa9b9bb1dfffac0ea406c3d3fd3e73c8e63...1e64208082f9ee10d1f6a8f60be5da723349ee47)
+- CC Switch (desktop): [ba3d80d → e49d12a](https://github.com/farion1231/cc-switch/compare/ba3d80d87ce7e3fe1ed52a5d5cbe9fa79eb5898e...e49d12a5f90b70107cc4e69b6621d2e218524890)
+- claude-skills (380+ skills): [82d55e1 → e4a1dc3](https://github.com/alirezarezvani/claude-skills/compare/82d55e14b561b846abc22dc84bc532d2a2877daa...e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0)
+- Claude Agent SDK (Python): [1ea8cb7 → 2146f9d](https://github.com/anthropics/claude-agent-sdk-python/compare/1ea8cb74ddcdadbfaa9b20dfa8268e18047851e7...2146f9d8985513053e904b13200c8f744b36785a)
+- Claude Code (the CLI): [d4dfed4 → 80c6959](https://github.com/anthropics/claude-code/compare/d4dfed4e1c578cfea8bd6e64873e4f5e5b7e36f0...80c6959d28c4c30ecd14fc1cdf172f19d9adad81)
+- Claude Code Action (GitHub): [6d5ae52 → d535f51](https://github.com/anthropics/claude-code-action/compare/6d5ae526d25ce88daa2200be073e1a373167f064...d535f5172dec02b204866b393d6b20b9b2aaf98d)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.97 → 0.9.99
+- HyperFrames: npm:hyperframes 0.8.221 → 0.8.223
+- dbt MCP server: pypi:dbt-mcp 2.9.0 → 2.10.0
+- AWS MCP servers (data & ops): pypi:awslabs.billing-cost-management-mcp-server 0.0.43 → 0.0.44
+- SQLGlot: pypi:sqlglot 30.26.0 → 30.27.0
+- SQLFluff: pypi:sqlfluff 4.4.0 → 4.5.0
+- ccusage: npm:ccusage 20.0.45 → 20.0.46
+- Claude Agent SDK (Python): pypi:claude-agent-sdk 0.2.175 → 0.2.176
+- Claude Code (the CLI): npm:@anthropic-ai/claude-code 2.1.314 → 2.1.316
+- Agent Skills (Addy Osmani): per-session tokens ~2,947 → ~2,999
+- Marketing Skills: per-session tokens ~10,629 → ~10,902
+- HyperFrames: per-session tokens ~551 → ~629
+- claude-skills (380+ skills): per-session tokens ~4,040 + ~159 + ~182 → ~2,691 + ~66 + ~69
+
+**Install tests**: 30/30 passed
+
 ## 2026-10-30 17:10 UTC
 
 **Upstream updates**
