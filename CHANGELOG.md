@@ -2,6 +2,39 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-01 17:15 UTC
+
+**Upstream updates**
+- Career Ops: [89cccea → 6210e44](https://github.com/career-ops-hq/career-ops/compare/89cccea4744fb27dc712cdff0bc0782b1c244a6b...6210e4414ad052f83baa560b5ab8e5bdcd2def6a)
+- REA (Reverse Engineer Anything): [2d5dec2 → 85013da](https://github.com/morluto/rea/compare/2d5dec26c31662764c9adfe3ff996174901b8d49...85013da0cec7b854f51e47de77fd24391c8fd8ed)
+- Graphify: [a0946f9 → 32e5efe](https://github.com/Graphify-Labs/graphify/compare/a0946f962af31b19bff941b453f6dae9a7077c7a...32e5efe935e6844ef39a5e33409e4efe848f2172)
+- Last 30 Days: [7efc0ef → f01a451](https://github.com/mvanhorn/last30days-skill/compare/7efc0ef764765ed9ceff5ce1204462b35b89d680...f01a451a5aa745cd1af4497fb7d79e171917364e)
+- Agent Reach: [14c2134 → 7a38047](https://github.com/Panniantong/Agent-Reach/compare/14c213405669414492bda0f8d52cc6531d062c45...7a38047acf26a729cbb27851e3cb81639da86b29)
+- BMAD Method: [61e01f8 → bd70c64](https://github.com/bmad-code-org/BMAD-METHOD/compare/61e01f82644c4bb533750cfa0d6d61ab61d2cc9b...bd70c643a7ec85d1ec2e88076b3fbdd8e4517f41)
+- Claude-Mem: [70aa400 → b80b29b](https://github.com/thedotmack/claude-mem/compare/70aa40042cfb8157a0d84954b9c0d2b30b50af80...b80b29bc49d08a71312f44b8feacb2e7585edff4)
+- gstack: [0cd2b4a → 4f5b043](https://github.com/garrytan/gstack/compare/0cd2b4a9f9445c5ef3ac715b996ab67ff75f9833...4f5b043b3ea02f4fa9887c0122452856c045bb82)
+- GSD (Get Shit Done): [1ec5c81 → a8ff62d](https://github.com/open-gsd/gsd-core/compare/1ec5c812b79dc1cc487d0873d18b03449b11c106...a8ff62d047c21d17f4727df3a21b95b02c1cc83e)
+- Impeccable: [2f97a85 → e89e3ad](https://github.com/pbakaus/impeccable/compare/2f97a85a4a87a80066a693bd3546b092bd300772...e89e3ada3e875a89ac2c5d33d11e65ebef6fe285)
+- UI UX Pro Max: [9a3f14f → 3a13158](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/9a3f14f7423037ccb8feeb4fee7482291b9c820e...3a13158ff1f32156cbe144108de48eda2ecaed9a)
+- HyperFrames: [a04b45a → f9e8cab](https://github.com/heygen-com/hyperframes/compare/a04b45a6db0d1f724be9cf1985c3b13657195f0d...f9e8cab67d948adbc115d3f3a0b271659e2521da)
+- SQLFluff: [0bbacd2 → 4339c07](https://github.com/sqlfluff/sqlfluff/compare/0bbacd2c31762ca8ce70f2ba6ceac1273709440d...4339c0759040e5961f13ea875b5255cda0aeca66)
+- Apache DevLake (DORA dashboards): [a69a954 → 210dcd4](https://github.com/apache/devlake/compare/a69a954f799d0795e610984a647cd1bef1672cc1...210dcd4125e460a48895c2fdb418a35c56287cf7)
+- ccusage: [201336c → f0a8a9c](https://github.com/ccusage/ccusage/compare/201336cd1df8ea5b5e2f853c9ebc6d2bdbf46c9c...f0a8a9c38c37847e83f2d7ca18b8cadba929534a)
+- Grafana MCP server: [75b18ba → 6de474b](https://github.com/grafana/mcp-grafana/compare/75b18ba325497946d8cb93608222655a5db77e24...6de474bd3c84f675ea936f59dd4a5ae9a11c186d)
+- Keep (alert hub & AIOps): [e5cd869 → c5d8d89](https://github.com/keephq/keep/compare/e5cd8698c89071d00635e6f0f544c748ae7c6b60...c5d8d89dee07f15e9c77645f3177cd14af58bd1b)
+- HolmesGPT (AI SRE agent): [257ecf3 → 0f8bd4c](https://github.com/HolmesGPT/holmesgpt/compare/257ecf3f374a0e283405b58c28baf22dba6a87ae...0f8bd4c6285e2ec7b1337fb8116ebb0c0fc9b978)
+- Uptime Kuma (status pages): [dc52394 → cbd357e](https://github.com/louislam/uptime-kuma/compare/dc523943abad1378cf934618aba701fd49e1c2ba...cbd357eb3982700132531dd8e7d66158d6c1f3e1)
+- Ruflo (agent swarms): [49adc54 → 3667ba6](https://github.com/ruvnet/ruflo/compare/49adc540a051916f6b8fad2c3dc30f8fba8c1bc3...3667ba6573ef811383881f8a887978798bf2113d)
+- rtk (OSS edition): [41e6912 → 1d20b01](https://github.com/rtk-ai/rtk/compare/41e691223add2667e5f79639f9277e81fd763d85...1d20b015ebad73177a6c086c4292b809c7ce2e38)
+- context-mode: [baf6a55 → a35dd45](https://github.com/mksglu/context-mode/compare/baf6a5510790cba7e9d5c2f5399354f54a962bb1...a35dd45f3976b4a22baa0032db2b3c050c00a163)
+- CC Switch (desktop): [66d530d → c018907](https://github.com/farion1231/cc-switch/compare/66d530d6efb68e57f51a97217b0146684f1990bd...c0189078aacdd80fd2462f59b345f55f62b41cf2)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.99 → 0.9.100
+- HyperFrames: npm:hyperframes 0.8.223 → 0.8.227
+
+**Install tests**: 22/22 passed
+
 ## 2026-10-31 16:10 UTC
 
 **Upstream updates**

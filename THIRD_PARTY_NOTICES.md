@@ -14,8 +14,8 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [12af471f62](https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c) |
 | 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [a4065941f1](https://github.com/tt-a1i/archify/tree/a4065941f12be7967436261d9934784e381d423c) |
 | 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [0cf73c3fcc](https://github.com/cathrynlavery/diagram-design/tree/0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1) |
-| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [2f97a85a4a](https://github.com/pbakaus/impeccable/tree/2f97a85a4a87a80066a693bd3546b092bd300772) |
-| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [9a3f14f742](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/9a3f14f7423037ccb8feeb4fee7482291b9c820e) |
+| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [e89e3ada3e](https://github.com/pbakaus/impeccable/tree/e89e3ada3e875a89ac2c5d33d11e65ebef6fe285) |
+| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [3a13158ff1](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/3a13158ff1f32156cbe144108de48eda2ecaed9a) |
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [88c79f6528](https://github.com/coreyhaines31/marketingskills/tree/88c79f6528a9347420e57ceb1fff9a60de651768) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [0ef9fe5bc3](https://github.com/blader/humanizer/tree/0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0) |
 | 30-i-have-adhd | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | [1ecea1993b](https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6) |
