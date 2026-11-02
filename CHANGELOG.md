@@ -2,6 +2,54 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-02 20:58 UTC
+
+**Upstream updates**
+- Agent Skills (Addy Osmani): [8bfcc1f → 301b02b](https://github.com/addyosmani/agent-skills/compare/8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e...301b02b12bff98e4688e6984af6556802322bbde)
+- Career Ops: [6210e44 → 20b9fd3](https://github.com/career-ops-hq/career-ops/compare/6210e4414ad052f83baa560b5ab8e5bdcd2def6a...20b9fd3a9c86d28c847e021f4dbbe93ce9a39a00)
+- REA (Reverse Engineer Anything): [85013da → 9bea563](https://github.com/morluto/rea/compare/85013da0cec7b854f51e47de77fd24391c8fd8ed...9bea563e30fd255d639d6877a91109ba9ff2eb00)
+- Graphify: [32e5efe → 8e6a6d2](https://github.com/Graphify-Labs/graphify/compare/32e5efe935e6844ef39a5e33409e4efe848f2172...8e6a6d2129d4aeffc7a0e9ed79b153f7f057f42b)
+- Last 30 Days: [f01a451 → 6894d44](https://github.com/mvanhorn/last30days-skill/compare/f01a451a5aa745cd1af4497fb7d79e171917364e...6894d44e088c449ecdd7246a18763fddba1ff805)
+- BMAD Method: [bd70c64 → 022be93](https://github.com/bmad-code-org/BMAD-METHOD/compare/bd70c643a7ec85d1ec2e88076b3fbdd8e4517f41...022be9314e4facd16826104a9f8033e1c5ed4fdc)
+- Claude-Mem: [b80b29b → 02584c4](https://github.com/thedotmack/claude-mem/compare/b80b29bc49d08a71312f44b8feacb2e7585edff4...02584c4ac9d92fea45adf5c61e22c546b5738621)
+- gstack: [4f5b043 → 6841082](https://github.com/garrytan/gstack/compare/4f5b043b3ea02f4fa9887c0122452856c045bb82...68410828fd85611caea2c8429846f683849f425a)
+- Caveman: [9b68f7e → 2e068f7](https://github.com/JuliusBrussee/caveman/compare/9b68f7ed12b05e7efaff18e65c5a3fc2849fd0a4...2e068f735253cce28256744804785f01887d9646)
+- GSD (Get Shit Done): [a8ff62d → bfab824](https://github.com/open-gsd/gsd-core/compare/a8ff62d047c21d17f4727df3a21b95b02c1cc83e...bfab82492374a847a01417707a1a38e9e7cf097e)
+- Impeccable: [e89e3ad → 9c3808b](https://github.com/pbakaus/impeccable/compare/e89e3ada3e875a89ac2c5d33d11e65ebef6fe285...9c3808ba441337fce03b3e34aa06efc434503162)
+- UI UX Pro Max: [3a13158 → 713eef5](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/3a13158ff1f32156cbe144108de48eda2ecaed9a...713eef51b04efc98d6fa565323b495f7c9c89fd4)
+- HyperFrames: [f9e8cab → 398ef50](https://github.com/heygen-com/hyperframes/compare/f9e8cab67d948adbc115d3f3a0b271659e2521da...398ef506247493b1b2fd17395d8bba6de2166dab)
+- Great Expectations: [99f4d0c → 442f377](https://github.com/fivetran/great_expectations/compare/99f4d0cca81de00db3af8859e16127e9b9927dae...442f377c54bbd84a27950470ddcb252a2c4c83a2)
+- Agent Toolkit for AWS: [8eee01d → 1761e96](https://github.com/aws/agent-toolkit-for-aws/compare/8eee01d92fc1b2573e5169149ef6844b3d77ed81...1761e96813ebcbd43ed81d19e837219033f0afe5)
+- AWS MCP servers (data & ops): [c6951b9 → 69e2666](https://github.com/awslabs/mcp/compare/c6951b9a09d0860550ebabd1a4ba66e36cb7212e...69e2666ef82a9743c90cb2b0b562dd96c068196f)
+- Oracle SQLcl MCP server: [bc09645 → b5d6c77](https://github.com/oracle/mcp/compare/bc0964534ee48c68f86cf5ca86f0daad6dbb352a...b5d6c7782d6e965313aebec8bf895c1a0eb0e543)
+- SQLGlot: [6de2df3 → c891966](https://github.com/tobymao/sqlglot/compare/6de2df31b0ae8b21155828f575a14dc8903c1b9b...c89196682c0a3767894079aa2eac608a82db6296)
+- SQLFluff: [4339c07 → 3c4f891](https://github.com/sqlfluff/sqlfluff/compare/4339c0759040e5961f13ea875b5255cda0aeca66...3c4f8918e7b508e7e2361b9d2d362516ff89bb00)
+- Apache DevLake (DORA dashboards): [210dcd4 → 2637f8b](https://github.com/apache/devlake/compare/210dcd4125e460a48895c2fdb418a35c56287cf7...2637f8bb8b15befd2e19210e33089f14e793a1d9)
+- ccusage: [f0a8a9c → 8995f3b](https://github.com/ccusage/ccusage/compare/f0a8a9c38c37847e83f2d7ca18b8cadba929534a...8995f3b7fd7110b8f37564f7d0468acc7a7d6b20)
+- Grafana OTel LGTM (all-in-one): [3c85957 → 90d0a4f](https://github.com/grafana/docker-otel-lgtm/compare/3c859579658c3540461a264d4225010837646910...90d0a4fcdceb2a40192aee413a6fc18b2669a65c)
+- Grafana MCP server: [6de474b → c49de0a](https://github.com/grafana/mcp-grafana/compare/6de474bd3c84f675ea936f59dd4a5ae9a11c186d...c49de0a99d4b7af204d970ddfaa44114bdecfb5d)
+- Keep (alert hub & AIOps): [c5d8d89 → ee6d0fa](https://github.com/keephq/keep/compare/c5d8d89dee07f15e9c77645f3177cd14af58bd1b...ee6d0fa6007c0c265d2798b6b3e2d6d194e390b3)
+- HolmesGPT (AI SRE agent): [0f8bd4c → 869054f](https://github.com/HolmesGPT/holmesgpt/compare/0f8bd4c6285e2ec7b1337fb8116ebb0c0fc9b978...869054f0058604109325bdc9e9d0d3d27ff883bd)
+- Dynatrace for AI (plugin + MCP): [f1abd8d → 306fb94](https://github.com/Dynatrace/dynatrace-for-ai/compare/f1abd8dae1f067e485bbd508a1ebe6003f9fc624...306fb94e36a53de026cb05a58b5b440fe6d7f000)
+- Datadog app investigator: [195f570 → a160311](https://github.com/datadog-labs/claude-code-plugin/compare/195f570c002beab3d7bd342739034d0019aa4863...a1603119c813f528b2d925a0ccadd73bf930550b)
+- Ruflo (agent swarms): [3667ba6 → 5f3dacc](https://github.com/ruvnet/ruflo/compare/3667ba6573ef811383881f8a887978798bf2113d...5f3dacc54b7279e39b172d6027d7989791448e2e)
+- rtk (OSS edition): [1d20b01 → fcc2eb0](https://github.com/rtk-ai/rtk/compare/1d20b015ebad73177a6c086c4292b809c7ce2e38...fcc2eb0939bf96fe49c560dc55064faada000c90)
+- context-mode: [a35dd45 → 78d3dd0](https://github.com/mksglu/context-mode/compare/a35dd45f3976b4a22baa0032db2b3c050c00a163...78d3dd080e4f52c9e3a81a63cd7eb369d8bb8d02)
+- CC Switch (desktop): [c018907 → 7afceec](https://github.com/farion1231/cc-switch/compare/c0189078aacdd80fd2462f59b345f55f62b41cf2...7afceec14b977ecc2f4373e8ffb40e7223b435ac)
+- claude-skills (380+ skills): [e4a1dc3 → 9ef0c3c](https://github.com/alirezarezvani/claude-skills/compare/e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0...9ef0c3c213932e645cc5cbeeb3c35c3a762a2437)
+- Claude quickstarts: [1a18c34 → 8ef47d7](https://github.com/anthropics/claude-quickstarts/compare/1a18c340ca42b9137d991637afe867bdcf70a9ce...8ef47d719eba5379ff8f38133f5defcc499e856f)
+- Claude Agent SDK (Python): [2146f9d → e0da9b9](https://github.com/anthropics/claude-agent-sdk-python/compare/2146f9d8985513053e904b13200c8f744b36785a...e0da9b95223d3d112bfbccad41d2a32bad923bb5)
+- Claude Code (the CLI): [80c6959 → 1a0f9a9](https://github.com/anthropics/claude-code/compare/80c6959d28c4c30ecd14fc1cdf172f19d9adad81...1a0f9a9d18e1272d3fbaa817d192b6b057bba623)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.100 → 0.9.101
+- HyperFrames: npm:hyperframes 0.8.227 → 0.9.5
+- ccusage: npm:ccusage 20.0.46 → 20.0.48
+- Grafana MCP server: pypi:mcp-grafana 2.1.1 → 2.2.0
+- Dynatrace for AI (plugin + MCP): per-session tokens ~5,935 → ~6,364
+
+**Install tests**: 69/69 passed
+
 ## 2026-11-01 17:15 UTC
 
 **Upstream updates**
