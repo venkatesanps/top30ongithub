@@ -2,6 +2,55 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-03 18:37 UTC
+
+**Upstream updates**
+- Career Ops: [20b9fd3 → 559b58e](https://github.com/career-ops-hq/career-ops/compare/20b9fd3a9c86d28c847e021f4dbbe93ce9a39a00...559b58e9e6302e87fae984b92a23df297e28809e)
+- REA (Reverse Engineer Anything): [9bea563 → c3647ad](https://github.com/morluto/rea/compare/9bea563e30fd255d639d6877a91109ba9ff2eb00...c3647ade1e557c4179a8b825a37e0c2193cd2526)
+- Last 30 Days: [6894d44 → e9c31b8](https://github.com/mvanhorn/last30days-skill/compare/6894d44e088c449ecdd7246a18763fddba1ff805...e9c31b868ab9d284c1a988e528c3391c51ebf944)
+- Headroom: [fc1ba89 → 038af59](https://github.com/headroomlabs-ai/headroom/compare/fc1ba891bff2d1e0cb53c4ffd4037f5066988c8e...038af599e1a3c5e7e6b3047781aaf9ba2bbbf8bd)
+- gstack: [6841082 → 6d9392a](https://github.com/garrytan/gstack/compare/68410828fd85611caea2c8429846f683849f425a...6d9392a1c1d2a0a868fb8b331a5d374a27320e6a)
+- GSD (Get Shit Done): [bfab824 → 3730c67](https://github.com/open-gsd/gsd-core/compare/bfab82492374a847a01417707a1a38e9e7cf097e...3730c670477f644eeac1377b6dfc50ee4f99bad0)
+- Diagram Design: [0cf73c3 → e3cc4df](https://github.com/cathrynlavery/diagram-design/compare/0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1...e3cc4df190a130a4898c39486152fef856ff22e0)
+- Impeccable: [9c3808b → 9fadc41](https://github.com/pbakaus/impeccable/compare/9c3808ba441337fce03b3e34aa06efc434503162...9fadc41729c38fd47d7ae622b501558653f9d2e9)
+- PPT Master: [5e8856b → 4a68cdd](https://github.com/hugohe3/ppt-master/compare/5e8856be0da8e6bc85c4aa28acc614478f7b7137...4a68cddaf40dc87891e6b64c6a69ef46adc1110c)
+- OpenMontage: [195eab2 → d21f5d4](https://github.com/calesthio/OpenMontage/compare/195eab24478dc9363326aec437aefc3701635ddf...d21f5d4eaa08422b09c7091757a05affcbabb35b)
+- HyperFrames: [398ef50 → a5a6121](https://github.com/heygen-com/hyperframes/compare/398ef506247493b1b2fd17395d8bba6de2166dab...a5a61213320c523875633a94ef96097456269136)
+- dbt MCP server: [7b93533 → e5ca168](https://github.com/dbt-labs/dbt-mcp/compare/7b93533a212ed7221eec45903966bae029a5d189...e5ca168ef4ecfeedd80e8e5ecb34b591256fedcb)
+- Agent Toolkit for AWS: [1761e96 → 8b32dfe](https://github.com/aws/agent-toolkit-for-aws/compare/1761e96813ebcbd43ed81d19e837219033f0afe5...8b32dfe0f91144b0e5d3fef487c515cb93ce0fb2)
+- AWS MCP servers (data & ops): [69e2666 → 7b79ba9](https://github.com/awslabs/mcp/compare/69e2666ef82a9743c90cb2b0b562dd96c068196f...7b79ba9aea4eb162a2d0d018121a926dd6895816)
+- Oracle SQLcl MCP server: [b5d6c77 → b6ceb48](https://github.com/oracle/mcp/compare/b5d6c7782d6e965313aebec8bf895c1a0eb0e543...b6ceb48e2e7f7a5291fbac8c7c7f916b49af4636)
+- SQLGlot: [c891966 → f7a3672](https://github.com/tobymao/sqlglot/compare/c89196682c0a3767894079aa2eac608a82db6296...f7a36727734b837deb55a4f73c383b8d5b59ee8e)
+- SQLFluff: [3c4f891 → 880402f](https://github.com/sqlfluff/sqlfluff/compare/3c4f8918e7b508e7e2361b9d2d362516ff89bb00...880402f8318503706aed85afaea23c0ce9452dd4)
+- Apache DevLake (DORA dashboards): [2637f8b → 84e3707](https://github.com/apache/devlake/compare/2637f8bb8b15befd2e19210e33089f14e793a1d9...84e3707977a2df852eb793a83c95431c9ad27efc)
+- ccusage: [8995f3b → b4e6193](https://github.com/ccusage/ccusage/compare/8995f3b7fd7110b8f37564f7d0468acc7a7d6b20...b4e61933b8bd3abfb6257eb4e6992379bb141dde)
+- Grafana OTel LGTM (all-in-one): [90d0a4f → ba0d6f4](https://github.com/grafana/docker-otel-lgtm/compare/90d0a4fcdceb2a40192aee413a6fc18b2669a65c...ba0d6f444b58310f57ad20bbdff6194d487f383e)
+- Grafana MCP server: [c49de0a → a57860b](https://github.com/grafana/mcp-grafana/compare/c49de0a99d4b7af204d970ddfaa44114bdecfb5d...a57860b54b4ef452cf906549664bfbd2519c0aad)
+- Keep (alert hub & AIOps): [ee6d0fa → ab394bf](https://github.com/keephq/keep/compare/ee6d0fa6007c0c265d2798b6b3e2d6d194e390b3...ab394bf49813b92377bbce4332d4f5cad1563a9c)
+- HolmesGPT (AI SRE agent): [869054f → 65332c5](https://github.com/HolmesGPT/holmesgpt/compare/869054f0058604109325bdc9e9d0d3d27ff883bd...65332c5637e3624c78eb0fa950e68946d446f75f)
+- Uptime Kuma (status pages): [cbd357e → 41194cb](https://github.com/louislam/uptime-kuma/compare/cbd357eb3982700132531dd8e7d66158d6c1f3e1...41194cb3d6e2bb8b9ae6c8a0fe59ce577c3f3928)
+- Dynatrace for AI (plugin + MCP): [306fb94 → 5dbfd57](https://github.com/Dynatrace/dynatrace-for-ai/compare/306fb94e36a53de026cb05a58b5b440fe6d7f000...5dbfd574ab59524aed68a4314dc383d73bdf7e9c)
+- planning-with-files: [b6580cd → 0fa6c79](https://github.com/OthmanAdi/planning-with-files/compare/b6580cd24af1d8a95ab268794456e05608a1afd3...0fa6c79885e14534074cb7df8535e1efa3dc7149)
+- rtk (OSS edition): [fcc2eb0 → 63b8c3e](https://github.com/rtk-ai/rtk/compare/fcc2eb0939bf96fe49c560dc55064faada000c90...63b8c3e26ec9487eb3953a142a8279366b5f5689)
+- context-mode: [78d3dd0 → 3afa9f9](https://github.com/mksglu/context-mode/compare/78d3dd080e4f52c9e3a81a63cd7eb369d8bb8d02...3afa9f978a9a1dc6629fd0001c7bda403c48a6e7)
+- claude-skills (380+ skills): [9ef0c3c → c85b17e](https://github.com/alirezarezvani/claude-skills/compare/9ef0c3c213932e645cc5cbeeb3c35c3a762a2437...c85b17e1fb621ba760478baaacc4fcb9be225e74)
+- Claude Agent SDK (Python): [e0da9b9 → 8abce11](https://github.com/anthropics/claude-agent-sdk-python/compare/e0da9b95223d3d112bfbccad41d2a32bad923bb5...8abce1165075a20f5fe0e257b2306b4037bae37e)
+- Claude Code (the CLI): [1a0f9a9 → 964d695](https://github.com/anthropics/claude-code/compare/1a0f9a9d18e1272d3fbaa817d192b6b057bba623...964d69565952a176ac1975ed218362991db71433)
+- Claude Code Action (GitHub): [d535f51 → 4845bac](https://github.com/anthropics/claude-code-action/compare/d535f5172dec02b204866b393d6b20b9b2aaf98d...4845bacbb38b3c4b15d948f035349786f678e068)
+
+**Notes**
+- GSD (Get Shit Done): npm:@opengsd/gsd-core 1.19.0 → 1.20.0
+- HyperFrames: npm:hyperframes 0.9.5 → 0.9.9
+- dbt MCP server: pypi:dbt-mcp 2.10.0 → 2.10.1
+- Oracle SQLcl MCP server: pypi:oracle.oci-cloud-mcp-server 2.2.3 → 2.3.0
+- SQLGlot: pypi:sqlglot 30.27.0 → 30.29.0
+- Claude Agent SDK (Python): pypi:claude-agent-sdk 0.2.176 → 0.2.177
+- Claude Code (the CLI): npm:@anthropic-ai/claude-code 2.1.316 → 2.1.317
+- HyperFrames: per-session tokens ~629 → ~708
+- claude-skills (380+ skills): per-session tokens ~2,691 + ~66 + ~69 → ~2,639 + ~66 + ~69
+
+**Install tests**: 32/32 passed
+
 ## 2026-11-02 20:58 UTC
 
 **Upstream updates**

@@ -13,8 +13,8 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [2e068f7352](https://github.com/JuliusBrussee/caveman/tree/2e068f735253cce28256744804785f01887d9646) |
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [12af471f62](https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c) |
 | 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [a4065941f1](https://github.com/tt-a1i/archify/tree/a4065941f12be7967436261d9934784e381d423c) |
-| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [0cf73c3fcc](https://github.com/cathrynlavery/diagram-design/tree/0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1) |
-| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [9c3808ba44](https://github.com/pbakaus/impeccable/tree/9c3808ba441337fce03b3e34aa06efc434503162) |
+| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [e3cc4df190](https://github.com/cathrynlavery/diagram-design/tree/e3cc4df190a130a4898c39486152fef856ff22e0) |
+| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [9fadc41729](https://github.com/pbakaus/impeccable/tree/9fadc41729c38fd47d7ae622b501558653f9d2e9) |
 | 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [713eef51b0](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/713eef51b04efc98d6fa565323b495f7c9c89fd4) |
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [88c79f6528](https://github.com/coreyhaines31/marketingskills/tree/88c79f6528a9347420e57ceb1fff9a60de651768) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [0ef9fe5bc3](https://github.com/blader/humanizer/tree/0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0) |
