@@ -147,17 +147,17 @@
   "folder": "05-superpowers",
   "skill": "brainstorming",
   "path": "skills/brainstorming",
-  "bytes": 30753,
+  "bytes": 31394,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "05-superpowers",
   "skill": "executing-plans",
   "path": "skills/executing-plans",
-  "bytes": 9416,
+  "bytes": 9671,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "05-superpowers",
@@ -165,7 +165,7 @@
   "path": "skills/receiving-code-review",
   "bytes": 3642,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "05-superpowers",
@@ -173,15 +173,15 @@
   "path": "skills/requesting-code-review",
   "bytes": 5432,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "05-superpowers",
   "skill": "systematic-debugging",
   "path": "skills/systematic-debugging",
-  "bytes": 20122,
+  "bytes": 13521,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "05-superpowers",
@@ -189,7 +189,7 @@
   "path": "skills/test-driven-development",
   "bytes": 8810,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "05-superpowers",
@@ -197,7 +197,7 @@
   "path": "skills/verification-before-completion",
   "bytes": 2666,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "05-superpowers",
@@ -205,7 +205,7 @@
   "path": "skills/writing-plans",
   "bytes": 5271,
   "license": "MIT",
-  "commit": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+  "commit": "22f0b463e7a5e579904dd6211a520321035526f7"
  },
  {
   "folder": "06-ponytail",
@@ -253,15 +253,15 @@
   "path": "skills/diagram-design",
   "bytes": 1337423,
   "license": "MIT",
-  "commit": "e3cc4df190a130a4898c39486152fef856ff22e0"
+  "commit": "f24d98b05e2d7a5e68c2dedfe46e5b7173f50118"
  },
  {
   "folder": "22-impeccable",
   "skill": "impeccable",
   "path": "plugin/skills/impeccable",
-  "bytes": 857453,
+  "bytes": 857721,
   "license": "Apache-2.0",
-  "commit": "9fadc41729c38fd47d7ae622b501558653f9d2e9"
+  "commit": "5af4319c4e7a7ee3e5e2b9fe899bcfb21c6190cb"
  },
  {
   "folder": "23-ui-ux-pro-max",
@@ -269,7 +269,7 @@
   "path": ".claude/skills/ui-ux-pro-max",
   "bytes": 572422,
   "license": "MIT",
-  "commit": "713eef51b04efc98d6fa565323b495f7c9c89fd4"
+  "commit": "ccce51cba388476d4f403091ddb91636d5cd9fed"
  },
  {
   "folder": "25-marketing",
