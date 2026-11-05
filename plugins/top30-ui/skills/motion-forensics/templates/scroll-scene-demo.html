@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><style>[hidden]{display:none!important}body{margin:0}</style></head><body>
+<!-- Demo for templates/scroll-scene.js: open this file in a browser, or serve the folder. -->
+<title>Nightly Load</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one fixed canvas behind a narrow column of copy; the copy's data-phase markers set the timing. */
+:root {
+  --paper: #e9eef3;      /* engineering-paper blue-grey */
+  --panel: #f6f8fa;
+  --ink: #17212b;
+  --ink-soft: #4b5b6a;
+  --rule: #c9d3dc;
+  --gate: #17212b;
+  --oracle: #c8402f;
+  --s3: #2f7d5b;
+  --kafka: #2a5fa8;
+  --api: #b07a12;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0f161d; --panel: #16202a; --ink: #e3eaf0; --ink-soft: #9aabb9; --rule: #2a3946; --gate: #e3eaf0;
+    --oracle: #f0715d; --s3: #5cc596; --kafka: #74a3f0; --api: #e2ae45; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0f161d; --panel: #16202a; --ink: #e3eaf0; --ink-soft: #9aabb9; --rule: #2a3946; --gate: #e3eaf0;
+  --oracle: #f0715d; --s3: #5cc596; --kafka: #74a3f0; --api: #e2ae45; color-scheme: dark;
+}
+html { background: var(--paper); }
+body { background: var(--paper); color: var(--ink); font: 400 1rem/1.6 var(--body); }
+#field { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.story { position: relative; z-index: 1; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0; }
+.beat { min-height: 92vh; display: flex; align-items: center; }
+.beat:first-child { min-height: 88vh; }
+.card { max-width: 30rem; background: color-mix(in srgb, var(--panel) 92%, transparent); border: 1px solid var(--rule); border-radius: 6px; padding: 1.4rem 1.5rem; display: grid; gap: .7rem; }
+@media (min-width: 900px) { .story { padding-left: max(5vw, env(safe-area-inset-left, 0px)); } .card { max-width: 26rem; } }
+.eyebrow { font: 500 .72rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); }
+h1, h2 { font-family: var(--display); font-weight: 700; letter-spacing: -.02em; text-wrap: balance; margin: 0; line-height: 1.05; }
+h1 { font-size: clamp(2.3rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); }
+p { margin: 0; max-width: 62ch; }
+.lanes { display: flex; flex-wrap: wrap; gap: .4rem .9rem; font: 500 .8rem/1.4 var(--mono); }
+.lanes span { display: inline-flex; align-items: center; gap: .4rem; }
+.lanes i { width: .7rem; height: .3rem; border-radius: 1px; display: inline-block; }
+code, .mono { font-family: var(--mono); font-size: .88em; }
+ul.how { margin: 0; padding-left: 1.1rem; display: grid; gap: .35rem; }
+.end { min-height: 70vh; }
+.hud { position: fixed; z-index: 2; right: calc(12px + env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); font: 500 .72rem/1.3 var(--mono); color: var(--ink-soft); background: var(--panel); border: 1px solid var(--rule); border-radius: 4px; padding: .45rem .6rem; font-variant-numeric: tabular-nums; display: grid; gap: .1rem; }
+.hud b { color: var(--ink); font-weight: 500; }
+@media (prefers-reduced-motion: reduce) { .hud .live { display: none; } }
+@media (max-width: 600px) { .hud { display: none; } }
+</style>
+
+<canvas id="field" aria-hidden="true"></canvas>
+
+<main class="story" id="story">
+  <section class="beat" data-phase="scatter">
+    <div class="card">
+      <span class="eyebrow">Nightly load · 02:00 CT</span>
+      <h1>1,200 records land in no particular order.</h1>
+      <p>Orders from Oracle, files from S3, events from Kafka and accounts from the REST API arrive in the raw zone together. Scroll to run the load.</p>
+      <div class="lanes" aria-label="Sources">
+        <span><i style="background:var(--oracle)"></i>Oracle</span>
+        <span><i style="background:var(--s3)"></i>S3</span>
+        <span><i style="background:var(--kafka)"></i>Kafka</span>
+        <span><i style="background:var(--api)"></i>API</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="beat" data-phase="sort">
+    <div class="card">
+      <span class="eyebrow">Stage 1 · Classify</span>
+      <h2>Each record finds its source lane.</h2>
+      <p>The sort runs as a wave, not a block: every record has its own lag, so the crowd peels away in order. Scroll back up and it rewinds exactly.</p>
+    </div>
+  </section>
+
+  <section class="beat" data-phase="refine">
+    <div class="card">
+      <span class="eyebrow">Stage 2 · Refine</span>
+      <h2>One gate, one record at a time.</h2>
+      <p>Records stream through the refiner where types are cast and keys de-duplicated. The stream keeps moving while you read, because a short time loop runs only while this part is on screen.</p>
+    </div>
+  </section>
+
+  <section class="beat" data-phase="land">
+    <div class="card">
+      <span class="eyebrow">Stage 3 · Merge</span>
+      <h2><span id="landed" class="mono">0</span> rows merged into the warehouse.</h2>
+      <p>They settle into <code>fct_orders</code>, <code>stg_files</code>, <code>fct_events</code> and <code>dim_accounts</code>, stacked by table.</p>
+    </div>
+  </section>
+
+  <section class="beat end">
+    <div class="card">
+      <span class="eyebrow">How this page moves</span>
+      <h2>No library. One canvas and a function of scroll.</h2>
+      <ul class="how">
+        <li>Everything you saw is drawn by <code>render(progress, time)</code>, so DOM inspectors find a single empty canvas.</li>
+        <li>The scatter is seeded (seed <span class="mono">20261104</span>): the same "random" layout on every visit.</li>
+        <li>Phase ends sit on these cards' <code>data-phase</code> markers, so timing follows the copy at any screen size.</li>
+        <li>A frame loop runs only during the hero drift and the refine stream; elsewhere scroll alone redraws.</li>
+        <li>Canvas resolution follows your screen up to 2x. With reduced motion on you get one still of the finished load.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<div class="hud" aria-hidden="true"><span>progress <b id="hud-p">0.000</b></span><span class="live">phase <b id="hud-phase">raw</b></span></div>
+
+<script>
+(function () {
+  "use strict";
+  // ---- engine (templates/scroll-scene.js, inlined) ----
+  function rng(seed) { var a = seed >>> 0; return function () { a = (a + 0x6d2b79f5) >>> 0; var t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+  function clamp01(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function mix(a, b, t) { return a + (b - a) * t; }
+  var ease = {
+    inOutCubic: function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; },
+    outCubic: function (t) { return 1 - Math.pow(1 - t, 3); },
+    outBack: function (t) { var s = 1.4; return 1 + (s + 1) * Math.pow(t - 1, 3) + s * Math.pow(t - 1, 2); }
+  };
+  function phase(p, start, end, lag, spread, easing) {
+    var run = end - start; if (run <= 0) return p >= end ? 1 : 0;
+    spread = spread == null ? 0.3 : spread; easing = easing || ease.inOutCubic;
+    return easing(clamp01((p - start - (lag || 0) * spread * run) / (run * (1 - spread))));
+  }
+  function progressFor(y, top, hgt, vh) { return clamp01((y - top) / Math.max(1, hgt - vh)); }
+  function anchorProgress(top, h, zt, zh, vh) { return progressFor(top + h / 2 - vh / 2, zt, zh, vh); }
+
+  function createScene(o) {
+    var canvas = o.canvas, zone = o.zone, ctx = canvas.getContext("2d");
+    var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var w = 0, h = 0, dpr = 1, data = null, A = {}, zt = 0, zh = 1, p = 0, t = 0, last = 0, raf = 0, queued = false, visible = true;
+    function measure() {
+      var r = zone.getBoundingClientRect(); zt = r.top + scrollY; zh = r.height; A = {};
+      zone.querySelectorAll("[data-phase]").forEach(function (el) { var e = el.getBoundingClientRect(); A[el.dataset.phase] = anchorProgress(e.top + scrollY, e.height, zt, zh, innerHeight); });
+    }
+    function resize() {
+      dpr = Math.min(2, devicePixelRatio || 1); w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      data = o.setup({ random: rng(o.seed), w: w, h: h }); measure();
+    }
+    function draw() { ctx.clearRect(0, 0, w, h); o.render(ctx, { p: p, t: t, w: w, h: h, a: A, data: data, reduced: reduced }); canvas.dataset.progress = p.toFixed(3); }
+    function frame(now) {
+      raf = 0; var dt = last ? Math.min(now - last, 50) : 16; last = now; t += dt; draw();
+      if (visible && o.live(p, A)) raf = requestAnimationFrame(frame); else last = 0;
+    }
+    function kick() { if (!raf) raf = requestAnimationFrame(frame); }
+    function onScroll() { if (queued) return; queued = true; requestAnimationFrame(function () { queued = false; p = progressFor(scrollY, zt, zh, innerHeight); kick(); }); }
+    function refit() { if (canvas.clientWidth !== w || canvas.clientHeight !== h) resize(); else measure(); p = progressFor(scrollY, zt, zh, innerHeight); draw(); }
+    resize(); p = progressFor(scrollY, zt, zh, innerHeight);
+    if (reduced) { p = 1; draw(); return; }
+    draw();
+    addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", refit); addEventListener("pageshow", refit);
+    if (window.ResizeObserver) { var ro = new ResizeObserver(refit); ro.observe(canvas); ro.observe(zone); }
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit); // copy reflows when fonts land; re-anchor phases
+    document.addEventListener("visibilitychange", function () { visible = !document.hidden; if (visible) kick(); });
+    kick();
+  }
+
+  // ---- the scene ----
+  var LANES = [
+    { name: "Oracle", table: "fct_orders", token: "--oracle", share: 0.34 },
+    { name: "S3", table: "stg_files", token: "--s3", share: 0.18 },
+    { name: "Kafka", table: "fct_events", token: "--kafka", share: 0.31 },
+    { name: "API", table: "dim_accounts", token: "--api", share: 0.17 }
+  ];
+  var N = 1200, landedEl = document.getElementById("landed"), hudP = document.getElementById("hud-p"), hudPh = document.getElementById("hud-phase");
+  var cs = getComputedStyle(document.documentElement), inks = [], gateInk = "", softInk = "", ruleInk = "";
+  function readInks() { cs = getComputedStyle(document.documentElement); inks = LANES.map(function (l) { return cs.getPropertyValue(l.token).trim(); }); gateInk = cs.getPropertyValue("--gate").trim(); softInk = cs.getPropertyValue("--ink-soft").trim(); ruleInk = cs.getPropertyValue("--rule").trim(); }
+  readInks();
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () { readInks(); });
+  new MutationObserver(readInks).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  function region(w, h) {
+    var wide = w >= 900, x0 = wide ? Math.max(w * 0.42, 460) : 16, x1 = w - (wide ? 40 : 16);
+    return { x0: x0, x1: x1, wide: wide, laneTop: h * 0.1, laneBot: h * 0.42, gateY: h * 0.56, floor: h * 0.94, shelf: h * 0.68 };
+  }
+
+  function setup(env) {
+    var R = env.random, items = [], counts = [0, 0, 0, 0];
+    for (var i = 0; i < N; i++) {
+      var u = R(), lane = u < 0.34 ? 0 : u < 0.52 ? 1 : u < 0.83 ? 2 : 3;
+      items.push({ lane: lane, seat: counts[lane]++, sx: R(), sy: R(), rot: (R() - 0.5) * 1.1, w: 10 + R() * 16, h: 3 + R() * 2.5,
+        lag: R(), flow: R(), ang: R() * 6.283, spd: 0.4 + R() * 0.8 });
+    }
+    return { items: items, counts: counts };
+  }
+
+  function live(p, A) {
+    var hero = p < (A.scatter || 0) + ((A.sort || 0.3) - (A.scatter || 0)) * 0.3;
+    var stream = p > (A.sort || 0.3) && p < (A.land || 0.75);
+    return hero || stream;
+  }
+
+  function render(ctx, s) {
+    var w = s.w, h = s.h, A = s.a, R = region(w, h), items = s.data.items, counts = s.data.counts;
+    var aS = A.scatter || 0, aSort = A.sort || 0.3, aRef = A.refine || 0.55, aLand = A.land || 0.78;
+    var laneW = (R.x1 - R.x0) / 4, cols = Math.max(6, Math.floor(laneW / 15)), cell = laneW / cols;
+    var gx = (R.x0 + R.x1) / 2, landed = 0;
+    var maxRows = Math.ceil(Math.max.apply(null, counts) / cols);
+    var rowH = Math.min(5.2, (R.laneBot - R.laneTop) / maxRows), stackH = Math.min(R.wide ? 4.2 : 3.2, (R.floor - R.shelf - 6) / maxRows);
+
+    // Lane guides and the gate, faded in with the sort.
+    var guide = phase(s.p, aS, aSort, 0, 0);
+    ctx.globalAlpha = 0.6 * guide; ctx.strokeStyle = ruleInk; ctx.lineWidth = 1;
+    for (var g = 0; g <= 4; g++) { var lx = R.x0 + g * laneW; ctx.beginPath(); ctx.moveTo(lx, R.laneTop - 8); ctx.lineTo(lx, R.laneBot + 8); ctx.stroke(); }
+    ctx.globalAlpha = 1;
+    ctx.font = "500 11px " + cs.getPropertyValue("--mono");
+    ctx.fillStyle = softInk; ctx.globalAlpha = guide;
+    for (var k = 0; k < 4; k++) ctx.fillText(LANES[k].name.toUpperCase(), R.x0 + k * laneW + 4, R.laneTop - 14);
+    var gateOn = phase(s.p, aSort, aRef, 0, 0) * (1 - phase(s.p, aRef + (aLand - aRef) * 0.8, aLand, 0, 0));
+    ctx.globalAlpha = gateOn; ctx.strokeStyle = gateInk; ctx.lineWidth = 2;
+    var pulse = 1 + 0.25 * Math.sin(s.t / 260);
+    ctx.beginPath(); ctx.moveTo(gx - 26 * pulse, R.gateY); ctx.lineTo(gx - 6, R.gateY); ctx.moveTo(gx + 6, R.gateY); ctx.lineTo(gx + 26 * pulse, R.gateY); ctx.stroke();
+    ctx.fillStyle = softInk; ctx.fillText("REFINER", gx + 34, R.gateY + 4);
+    // Shelf labels for the warehouse tables.
+    var landOn = phase(s.p, aRef, aLand, 0, 0);
+    ctx.globalAlpha = landOn;
+    for (var q = 0; q < 4; q++) ctx.fillText(LANES[q].table, R.x0 + q * laneW + 4, R.shelf - 8);
+    ctx.globalAlpha = 1;
+
+    var calm = 1 - phase(s.p, aS, aS + (aSort - aS) * 0.35, 0, 0);
+    var refineStart = aSort + (aRef - aSort) * 0.15;
+    for (var i = 0; i < items.length; i++) {
+      var b = items[i];
+      // Raw scatter seat, with a bounded orbit while the hero is calm.
+      var x = b.sx * w, y = b.sy * h;
+      if (calm > 0) { var o = s.t * 0.00035 * b.spd + b.ang; x += Math.cos(o) * 7 * calm; y += Math.sin(o * 1.3) * 5 * calm; }
+      // Lane seat.
+      var col = b.seat % cols, row = Math.floor(b.seat / cols);
+      var lx2 = R.x0 + b.lane * laneW + (col + 0.5) * cell, ly2 = R.laneTop + row * rowH;
+      var f1 = phase(s.p, aS, aSort, b.lag, 0.45);
+      x = mix(x, lx2, f1); y = mix(y, ly2, f1);
+      var rot = mix(b.rot, 0, f1), bw = mix(b.w, cell * 0.7, f1), bh = mix(b.h, Math.max(1.6, Math.min(2.6, rowH * 0.6)), f1);
+      // Through the gate, one at a time (high spread = a stream), then onto its table's shelf.
+      var f2 = phase(s.p, refineStart, aLand, b.flow, 0.9, function (u) { return u; });
+      if (f2 > 0) {
+        var stack = Math.floor(b.seat / cols), sx2 = R.x0 + b.lane * laneW + (col + 0.5) * cell;
+        var sy2 = R.floor - 4 - stack * stackH;
+        if (f2 < 0.5) { var u = ease.inOutCubic(f2 * 2); x = mix(lx2, gx, u); y = mix(ly2, R.gateY, u); bw = mix(cell * 0.7, 4, u); }
+        else { var v = ease.outBack((f2 - 0.5) * 2); x = mix(gx, sx2, v); y = mix(R.gateY, sy2, v); bw = mix(4, cell * 0.78, Math.min(1, v)); }
+        if (f2 >= 1) landed++;
+      }
+      ctx.save(); ctx.translate(x, y); if (rot) ctx.rotate(rot);
+      ctx.fillStyle = inks[b.lane]; ctx.globalAlpha = 0.9; ctx.fillRect(-bw / 2, -bh / 2, bw, bh); ctx.restore();
+    }
+    ctx.globalAlpha = 1;
+    if (landedEl) landedEl.textContent = (s.reduced ? N : landed).toLocaleString("en-US");
+    hudP.textContent = s.p.toFixed(3);
+    hudPh.textContent = s.p < aSort * 0.98 ? (calm > 0.01 ? "raw · drifting" : "classify") : s.p < aRef ? "refine" : s.p < aLand ? "merge" : "done";
+  }
+
+  createScene({ canvas: document.getElementById("field"), zone: document.getElementById("story"), seed: 20261104, setup: setup, render: render, live: live });
+})();
+</script>
+
+</body></html>

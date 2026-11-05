@@ -1,0 +1,187 @@
+{
+ "probe": "motion_probe/1",
+ "url": "https://www.zeromark.io/",
+ "viewport": [
+  1440,
+  900
+ ],
+ "dpr": 2,
+ "hidden": false,
+ "htmlClass": " zm-motion",
+ "prefersReducedMotion": false,
+ "libraries": {
+  "globals": [],
+  "fromScriptUrls": [],
+  "domHints": {
+   "framer": false,
+   "webflow": false,
+   "lottie": false
+  }
+ },
+ "css": {
+  "keyframes": [
+   "zm-beckon",
+   "zm-chev",
+   "zm-halo",
+   "zm-rise",
+   "zm-pop",
+   "zm-file"
+  ],
+  "cubicBeziers": [
+   "cubic-bezier(0.45, 0, 0.55, 1)",
+   "cubic-bezier(0.32, 0.72, 0, 1)",
+   "cubic-bezier(0.2, 0.9, 0.2, 1)",
+   "cubic-bezier(0.2, 1.7, 0.4, 1)",
+   "cubic-bezier(0.22, 1, 0.36, 1)"
+  ],
+  "scrollDriven": 1,
+  "reducedMotion": 7
+ },
+ "cssAnimations": [
+  {
+   "kind": "CSSAnimation",
+   "name": "zm-rise",
+   "target": "a.brandline",
+   "duration": 620,
+   "delay": 0,
+   "easing": "linear",
+   "iterations": 1,
+   "timeline": "DocumentTimeline"
+  },
+  {
+   "kind": "CSSAnimation",
+   "name": "zm-rise",
+   "target": "p.hero-tag",
+   "duration": 620,
+   "delay": 120,
+   "easing": "linear",
+   "iterations": 1,
+   "timeline": "DocumentTimeline"
+  },
+  {
+   "kind": "CSSAnimation",
+   "name": "zm-rise",
+   "target": "span.line",
+   "duration": 620,
+   "delay": 240,
+   "easing": "linear",
+   "iterations": 1,
+   "timeline": "DocumentTimeline"
+  },
+  {
+   "kind": "CSSAnimation",
+   "name": "zm-rise",
+   "target": "span.line.accent",
+   "duration": 620,
+   "delay": 360,
+   "easing": "linear",
+   "iterations": 1,
+   "timeline": "DocumentTimeline"
+  },
+  {
+   "kind": "CSSAnimation",
+   "name": "zm-rise",
+   "target": "p.lede",
+   "duration": 620,
+   "delay": 480,
+   "easing": "linear",
+   "iterations": 1,
+   "timeline": "DocumentTimeline"
+  },
+  {
+   "kind": "CSSAnimation",
+   "name": "zm-rise",
+   "target": "p.hero-detail",
+   "duration": 620,
+   "delay": 560,
+   "easing": "linear",
+   "iterations": 1,
+   "timeline": "DocumentTimeline"
+  },
+  {
+   "kind": "CSSAnimation",
+   "name": "zm-beckon",
+   "target": "span.zm-scroll-word",
+   "duration": 2200,
+   "delay": 0,
+   "easing": "linear",
+   "iterations": "infinite",
+   "timeline": "DocumentTimeline"
+  }
+ ],
+ "media": {
+  "canvases": [
+   {
+    "el": "canvas#zm-field",
+    "parent": "body.home",
+    "cssW": 1425,
+    "cssH": 900,
+    "backingW": 2850,
+    "backingH": 1800,
+    "position": "fixed",
+    "coversViewport": true,
+    "hidden": false
+   },
+   {
+    "el": "canvas#zm-map",
+    "parent": "div.zm-stage",
+    "cssW": 1440,
+    "cssH": 440,
+    "backingW": 2880,
+    "backingH": 880,
+    "position": "absolute",
+    "coversViewport": false,
+    "hidden": false
+   },
+   {
+    "el": "canvas#zm-wave",
+    "parent": "div.zm-stage",
+    "cssW": 1440,
+    "cssH": 300,
+    "backingW": 2880,
+    "backingH": 600,
+    "position": "absolute",
+    "coversViewport": false,
+    "hidden": false
+   }
+  ],
+  "videos": [],
+  "svgs": 17,
+  "iframes": []
+ },
+ "code": {
+  "files": [
+   {
+    "src": "/landing.js",
+    "bytes": 107391,
+    "lines": 2157,
+    "minified": false
+   }
+  ],
+  "raf": 8,
+  "intersectionObserver": 9,
+  "resizeObserver": 7,
+  "scrollListeners": 2,
+  "scrollYMath": 3,
+  "wheelOrTouchHijack": 0,
+  "pointer": 0,
+  "ctx2d": 4,
+  "webgl": 0,
+  "shaders": 0,
+  "seededRandom": 30,
+  "customEasing": 10,
+  "lerp": 10,
+  "springs": 0,
+  "waapi": 2,
+  "devicePixelRatio": 5,
+  "reducedMotion": 2,
+  "layoutAnchors": 13
+ },
+ "behaviour": {
+  "canvasesChangeOverTime": 1,
+  "canvasesChangeWithScroll": 1,
+  "inlineStylesChangeOverTime": false,
+  "inlineStylesChangeWithScroll": false,
+  "canvasesWatched": 6
+ }
+}

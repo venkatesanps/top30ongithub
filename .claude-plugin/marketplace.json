@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.4.0"
+    "version": "0.4.1"
   },
   "plugins": [
     {
@@ -39,8 +39,8 @@
     {
       "name": "top30-ui",
       "source": "./plugins/top30-ui",
-      "description": "EasyUI's workflow, reverse-engineered: build motion components to one standard, publish them as a shadcn GitHub registry (scan, validate, audit, llms.txt), and rebuild components you like as your own.",
-      "version": "0.1.0",
+      "description": "EasyUI's workflow and motion forensics: motion components, your own shadcn registry, diagnosing how a site's animation is really built, and rebuilding scroll-driven canvas scenes.",
+      "version": "0.2.0",
       "category": "design"
     }
   ]

@@ -1,8 +1,21 @@
 {
   "name": "top30-ui",
-  "version": "0.1.0",
-  "description": "EasyUI's workflow, reverse-engineered. motion-component-builder builds animated React components to one standard (spring tokens, every state, accessibility, reduced motion); component-registry publishes them as a shadcn GitHub registry (scan, validate, audit, llms.txt); the ui-reverse-engineer agent turns a component you like into a spec and an original rebuild.",
-  "author": { "name": "venkatesanps" },
+  "version": "0.2.0",
+  "description": "EasyUI's workflow, reverse-engineered, plus motion forensics. motion-component-builder builds animated React components to one standard; component-registry publishes them as a shadcn GitHub registry; motion-forensics diagnoses how a site's motion is really built (canvas, WebGL, timelines, smooth scroll, CSS) and rebuilds scroll-driven canvas scenes; agents: ui-reverse-engineer and motion-detective.",
+  "author": {
+    "name": "venkatesanps"
+  },
   "repository": "https://github.com/venkatesanps/top30ongithub",
-  "keywords": ["react", "tailwind", "framer-motion", "shadcn", "registry", "design-system", "accessibility"]
+  "keywords": [
+    "react",
+    "tailwind",
+    "framer-motion",
+    "shadcn",
+    "registry",
+    "design-system",
+    "accessibility",
+    "canvas",
+    "scroll-animation",
+    "motion"
+  ]
 }

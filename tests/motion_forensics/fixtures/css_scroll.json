@@ -1,0 +1,54 @@
+{
+ "probe": "motion_probe/1",
+ "url": "https://css-only.test/",
+ "viewport": [
+  1440,
+  900
+ ],
+ "dpr": 2,
+ "hidden": false,
+ "htmlClass": "",
+ "prefersReducedMotion": false,
+ "libraries": {
+  "globals": [],
+  "fromScriptUrls": [],
+  "domHints": {}
+ },
+ "css": {
+  "keyframes": [
+   "reveal"
+  ],
+  "cubicBeziers": [
+   "cubic-bezier(0.16, 1, 0.3, 1)"
+  ],
+  "scrollDriven": 4,
+  "reducedMotion": 1
+ },
+ "cssAnimations": [
+  {
+   "kind": "CSSAnimation",
+   "name": "reveal",
+   "target": "section.card",
+   "duration": null,
+   "delay": 0,
+   "easing": "linear",
+   "iterations": 1,
+   "timeline": "ViewTimeline"
+  }
+ ],
+ "media": {
+  "canvases": [],
+  "videos": [],
+  "svgs": 0,
+  "iframes": []
+ },
+ "code": {
+  "files": []
+ },
+ "behaviour": {
+  "canvasesChangeOverTime": 0,
+  "canvasesChangeWithScroll": 0,
+  "inlineStylesChangeOverTime": false,
+  "inlineStylesChangeWithScroll": false
+ }
+}

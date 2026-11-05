@@ -1,0 +1,59 @@
+{
+ "probe": "motion_probe/1",
+ "url": "https://example-agency.test/",
+ "viewport": [
+  1440,
+  900
+ ],
+ "dpr": 2,
+ "hidden": false,
+ "htmlClass": "w-mod-js lenis lenis-smooth",
+ "prefersReducedMotion": false,
+ "libraries": {
+  "globals": [
+   "gsap",
+   "ScrollTrigger",
+   "Lenis"
+  ],
+  "fromScriptUrls": [
+   "gsap",
+   "lenis",
+   "webflow"
+  ],
+  "domHints": {
+   "webflow": true
+  }
+ },
+ "css": {
+  "keyframes": [],
+  "cubicBeziers": [],
+  "scrollDriven": 0,
+  "reducedMotion": 0
+ },
+ "cssAnimations": [],
+ "media": {
+  "canvases": [],
+  "videos": [],
+  "svgs": 0,
+  "iframes": []
+ },
+ "code": {
+  "files": [
+   {
+    "src": "/js/app.min.js",
+    "bytes": 412000,
+    "lines": 3,
+    "minified": true
+   }
+  ],
+  "raf": 1,
+  "scrollYMath": 0,
+  "wheelOrTouchHijack": 0
+ },
+ "behaviour": {
+  "canvasesChangeOverTime": 0,
+  "canvasesChangeWithScroll": 0,
+  "inlineStylesChangeOverTime": false,
+  "inlineStylesChangeWithScroll": true
+ }
+}

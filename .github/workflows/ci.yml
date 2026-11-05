@@ -48,6 +48,10 @@ jobs:
           mkdir -p /tmp/al/.github/workflows && cp templates/claude-code-action/*.yml /tmp/al/.github/workflows/
           cd /tmp/al && git init -q && actionlint
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Skill and example tests
         run: |
           pip install --quiet sqlglot claude-agent-sdk anthropic
@@ -61,4 +65,5 @@ jobs:
           python3 tests/graph_check/test_graph_check.py
           python3 tests/agent_loop/test_agent_loop.py
           python3 tests/registry_kit/test_registry_kit.py
+          python3 tests/motion_forensics/test_motion_report.py
           python3 -m py_compile scripts/ab.py

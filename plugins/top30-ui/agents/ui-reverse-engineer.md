@@ -19,6 +19,13 @@ down, then build it fresh. You report a spec, the component, and what you couldn
   names or logos.
 - Never recreate a sign-in, payment or other page so it could pass for the original.
 
+## 0. Diagnose first
+
+Run the `motion-forensics` probe on the page before anything else. If the report says the
+motion is procedural canvas, WebGL, a library timeline or smooth scroll, the DOM won't show it:
+hand the motion part to the `motion-detective` agent (or follow that skill) and use the steps
+below for the regular components around it.
+
 ## 1. Observe
 
 Get the best evidence available, in this order: the source (if open), a running instance (the

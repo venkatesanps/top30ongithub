@@ -1,0 +1,77 @@
+{
+ "probe": "motion_probe/1",
+ "url": "https://webgl-hero.test/",
+ "viewport": [
+  1440,
+  900
+ ],
+ "dpr": 2,
+ "hidden": false,
+ "htmlClass": "",
+ "prefersReducedMotion": false,
+ "libraries": {
+  "globals": [
+   "THREE"
+  ],
+  "fromScriptUrls": [
+   "three"
+  ],
+  "domHints": {
+   "lottie": true
+  }
+ },
+ "css": {
+  "keyframes": [],
+  "cubicBeziers": [],
+  "scrollDriven": 0,
+  "reducedMotion": 0
+ },
+ "cssAnimations": [],
+ "media": {
+  "canvases": [
+   {
+    "el": "canvas.webgl",
+    "parent": "div.hero",
+    "cssW": 1440,
+    "cssH": 900,
+    "backingW": 2880,
+    "backingH": 1800,
+    "position": "fixed",
+    "coversViewport": true,
+    "hidden": false
+   }
+  ],
+  "videos": [
+   {
+    "el": "video.bg",
+    "src": "/hero.mp4",
+    "autoplay": true,
+    "loop": true,
+    "muted": true,
+    "cssW": 1440
+   }
+  ],
+  "svgs": 0,
+  "iframes": []
+ },
+ "code": {
+  "files": [
+   {
+    "src": "/assets/index-abc.js",
+    "bytes": 900000,
+    "lines": 1,
+    "minified": true
+   }
+  ],
+  "raf": 3,
+  "webgl": 1,
+  "shaders": 6,
+  "ctx2d": 0
+ },
+ "behaviour": {
+  "canvasesChangeOverTime": 0,
+  "canvasesChangeWithScroll": 0,
+  "inlineStylesChangeOverTime": false,
+  "inlineStylesChangeWithScroll": false
+ }
+}

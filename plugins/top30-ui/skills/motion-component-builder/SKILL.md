@@ -62,6 +62,10 @@ Give the user the component, a usage snippet, the props table, and what you did 
 motion and keyboard users. If they want to see it, render a live demo (an inline HTML/React
 preview or a Design artifact) rather than describing it.
 
+When the motion you're matching isn't in the DOM at all (a canvas scene, a shader, a scroll
+story), use the `motion-forensics` skill instead: it diagnoses the technique and has a
+scroll-driven canvas engine.
+
 When recreating something seen elsewhere, follow the `ui-reverse-engineer` agent's rules: copy
 behavior, not code, branding or assets, unless the source's license allows it and you keep its
 notice.
