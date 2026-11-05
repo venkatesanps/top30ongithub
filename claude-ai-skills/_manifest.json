@@ -1070,5 +1070,61 @@
   "bytes": 21363,
   "license": "MIT",
   "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+ },
+ {
+  "folder": "80-interfaces",
+  "skill": "better-accessibility",
+  "path": "skills/better-accessibility",
+  "bytes": 18465,
+  "license": "MIT",
+  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+ },
+ {
+  "folder": "80-interfaces",
+  "skill": "better-colors",
+  "path": "skills/better-colors",
+  "bytes": 19078,
+  "license": "MIT",
+  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+ },
+ {
+  "folder": "80-interfaces",
+  "skill": "better-interface",
+  "path": "skills/better-interface",
+  "bytes": 6131,
+  "license": "MIT",
+  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+ },
+ {
+  "folder": "80-interfaces",
+  "skill": "better-typography",
+  "path": "skills/better-typography",
+  "bytes": 14974,
+  "license": "MIT",
+  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+ },
+ {
+  "folder": "80-interfaces",
+  "skill": "better-ui",
+  "path": "skills/better-ui",
+  "bytes": 15491,
+  "license": "MIT",
+  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+ },
+ {
+  "folder": "80-interfaces",
+  "skill": "explain-interface",
+  "path": "skills/explain-interface",
+  "bytes": 15158,
+  "license": "MIT",
+  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+ },
+ {
+  "folder": "80-interfaces",
+  "skill": "interface-review",
+  "path": "skills/interface-review",
+  "bytes": 10498,
+  "license": "MIT",
+  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
  }
 ]

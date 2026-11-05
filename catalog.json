@@ -3254,6 +3254,94 @@
      "tool-design"
     ]
    }
+  },
+  {
+   "n": 79,
+   "collection": "picks",
+   "alt": "Browse and copy at https://easyui.site/components; llms.txt at https://easyui.site/llms.txt",
+   "note": "MIT. Copy-paste source, so audit what you add: this kit's registry_kit.py audit (a heuristic check) found 71 of 132 components animating with no reduced-motion handling, and command-menu and spotlight-search import a site-only file the registry doesn't ship, so they don't compile after install. The top30-ui plugin builds your own library the same way.",
+   "row": 4,
+   "name": "EasyUI",
+   "repo": "Surajmaurya1/easyui",
+   "what": "132 animated React components (Tailwind, Framer Motion, TypeScript) published as a shadcn GitHub registry: magnetic buttons, docks, morphing dialogs, charts, OTP and command menus.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx shadcn@latest add Surajmaurya1/easyui/magnetic-button"
+   ],
+   "verify": "test -f components/ui/magnetic-button.tsx || test -f src/components/ui/magnetic-button.tsx",
+   "use": "In a React + Tailwind project with shadcn set up: npx shadcn@latest add Surajmaurya1/easyui/<name>.",
+   "always_on": "n/a (copied source)",
+   "ci": {
+    "install": [
+     "npx -y shadcn@latest view Surajmaurya1/easyui/magnetic-button > /tmp/easyui-view.json"
+    ],
+    "verify": "grep -q MagneticButton /tmp/easyui-view.json"
+   },
+   "source": "sources/79-easyui",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "e1d3baf916c7e8fc19b25b9f82e6bdb3d5bafec5",
+    "stars": null,
+    "pushed": "2026-11-04",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "e1d3baf916c7e8fc19b25b9f82e6bdb3d5bafec5"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   }
+  },
+  {
+   "n": 80,
+   "collection": "picks",
+   "alt": "npx skills add jakubkrehel/skills -g -a claude-code -y",
+   "note": "MIT. EasyUI's repo uses these (its skills-lock.json). explain-interface pairs with this kit's ui-reverse-engineer agent; interface-review fits PR checks.",
+   "row": 4,
+   "name": "Interfaces skills",
+   "repo": "jakubkrehel/skills",
+   "what": "14 interface skills by Jakub Krehel: better-ui, better-accessibility, better-typography, better-colors, better-layout, better-writing, interface-review for a branch or PR, explain-interface (how a site or animation was built, from a URL or screenshot), state-machine and variant.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add jakubkrehel/skills",
+    "claude plugin install interfaces@interfaces"
+   ],
+   "verify": "claude plugin list | grep -q interfaces@interfaces",
+   "use": "'Review this branch with interface-review', or 'explain-interface: how is the hover effect on <url> built?'",
+   "always_on": "~717",
+   "zip": {
+    "folder": "80-interfaces",
+    "base": "skills",
+    "skills": [
+     "better-ui",
+     "better-interface",
+     "better-accessibility",
+     "better-colors",
+     "better-typography",
+     "explain-interface",
+     "interface-review"
+    ]
+   },
+   "source": "sources/80-interfaces-skills",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "60bf140e43c98b248e6594487384ec967e89d98a",
+    "stars": null,
+    "pushed": "2026-11-01",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "60bf140e43c98b248e6594487384ec967e89d98a"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   }
   }
  ],
  "schema": 2,
@@ -3264,7 +3352,8 @@
   "dataops": "Data & ops toolkit",
   "open20": "From '20 projects to open first'",
   "anthropic": "Anthropic's repos to build with",
-  "post27": "From the '27 skills, one at a time' post"
+  "post27": "From the '27 skills, one at a time' post",
+  "picks": "Picked since the posts"
  },
  "lists": {
   "open20": {

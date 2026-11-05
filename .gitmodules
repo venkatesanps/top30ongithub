@@ -310,3 +310,11 @@
 	path = sources/78-context-engineering
 	url = https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering.git
 	shallow = true
+[submodule "sources/79-easyui"]
+	path = sources/79-easyui
+	url = https://github.com/Surajmaurya1/easyui.git
+	shallow = true
+[submodule "sources/80-interfaces-skills"]
+	path = sources/80-interfaces-skills
+	url = https://github.com/jakubkrehel/skills.git
+	shallow = true

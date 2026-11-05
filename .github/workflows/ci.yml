@@ -60,4 +60,5 @@ jobs:
           python3 tests/skill_trial/test_trial.py
           python3 tests/graph_check/test_graph_check.py
           python3 tests/agent_loop/test_agent_loop.py
+          python3 tests/registry_kit/test_registry_kit.py
           python3 -m py_compile scripts/ab.py

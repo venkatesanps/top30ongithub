@@ -26,3 +26,4 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 75-n8n | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | MIT | [e037563e10](https://github.com/czlonkowski/n8n-skills/tree/e037563e101749e630e6688d121d04529fe6ee7b) |
 | 77-trailofbits | [trailofbits/skills](https://github.com/trailofbits/skills) | see LICENSE | [470419e16f](https://github.com/trailofbits/skills/tree/470419e16f97e112d01fc32f4898aea1755015d9) |
 | 78-context-engineering | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | MIT | [9ff0c99108](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/9ff0c99108b36d3b886defd825d8ac1f47dba374) |
+| 80-interfaces | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | MIT | [60bf140e43](https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a) |

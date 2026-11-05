@@ -1,6 +1,6 @@
 # Top 30 Claude plugins, a data & ops toolkit, the 20 to open first, Anthropic's build repos and the 27-skill list, kept current
 
-Five collections, each traced to its real repository, with one installer, a verifier, a field
+Six collections, each traced to its real repository, with one installer, a verifier, a field
 guide, and upload-ready skill zips for the Claude app:
 
 - **Top 30 from the post** (items 1–30, rows 1–5): coding, research, token savers, design, writing.
@@ -16,6 +16,8 @@ guide, and upload-ready skill zips for the Claude app:
 - **[27 skills, one at a time](#27-skills-one-at-a-time)** (items 72–78, row 14, plus 25 and 28): notes
   and research, writing, marketing, n8n automation, and build & ship, mapped skill by skill to the
   repos they come from.
+- **Picked since the posts** (items 79–80, row 4): EasyUI's animated component registry and the
+  Interfaces skills its author builds with.
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
@@ -198,7 +200,7 @@ Three notes before installing:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with four plugins of its own:
+This repo is also a Claude Code plugin marketplace with five plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
@@ -206,6 +208,7 @@ claude plugin install top30-data@top30ongithub    # Oracle → Snowflake, Snowfl
 claude plugin install top30-ops@top30ongithub     # Datadog app investigator
 claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
 claude plugin install top30-agents@top30ongithub  # loops and graphs for unattended agent work
+claude plugin install top30-ui@top30ongithub      # EasyUI-style motion components and your own shadcn registry
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -217,12 +220,15 @@ claude plugin install top30-agents@top30ongithub  # loops and graphs for unatten
 | `top30-coach` | `skill-trial` | The "don't install all of them tonight" rule as a skill: one skill for a week on real work, log minutes saved (`trial.py`), then keep, extend or drop on evidence, and get the next three for your role from `catalog.json`. Tests: `tests/skill_trial/`. | ~150 |
 | `top30-agents` | `agent-graph-designer` | Turns a pipeline described in prose into a checked graph: a four-line contract per step, arrows that must name the variable they carry (the rest are cut so steps run in parallel), model vs code per step, a real check per step, bounded loops, failure handling and human gates placed by how hard a mistake is to undo. `graph_check.py` reports parallel waves, minutes in a line vs. as a graph, and a Mermaid diagram. Tests: `tests/graph_check/`. | ~150 |
 | `top30-agents` | `agent-loop` | `agent_loop.py` runs Claude Code headless in a loop you don't watch. `repair` fixes one scoped unit until a command exits 0, with a round limit, a budget, memory of past attempts, out-of-scope edit detection, early escalation when two rounds fail the same way, and a rules file of lessons learned. `hunt` finds things round by round and stops after two rounds with nothing new, remembering rejected findings too. Tests: `tests/agent_loop/` with a fake agent. | ~140 |
+| `top30-ui` | `component-registry` | EasyUI's registry pipeline, reverse-engineered for any repo. `registry_kit.py` scaffolds components (meta + test), builds a shadcn `registry.json` from imports (followed all the way down), validates it against the code, audits accessibility and reduced motion, and writes `llms.txt`. Rebuilds EasyUI's own 132 items with matching dependencies and metadata. Tests: `tests/registry_kit/`. | ~160 |
+| `top30-ui` | `motion-component-builder` | The standard behind those components: shared spring tokens (template adapted from EasyUI, MIT notice kept), every state designed, real elements, focus-visible rings, reduced motion, transform/opacity only, metadata and a test per component. | ~180 |
+| `top30-ui` | `ui-reverse-engineer` (agent) | Point it at a live component, recording or open-source code: it writes a behavior spec (anatomy, states, motion, keyboard, screen reader), rebuilds an original in your stack, and packages it for your registry. Copies behavior, not code or branding, unless the license allows and the notice is kept. | ~130 |
 
 Always-on costs measured with `claude plugin details` on 2026-11-04.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 
-`claude-ai-skills/` holds ready-to-upload skill zips from 21 of the repos, including dbt and
+`claude-ai-skills/` holds ready-to-upload skill zips from 22 of the repos, including dbt and
 Airflow skills. Upload in
 Settings → Capabilities → Skills, one zip per skill. Each zip includes its project's license;
 see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Start small: each enabled skill adds its
@@ -231,7 +237,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-11-04: 78 repos, 76 of 76 install-tested items passing, 0 needing attention. Token costs measured with 2.1.318 (Claude Code) on 2026-11-04._
+_Checked 2026-11-04: 80 repos, 78 of 78 install-tested items passing, 0 needing attention. Token costs measured with 2.1.318 (Claude Code) on 2026-11-04._
 
 **Top 30 from the post**
 
@@ -335,6 +341,13 @@ _Checked 2026-11-04: 78 repos, 76 of 76 install-tested items passing, 0 needing 
 | 76 | Vercel agent skills | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | — | 2026-10-27 | pass (2026-11-04) | ~250 (est., skills dir) | OK |
 | 77 | Trail of Bits skills | [trailofbits/skills](https://github.com/trailofbits/skills) | — | 2026-11-04 | pass (2026-11-04) | ~77 | OK |
 | 78 | Context engineering skills | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | — | 2026-10-11 | pass (2026-11-04) | ~2,501 | OK |
+
+**Picked since the posts**
+
+| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
+|---|---|---|---|---|---|---|---|
+| 79 | EasyUI | [Surajmaurya1/easyui](https://github.com/Surajmaurya1/easyui) | — | 2026-11-04 | pass (2026-11-04) | n/a (copied source) | OK |
+| 80 | Interfaces skills | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | — | 2026-11-01 | pass (2026-11-04) | ~717 | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick
