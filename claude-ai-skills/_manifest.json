@@ -41,9 +41,41 @@
  },
  {
   "folder": "02-mattpocock",
+  "skill": "grill-with-docs",
+  "path": "skills/engineering/grill-with-docs",
+  "bytes": 1335,
+  "license": "MIT",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "grilling",
+  "path": "skills/productivity/grilling",
+  "bytes": 2058,
+  "license": "MIT",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+ },
+ {
+  "folder": "02-mattpocock",
   "skill": "handoff",
   "path": "skills/productivity/handoff",
   "bytes": 1631,
+  "license": "MIT",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "implement",
+  "path": "skills/engineering/implement",
+  "bytes": 1463,
+  "license": "MIT",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "retro",
+  "path": "skills/engineering/retro",
+  "bytes": 3082,
   "license": "MIT",
   "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
  },
@@ -68,6 +100,30 @@
   "skill": "to-spec",
   "path": "skills/engineering/to-spec",
   "bytes": 2509,
+  "license": "MIT",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "to-tickets",
+  "path": "skills/engineering/to-tickets",
+  "bytes": 3650,
+  "license": "MIT",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "wait-what",
+  "path": "skills/productivity/wait-what",
+  "bytes": 1410,
+  "license": "MIT",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+ },
+ {
+  "folder": "02-mattpocock",
+  "skill": "wayfinder",
+  "path": "skills/engineering/wayfinder",
+  "bytes": 6171,
   "license": "MIT",
   "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
  },

@@ -238,7 +238,7 @@ _Checked 2026-11-04: 78 repos, 76 of 76 install-tested items passing, 0 needing 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
 | 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 229.4k | 2026-04-20 | pass (2026-11-02) | ~66 | OK |
-| 2 | Matt Pocock Skills | [mattpocock/skills](https://github.com/mattpocock/skills) | 312.9k | 2026-11-04 | pass (2026-11-02) | ~1,169 | OK |
+| 2 | Matt Pocock Skills | [mattpocock/skills](https://github.com/mattpocock/skills) | 312.9k | 2026-11-04 | pass (2026-11-02) | ~1,651 | OK |
 | 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 297.1k | 2026-11-02 | pass (2026-11-02) | ~33,844 | OK |
 | 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 113.2k | 2026-11-01 | pass (2026-11-02) | ~2,999 | OK |
 | 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 312.3k | 2026-11-03 | pass (2026-11-04) | ~706 | OK |

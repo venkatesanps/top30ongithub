@@ -64,7 +64,7 @@
    "row": 1,
    "name": "Matt Pocock Skills",
    "repo": "mattpocock/skills",
-   "what": "Engineering skills that grill your plan before code: grill-me, tdd, to-spec, diagnosing-bugs, code-review.",
+   "what": "27 skills for real engineering, built around one main flow: grill-with-docs (interview you about a plan), to-spec, to-tickets, implement (test-first), code-review and retro, plus grill-me, tdd, diagnosing-bugs, wayfinder and handoff. Catalogue at aihero.dev/skills.",
    "needs": [
     "claude"
    ],
@@ -74,23 +74,30 @@
    ],
    "alt": "npx skills@latest add mattpocock/skills",
    "verify": "claude plugin list | grep -q mattpocock-skills",
-   "use": "Run /setup-matt-pocock-skills once per repo, then /grill-me.",
-   "always_on": "~1,169",
+   "use": "Run /setup-matt-pocock-skills once per repo, then /grill-with-docs → /to-spec → /to-tickets → /implement → /code-review. Not sure which skill fits? /ask-matt.",
+   "always_on": "~1,651",
    "tested": "Installed from GitHub",
-   "note": "",
+   "note": "Since v1.3 (October 2026) project vocabulary lives in GLOSSARY.md, not CONTEXT.md: re-run /setup-matt-pocock-skills in repos set up earlier. The Claude app zips here cover the main flow; /ask-matt and setup only make sense in Claude Code.",
    "source": "sources/02-mattpocock-skills",
    "zip": {
     "folder": "02-mattpocock",
     "base": "skills",
     "skills": [
      "productivity/grill-me",
-     "engineering/tdd",
+     "productivity/grilling",
+     "engineering/grill-with-docs",
      "engineering/to-spec",
-     "engineering/diagnosing-bugs",
+     "engineering/to-tickets",
+     "engineering/implement",
      "engineering/code-review",
+     "engineering/retro",
+     "engineering/tdd",
+     "engineering/diagnosing-bugs",
      "engineering/domain-modeling",
+     "engineering/wayfinder",
      "productivity/handoff",
-     "productivity/teach"
+     "productivity/teach",
+     "productivity/wait-what"
     ]
    },
    "status": "ok",
