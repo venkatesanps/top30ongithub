@@ -3342,6 +3342,55 @@
     "date": "2026-11-04",
     "result": "pass"
    }
+  },
+  {
+   "n": 81,
+   "collection": "picks",
+   "alt": "Busabase Cloud: claude plugin marketplace add busabase/skills && claude plugin install busabase@busabase (hosted MCP, browser sign-in). Self-host: docker run -p 15419:15419 -v ~/.busabase/data:/data busabase/busabase",
+   "note": "MIT, runs locally (embedded Postgres, data in ~/.busabase) or self-hosted in Docker. Agent writes are change requests with an author, diff and history; a credential limited to proposing means edits wait for a person, the 'closed lane' from playbooks/loops-and-graphs.md. Claude-Mem (15) remembers one person's sessions; Busabase is a shared record for many agents and people. Young project: get approval before putting work data in it.",
+   "row": 10,
+   "name": "Busabase",
+   "repo": "busabase/busabase",
+   "what": "A shared, versioned workspace for agents and people: typed tables, docs, skills, playbooks and small apps that Claude Code, Codex, Cursor and n8n read and write through a skill, MCP, OpenAPI or a CLI, so the next session starts from what the last one recorded.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx -y skills add busabase/skills -g -a claude-code -y"
+   ],
+   "verify": "test -f ~/.claude/skills/busabase/SKILL.md",
+   "use": "Start a workspace with `npx -y busabase@latest server`, then tell Claude: 'Read and follow http://localhost:15419/SETUP_SKILL.md'. Later: 'What changed on this project this week?'",
+   "always_on": "~470 (est., skills dir)",
+   "ci": {
+    "install": [
+     "npx -y skills add busabase/skills -g -a claude-code -y",
+     "setsid npx -y busabase@latest server > /tmp/busabase.log 2>&1 & pg=$!; for i in $(seq 1 60); do curl -sf http://localhost:15419/SETUP_SKILL.md > /tmp/busabase-setup.md && break; sleep 3; done; kill -- -$pg 2>/dev/null || true; grep -q '^name: busabase' /tmp/busabase-setup.md"
+    ],
+    "verify": "test -f ~/.claude/skills/busabase/SKILL.md && test -f ~/.claude/skills/busabase-app-creator/SKILL.md"
+   },
+   "packages": [
+    {
+     "npm": "busabase"
+    },
+    {
+     "npm": "busabase-cli"
+    }
+   ],
+   "source": "sources/81-busabase",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "a525be9c5e3d74a21eec022469f9973378a49448",
+    "stars": null,
+    "pushed": "2026-11-01",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "a525be9c5e3d74a21eec022469f9973378a49448"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   }
   }
  ],
  "schema": 2,

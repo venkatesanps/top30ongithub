@@ -16,8 +16,9 @@ guide, and upload-ready skill zips for the Claude app:
 - **[27 skills, one at a time](#27-skills-one-at-a-time)** (items 72–78, row 14, plus 25 and 28): notes
   and research, writing, marketing, n8n automation, and build & ship, mapped skill by skill to the
   repos they come from.
-- **Picked since the posts** (items 79–80, row 4): EasyUI's animated component registry and the
-  Interfaces skills its author builds with.
+- **Picked since the posts** (items 79–81): EasyUI's animated component registry and the
+  Interfaces skills its author builds with (row 4), and Busabase, a shared, reviewable memory for
+  agents (row 10).
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
@@ -237,7 +238,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-11-04: 80 repos, 78 of 78 install-tested items passing, 0 needing attention. Token costs measured with 2.1.318 (Claude Code) on 2026-11-04._
+_Checked 2026-11-04: 81 repos, 79 of 79 install-tested items passing, 0 needing attention. Token costs measured with 2.1.318 (Claude Code) on 2026-11-04._
 
 **Top 30 from the post**
 
@@ -348,6 +349,7 @@ _Checked 2026-11-04: 80 repos, 78 of 78 install-tested items passing, 0 needing 
 |---|---|---|---|---|---|---|---|
 | 79 | EasyUI | [Surajmaurya1/easyui](https://github.com/Surajmaurya1/easyui) | — | 2026-11-04 | pass (2026-11-04) | n/a (copied source) | OK |
 | 80 | Interfaces skills | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | — | 2026-11-01 | pass (2026-11-04) | ~717 | OK |
+| 81 | Busabase | [busabase/busabase](https://github.com/busabase/busabase) | — | 2026-11-01 | pass (2026-11-04) | ~470 (est., skills dir) | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

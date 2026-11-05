@@ -318,3 +318,7 @@
 	path = sources/80-interfaces-skills
 	url = https://github.com/jakubkrehel/skills.git
 	shallow = true
+[submodule "sources/81-busabase"]
+	path = sources/81-busabase
+	url = https://github.com/busabase/busabase.git
+	shallow = true

@@ -25,6 +25,7 @@ before any agent touched the code. That's what made the volume trustworthy.
 | Run a fan-out at scale inside Claude Code | Dynamic workflows: Claude writes a script that runs subagents, up to 16 at a time by default and 1,000 per run, and you can save it to `.claude/workflows/` ([docs](https://code.claude.com/docs/en/workflows)) |
 | Checks to loop against | **42** SQLFluff, **32** dbt tests, `ora2sf.py --fail-on error`, row-count and checksum queries |
 | Compare a setup before and after | `scripts/ab.py` (same task, plugin off and on) |
+| Memory every agent shares, with writes that wait for review | **81** Busabase: agents propose change requests (author, diff, history); a credential limited to proposing keeps the lane closed until a person approves |
 
 ## 1. The check decides everything
 
