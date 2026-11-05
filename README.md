@@ -149,16 +149,24 @@ Two things that changed upstream since these repos were written:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with its own skills:
+This repo is also a Claude Code plugin marketplace with three plugins of its own:
 
 ```bash
-/plugin install top30-ops --marketplace venkatesanps/top30ongithub
-# or: claude plugin marketplace add venkatesanps/top30ongithub && claude plugin install top30-ops@top30ongithub
+claude plugin marketplace add venkatesanps/top30ongithub
+claude plugin install top30-data@top30ongithub    # Oracle → Snowflake, Snowflake cost, pipeline triage
+claude plugin install top30-ops@top30ongithub     # Datadog app investigator
+claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
 ```
 
-| Skill | What it does |
-|---|---|
-| `datadog-app-investigator` | Signs in through Datadog's official plugin (OAuth) and collects one service's error logs, slow and failing endpoints, alerting monitors, SLOs, deploys, incidents and error-tracking issues into an investigation report. Read-only, masks personal data. Has a key-based fallback script (`dd_collect.py`) and a test suite (`tests/datadog/`). Install with item **57**. |
+| Plugin | Skill / agent | What it does | Always-on cost |
+|---|---|---|---|
+| `top30-data` | `oracle-to-snowflake` | Translates Oracle SQL with SQLGlot (`ora2sf.py`) and flags what a translator can't know: ROWNUM, `''` vs NULL, `NUMBER` losing decimals, SYSDATE timezone, date arithmetic, db links, triggers, packages, row-by-row loops. Keeps PL/SQL for a set-based rewrite, writes a per-file effort report, and `--fail-on error` blocks merges in CI. Tests: `tests/ora2sf/`. | ~150 |
+| `top30-data` | `snowflake-cost-investigator` | Read-only `ACCOUNT_USAGE` queries (`sf_cost.py`) run through your MCP, CLI, a named connector connection or Snowsight exports, then a report: idle and never-suspending warehouses, costliest query patterns, remote spill, full partition scans, queuing, serverless share and storage kept only for time travel, each with the fix and the credits behind it. Hides literals in query text. Tests: `tests/sf_cost/`. | ~160 |
+| `top30-data` | `pipeline-failure-triage` (agent) | Read-only subagent for a failed or slow Airflow, dbt, Snowflake task, Glue or refiner run: first real error, what changed, root cause, smallest safe fix, whether a re-run is safe, and the test that would have caught it. | ~160 |
+| `top30-ops` | `datadog-app-investigator` | Signs in through Datadog's official plugin (OAuth) and collects one service's error logs, slow and failing endpoints, alerting monitors, SLOs, deploys, incidents and error-tracking issues into an investigation report. Read-only, masks personal data. Has a key-based fallback script (`dd_collect.py`) and a test suite (`tests/datadog/`). Install with item **57**. | ~455 + ~94 |
+| `top30-coach` | `skill-trial` | The "don't install all of them tonight" rule as a skill: one skill for a week on real work, log minutes saved (`trial.py`), then keep, extend or drop on evidence, and get the next three for your role from `catalog.json`. Tests: `tests/skill_trial/`. | ~150 |
+
+Always-on costs measured with `claude plugin details` on 2026-11-04.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 
@@ -289,7 +297,7 @@ _Checked 2026-11-04: 71 repos, 69 of 69 install-tested items passing, 0 needing 
 | `playbooks/` | Role playbooks and the at-work guardrails page. |
 | `guide/` | Field guide page (`index.html` is generated from `template.html`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
-| `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-ops`). |
+| `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-data`, `top30-ops`, `top30-coach`). |
 | `examples/sql-review-agent/` | A working Agent SDK agent: read-only Snowflake SQL review with a custom tool, guard hook and budget cap. |
 | `templates/claude-code-action/` | GitHub workflows to copy: @claude mentions, and SQL review on Amazon Bedrock. `sql_checks.py` there is a copy of the agent's `checks.py` (CI keeps them identical). |
 | `examples/prompt-caching/` | Measures what prompt caching saves on your own document, from the API's usage numbers (write premium included). |

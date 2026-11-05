@@ -6,7 +6,7 @@ Goal: faster migrations and safer pipelines, with checks the whole team runs the
 
 | Task | Use | Notes |
 |---|---|---|
-| Oracle SQL → Snowflake SQL | **41** SQLGlot + Claude | SQLGlot gives an exact, repeatable translation of SQL; Claude handles PL/SQL packages and procedures and explains the diffs. |
+| Oracle SQL → Snowflake SQL | **41** SQLGlot + Claude, or this kit's `oracle-to-snowflake` skill (`top30-data`) | SQLGlot gives an exact, repeatable translation of SQL; the skill adds checks for the silent differences and a per-file effort report; Claude handles PL/SQL packages and procedures. |
 | Whole-warehouse Oracle/Teradata → Snowflake | **31** Snowflake AI Kit (Cortex Code `/migrate`), Snowflake SnowConvert AI | Snowflake's own tools. Its docs mark Oracle code extraction as "planned", so check the current status. |
 | Informatica PowerCenter → Snowflake/dbt | SnowConvert AI (free, from Snowflake), Cortex Code `/migrate` | Both document Informatica-to-dbt or Snowflake Scripting conversion. |
 | Informatica cloud catalog lookups | **43** Informatica for Claude (IDMC) | Only for Informatica's cloud (CDGC). |
@@ -17,11 +17,14 @@ Goal: faster migrations and safer pipelines, with checks the whole team runs the
 | SQL style on every PR | **42** SQLFluff | `sqlfluff lint --dialect snowflake` in CI. |
 | Data quality and freshness | **36** Elementary, **37** Great Expectations | Elementary if you're on dbt; GX otherwise. |
 | Snowflake spend by team/model | **35** dbt-snowflake-monitoring | Feeds a cost dashboard managers will actually read. |
+| "Why did Snowflake spend go up?" | this kit's `snowflake-cost-investigator` (`top30-data`) | One-off review from read-only ACCOUNT_USAGE views: idle warehouses, costly query patterns, spill, scans, storage. |
+| Failed or slow pipeline run | this kit's `pipeline-failure-triage` agent (`top30-data`) | Read-only; returns root cause, safe fix and whether a re-run is safe. |
 
 ## A migration loop that holds up in review
 
 1. **Inventory.** "List every object PKG_X reads and writes, with the statement that does it."
-2. **Translate SQL deterministically** with SQLGlot, then have Claude review the output against the
+2. **Translate SQL deterministically** with SQLGlot (`ora2sf.py` in the `oracle-to-snowflake` skill
+   runs it and flags the usual traps), then have Claude review the output against the
    original for semantics SQLGlot can't know (empty string vs NULL, date arithmetic, sequence
    behaviour, implicit commits).
 3. **Rewrite, don't translate, procedural logic.** Row-by-row PL/SQL loops usually become set-based

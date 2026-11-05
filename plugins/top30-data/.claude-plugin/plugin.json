@@ -1,0 +1,8 @@
+{
+  "name": "top30-data",
+  "version": "0.1.0",
+  "description": "Data engineering skills and an agent from the top30ongithub kit. oracle-to-snowflake translates Oracle SQL with SQLGlot and flags silent differences; snowflake-cost-investigator finds where credits go from read-only ACCOUNT_USAGE views; the pipeline-failure-triage agent finds the root cause of a failed Airflow/dbt/Snowflake run.",
+  "author": { "name": "venkatesanps" },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": ["snowflake", "oracle", "migration", "plsql", "cost", "finops", "dbt", "airflow", "data-engineering"]
+}

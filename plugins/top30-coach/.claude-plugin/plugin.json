@@ -1,0 +1,8 @@
+{
+  "name": "top30-coach",
+  "version": "0.1.0",
+  "description": "skill-trial: adopt skills one at a time. Try one for a week on real work, log the minutes it saves, then keep, extend or drop it, and get the next suggestion for your role from the top30ongithub catalog.",
+  "author": { "name": "venkatesanps" },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": ["skills", "adoption", "productivity", "plugins"]
+}

@@ -1,7 +1,12 @@
 {
   "name": "top30ongithub",
-  "owner": { "name": "venkatesanps" },
-  "metadata": { "description": "Skills built in the top30ongithub kit", "version": "0.1.0" },
+  "owner": {
+    "name": "venkatesanps"
+  },
+  "metadata": {
+    "description": "Skills built in the top30ongithub kit",
+    "version": "0.2.0"
+  },
   "plugins": [
     {
       "name": "top30-ops",
@@ -9,6 +14,20 @@
       "description": "Datadog app investigator: read-only logs, traces, monitors, deploys and incidents for one service, written up as an investigation report.",
       "version": "0.1.0",
       "category": "observability"
+    },
+    {
+      "name": "top30-data",
+      "source": "./plugins/top30-data",
+      "description": "Oracle-to-Snowflake translation with silent-difference checks, a Snowflake cost investigator, and a read-only pipeline failure triage agent.",
+      "version": "0.1.0",
+      "category": "data"
+    },
+    {
+      "name": "top30-coach",
+      "source": "./plugins/top30-coach",
+      "description": "Skill trial coach: one skill at a time for a week, logged minutes saved, keep/extend/drop, and the next suggestion for your role.",
+      "version": "0.1.0",
+      "category": "productivity"
     }
   ]
 }
