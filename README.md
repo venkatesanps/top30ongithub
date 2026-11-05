@@ -20,7 +20,8 @@ guide, and upload-ready skill zips for the Claude app:
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
 [production & SRE](playbooks/production-and-sre.md), and
-[Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work). Read
+[Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work), and
+[loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step). Read
 [Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
 **Field guide:** https://venkatesanps.github.io/top30ongithub/ (refreshed daily)
@@ -197,13 +198,14 @@ Three notes before installing:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with three plugins of its own:
+This repo is also a Claude Code plugin marketplace with four plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
 claude plugin install top30-data@top30ongithub    # Oracle → Snowflake, Snowflake cost, pipeline triage
 claude plugin install top30-ops@top30ongithub     # Datadog app investigator
 claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
+claude plugin install top30-agents@top30ongithub  # loops and graphs for unattended agent work
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -213,6 +215,8 @@ claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill
 | `top30-data` | `pipeline-failure-triage` (agent) | Read-only subagent for a failed or slow Airflow, dbt, Snowflake task, Glue or refiner run: first real error, what changed, root cause, smallest safe fix, whether a re-run is safe, and the test that would have caught it. | ~160 |
 | `top30-ops` | `datadog-app-investigator` | Signs in through Datadog's official plugin (OAuth) and collects one service's error logs, slow and failing endpoints, alerting monitors, SLOs, deploys, incidents and error-tracking issues into an investigation report. Read-only, masks personal data. Has a key-based fallback script (`dd_collect.py`) and a test suite (`tests/datadog/`). Install with item **57**. | ~455 + ~94 |
 | `top30-coach` | `skill-trial` | The "don't install all of them tonight" rule as a skill: one skill for a week on real work, log minutes saved (`trial.py`), then keep, extend or drop on evidence, and get the next three for your role from `catalog.json`. Tests: `tests/skill_trial/`. | ~150 |
+| `top30-agents` | `agent-graph-designer` | Turns a pipeline described in prose into a checked graph: a four-line contract per step, arrows that must name the variable they carry (the rest are cut so steps run in parallel), model vs code per step, a real check per step, bounded loops, failure handling and human gates placed by how hard a mistake is to undo. `graph_check.py` reports parallel waves, minutes in a line vs. as a graph, and a Mermaid diagram. Tests: `tests/graph_check/`. | ~150 |
+| `top30-agents` | `agent-loop` | `agent_loop.py` runs Claude Code headless in a loop you don't watch. `repair` fixes one scoped unit until a command exits 0, with a round limit, a budget, memory of past attempts, out-of-scope edit detection, early escalation when two rounds fail the same way, and a rules file of lessons learned. `hunt` finds things round by round and stops after two rounds with nothing new, remembering rejected findings too. Tests: `tests/agent_loop/` with a fake agent. | ~140 |
 
 Always-on costs measured with `claude plugin details` on 2026-11-04.
 

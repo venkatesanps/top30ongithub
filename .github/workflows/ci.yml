@@ -58,4 +58,6 @@ jobs:
           python3 tests/ora2sf/test_ora2sf.py
           python3 tests/sf_cost/test_sf_cost.py
           python3 tests/skill_trial/test_trial.py
+          python3 tests/graph_check/test_graph_check.py
+          python3 tests/agent_loop/test_agent_loop.py
           python3 -m py_compile scripts/ab.py

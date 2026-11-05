@@ -1,0 +1,8 @@
+{
+  "name": "top30-agents",
+  "version": "0.1.0",
+  "description": "Loops and graphs for agent work you don't have to watch. agent-graph-designer turns a pipeline into a checked graph (contracts, arrows that carry a variable, model vs code, real checks, bounded loops, gates by undo cost); agent-loop repairs one unit until a program check passes, or hunts until two rounds find nothing new, with budgets, memory and escalation.",
+  "author": { "name": "venkatesanps" },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": ["agents", "workflow", "orchestration", "loops", "evals", "verification"]
+}

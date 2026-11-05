@@ -1,0 +1,36 @@
+{
+  "name": "nightly-positions-refresh",
+  "runs": "recurring",
+  "inputs": ["as_of_date"],
+  "nodes": {
+    "extract":  {"job": "pull positions for the date", "in": ["as_of_date"], "out": ["rows"], "fails_as": "source_late",
+                 "kind": "code", "check": "row counts match the source", "minutes": 10, "undo": "free", "gate": "auto", "on_fail": "retry"},
+    "fx":       {"job": "fetch fx rates", "in": ["as_of_date"], "out": ["rates"], "fails_as": "rates_missing",
+                 "kind": "code", "check": "schema", "minutes": 5, "undo": "free", "gate": "auto", "on_fail": "fallback"},
+    "dedupe":   {"job": "dedupe and sort the rows by account", "in": ["rows"], "out": ["clean_rows"], "fails_as": "dup_keys",
+                 "kind": "model", "size": "strong", "check": "looks good", "minutes": 8, "undo": "free", "gate": "auto", "on_fail": "retry"},
+    "review_a": {"job": "review the valuation logic", "in": ["clean_rows", "rates"], "out": ["notes_a"], "fails_as": "unclear",
+                 "kind": "model", "size": "strong", "check": "reviewer agent approves", "minutes": 6, "undo": "free", "gate": "auto",
+                 "on_fail": "repair", "context": "shared"},
+    "review_b": {"job": "review the valuation logic", "in": ["clean_rows", "rates"], "out": ["notes_b"], "fails_as": "unclear",
+                 "kind": "model", "size": "strong", "check": "reviewer agent approves", "minutes": 6, "undo": "free", "gate": "auto",
+                 "on_fail": "repair", "context": "shared"},
+    "fix":      {"job": "fix the issues the reviewers found", "in": ["notes_a", "notes_b"], "out": ["patch"], "fails_as": "fix_failed",
+                 "kind": "model", "size": "strong", "check": "dbt test passes", "minutes": 9, "undo": "revert", "gate": "auto", "on_fail": "repair"},
+    "load":     {"job": "MERGE the valued positions into production", "in": ["patch", "summary"], "out": ["loaded"],
+                 "kind": "code", "check": "no errors", "minutes": 4, "undo": "irreversible", "gate": "confidence > 0.9"}
+  },
+  "edges": [
+    "extract -> fx",
+    "extract -> dedupe : rows",
+    "dedupe -> review_a : clean_rows",
+    "dedupe -> review_b : clean_rows",
+    "fx -> review_a : rates",
+    "fx -> review_b : rates",
+    "review_a -> fix : notes_a",
+    "review_b -> fix : notes_b",
+    "fix -> review_a : patch",
+    "fix -> load : patch"
+  ],
+  "drawn_order": ["extract", "fx", "dedupe", "review_a", "review_b", "fix", "load"]
+}

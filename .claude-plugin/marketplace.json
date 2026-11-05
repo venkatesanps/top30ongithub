@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.2.0"
+    "version": "0.3.0"
   },
   "plugins": [
     {
@@ -28,6 +28,13 @@
       "description": "Skill trial coach: one skill at a time for a week, logged minutes saved, keep/extend/drop, and the next suggestion for your role.",
       "version": "0.1.0",
       "category": "productivity"
+    },
+    {
+      "name": "top30-agents",
+      "source": "./plugins/top30-agents",
+      "description": "Agent graph designer (checked graphs, parallel waves, gates by undo cost) and agent loop harness (repair until a check passes, hunt until nothing new; budgets, memory, escalation).",
+      "version": "0.1.0",
+      "category": "development"
     }
   ]
 }
