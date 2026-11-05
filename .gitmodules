@@ -282,3 +282,31 @@
 	path = sources/71-claude-code-action
 	url = https://github.com/anthropics/claude-code-action.git
 	shallow = true
+[submodule "sources/72-obsidian-skills"]
+	path = sources/72-obsidian-skills
+	url = https://github.com/kepano/obsidian-skills.git
+	shallow = true
+[submodule "sources/73-notebooklm-skill"]
+	path = sources/73-notebooklm-skill
+	url = https://github.com/PleasePrompto/notebooklm-skill.git
+	shallow = true
+[submodule "sources/74-huggingface-skills"]
+	path = sources/74-huggingface-skills
+	url = https://github.com/huggingface/skills.git
+	shallow = true
+[submodule "sources/75-n8n-skills"]
+	path = sources/75-n8n-skills
+	url = https://github.com/czlonkowski/n8n-skills.git
+	shallow = true
+[submodule "sources/76-vercel-agent-skills"]
+	path = sources/76-vercel-agent-skills
+	url = https://github.com/vercel-labs/agent-skills.git
+	shallow = true
+[submodule "sources/77-trailofbits-skills"]
+	path = sources/77-trailofbits-skills
+	url = https://github.com/trailofbits/skills.git
+	shallow = true
+[submodule "sources/78-context-engineering"]
+	path = sources/78-context-engineering
+	url = https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering.git
+	shallow = true

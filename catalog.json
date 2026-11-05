@@ -13,7 +13,8 @@
   "10": "Agent harnesses, plans & memory",
   "11": "Token savers",
   "12": "Product, video & everyday tools",
-  "13": "Learn & build with Anthropic's repos"
+  "13": "Learn & build with Anthropic's repos",
+  "14": "Notes, automation & shipping"
  },
  "items": [
   {
@@ -2954,6 +2955,298 @@
     "date": "2026-11-04",
     "result": "pass"
    }
+  },
+  {
+   "n": 72,
+   "collection": "post27",
+   "alt": "npx skills add kepano/obsidian-skills --skill defuddle --skill json-canvas --skill obsidian-markdown -g -a claude-code -y",
+   "note": "defuddle runs the Defuddle CLI (npm install -g defuddle). The plugin also brings obsidian-bases and obsidian-cli; the cli skill needs Obsidian's desktop CLI.",
+   "row": 14,
+   "name": "Obsidian Skills",
+   "repo": "kepano/obsidian-skills",
+   "what": "Skills from Obsidian's CEO: defuddle turns a web page into clean markdown (fewer tokens than a raw fetch), json-canvas draws mind maps as Obsidian canvases, obsidian-markdown writes notes with wikilinks, callouts and properties.",
+   "needs": [
+    "claude",
+    "node"
+   ],
+   "install": [
+    "claude plugin marketplace add kepano/obsidian-skills",
+    "claude plugin install obsidian@obsidian-skills"
+   ],
+   "verify": "claude plugin list | grep -q obsidian@obsidian-skills",
+   "use": "'Save this article as an Obsidian note with tags: <url>', or 'map this design doc as a canvas'.",
+   "always_on": "~597",
+   "source": "sources/72-obsidian-skills",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "3ccff5338ea700537839b21900aa5358a0402c98",
+    "stars": null,
+    "pushed": "2026-09-15",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "3ccff5338ea700537839b21900aa5358a0402c98"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   },
+   "zip": {
+    "folder": "72-obsidian",
+    "base": "skills",
+    "skills": [
+     "defuddle",
+     "json-canvas",
+     "obsidian-markdown"
+    ]
+   }
+  },
+  {
+   "n": 73,
+   "collection": "post27",
+   "alt": "",
+   "note": "Works by driving a real Chrome signed in to your Google account, and sets up its own Python environment on first use. Personal notebooks only: don't point it at work documents or a work account.",
+   "row": 14,
+   "name": "NotebookLM skill",
+   "repo": "PleasePrompto/notebooklm-skill",
+   "what": "Asks your Google NotebookLM notebooks questions from Claude Code and brings back answers grounded in, and cited to, the documents you uploaded there.",
+   "needs": [
+    "claude",
+    "git",
+    "python"
+   ],
+   "install": [
+    "mkdir -p ~/.claude/skills",
+    "test -d ~/.claude/skills/notebooklm || git clone --depth 1 https://github.com/PleasePrompto/notebooklm-skill ~/.claude/skills/notebooklm"
+   ],
+   "verify": "test -f ~/.claude/skills/notebooklm/SKILL.md",
+   "use": "'Ask my Snowflake-docs notebook how dynamic tables refresh.' The first run opens a browser so you can sign in to Google.",
+   "always_on": "~75 (est., skills dir)",
+   "source": "sources/73-notebooklm-skill",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "c80722d3f27d65e06b6579add201bf69b99101d0",
+    "stars": null,
+    "pushed": "2026-09-10",
+    "license": "MIT",
+    "default_branch": "master",
+    "pinned": "c80722d3f27d65e06b6579add201bf69b99101d0"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   }
+  },
+  {
+   "n": 74,
+   "collection": "post27",
+   "alt": "claude plugin marketplace add huggingface/skills && claude plugin install hf-cli@huggingface-skills",
+   "note": "About 25 more skills in the repo (datasets, training, Spaces, SageMaker deployment). Its plugin marketplace only ships the hf-cli skill, so this installs the three by name.",
+   "row": 14,
+   "name": "Hugging Face skills",
+   "repo": "huggingface/skills",
+   "what": "Hugging Face's own skills. Installed here: huggingface-papers (find and read AI papers), huggingface-gradio (quick demo apps) and huggingface-local-models (pick and run open models on your machine).",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx -y skills add huggingface/skills --skill huggingface-papers --skill huggingface-gradio --skill huggingface-local-models -g -a claude-code -y"
+   ],
+   "verify": "test -f ~/.claude/skills/huggingface-papers/SKILL.md && test -f ~/.claude/skills/huggingface-local-models/SKILL.md",
+   "use": "'Find this month's papers on text-to-SQL and summarize the two most cited.'",
+   "always_on": "~200 (est., skills dir)",
+   "source": "sources/74-huggingface-skills",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "25910b3d0ba31a2ba102f901cdc9e008c278a69c",
+    "stars": null,
+    "pushed": "2026-10-29",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "25910b3d0ba31a2ba102f901cdc9e008c278a69c"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   },
+   "zip": {
+    "folder": "74-huggingface",
+    "base": "skills",
+    "skills": [
+     "huggingface-papers",
+     "huggingface-gradio",
+     "huggingface-local-models"
+    ]
+   }
+  },
+  {
+   "n": 75,
+   "collection": "post27",
+   "alt": "",
+   "note": "Written for the n8n-mcp server (czlonkowski/n8n-mcp), which lets Claude read and validate workflows on your n8n instance. The plugin adds hooks that check workflow edits.",
+   "row": 14,
+   "name": "n8n skills",
+   "repo": "czlonkowski/n8n-skills",
+   "what": "15 skills for building n8n workflows: expression syntax, node configuration, workflow patterns, reading validation errors, code nodes, error handling and sub-workflows.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add czlonkowski/n8n-skills",
+    "claude plugin install n8n-mcp-skills@n8n-mcp-skills"
+   ],
+   "verify": "claude plugin list | grep -q n8n-mcp-skills@n8n-mcp-skills",
+   "use": "Paste a failing workflow's error: 'why does this {{ $json.date }} expression fail in the Set node?'",
+   "always_on": "~4,096",
+   "source": "sources/75-n8n-skills",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "e037563e101749e630e6688d121d04529fe6ee7b",
+    "stars": null,
+    "pushed": "2026-10-24",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "e037563e101749e630e6688d121d04529fe6ee7b"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   },
+   "zip": {
+    "folder": "75-n8n",
+    "base": "skills",
+    "skills": [
+     "n8n-validation-expert",
+     "n8n-workflow-patterns",
+     "n8n-node-configuration",
+     "n8n-expression-syntax"
+    ]
+   }
+  },
+  {
+   "n": 76,
+   "collection": "post27",
+   "alt": "",
+   "note": "The repo has no license file, so this kit installs from upstream but doesn't repackage it as Claude app zips. Deploying needs a Vercel account.",
+   "row": 14,
+   "name": "Vercel agent skills",
+   "repo": "vercel-labs/agent-skills",
+   "what": "Vercel's skills. Installed here: deploy-to-vercel (deploy and get a preview link), react-best-practices (performance rules for React and Next.js) and web-design-guidelines (audits UI code for accessibility and UX problems).",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx -y skills add vercel-labs/agent-skills --skill deploy-to-vercel --skill vercel-react-best-practices --skill web-design-guidelines -g -a claude-code -y"
+   ],
+   "verify": "test -f ~/.claude/skills/deploy-to-vercel/SKILL.md && test -f ~/.claude/skills/web-design-guidelines/SKILL.md",
+   "use": "'Review my dashboard's components against the web design guidelines', then 'deploy a preview'.",
+   "always_on": "~250 (est., skills dir)",
+   "source": "sources/76-vercel-agent-skills",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62",
+    "stars": null,
+    "pushed": "2026-10-27",
+    "license": null,
+    "default_branch": "main",
+    "pinned": "1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   }
+  },
+  {
+   "n": 77,
+   "collection": "post27",
+   "alt": "",
+   "note": "CC BY-SA 4.0. The same marketplace has 70+ security skills (CodeQL, fuzzing, differential review) worth a look for code review.",
+   "row": 14,
+   "name": "Trail of Bits skills",
+   "repo": "trailofbits/skills",
+   "what": "Security firm Trail of Bits' skills. Installed here: modern-python, which sets up and keeps Python projects on uv, ruff and current tooling instead of pip and setup.py.",
+   "needs": [
+    "claude",
+    "uv"
+   ],
+   "install": [
+    "claude plugin marketplace add trailofbits/skills",
+    "claude plugin install modern-python@trailofbits"
+   ],
+   "verify": "claude plugin list | grep -q modern-python@trailofbits",
+   "use": "'Convert my refiner scripts repo to uv with ruff and a lockfile.'",
+   "always_on": "~77",
+   "source": "sources/77-trailofbits-skills",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "470419e16f97e112d01fc32f4898aea1755015d9",
+    "stars": null,
+    "pushed": "2026-11-04",
+    "license": "CC-BY-SA-4.0",
+    "default_branch": "main",
+    "pinned": "470419e16f97e112d01fc32f4898aea1755015d9"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   },
+   "zip": {
+    "folder": "77-trailofbits",
+    "base": "plugins/modern-python/skills",
+    "skills": [
+     "modern-python"
+    ]
+   }
+  },
+  {
+   "n": 78,
+   "collection": "post27",
+   "alt": "",
+   "note": "Reference material more than a workflow: useful while designing an agent, then disable it.",
+   "row": 14,
+   "name": "Context engineering skills",
+   "repo": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+   "what": "How context works and how to manage it when building agents: context-fundamentals, degradation, compression, tool design, memory and multi-agent patterns.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add muratcankoylan/Agent-Skills-for-Context-Engineering",
+    "claude plugin install context-engineering@context-engineering-marketplace"
+   ],
+   "verify": "claude plugin list | grep -q context-engineering@context-engineering-marketplace",
+   "use": "'Why does my agent forget the schema after 40 turns, and what should go in its context instead?'",
+   "always_on": "~2,501",
+   "source": "sources/78-context-engineering",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
+    "stars": null,
+    "pushed": "2026-10-11",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+   },
+   "verified": {
+    "date": "2026-11-04",
+    "result": "pass"
+   },
+   "zip": {
+    "folder": "78-context-engineering",
+    "base": "skills",
+    "skills": [
+     "context-fundamentals",
+     "context-degradation",
+     "context-optimization",
+     "tool-design"
+    ]
+   }
   }
  ],
  "schema": 2,
@@ -2963,7 +3256,8 @@
   "top30": "Top 30 from the post",
   "dataops": "Data & ops toolkit",
   "open20": "From '20 projects to open first'",
-  "anthropic": "Anthropic's repos to build with"
+  "anthropic": "Anthropic's repos to build with",
+  "post27": "From the '27 skills, one at a time' post"
  },
  "lists": {
   "open20": {
@@ -3015,6 +3309,27 @@
     "Build one agent for a real, repetitive task on your team. examples/sql-review-agent is a working start: a custom tool, a read-only guard and a budget cap.",
     "Put it where the team already works: claude-code-action runs it on every pull request (a Bedrock version is included).",
     "Measure it like any tool: same task before and after, keep it only if it's better or cheaper."
+   ]
+  },
+  "skills27": {
+   "label": "27 skills, one at a time",
+   "items": [
+    73,
+    72,
+    74,
+    28,
+    25,
+    75,
+    76,
+    77,
+    78
+   ],
+   "heading": "Don't install all 27 tonight",
+   "source": "From the post listing 27 skills in five folders (notes, writing, marketing, automation, build & ship).",
+   "advice": [
+    "Pick the folder closest to your daily work and add one skill from it.",
+    "Use it on real tasks for a week. Keep it if it saved time, then add the next one.",
+    "Three skills you use every day beat 27 you never open. The kit's skill-trial skill (top30-coach) keeps score for you."
    ]
   }
  }

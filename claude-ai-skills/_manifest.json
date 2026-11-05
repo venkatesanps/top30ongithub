@@ -894,5 +894,125 @@
   "bytes": 6146,
   "license": "Apache-2.0",
   "commit": "35b9610bb2710c37ca11326c4cbf7818b6725fec"
+ },
+ {
+  "folder": "72-obsidian",
+  "skill": "defuddle",
+  "path": "skills/defuddle",
+  "bytes": 1313,
+  "license": "MIT",
+  "commit": "3ccff5338ea700537839b21900aa5358a0402c98"
+ },
+ {
+  "folder": "72-obsidian",
+  "skill": "json-canvas",
+  "path": "skills/json-canvas",
+  "bytes": 5085,
+  "license": "MIT",
+  "commit": "3ccff5338ea700537839b21900aa5358a0402c98"
+ },
+ {
+  "folder": "72-obsidian",
+  "skill": "obsidian-markdown",
+  "path": "skills/obsidian-markdown",
+  "bytes": 5216,
+  "license": "MIT",
+  "commit": "3ccff5338ea700537839b21900aa5358a0402c98"
+ },
+ {
+  "folder": "74-huggingface",
+  "skill": "huggingface-gradio",
+  "path": "skills/huggingface-gradio",
+  "bytes": 14267,
+  "license": "Apache-2.0",
+  "commit": "25910b3d0ba31a2ba102f901cdc9e008c278a69c"
+ },
+ {
+  "folder": "74-huggingface",
+  "skill": "huggingface-local-models",
+  "path": "skills/huggingface-local-models",
+  "bytes": 11072,
+  "license": "Apache-2.0",
+  "commit": "25910b3d0ba31a2ba102f901cdc9e008c278a69c"
+ },
+ {
+  "folder": "74-huggingface",
+  "skill": "huggingface-papers",
+  "path": "skills/huggingface-papers",
+  "bytes": 7207,
+  "license": "Apache-2.0",
+  "commit": "25910b3d0ba31a2ba102f901cdc9e008c278a69c"
+ },
+ {
+  "folder": "75-n8n",
+  "skill": "n8n-expression-syntax",
+  "path": "skills/n8n-expression-syntax",
+  "bytes": 19250,
+  "license": "MIT",
+  "commit": "e037563e101749e630e6688d121d04529fe6ee7b"
+ },
+ {
+  "folder": "75-n8n",
+  "skill": "n8n-node-configuration",
+  "path": "skills/n8n-node-configuration",
+  "bytes": 39804,
+  "license": "MIT",
+  "commit": "e037563e101749e630e6688d121d04529fe6ee7b"
+ },
+ {
+  "folder": "75-n8n",
+  "skill": "n8n-validation-expert",
+  "path": "skills/n8n-validation-expert",
+  "bytes": 35375,
+  "license": "MIT",
+  "commit": "e037563e101749e630e6688d121d04529fe6ee7b"
+ },
+ {
+  "folder": "75-n8n",
+  "skill": "n8n-workflow-patterns",
+  "path": "skills/n8n-workflow-patterns",
+  "bytes": 41778,
+  "license": "MIT",
+  "commit": "e037563e101749e630e6688d121d04529fe6ee7b"
+ },
+ {
+  "folder": "77-trailofbits",
+  "skill": "modern-python",
+  "path": "plugins/modern-python/skills/modern-python",
+  "bytes": 32368,
+  "license": "see LICENSE",
+  "commit": "470419e16f97e112d01fc32f4898aea1755015d9"
+ },
+ {
+  "folder": "78-context-engineering",
+  "skill": "context-degradation",
+  "path": "skills/context-degradation",
+  "bytes": 17721,
+  "license": "MIT",
+  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+ },
+ {
+  "folder": "78-context-engineering",
+  "skill": "context-fundamentals",
+  "path": "skills/context-fundamentals",
+  "bytes": 16501,
+  "license": "MIT",
+  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+ },
+ {
+  "folder": "78-context-engineering",
+  "skill": "context-optimization",
+  "path": "skills/context-optimization",
+  "bytes": 16832,
+  "license": "MIT",
+  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+ },
+ {
+  "folder": "78-context-engineering",
+  "skill": "tool-design",
+  "path": "skills/tool-design",
+  "bytes": 21363,
+  "license": "MIT",
+  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
  }
 ]

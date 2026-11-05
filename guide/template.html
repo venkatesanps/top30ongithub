@@ -200,7 +200,7 @@ out.addEventListener("click", e => {
   try { navigator.clipboard.writeText(text).then(done, fallback); } catch (x) { fallback(); }
 });
 const S = DATA.stats;
-document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.by_collection.top30, "from the post"], [S.by_collection.dataops, "data & ops tools"], [S.by_collection.open20, "from the 20-to-open list"], [S.by_collection.anthropic, "Anthropic build repos"], [`${S.passing}/${S.tested}`, "passing install tests"], [S.zips, "Claude app skill zips"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
+document.getElementById("facts").innerHTML = [[S.repos, "repos tracked"], [S.by_collection.top30, "from the post"], [S.by_collection.dataops, "data & ops tools"], [S.by_collection.open20, "from the 20-to-open list"], [S.by_collection.anthropic, "Anthropic build repos"], [S.by_collection.post27, "from the 27-skills post"], [`${S.passing}/${S.tested}`, "passing install tests"], [S.zips, "Claude app skill zips"]].map(([b, l]) => `<li><b>${esc(b)}</b>${esc(l)}</li>`).join("");
 document.getElementById("checked").innerHTML = `Last checked ${esc(DATA.checked || DATA.generated)}` + (S.attention ? ` · <a href="#p${DATA.items.find(i => i.problems && i.problems.length).n}">${S.attention} need${S.attention === 1 ? "s" : ""} attention</a>` : " · everything OK");
 document.getElementById("costver").textContent = DATA.costs_measured_with || "Claude Code";
 chipEls(); render();

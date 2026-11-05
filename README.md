@@ -1,6 +1,6 @@
-# Top 30 Claude plugins, a data & ops toolkit, the 20 to open first, and Anthropic's build repos, kept current
+# Top 30 Claude plugins, a data & ops toolkit, the 20 to open first, Anthropic's build repos and the 27-skill list, kept current
 
-Four collections, each traced to its real repository, with one installer, a verifier, a field
+Five collections, each traced to its real repository, with one installer, a verifier, a field
 guide, and upload-ready skill zips for the Claude app:
 
 - **Top 30 from the post** (items 1–30, rows 1–5): coding, research, token savers, design, writing.
@@ -13,6 +13,9 @@ guide, and upload-ready skill zips for the Claude app:
 - **[Anthropic's 6 to build with](#anthropics-6-repos-to-build-with)** (items 67–71, row 13, plus 26):
   the prompt tutorial, quickstarts, Agent SDK, Claude Code and Claude Code Action, with a working
   Snowflake SQL review agent and GitHub workflows (including Amazon Bedrock) you can copy.
+- **[27 skills, one at a time](#27-skills-one-at-a-time)** (items 72–78, row 14, plus 25 and 28): notes
+  and research, writing, marketing, n8n automation, and build & ship, mapped skill by skill to the
+  repos they come from.
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
@@ -147,6 +150,51 @@ Two things that changed upstream since these repos were written:
   models (4.6 and later) reject the `temperature` and prefill settings the lessons use.
 - **npm install of Claude Code is deprecated.** Item 70 uses the native installer.
 
+## 27 skills, one at a time
+
+A post listing 27 skills in five folders, with one piece of advice: don't install them all tonight.
+The 27 skills come from nine repos. Two were already here (**25** Marketing Skills, **28** Humanizer);
+the other seven are items 72–78. `./install.sh --show skills27` prints the list.
+
+<!-- list:skills27:start -->
+| Post # | Catalog # | Name | Repo | Tokens/session | Install test |
+|---|---|---|---|---|---|
+| 1 | [73](#status) | NotebookLM skill | [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) | ~75 (est., skills dir) | pass |
+| 2 | [72](#status) | Obsidian Skills | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | ~597 | pass |
+| 3 | [74](#status) | Hugging Face skills | [huggingface/skills](https://github.com/huggingface/skills) | ~200 (est., skills dir) | pass |
+| 4 | [28](#status) | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | ~90 | pass |
+| 5 | [25](#status) | Marketing Skills | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | ~10,902 | pass |
+| 6 | [75](#status) | n8n skills | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | ~4,096 | pass |
+| 7 | [76](#status) | Vercel agent skills | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | ~250 (est., skills dir) | pass |
+| 8 | [77](#status) | Trail of Bits skills | [trailofbits/skills](https://github.com/trailofbits/skills) | ~77 | pass |
+| 9 | [78](#status) | Context engineering skills | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | ~2,501 | pass |
+<!-- list:skills27:end -->
+
+| Folder | Skills from the post | Item |
+|---|---|---|
+| Notes & research | notebooklm | **73** NotebookLM skill |
+| | json-canvas, defuddle, obsidian-markdown | **72** Obsidian Skills |
+| | huggingface-papers | **74** Hugging Face skills |
+| Writing | humanizer | **28** Humanizer |
+| | emails, copy-editing, social, copywriting, content-strategy | **25** Marketing Skills |
+| Marketing | ai-seo, pricing, launch, seo-audit, marketing-psychology | **25** Marketing Skills |
+| Automate | n8n-validation-expert, n8n-workflow-patterns, n8n-node-configuration, n8n-expression-syntax | **75** n8n skills |
+| Build & ship | deploy-to-vercel, react-best-practices, web-design-guidelines | **76** Vercel agent skills |
+| | modern-python | **77** Trail of Bits skills |
+| | huggingface-gradio, huggingface-local-models | **74** Hugging Face skills |
+| | context-fundamentals | **78** Context engineering skills |
+
+**The post's advice, which this kit agrees with:** pick the folder closest to your daily work and
+add one skill from it; use it on real tasks for a week; keep it only if it saved time, then add the
+next. Three you use every day beat 27 you never open. The `skill-trial` skill (plugin `top30-coach`,
+below) keeps that score for you.
+
+Three notes before installing:
+
+- **73** NotebookLM drives a Chrome window signed in to your Google account. Keep it to personal notebooks.
+- **76** Vercel's repo has no license file, so it installs from upstream but has no Claude app zips here.
+- **75** n8n skills assume the n8n-mcp server pointed at your own n8n instance, and add edit-checking hooks.
+
 ## Skills built here
 
 This repo is also a Claude Code plugin marketplace with three plugins of its own:
@@ -170,7 +218,7 @@ Always-on costs measured with `claude plugin details` on 2026-11-04.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 
-`claude-ai-skills/` holds ready-to-upload skill zips from 16 of the repos, including dbt and
+`claude-ai-skills/` holds ready-to-upload skill zips from 21 of the repos, including dbt and
 Airflow skills. Upload in
 Settings → Capabilities → Skills, one zip per skill. Each zip includes its project's license;
 see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Start small: each enabled skill adds its
@@ -179,7 +227,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-11-04: 71 repos, 69 of 69 install-tested items passing, 0 needing attention. Token costs measured with 2.1.318 (Claude Code) on 2026-11-04._
+_Checked 2026-11-04: 78 repos, 76 of 76 install-tested items passing, 0 needing attention. Token costs measured with 2.1.318 (Claude Code) on 2026-11-04._
 
 **Top 30 from the post**
 
@@ -271,6 +319,18 @@ _Checked 2026-11-04: 71 repos, 69 of 69 install-tested items passing, 0 needing 
 | 69 | Claude Agent SDK (Python) | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | 8.4k | 2026-11-04 | pass (2026-11-04) | n/a | OK |
 | 70 | Claude Code (the CLI) | [anthropics/claude-code](https://github.com/anthropics/claude-code) | 154.5k | 2026-11-04 | pass (2026-11-04) | n/a | OK |
 | 71 | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | 9.8k | 2026-11-04 | pass (2026-11-04) | n/a | OK |
+
+**From the '27 skills, one at a time' post**
+
+| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
+|---|---|---|---|---|---|---|---|
+| 72 | Obsidian Skills | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | — | 2026-09-15 | pass (2026-11-04) | ~597 | OK |
+| 73 | NotebookLM skill | [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) | — | 2026-09-10 | pass (2026-11-04) | ~75 (est., skills dir) | OK |
+| 74 | Hugging Face skills | [huggingface/skills](https://github.com/huggingface/skills) | — | 2026-10-29 | pass (2026-11-04) | ~200 (est., skills dir) | OK |
+| 75 | n8n skills | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | — | 2026-10-24 | pass (2026-11-04) | ~4,096 | OK |
+| 76 | Vercel agent skills | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | — | 2026-10-27 | pass (2026-11-04) | ~250 (est., skills dir) | OK |
+| 77 | Trail of Bits skills | [trailofbits/skills](https://github.com/trailofbits/skills) | — | 2026-11-04 | pass (2026-11-04) | ~77 | OK |
+| 78 | Context engineering skills | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | — | 2026-10-11 | pass (2026-11-04) | ~2,501 | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

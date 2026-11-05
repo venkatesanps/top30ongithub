@@ -21,8 +21,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROLES = {  # kit rows, most relevant first
-    "data": [6, 7, 1], "manager": [8, 10, 2], "sre": [9, 7, 11], "writer": [5, 2, 12],
-    "design": [4, 12], "builder": [1, 10, 11, 13],
+    "data": [6, 7, 1, 14], "manager": [8, 10, 2], "sre": [9, 7, 11], "writer": [5, 2, 12, 14],
+    "design": [4, 12], "builder": [1, 10, 11, 13, 14],
 }
 DAILY_CAP = 3  # "3 skills you use every day beat 27 you never open"
 
