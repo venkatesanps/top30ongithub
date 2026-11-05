@@ -11,11 +11,11 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 05-superpowers | [obra/superpowers](https://github.com/obra/superpowers) | MIT | [22f0b463e7](https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7) |
 | 06-ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | MIT | [96608e078b](https://github.com/DietrichGebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846) |
 | 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [2e068f7352](https://github.com/JuliusBrussee/caveman/tree/2e068f735253cce28256744804785f01887d9646) |
-| 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [12af471f62](https://github.com/Leonxlnx/taste-skill/tree/12af471f627f866411b4bd785b19646d3672784c) |
+| 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [9b4bf937a1](https://github.com/Leonxlnx/taste-skill/tree/9b4bf937a1f69348126959c15d2f99a73e65699b) |
 | 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [a4065941f1](https://github.com/tt-a1i/archify/tree/a4065941f12be7967436261d9934784e381d423c) |
 | 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [f24d98b05e](https://github.com/cathrynlavery/diagram-design/tree/f24d98b05e2d7a5e68c2dedfe46e5b7173f50118) |
-| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [5af4319c4e](https://github.com/pbakaus/impeccable/tree/5af4319c4e7a7ee3e5e2b9fe899bcfb21c6190cb) |
-| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [ccce51cba3](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/ccce51cba388476d4f403091ddb91636d5cd9fed) |
+| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [ac0966de46](https://github.com/pbakaus/impeccable/tree/ac0966de466b571d74a18bb2fa3e03a485e4c327) |
+| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [b7d5353e01](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb) |
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [88c79f6528](https://github.com/coreyhaines31/marketingskills/tree/88c79f6528a9347420e57ceb1fff9a60de651768) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [0ef9fe5bc3](https://github.com/blader/humanizer/tree/0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0) |
 | 30-i-have-adhd | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | [1ecea1993b](https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6) |
