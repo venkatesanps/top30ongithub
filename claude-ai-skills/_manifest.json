@@ -285,15 +285,15 @@
   "path": "skills/caveman",
   "bytes": 8217,
   "license": "Apache-2.0",
-  "commit": "4bf8898b31c93326a5e5d90999241a1c15b52ed2"
+  "commit": "c310c9d300df13a1dd9f5c086120ffd857a164a1"
  },
  {
   "folder": "19-taste",
   "skill": "design-taste-frontend",
   "path": "skills/taste-skill",
-  "bytes": 30108538,
+  "bytes": 30276876,
   "license": "MIT",
-  "commit": "9b4bf937a1f69348126959c15d2f99a73e65699b"
+  "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8"
  },
  {
   "folder": "20-archify",
@@ -317,7 +317,7 @@
   "path": "plugin/skills/impeccable",
   "bytes": 858619,
   "license": "Apache-2.0",
-  "commit": "c3bb418ee38ee49a6b999b7752c1368f3123a2bd"
+  "commit": "687bc381bc9091bf252c0a05303640561014a425"
  },
  {
   "folder": "23-ui-ux-pro-max",
@@ -325,7 +325,7 @@
   "path": ".claude/skills/ui-ux-pro-max",
   "bytes": 573391,
   "license": "MIT",
-  "commit": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb"
+  "commit": "0da327f37b436c173ce51177678b65ca92e6f3f7"
  },
  {
   "folder": "25-marketing",
@@ -1075,56 +1075,56 @@
   "folder": "80-interfaces",
   "skill": "better-accessibility",
   "path": "skills/better-accessibility",
-  "bytes": 18465,
+  "bytes": 18578,
   "license": "MIT",
-  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+  "commit": "f41f027797f77cb1594a5c718aeee3e6a7fe99ba"
  },
  {
   "folder": "80-interfaces",
   "skill": "better-colors",
   "path": "skills/better-colors",
-  "bytes": 19078,
+  "bytes": 19231,
   "license": "MIT",
-  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+  "commit": "f41f027797f77cb1594a5c718aeee3e6a7fe99ba"
  },
  {
   "folder": "80-interfaces",
   "skill": "better-interface",
   "path": "skills/better-interface",
-  "bytes": 6131,
+  "bytes": 6154,
   "license": "MIT",
-  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+  "commit": "f41f027797f77cb1594a5c718aeee3e6a7fe99ba"
  },
  {
   "folder": "80-interfaces",
   "skill": "better-typography",
   "path": "skills/better-typography",
-  "bytes": 14974,
+  "bytes": 15053,
   "license": "MIT",
-  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+  "commit": "f41f027797f77cb1594a5c718aeee3e6a7fe99ba"
  },
  {
   "folder": "80-interfaces",
   "skill": "better-ui",
   "path": "skills/better-ui",
-  "bytes": 15491,
+  "bytes": 15588,
   "license": "MIT",
-  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+  "commit": "f41f027797f77cb1594a5c718aeee3e6a7fe99ba"
  },
  {
   "folder": "80-interfaces",
   "skill": "explain-interface",
   "path": "skills/explain-interface",
-  "bytes": 15158,
+  "bytes": 15242,
   "license": "MIT",
-  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+  "commit": "f41f027797f77cb1594a5c718aeee3e6a7fe99ba"
  },
  {
   "folder": "80-interfaces",
   "skill": "interface-review",
   "path": "skills/interface-review",
-  "bytes": 10498,
+  "bytes": 10532,
   "license": "MIT",
-  "commit": "60bf140e43c98b248e6594487384ec967e89d98a"
+  "commit": "f41f027797f77cb1594a5c718aeee3e6a7fe99ba"
  }
 ]

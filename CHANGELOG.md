@@ -2,6 +2,53 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-07 16:57 UTC
+
+**Upstream updates**
+- ECC (Everything Claude Code): [b38be6a → d2ef268](https://github.com/affaan-m/ECC/compare/b38be6a7f6350964d59328b52f0624e1d1d552d1...d2ef2680594f9a17526a6e1a2e18b3d242c5d17b)
+- Career Ops: [23a7063 → 8ce89bd](https://github.com/career-ops-hq/career-ops/compare/23a70634410e09499082c1d0fd91bbb0fd045eb0...8ce89bdc492bd17698c72c6245d0638d7af78d39)
+- REA (Reverse Engineer Anything): [f8356f3 → c928bb8](https://github.com/morluto/rea/compare/f8356f3d713d707b4a6d9eb5ab3941787f546ccc...c928bb8d80bb1c30f2211090ec86dc25eab58ca2)
+- Understand Anything: [98d6dca → a6ea402](https://github.com/Egonex-AI/Understand-Anything/compare/98d6dca712407b8cbf0bca21b539c197e5a7825c...a6ea4024767df85ce4f99140d4f12ecfc5a81eb6)
+- Headroom: [2b0315b → 12864fc](https://github.com/headroomlabs-ai/headroom/compare/2b0315b2d4b0d54947050bbdad2de9e89df06378...12864fc8f01a1ca6c58440eccef0dabdd3e595b8)
+- Claude-Mem: [6ce4d0e → 2d8c08c](https://github.com/thedotmack/claude-mem/compare/6ce4d0e1d45aa680f29a632e1d24dfd9611d4eca...2d8c08c182af68b20bb7528c7bf989aa871a7d2f)
+- gstack: [b493d4e → 31c3ef0](https://github.com/garrytan/gstack/compare/b493d4e31ac9619ef7e52e176d590ad4f454cd66...31c3ef01f1178e2364b88643212f7368a33c500e)
+- Caveman: [4bf8898 → c310c9d](https://github.com/JuliusBrussee/caveman/compare/4bf8898b31c93326a5e5d90999241a1c15b52ed2...c310c9d300df13a1dd9f5c086120ffd857a164a1)
+- GSD (Get Shit Done): [53f596c → f04db9d](https://github.com/open-gsd/gsd-core/compare/53f596cb2b700c7248532f621baf146a0a99a966...f04db9d8b9ec9a2785aed7390baeb950ece604f4)
+- Taste: [9b4bf93 → f6b7657](https://github.com/Leonxlnx/taste-skill/compare/9b4bf937a1f69348126959c15d2f99a73e65699b...f6b76575f949707b4e3c37cd86cb44b0b98643e8)
+- Impeccable: [c3bb418 → 687bc38](https://github.com/pbakaus/impeccable/compare/c3bb418ee38ee49a6b999b7752c1368f3123a2bd...687bc381bc9091bf252c0a05303640561014a425)
+- UI UX Pro Max: [b7d5353 → 0da327f](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/b7d5353e0130feb8c5574ef1251f8a1db1873ccb...0da327f37b436c173ce51177678b65ca92e6f3f7)
+- PPT Master: [7695473 → f6cfd05](https://github.com/hugohe3/ppt-master/compare/769547394107870a0c7b5ad8d1c0c75035123aef...f6cfd05fe1e3f2144906c5f9ae8ec5d91612eb0b)
+- Skills by Anthropic: [ca45fc4 → 2c5958e](https://github.com/anthropics/skills/compare/ca45fc496a3436251f191354091d557da31c15b5...2c5958ecac7cee2b583967a2c4981d0f4a75c579)
+- HyperFrames: [18fc75d → 7b1d9cc](https://github.com/heygen-com/hyperframes/compare/18fc75dcd7b453ab10d0834bc9e8d2265353121c...7b1d9ccebf9c7e2c2bd22b7e9d9487ce975d6425)
+- Agent Toolkit for AWS: [9fb9e12 → 0a218f8](https://github.com/aws/agent-toolkit-for-aws/compare/9fb9e12c06c8f31bc1fea5ebf4b4153f3d2f2999...0a218f8cc13220013f72147e2e0fdbe350b34ae2)
+- AWS MCP servers (data & ops): [29f19e4 → d33705e](https://github.com/awslabs/mcp/compare/29f19e4da24c2f7b8d4a045e942d04e352071d6e...d33705e0890e8cf39aa42eeee7b45d6a6e088112)
+- SQLGlot: [92ffa3d → b99f5d5](https://github.com/tobymao/sqlglot/compare/92ffa3da6086677885a448b568b130369e85ea7f...b99f5d58b1773276544b513e072273789cf2549a)
+- SQLFluff: [7ddd7d6 → 1b6b393](https://github.com/sqlfluff/sqlfluff/compare/7ddd7d6b94eda0a8217f79ca78e5a21a08dde25a...1b6b3938565f343e8463cf20db4b0065d89c168d)
+- Anthropic knowledge-work plugins: [ab4cb1c → e050c2e](https://github.com/anthropics/knowledge-work-plugins/compare/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d...e050c2ec856373787143d7057663a6ebd1277df3)
+- ccusage: [cde65fb → 3cf9739](https://github.com/ccusage/ccusage/compare/cde65fb77ea6b739a741cf50fdaa0eb7d0d39e34...3cf9739e482568e6b704bab96e4fa75eb14a1210)
+- Grafana MCP server: [8af3dda → 7c71ce1](https://github.com/grafana/mcp-grafana/compare/8af3dda6ca6780a2e2e5fb4c29c83293af7641bb...7c71ce12ab4f95bd4fbbafe71956a698417ae910)
+- Keep (alert hub & AIOps): [0fe31e4 → 6692fa7](https://github.com/keephq/keep/compare/0fe31e44bba20dd87980a2f827743b894adacacc...6692fa7b9ec003399db0f390ff4d68941eb6b934)
+- Uptime Kuma (status pages): [c4f983a → 1f47802](https://github.com/louislam/uptime-kuma/compare/c4f983a457e4ccb18e0836890b0dd80f11c2739a...1f47802eab90cabbf362f105e56447f40a07f891)
+- Ruflo (agent swarms): [09bd1bf → 3fe9d70](https://github.com/ruvnet/ruflo/compare/09bd1bf304cf1906729f8cca66460549d78b1f89...3fe9d70ba7d08ff12233003a9342037ab80af3ce)
+- planning-with-files: [8eef6dc → 2362ca3](https://github.com/OthmanAdi/planning-with-files/compare/8eef6dc6540dde5eef3fdc0ac487ad9c48ef3ba5...2362ca385ad74f061aa0e7b73f56543a4b7e6df2)
+- rtk (OSS edition): [1cf7bc7 → bd7f87e](https://github.com/rtk-ai/rtk/compare/1cf7bc703efa5cd0530222746ce40bd5d9b38336...bd7f87eb6e21a17c47ee3c78f698e81b64d7fee5)
+- context-mode: [157464a → 0491ccb](https://github.com/mksglu/context-mode/compare/157464a3f47b9c5e2e068a800b3490ffca67aab2...0491ccb9c798a95f3f8ee3124c9dcd57b72b8114)
+- CC Switch (desktop): [44e7d3e → c6a5a78](https://github.com/farion1231/cc-switch/compare/44e7d3ef720a79040d50dad2aacd17b18c9b6b43...c6a5a789f7e1888fbd18106acbca8df04d11ddee)
+- Claude quickstarts: [8ef47d7 → 4a4224b](https://github.com/anthropics/claude-quickstarts/compare/8ef47d719eba5379ff8f38133f5defcc499e856f...4a4224bdf0e9cfb3332167b69c90457403813625)
+- Claude Code Action (GitHub): [61a9c27 → 115e0b2](https://github.com/anthropics/claude-code-action/compare/61a9c274fa7110a66dfafc1bbbced03833eb25fe...115e0b2c49222c831de6748ccdf365bb8d3ea9a3)
+- Interfaces skills: [60bf140 → f41f027](https://github.com/jakubkrehel/skills/compare/60bf140e43c98b248e6594487384ec967e89d98a...f41f027797f77cb1594a5c718aeee3e6a7fe99ba)
+- Busabase: [6631855 → e625d99](https://github.com/busabase/busabase/compare/6631855464695d9a9c8580a4cd608c8ce33eefd8...e625d993fbc0d35c28c5bd3cf5dd2957548d56cb)
+
+**Notes**
+- HyperFrames: npm:hyperframes 0.9.19 → 0.9.20
+- Busabase: npm:busabase 1.1.0 → 1.2.0
+- Busabase: npm:busabase-cli 1.1.0 → 1.2.0
+- Claude-Mem: per-session tokens ~2,127 → ~2,141
+- Taste: per-session tokens ~193 → ~235
+- Interfaces skills: per-session tokens ~717 → ~601
+
+**Install tests**: 32/32 passed
+
 ## 2026-11-06 18:07 UTC
 
 **Upstream updates**
