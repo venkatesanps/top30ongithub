@@ -201,7 +201,7 @@ Three notes before installing:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with five plugins of its own:
+This repo is also a Claude Code plugin marketplace with six plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
@@ -210,6 +210,7 @@ claude plugin install top30-ops@top30ongithub     # Datadog app investigator
 claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
 claude plugin install top30-agents@top30ongithub  # loops and graphs for unattended agent work
 claude plugin install top30-ui@top30ongithub      # motion components, your own shadcn registry, motion forensics
+claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wensity UI: data → dashboard plan, theme check, scout/builder/QA agents
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -226,8 +227,15 @@ claude plugin install top30-ui@top30ongithub      # motion components, your own 
 | `top30-ui` | `ui-reverse-engineer` (agent) | Point it at a live component, recording or open-source code: it writes a behavior spec (anatomy, states, motion, keyboard, screen reader), rebuilds an original in your stack, and packages it for your registry. Copies behavior, not code or branding, unless the license allows and the notice is kept. | ~130 |
 | `top30-ui` | `motion-forensics` | Diagnoses how a site's motion is really built before anyone tries to copy it. `motion_probe.js` runs in the page (or `probe_page.py` in headless Chromium) and `motion_report.py` names the architecture (procedural canvas, WebGL, library timelines, smooth scroll, CSS keyframes, scroll-driven CSS, Lottie, video), why DOM copying fails, and the numbers to reuse. Ships `scroll-scene.js`, a dependency-free engine for scroll-driven canvas scenes, with a demo. Built from zeromark.io, whose motion is ~2,150 lines of hand-written Canvas 2D. Tests: `tests/motion_forensics/`. | ~180 |
 | `top30-ui` | `motion-detective` (agent) | Probes a live page, explains why earlier reverse-engineering failed, writes a motion spec, rebuilds an original with the matching technique, and proves it with side-by-side scroll strips. | ~170 |
+| `top30-wensity` | `wensity-dashboard-kit` | Dashboards on [Wensity UI](https://ui.wensity.com)'s free, MIT primitives (Sidebar, Tabs, Date Picker, Select/Combobox, Chart on Recharts, Data Table). `schema_to_ui.py` reads a CSV/JSON sample and plans the page: column types, the row key Data Table needs (`id` or `getRowId`), chart series with CSS-safe keys (each key becomes `--color-<key>`, so `Opening Bid ($)` would break it), KPIs, filters and the install command. `--format ts` writes the row type, a raw-row mapper, column specs and chart config. Says when Wensity doesn't fit (Streamlit, maps, very large tables). Tests: `tests/wensity_kit/`. | ~120 |
+| `top30-wensity` | `wensity-brand-preset` | One Wensity preset (`wsty1…`) per project so dashboards and sites look alike: brand ramp, chart palette, fonts, radius, dark mode with next-themes, renaming `chili-*`. `token_check.py` (read-only, CI-ready) flags a missing `@theme inline` or `.dark` block, an incomplete ramp, leftover `chili-*`, a Wensity MCP server on `@latest`, and `.wensity-tmp/` committed. | ~130 |
+| `top30-wensity` | `wensity-landing-composer` | Landing and portfolio pages: a section order mapped to Wensity's block categories with free fallbacks, one showpiece animation per page, lazy WebGL with a poster, reduced motion, copy in one typed file, no invented proof, and the Pro license rule (no Pro source in public repos). | ~130 |
+| `top30-wensity` | `wensity-ui-scout` (agent) | Read-only: searches the catalog through Wensity's MCP server (pinned `@wensity/mcp@0.1.2`, project scope), checks the project, maps each zone to Free/Pro items with dependencies, and returns install plans (files, token diff, exact command). It has no install tool. | ~110 |
+| `top30-wensity` | `wensity-dashboard-builder` (agent) | Data source to a working page: profile, plan, **stop for approval**, re-plan and install only if the plan is unchanged, wire the typed page, then type-check and build. Refuses with uncommitted changes, since the installer doesn't roll back package changes. | ~100 |
+| `top30-wensity` | `wensity-ui-qa` (agent) | Read-only gate before merge: tsc, lint and build (the installer runs none), token check, package diff vs. the approved plan, row ids and chart keys, loading/empty/error states, reduced motion, lazy WebGL, and Pro items in a public repo. PASS/FAIL with fixes. | ~120 |
 
-Always-on costs measured with `claude plugin details` on 2026-11-04.
+Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07). `top30-wensity`
+works with Wensity UI, a third-party library (free tier MIT, Pro paid); this repo contains none of its code.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 
