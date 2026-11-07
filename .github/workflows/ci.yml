@@ -66,4 +66,5 @@ jobs:
           python3 tests/agent_loop/test_agent_loop.py
           python3 tests/registry_kit/test_registry_kit.py
           python3 tests/motion_forensics/test_motion_report.py
+          python3 tests/wensity_kit/test_wensity_kit.py
           python3 -m py_compile scripts/ab.py

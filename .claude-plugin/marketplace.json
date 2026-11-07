@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.4.1"
+    "version": "0.5.0"
   },
   "plugins": [
     {
@@ -41,6 +41,13 @@
       "source": "./plugins/top30-ui",
       "description": "EasyUI's workflow and motion forensics: motion components, your own shadcn registry, diagnosing how a site's animation is really built, and rebuilding scroll-driven canvas scenes.",
       "version": "0.2.0",
+      "category": "design"
+    },
+    {
+      "name": "top30-wensity",
+      "source": "./plugins/top30-wensity",
+      "description": "Wensity UI dashboards and sites: data file \u2192 dashboard plan on free primitives, one theme per project with a token check, landing-page section recipe, and scout/builder/QA agents that install only after approval.",
+      "version": "0.1.0",
       "category": "design"
     }
   ]
