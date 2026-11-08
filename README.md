@@ -24,7 +24,8 @@ guide, and upload-ready skill zips for the Claude app:
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
 [production & SRE](playbooks/production-and-sre.md), and
 [Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work), and
-[loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step). Read
+[loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step), and
+[15 Claude Code commands, fact-checked](playbooks/claude-commands.md). Read
 [Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
 **Field guide:** https://venkatesanps.github.io/top30ongithub/ (refreshed daily)
@@ -208,7 +209,7 @@ claude plugin marketplace add venkatesanps/top30ongithub
 claude plugin install top30-data@top30ongithub    # Oracle → Snowflake, Snowflake cost, pipeline triage
 claude plugin install top30-ops@top30ongithub     # Datadog app investigator
 claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
-claude plugin install top30-agents@top30ongithub  # loops and graphs for unattended agent work
+claude plugin install top30-agents@top30ongithub  # loops, graphs, /goal writer + goal gate, /batch scout
 claude plugin install top30-ui@top30ongithub      # motion components, your own shadcn registry, motion forensics
 ```
 
@@ -221,6 +222,9 @@ claude plugin install top30-ui@top30ongithub      # motion components, your own 
 | `top30-coach` | `skill-trial` | The "don't install all of them tonight" rule as a skill: one skill for a week on real work, log minutes saved (`trial.py`), then keep, extend or drop on evidence, and get the next three for your role from `catalog.json`. Tests: `tests/skill_trial/`. | ~150 |
 | `top30-agents` | `agent-graph-designer` | Turns a pipeline described in prose into a checked graph: a four-line contract per step, arrows that must name the variable they carry (the rest are cut so steps run in parallel), model vs code per step, a real check per step, bounded loops, failure handling and human gates placed by how hard a mistake is to undo. `graph_check.py` reports parallel waves, minutes in a line vs. as a graph, and a Mermaid diagram. Tests: `tests/graph_check/`. | ~150 |
 | `top30-agents` | `agent-loop` | `agent_loop.py` runs Claude Code headless in a loop you don't watch. `repair` fixes one scoped unit until a command exits 0, with a round limit, a budget, memory of past attempts, out-of-scope edit detection, early escalation when two rounds fail the same way, and a rules file of lessons learned. `hunt` finds things round by round and stops after two rounds with nothing new, remembering rejected findings too. Tests: `tests/agent_loop/` with a fake agent. | ~140 |
+| `top30-agents` | `goal-writer` + goal gate (hook) | `goal_lint.py` scores a `/goal` condition (stated check, measurable end state, constraints, bound, no self-judged or irreversible steps) and has recipes for pytest, dbt, sqlfluff, `ora2sf`, reconciliation and mypy. Goal gate is a Stop hook that runs a real command and keeps Claude working until it exits 0, with a round limit and same-failure stop. It does nothing until switched on, and its settings live outside the repo. Tests: `tests/goal_tools/`. | ~180 |
+| `top30-agents` | `which-command` | Matches a situation to the right built-in command (`/plan`, `/goal`, `/loop`, `/schedule`, `/batch`, `/subtask`, `/fork`, `/branch`, `/rewind`, `/compact`, `/simplify`, `/code-review`, ...) with the catch each one has. | ~170 |
+| `top30-agents` | `batch-scout` (agent) | Read-only prep for `/batch`: checks the repo, splits the work into units that don't share files, assigns shared files an owner, finds a check per unit, keeps irreversible steps out, and returns the `/batch` line to paste. | ~160 |
 | `top30-ui` | `component-registry` | EasyUI's registry pipeline, reverse-engineered for any repo. `registry_kit.py` scaffolds components (meta + test), builds a shadcn `registry.json` from imports (followed all the way down), validates it against the code, audits accessibility and reduced motion, and writes `llms.txt`. Rebuilds EasyUI's own 132 items with matching dependencies and metadata. Tests: `tests/registry_kit/`. | ~160 |
 | `top30-ui` | `motion-component-builder` | The standard behind those components: shared spring tokens (template adapted from EasyUI, MIT notice kept), every state designed, real elements, focus-visible rings, reduced motion, transform/opacity only, metadata and a test per component. | ~180 |
 | `top30-ui` | `ui-reverse-engineer` (agent) | Point it at a live component, recording or open-source code: it writes a behavior spec (anatomy, states, motion, keyboard, screen reader), rebuilds an original in your stack, and packages it for your registry. Copies behavior, not code or branding, unless the license allows and the notice is kept. | ~130 |

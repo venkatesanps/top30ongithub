@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.4.1"
+    "version": "0.5.0"
   },
   "plugins": [
     {
@@ -32,8 +32,8 @@
     {
       "name": "top30-agents",
       "source": "./plugins/top30-agents",
-      "description": "Agent graph designer (checked graphs, parallel waves, gates by undo cost) and agent loop harness (repair until a check passes, hunt until nothing new; budgets, memory, escalation).",
-      "version": "0.1.0",
+      "description": "Loops and graphs, plus built-in commands used well: graph designer, loop harness, /goal writer and linter, goal gate Stop hook, command picker, and a /batch scout agent.",
+      "version": "0.2.0",
       "category": "development"
     },
     {
