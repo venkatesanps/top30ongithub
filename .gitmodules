@@ -100,7 +100,7 @@
 	shallow = true
 [submodule "sources/27-openmontage"]
 	path = sources/27-openmontage
-	url = https://github.com/calesthio/OpenMontage.git
+	url = https://github.com/OpenMontageInc/OpenMontage.git
 	shallow = true
 [submodule "sources/28-humanizer"]
 	path = sources/28-humanizer

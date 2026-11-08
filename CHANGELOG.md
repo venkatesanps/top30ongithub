@@ -2,6 +2,48 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-08 17:11 UTC
+
+**Upstream updates**
+- Career Ops: [8ce89bd → d13fbc1](https://github.com/career-ops-hq/career-ops/compare/8ce89bdc492bd17698c72c6245d0638d7af78d39...d13fbc1f9cd129ac183644e110e668b954e5edd1)
+- REA (Reverse Engineer Anything): [c928bb8 → 5044e20](https://github.com/morluto/rea/compare/c928bb8d80bb1c30f2211090ec86dc25eab58ca2...5044e20171564d201d5fe49c18e2ea6f90c53010)
+- Graphify: [16218bf → 6c8002e](https://github.com/Graphify-Labs/graphify/compare/16218bfc80d4ca2799734d045039f7ed1a5fa9fb...6c8002eca4acad58db6160eabcb466e61fc35afb)
+- Agent Reach: [422478a → c70ae6d](https://github.com/Panniantong/Agent-Reach/compare/422478ae0264d2236bf7ebd1c3b11a69aaafa4a3...c70ae6da5d39bc90e09ad2ae0575ccc89f31e284)
+- Headroom: [12864fc → bb8d18a](https://github.com/headroomlabs-ai/headroom/compare/12864fc8f01a1ca6c58440eccef0dabdd3e595b8...bb8d18a56abb07ca7e811235c86ea6b626eb1f8b)
+- BMAD Method: [e734d3a → a867e16](https://github.com/bmad-code-org/BMAD-METHOD/compare/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6...a867e1604b365d48ea03cbd109da1066ba0c84bc)
+- Claude-Mem: [2d8c08c → 3ab6e1a](https://github.com/thedotmack/claude-mem/compare/2d8c08c182af68b20bb7528c7bf989aa871a7d2f...3ab6e1a215c7bbcf716b9d8d763aa78bacba52a0)
+- gstack: [31c3ef0 → 23f9d07](https://github.com/garrytan/gstack/compare/31c3ef01f1178e2364b88643212f7368a33c500e...23f9d07ce9e802ac148a8a353228f201655fc5b8)
+- Caveman: [c310c9d → 1e91f13](https://github.com/JuliusBrussee/caveman/compare/c310c9d300df13a1dd9f5c086120ffd857a164a1...1e91f1306d602d4ca23618701b1185575ae1869b)
+- GSD (Get Shit Done): [f04db9d → 92415cf](https://github.com/open-gsd/gsd-core/compare/f04db9d8b9ec9a2785aed7390baeb950ece604f4...92415cf6adb6624ef3a35262c2a93fec8df742cf)
+- Archify: [a406594 → 11b0d60](https://github.com/tt-a1i/archify/compare/a4065941f12be7967436261d9934784e381d423c...11b0d6031853bdae89eed57e7979aabbf0034097)
+- Impeccable: [687bc38 → 924bbd1](https://github.com/pbakaus/impeccable/compare/687bc381bc9091bf252c0a05303640561014a425...924bbd194d02e5e15a227e75b5901fb0d7a4ecad)
+- UI UX Pro Max: [0da327f → 4f2dbb6](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/0da327f37b436c173ce51177678b65ca92e6f3f7...4f2dbb67e64969a9a30ab00742f2d55d66ddec2b)
+- PPT Master: [f6cfd05 → ce92fb4](https://github.com/hugohe3/ppt-master/compare/f6cfd05fe1e3f2144906c5f9ae8ec5d91612eb0b...ce92fb43e4ade9c701f4c869e286f13fce743c72)
+- OpenMontage: [d21f5d4 → 356b5fa](https://github.com/OpenMontageInc/OpenMontage/compare/d21f5d4eaa08422b09c7091757a05affcbabb35b...356b5fa92474998c9f9a0782fd5547d05837d284)
+- HyperFrames: [7b1d9cc → eb16510](https://github.com/heygen-com/hyperframes/compare/7b1d9ccebf9c7e2c2bd22b7e9d9487ce975d6425...eb16510a10fbc30f230ae2b7d6e5a7ac50e31eeb)
+- AWS MCP servers (data & ops): [d33705e → 658c6a9](https://github.com/awslabs/mcp/compare/d33705e0890e8cf39aa42eeee7b45d6a6e088112...658c6a9c6369eb717ee1785a1c472a0f70ba871a)
+- SQLFluff: [1b6b393 → 2ce9773](https://github.com/sqlfluff/sqlfluff/compare/1b6b3938565f343e8463cf20db4b0065d89c168d...2ce9773271a0629913f268bd15aa47f9ea61c40f)
+- Jira & Confluence MCP (Data Center): [0a5d242 → 73879ec](https://github.com/sooperset/mcp-atlassian/compare/0a5d2427144d72f5aade07d4fabd385421cec401...73879ec28e8aebdb9b2d012c2b6eeaa7da63f63e)
+- Apache DevLake (DORA dashboards): [50459f9 → 420a388](https://github.com/apache/devlake/compare/50459f9ba8f6d752d11564b8080997187d0e29b2...420a3882eba680fd32821ce880614a9a4ed2d4ec)
+- ccusage: [3cf9739 → c5fad98](https://github.com/ccusage/ccusage/compare/3cf9739e482568e6b704bab96e4fa75eb14a1210...c5fad9884f26ec3861de52467300b38ab2cc7835)
+- Keep (alert hub & AIOps): [6692fa7 → 111db7c](https://github.com/keephq/keep/compare/6692fa7b9ec003399db0f390ff4d68941eb6b934...111db7ce8c55c406f9c3126d9cf39f9112774f32)
+- HolmesGPT (AI SRE agent): [131ecb1 → e8eb68d](https://github.com/HolmesGPT/holmesgpt/compare/131ecb19adb9db2c400444b7daf170127002f312...e8eb68d0d369c7cae0b17284d1d67eb2a54202f0)
+- Uptime Kuma (status pages): [1f47802 → c64c6d9](https://github.com/louislam/uptime-kuma/compare/1f47802eab90cabbf362f105e56447f40a07f891...c64c6d950db9149b3f0d98daf76ab591bdaabe7c)
+- wshobson agents (plugin packs): [4bde316 → 9c61ab2](https://github.com/wshobson/agents/compare/4bde3168b43c0655c4d00ea2726e631719908a6d...9c61ab243def98f72da12abd41cfcf5bcd91af9d)
+- rtk (OSS edition): [bd7f87e → fc2d2a8](https://github.com/rtk-ai/rtk/compare/bd7f87eb6e21a17c47ee3c78f698e81b64d7fee5...fc2d2a8c0b8df5aa63e4e4135d052adab9e45849)
+- context-mode: [0491ccb → 9bd2dbf](https://github.com/mksglu/context-mode/compare/0491ccb9c798a95f3f8ee3124c9dcd57b72b8114...9bd2dbf8ee1de646f80fe6ec99d9c1662b07e0e7)
+- CC Switch (desktop): [c6a5a78 → 8656ebd](https://github.com/farion1231/cc-switch/compare/c6a5a789f7e1888fbd18106acbca8df04d11ddee...8656ebd91f3eba631837126e29df71e8353b7e43)
+- Interfaces skills: [f41f027 → 157da62](https://github.com/jakubkrehel/skills/compare/f41f027797f77cb1594a5c718aeee3e6a7fe99ba...157da62016338e8693dcff93d47154a9e36f2157)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.103 → 0.9.104
+- Impeccable: npm:impeccable 4.8.0 → 4.8.1
+- HyperFrames: npm:hyperframes 0.9.20 → 0.9.23
+- Jira & Confluence MCP (Data Center): pypi:mcp-atlassian 0.23.1 → 0.24.1
+- OpenMontage: repo moved from github.com/calesthio/OpenMontage to github.com/OpenMontageInc/OpenMontage; catalog and install commands updated automatically
+
+**Install tests**: 28/28 passed
+
 ## 2026-11-07 16:57 UTC
 
 **Upstream updates**
