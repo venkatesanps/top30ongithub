@@ -299,25 +299,25 @@
   "folder": "20-archify",
   "skill": "archify",
   "path": "archify",
-  "bytes": 4595845,
+  "bytes": 4595964,
   "license": "Apache-2.0",
-  "commit": "11b0d6031853bdae89eed57e7979aabbf0034097"
+  "commit": "7e45f36c66de1254d5ad6ba1d878f6499ea269fd"
  },
  {
   "folder": "21-diagram-design",
   "skill": "diagram-design",
   "path": "skills/diagram-design",
-  "bytes": 1364031,
+  "bytes": 1394234,
   "license": "MIT",
-  "commit": "08f4c575031a0351cbbc66acf2933884009789ec"
+  "commit": "f2496acbde9f45ccb55c24d4f75210c8a1355df8"
  },
  {
   "folder": "22-impeccable",
   "skill": "impeccable",
   "path": "plugin/skills/impeccable",
-  "bytes": 860811,
+  "bytes": 863007,
   "license": "Apache-2.0",
-  "commit": "29c8495e437fc27f5b3115c0daf7c6bf8d49b0f7"
+  "commit": "b856e5010f2dd86bd97f9b2d5e38e33f3d5bd992"
  },
  {
   "folder": "23-ui-ux-pro-max",
@@ -325,319 +325,319 @@
   "path": ".claude/skills/ui-ux-pro-max",
   "bytes": 574111,
   "license": "MIT",
-  "commit": "4f2dbb67e64969a9a30ab00742f2d55d66ddec2b"
+  "commit": "6ae86f61f520d6ca229d2f40e070410638c908c5"
  },
  {
   "folder": "25-marketing",
   "skill": "ab-testing",
   "path": "skills/ab-testing",
-  "bytes": 13038,
+  "bytes": 13059,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "ad-creative",
   "path": "skills/ad-creative",
-  "bytes": 86250,
+  "bytes": 86249,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "ads",
   "path": "skills/ads",
-  "bytes": 76648,
+  "bytes": 76642,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "ai-seo",
   "path": "skills/ai-seo",
-  "bytes": 75266,
+  "bytes": 75261,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "analytics",
   "path": "skills/analytics",
-  "bytes": 16165,
+  "bytes": 16170,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "aso",
   "path": "skills/aso",
-  "bytes": 21316,
+  "bytes": 21297,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "attribution",
   "path": "skills/attribution",
-  "bytes": 31060,
+  "bytes": 31062,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "churn-prevention",
   "path": "skills/churn-prevention",
-  "bytes": 18718,
+  "bytes": 18714,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "co-marketing",
   "path": "skills/co-marketing",
-  "bytes": 9666,
+  "bytes": 9670,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "cold-email",
   "path": "skills/cold-email",
-  "bytes": 32981,
+  "bytes": 32983,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "community-marketing",
   "path": "skills/community-marketing",
-  "bytes": 7363,
+  "bytes": 7364,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "competitor-profiling",
   "path": "skills/competitor-profiling",
-  "bytes": 14034,
+  "bytes": 14053,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "competitors",
   "path": "skills/competitors",
-  "bytes": 11124,
+  "bytes": 11126,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "content-strategy",
   "path": "skills/content-strategy",
-  "bytes": 15543,
+  "bytes": 15542,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "conversion-tracking",
   "path": "skills/conversion-tracking",
-  "bytes": 239004,
+  "bytes": 238991,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "copy-editing",
   "path": "skills/copy-editing",
-  "bytes": 16483,
+  "bytes": 16496,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "copywriting",
   "path": "skills/copywriting",
-  "bytes": 25897,
+  "bytes": 25898,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "cro",
   "path": "skills/cro",
-  "bytes": 11621,
+  "bytes": 11639,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "customer-research",
   "path": "skills/customer-research",
-  "bytes": 18407,
+  "bytes": 18414,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "directory-submissions",
   "path": "skills/directory-submissions",
-  "bytes": 33487,
+  "bytes": 33492,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "emails",
   "path": "skills/emails",
-  "bytes": 14478,
+  "bytes": 14487,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "events",
   "path": "skills/events",
-  "bytes": 20184,
+  "bytes": 20182,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "free-tools",
   "path": "skills/free-tools",
-  "bytes": 8294,
+  "bytes": 8306,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "image",
   "path": "skills/image",
-  "bytes": 11229,
+  "bytes": 11217,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "influencer-marketing",
   "path": "skills/influencer-marketing",
-  "bytes": 23942,
+  "bytes": 23944,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "launch",
   "path": "skills/launch",
-  "bytes": 11913,
+  "bytes": 11914,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "lead-magnets",
   "path": "skills/lead-magnets",
-  "bytes": 19105,
+  "bytes": 19114,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "link-building",
   "path": "skills/link-building",
-  "bytes": 14453,
+  "bytes": 14462,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "marketing-council",
   "path": "skills/marketing-council",
-  "bytes": 34448,
+  "bytes": 34436,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "marketing-ideas",
   "path": "skills/marketing-ideas",
-  "bytes": 12537,
+  "bytes": 12543,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "marketing-loops",
   "path": "skills/marketing-loops",
-  "bytes": 44871,
+  "bytes": 44859,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "marketing-plan",
   "path": "skills/marketing-plan",
-  "bytes": 105900,
+  "bytes": 105905,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "marketing-psychology",
   "path": "skills/marketing-psychology",
-  "bytes": 9407,
+  "bytes": 9419,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "offers",
   "path": "skills/offers",
-  "bytes": 35199,
+  "bytes": 35197,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "onboarding",
   "path": "skills/onboarding",
-  "bytes": 12857,
+  "bytes": 12865,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "paywalls",
   "path": "skills/paywalls",
-  "bytes": 8894,
+  "bytes": 8901,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "popups",
   "path": "skills/popups",
-  "bytes": 5895,
+  "bytes": 5904,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "pricing",
   "path": "skills/pricing",
-  "bytes": 18027,
+  "bytes": 18023,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "product-marketing",
   "path": "skills/product-marketing",
-  "bytes": 10552,
+  "bytes": 10559,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
@@ -645,39 +645,39 @@
   "path": "skills/programmatic-seo",
   "bytes": 10304,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "prospecting",
   "path": "skills/prospecting",
-  "bytes": 47519,
+  "bytes": 47510,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "public-relations",
   "path": "skills/public-relations",
-  "bytes": 34785,
+  "bytes": 34794,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "referrals",
   "path": "skills/referrals",
-  "bytes": 25035,
+  "bytes": 25060,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "reverse-engineer-marketing",
   "path": "skills/reverse-engineer-marketing",
-  "bytes": 184202,
+  "bytes": 184192,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
@@ -685,31 +685,31 @@
   "path": "skills/revops",
   "bytes": 25362,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "sales-enablement",
   "path": "skills/sales-enablement",
-  "bytes": 30159,
+  "bytes": 30162,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "schema",
   "path": "skills/schema",
-  "bytes": 6926,
+  "bytes": 6936,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "seo-audit",
   "path": "skills/seo-audit",
-  "bytes": 29406,
+  "bytes": 29416,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
@@ -717,47 +717,47 @@
   "path": "skills/signup",
   "bytes": 5422,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "site-architecture",
   "path": "skills/site-architecture",
-  "bytes": 18600,
+  "bytes": 18597,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "sms",
   "path": "skills/sms",
-  "bytes": 25832,
+  "bytes": 25839,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "social",
   "path": "skills/social",
-  "bytes": 42820,
+  "bytes": 42806,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "25-marketing",
   "skill": "video",
   "path": "skills/video",
-  "bytes": 23770,
+  "bytes": 23786,
   "license": "MIT",
-  "commit": "a243e49f484cb26d4daf4623a29da37102d91aa8"
+  "commit": "9d6d7ce8d18eb155dc2f9762435f097e60cdad7c"
  },
  {
   "folder": "28-humanizer",
   "skill": "humanizer",
   "path": ".",
-  "bytes": 13483,
+  "bytes": 13531,
   "license": "MIT",
-  "commit": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0"
+  "commit": "b48c832f0f809c1b5658edbb838c2521b72f2413"
  },
  {
   "folder": "30-i-have-adhd",
@@ -1077,7 +1077,7 @@
   "path": "skills/better-accessibility",
   "bytes": 18578,
   "license": "MIT",
-  "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c"
  },
  {
   "folder": "80-interfaces",
@@ -1085,7 +1085,7 @@
   "path": "skills/better-colors",
   "bytes": 19231,
   "license": "MIT",
-  "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c"
  },
  {
   "folder": "80-interfaces",
@@ -1093,7 +1093,7 @@
   "path": "skills/better-interface",
   "bytes": 6154,
   "license": "MIT",
-  "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c"
  },
  {
   "folder": "80-interfaces",
@@ -1101,7 +1101,7 @@
   "path": "skills/better-typography",
   "bytes": 15053,
   "license": "MIT",
-  "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c"
  },
  {
   "folder": "80-interfaces",
@@ -1109,7 +1109,7 @@
   "path": "skills/better-ui",
   "bytes": 15588,
   "license": "MIT",
-  "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c"
  },
  {
   "folder": "80-interfaces",
@@ -1117,7 +1117,7 @@
   "path": "skills/explain-interface",
   "bytes": 15242,
   "license": "MIT",
-  "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c"
  },
  {
   "folder": "80-interfaces",
@@ -1125,6 +1125,6 @@
   "path": "skills/interface-review",
   "bytes": 10532,
   "license": "MIT",
-  "commit": "659cc4e5b6df90cfe1f306f5ae1c83fa549e075c"
+  "commit": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c"
  }
 ]

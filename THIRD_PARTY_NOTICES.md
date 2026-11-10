@@ -12,12 +12,12 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 06-ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | MIT | [96608e078b](https://github.com/DietrichGebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846) |
 | 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [3dc497a7f8](https://github.com/JuliusBrussee/caveman/tree/3dc497a7f858c774d6e15b25e8c6120ef3a0eda8) |
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [f6b76575f9](https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8) |
-| 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [11b0d60318](https://github.com/tt-a1i/archify/tree/11b0d6031853bdae89eed57e7979aabbf0034097) |
-| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [08f4c57503](https://github.com/cathrynlavery/diagram-design/tree/08f4c575031a0351cbbc66acf2933884009789ec) |
-| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [29c8495e43](https://github.com/pbakaus/impeccable/tree/29c8495e437fc27f5b3115c0daf7c6bf8d49b0f7) |
-| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [4f2dbb67e6](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/4f2dbb67e64969a9a30ab00742f2d55d66ddec2b) |
-| 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [a243e49f48](https://github.com/coreyhaines31/marketingskills/tree/a243e49f484cb26d4daf4623a29da37102d91aa8) |
-| 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [0ef9fe5bc3](https://github.com/blader/humanizer/tree/0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0) |
+| 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [7e45f36c66](https://github.com/tt-a1i/archify/tree/7e45f36c66de1254d5ad6ba1d878f6499ea269fd) |
+| 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [f2496acbde](https://github.com/cathrynlavery/diagram-design/tree/f2496acbde9f45ccb55c24d4f75210c8a1355df8) |
+| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [b856e5010f](https://github.com/pbakaus/impeccable/tree/b856e5010f2dd86bd97f9b2d5e38e33f3d5bd992) |
+| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [6ae86f61f5](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/6ae86f61f520d6ca229d2f40e070410638c908c5) |
+| 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [9d6d7ce8d1](https://github.com/coreyhaines31/marketingskills/tree/9d6d7ce8d18eb155dc2f9762435f097e60cdad7c) |
+| 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [b48c832f0f](https://github.com/blader/humanizer/tree/b48c832f0f809c1b5658edbb838c2521b72f2413) |
 | 30-i-have-adhd | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | [1ecea1993b](https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6) |
 | 32-dbt | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | Apache-2.0 | [b8facde20b](https://github.com/dbt-labs/dbt-agent-skills/tree/b8facde20b7a92c40ce3e6b86b71c4b92aa44040) |
 | 34-airflow | [astronomer/agents](https://github.com/astronomer/agents) | Apache-2.0 | [35b9610bb2](https://github.com/astronomer/agents/tree/35b9610bb2710c37ca11326c4cbf7818b6725fec) |
@@ -26,4 +26,4 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 75-n8n | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | MIT | [e037563e10](https://github.com/czlonkowski/n8n-skills/tree/e037563e101749e630e6688d121d04529fe6ee7b) |
 | 77-trailofbits | [trailofbits/skills](https://github.com/trailofbits/skills) | see LICENSE | [e4dd0bb5b1](https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff) |
 | 78-context-engineering | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | MIT | [9ff0c99108](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/9ff0c99108b36d3b886defd825d8ac1f47dba374) |
-| 80-interfaces | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | MIT | [659cc4e5b6](https://github.com/jakubkrehel/skills/tree/659cc4e5b6df90cfe1f306f5ae1c83fa549e075c) |
+| 80-interfaces | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | MIT | [8b254eb75d](https://github.com/jakubkrehel/skills/tree/8b254eb75dadf3615a6abce87aed28e1b6e4d77c) |
