@@ -284,7 +284,7 @@
 	shallow = true
 [submodule "sources/72-obsidian-skills"]
 	path = sources/72-obsidian-skills
-	url = https://github.com/kepano/obsidian-skills.git
+	url = https://github.com/obsidianmd/obsidian-skills.git
 	shallow = true
 [submodule "sources/73-notebooklm-skill"]
 	path = sources/73-notebooklm-skill
