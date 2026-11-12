@@ -25,7 +25,8 @@ guide, and upload-ready skill zips for the Claude app:
 [production & SRE](playbooks/production-and-sre.md), and
 [Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work), and
 [loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step), and
-[15 Claude Code commands, fact-checked](playbooks/claude-commands.md). Read
+[15 Claude Code commands, fact-checked](playbooks/claude-commands.md), and a
+[harness engineering reading path](playbooks/harness-engineering.md). Read
 [Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
 **Field guide:** https://venkatesanps.github.io/top30ongithub/ (refreshed daily)
@@ -225,6 +226,8 @@ claude plugin install top30-ui@top30ongithub      # motion components, your own 
 | `top30-agents` | `goal-writer` + goal gate (hook) | `goal_lint.py` scores a `/goal` condition (stated check, measurable end state, constraints, bound, no self-judged or irreversible steps) and has recipes for pytest, dbt, sqlfluff, `ora2sf`, reconciliation and mypy. Goal gate is a Stop hook that runs a real command and keeps Claude working until it exits 0, with a round limit and same-failure stop. It does nothing until switched on, and its settings live outside the repo. Tests: `tests/goal_tools/`. | ~180 |
 | `top30-agents` | `which-command` | Matches a situation to the right built-in command (`/plan`, `/goal`, `/loop`, `/schedule`, `/batch`, `/subtask`, `/fork`, `/branch`, `/rewind`, `/compact`, `/simplify`, `/code-review`, ...) with the catch each one has. | ~170 |
 | `top30-agents` | `batch-scout` (agent) | Read-only prep for `/batch`: checks the repo, splits the work into units that don't share files, assigns shared files an owner, finds a check per unit, keeps irreversible steps out, and returns the `/batch` line to paste. | ~160 |
+| `top30-agents` | `harness-starter` | For work that spans many sessions, after Anthropic's long-running-agent posts. `harness_kit.py` creates `feature_list.json` (everything starts failing), `claude-progress.txt` and `init.sh`; `lock` and `guard` fail if a feature is removed, reworded or added without sign-off, so only `passes` can change; `mark` needs evidence and logs it. Tests: `tests/harness_kit/`. | ~170 |
+| `top30-agents` | `harness-evaluator` (agent) | The separate, skeptical grader: runs a feature's verification steps itself from a fresh start, tries to break it, spot-checks for regressions, and records pass or fail with evidence. Never fixes code. | ~140 |
 | `top30-ui` | `component-registry` | EasyUI's registry pipeline, reverse-engineered for any repo. `registry_kit.py` scaffolds components (meta + test), builds a shadcn `registry.json` from imports (followed all the way down), validates it against the code, audits accessibility and reduced motion, and writes `llms.txt`. Rebuilds EasyUI's own 132 items with matching dependencies and metadata. Tests: `tests/registry_kit/`. | ~160 |
 | `top30-ui` | `motion-component-builder` | The standard behind those components: shared spring tokens (template adapted from EasyUI, MIT notice kept), every state designed, real elements, focus-visible rings, reduced motion, transform/opacity only, metadata and a test per component. | ~180 |
 | `top30-ui` | `ui-reverse-engineer` (agent) | Point it at a live component, recording or open-source code: it writes a behavior spec (anatomy, states, motion, keyboard, screen reader), rebuilds an original in your stack, and packages it for your registry. Copies behavior, not code or branding, unless the license allows and the notice is kept. | ~130 |

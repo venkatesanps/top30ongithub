@@ -12,3 +12,4 @@ How to turn the catalog into better days at work. Numbers like **45** refer to `
 | [Claude features worth setting up](claude-features.md) | Projects, memory, CLAUDE.md, skills, thinking, artifacts, Design, Chrome, scheduled tasks, prompt caching: fact-checked, with work prompts. |
 | [Loops and graphs](loops-and-graphs.md) | Agent work you don't watch: checks that can fail, loops that stop, graphs that run in parallel, and one human gate where mistakes can't be undone. |
 | [Claude Code commands](claude-commands.md) | The 15 commands from a widely shared list, fact-checked, with the catch each one has and data-engineering examples. |
+| [Harness engineering](harness-engineering.md) | A fact-checked reading path (OpenAI, Anthropic, LangChain, Fowler, the papers), which claims hold up, and the kit tool for each step. |

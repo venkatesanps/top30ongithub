@@ -1,7 +1,7 @@
 {
   "name": "top30-agents",
-  "version": "0.2.0",
-  "description": "Loops and graphs for agent work you don't have to watch, plus Claude Code's built-in commands used well. agent-graph-designer and agent-loop; goal-writer lints /goal conditions and ships goal gate, a Stop hook that keeps Claude working until a real command exits 0 (off until you switch it on); which-command picks the right built-in command; the batch-scout agent prepares safe /batch runs.",
+  "version": "0.3.0",
+  "description": "Loops and graphs for agent work you don't have to watch, plus Claude Code's built-in commands used well. agent-graph-designer and agent-loop; goal-writer lints /goal conditions and ships goal gate, a Stop hook that keeps Claude working until a real command exits 0 (off until you switch it on); which-command picks the right built-in command; the batch-scout agent prepares safe /batch runs; harness-starter sets up a locked feature list, progress log and init script for multi-session work, with a separate harness-evaluator agent.",
   "author": {
     "name": "venkatesanps"
   },
@@ -16,6 +16,8 @@
     "goal",
     "batch",
     "hooks",
-    "commands"
+    "commands",
+    "harness",
+    "long-running"
   ]
 }
