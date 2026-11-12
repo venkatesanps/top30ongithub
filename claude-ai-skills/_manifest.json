@@ -13,7 +13,7 @@
   "path": "skills/engineering/code-review",
   "bytes": 4187,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -21,7 +21,7 @@
   "path": "skills/engineering/diagnosing-bugs",
   "bytes": 5979,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -29,7 +29,7 @@
   "path": "skills/engineering/domain-modeling",
   "bytes": 5474,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -37,7 +37,7 @@
   "path": "skills/productivity/grill-me",
   "bytes": 1233,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -45,7 +45,7 @@
   "path": "skills/engineering/grill-with-docs",
   "bytes": 1331,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -53,7 +53,7 @@
   "path": "skills/productivity/grilling",
   "bytes": 2062,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -61,7 +61,7 @@
   "path": "skills/productivity/handoff",
   "bytes": 1631,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -69,7 +69,7 @@
   "path": "skills/engineering/implement",
   "bytes": 1457,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -77,7 +77,7 @@
   "path": "skills/engineering/retro",
   "bytes": 3106,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -85,7 +85,7 @@
   "path": "skills/engineering/tdd",
   "bytes": 4745,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -93,7 +93,7 @@
   "path": "skills/productivity/teach",
   "bytes": 9928,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -101,7 +101,7 @@
   "path": "skills/engineering/to-spec",
   "bytes": 2509,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -109,7 +109,7 @@
   "path": "skills/engineering/to-tickets",
   "bytes": 3657,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -117,7 +117,7 @@
   "path": "skills/productivity/wait-what",
   "bytes": 1407,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "02-mattpocock",
@@ -125,7 +125,7 @@
   "path": "skills/engineering/wayfinder",
   "bytes": 6192,
   "license": "MIT",
-  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d"
+  "commit": "5863806dd4e15c63174bee4e7515a4256792ecfa"
  },
  {
   "folder": "04-agent-skills",
@@ -307,9 +307,9 @@
   "folder": "21-diagram-design",
   "skill": "diagram-design",
   "path": "skills/diagram-design",
-  "bytes": 1394234,
+  "bytes": 1448560,
   "license": "MIT",
-  "commit": "f2496acbde9f45ccb55c24d4f75210c8a1355df8"
+  "commit": "58ee12c3913407962a061fc993a2f73f9ea8a3dc"
  },
  {
   "folder": "22-impeccable",
@@ -317,7 +317,7 @@
   "path": "plugin/skills/impeccable",
   "bytes": 863007,
   "license": "Apache-2.0",
-  "commit": "c1e0e5492fbb524f5df84d635ecfae7dc438ec45"
+  "commit": "b4bff1626c344067788c2679f048a20057c7cc5a"
  },
  {
   "folder": "23-ui-ux-pro-max",
@@ -1013,7 +1013,7 @@
   "path": "plugins/modern-python/skills/modern-python",
   "bytes": 32564,
   "license": "see LICENSE",
-  "commit": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff"
+  "commit": "149d7b21f4067765b82e67029730b42d228ef4b4"
  },
  {
   "folder": "78-context-engineering",
