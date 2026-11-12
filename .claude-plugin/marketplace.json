@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.6.0"
+    "version": "0.6.1"
   },
   "plugins": [
     {
@@ -33,7 +33,7 @@
       "name": "top30-agents",
       "source": "./plugins/top30-agents",
       "description": "Loops, graphs and harnesses: graph designer, loop harness, /goal writer, goal gate Stop hook, command picker, /batch scout, and a long-running harness starter (locked feature list, progress log) with a separate evaluator agent.",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "category": "development"
     },
     {

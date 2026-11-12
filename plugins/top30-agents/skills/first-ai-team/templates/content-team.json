@@ -1,0 +1,52 @@
+{
+  "name": "story-channel-team",
+  "runs": "recurring",
+  "inputs": ["story_outline", "style_guide"],
+  "nodes": {
+    "script_writer": {
+      "job": "write the bilingual script and scene list from one story outline",
+      "in": ["story_outline", "style_guide"], "out": ["script"], "fails_as": "outline_too_thin",
+      "kind": "model", "size": "strong",
+      "check": "schema: scene count, words per scene, both languages present; banned-word lint",
+      "minutes": 6, "undo": "free", "gate": "auto", "on_fail": "repair", "max_rounds": 3, "context": "own"
+    },
+    "story_checker": {
+      "job": "assess the script against the source outline and the audience rules, and list every problem",
+      "in": ["script", "story_outline"], "out": ["verdict"], "fails_as": "cannot_verify",
+      "kind": "model", "size": "strong",
+      "check": "schema: verdict is pass or fail with a reason per rule; independent re-read of the outline",
+      "minutes": 4, "undo": "free", "gate": "auto", "on_fail": "escalate", "context": "own"
+    },
+    "producer": {
+      "job": "render narration, illustrations and the assembled video from a passed script",
+      "in": ["script", "verdict"], "out": ["video"], "fails_as": "render_failed",
+      "kind": "code",
+      "check": "exit code 0; ffprobe schema: duration in range, audio track and both subtitle tracks present",
+      "minutes": 140, "undo": "free", "gate": "auto", "on_fail": "retry"
+    },
+    "packager": {
+      "job": "write the title, description, tags and thumbnail brief for a passed script",
+      "in": ["script", "verdict"], "out": ["metadata"], "fails_as": "missing_credits",
+      "kind": "model", "size": "small",
+      "check": "schema: title length, description credits the source tale, audience flag set",
+      "minutes": 2, "undo": "free", "gate": "auto", "on_fail": "repair", "max_rounds": 2, "context": "own"
+    },
+    "publish": {
+      "job": "upload the video as private, then make it public on the approved date",
+      "in": ["video", "metadata"], "out": ["upload"], "fails_as": "upload_rejected",
+      "kind": "code",
+      "check": "exit code 0 and the platform returns the video id with the expected privacy status",
+      "minutes": 5, "undo": "irreversible", "gate": "human", "on_fail": "stop"
+    }
+  },
+  "edges": [
+    "script_writer -> story_checker : script",
+    "script_writer -> producer : script",
+    "script_writer -> packager : script",
+    "story_checker -> producer : verdict",
+    "story_checker -> packager : verdict",
+    "producer -> publish : video",
+    "packager -> publish : metadata"
+  ],
+  "drawn_order": ["script_writer", "story_checker", "producer", "packager", "publish"]
+}
