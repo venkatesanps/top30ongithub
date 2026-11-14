@@ -2,6 +2,53 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-14 17:11 UTC
+
+**Upstream updates**
+- Agent Skills (Addy Osmani): [301b02b → 39b723c](https://github.com/addyosmani/agent-skills/compare/301b02b12bff98e4688e6984af6556802322bbde...39b723ceebf81474d0557c1fecd01eddab585563)
+- Career Ops: [a6f64d8 → b0a0375](https://github.com/career-ops-hq/career-ops/compare/a6f64d87abb09cbd7ad6188e3d19c3ac4997b910...b0a03753b70c5cc21cea2066a0b2002ca2099f53)
+- REA (Reverse Engineer Anything): [3cb75d4 → 1ba93b4](https://github.com/morluto/rea/compare/3cb75d46bf6ee0a44d846a4d3e2cc3196e9ba418...1ba93b46022002f6cdf3f682cea2e3009897cf46)
+- Last 30 Days: [b4eb381 → f087650](https://github.com/mvanhorn/last30days-skill/compare/b4eb381ad2f93de86fedb3f40118de6a43d0e6e1...f0876504bdfcada40fcf5a4a3ada014c9408b9ed)
+- Headroom: [c21b081 → fda75de](https://github.com/headroomlabs-ai/headroom/compare/c21b0813bd1b041b1e3ca1d55a07a9498e61f181...fda75de5058443666d558832f587d915974885c0)
+- gstack: [6b033e7 → 81fb900](https://github.com/garrytan/gstack/compare/6b033e79fa06477cbec44875209db65a281e0718...81fb9008351d29fccc3e146d860a9cda8c104a2d)
+- GSD (Get Shit Done): [4504401 → d1ae72c](https://github.com/open-gsd/gsd-core/compare/4504401e4f3cbdabb9ae7d8cf5e80300aea2053f...d1ae72c4de1c2a890aef0a2cdfa60f19152eda36)
+- Impeccable: [c4cd192 → 1995764](https://github.com/pbakaus/impeccable/compare/c4cd1924c389f68d37c687d9c2bbf13f12547c41...1995764b4936f2bfbf4eb719cb37b384a45ceacb)
+- UI UX Pro Max: [6ae86f6 → d643997](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/6ae86f61f520d6ca229d2f40e070410638c908c5...d643997c82e94742dd3bee43210b0198e8bbba3d)
+- Skills by Anthropic: [2c5958e → 1780c5e](https://github.com/anthropics/skills/compare/2c5958ecac7cee2b583967a2c4981d0f4a75c579...1780c5e5a552fd4d1c9d6a7b0cab26b0c2bef064)
+- HyperFrames: [30c0935 → 29533f6](https://github.com/heygen-com/hyperframes/compare/30c0935a243f137c65de401f65f1e0212bee54a2...29533f631fdfd3b5bd733319de49d2a97c1fbf3f)
+- Snowflake AI Kit (Cortex Code): [4d5ed2e → 9259a3b](https://github.com/Snowflake-Labs/snowflake-ai-kit/compare/4d5ed2e1470ebe2160347125efe1ccd57b1c83f7...9259a3b67def2ced6d67e96dc65637d12c3cf40f)
+- dbt MCP server: [7ad50b3 → 201148d](https://github.com/dbt-labs/dbt-mcp/compare/7ad50b3767a33299c01e786ac0e2d6182ba1fbab...201148d7ef294abfd4ba6bfd52141e6fba91b1bf)
+- Agent Toolkit for AWS: [94c87f7 → 19b89b2](https://github.com/aws/agent-toolkit-for-aws/compare/94c87f7415226b89ac8424bb4c207b4db94443b7...19b89b263b725b04082a55b4fc4d24d22f065999)
+- AWS MCP servers (data & ops): [5abaf6a → 5d58a6a](https://github.com/awslabs/mcp/compare/5abaf6ad4d70bd3662cc16bb90c55368f80d6660...5d58a6adaf89a056d0c14e732593dceb12e633df)
+- SQLGlot: [036030a → b294f7f](https://github.com/tobymao/sqlglot/compare/036030a42170acd3ca3cc279fcb43656155fcf5c...b294f7fa89c8a6f59d0c1c963777202d9ef59549)
+- SQLFluff: [6137eee → 56a22f9](https://github.com/sqlfluff/sqlfluff/compare/6137eee2b2551b1322cf48846147bb8be300a15c...56a22f93ae8e54b3095baeae56d740b668c53d3a)
+- Anthropic knowledge-work plugins: [43ccfc0 → e91a134](https://github.com/anthropics/knowledge-work-plugins/compare/43ccfc0d22c5dbe2dd7e1b3670a6fbaed4dfe745...e91a134584eb798bac7fb0379358006a2b63b965)
+- Jira & Confluence MCP (Data Center): [aca6a13 → a633020](https://github.com/sooperset/mcp-atlassian/compare/aca6a13470747ee28e43ac569d3218bf23bfebac...a633020248d6e559c5719c6bcb8f668f76273fd9)
+- Apache DevLake (DORA dashboards): [7d91d19 → a06b44c](https://github.com/apache/devlake/compare/7d91d193999036fa4d4cefd5d3ad348dd10bab37...a06b44c1969ca73a2d43c230a86c6fb4d519a5e3)
+- ccusage: [660e07c → 93d343f](https://github.com/ccusage/ccusage/compare/660e07c9e7993dbdd70ed82699da195b39216955...93d343f844b86db68f9496fb1981cbac7c1b7613)
+- Grafana OTel LGTM (all-in-one): [6fa5344 → 5ffd3a7](https://github.com/grafana/docker-otel-lgtm/compare/6fa5344ba2e660bd93e79b63216d5f352e1775d6...5ffd3a7f9d8c9293cd257fff617c6eb1f2a9ad61)
+- Grafana MCP server: [2570a90 → 4f09d9f](https://github.com/grafana/mcp-grafana/compare/2570a90f957aa7a99408b50220f1649db0fb9bbc...4f09d9f45d352c8e92870bdfe75bf76af416e35f)
+- Uptime Kuma (status pages): [4f6661c → 7e5075d](https://github.com/louislam/uptime-kuma/compare/4f6661cfa83a06be0353d5536ef3d9ee0064f534...7e5075d12c85f7282f9c7b7d6821d56aa3acc688)
+- Ruflo (agent swarms): [002d8c1 → 3a14798](https://github.com/ruvnet/ruflo/compare/002d8c1ac031871fc14220e964f4dbb35b60428f...3a1479883b55b7f786ef0bf3141478e4dfb9444f)
+- context-mode: [6435f3e → 1e50946](https://github.com/mksglu/context-mode/compare/6435f3e711d3ed73d0f5e01ce6bea4241eda5157...1e5094693e8a2e44e3c18262dda8885a960a0c15)
+- CC Switch (desktop): [8c76bfe → 93d2381](https://github.com/farion1231/cc-switch/compare/8c76bfe1e2628fe385b2c009020036d85510b01d...93d2381c8730aaf0078d44cd9c060dfa8133f859)
+- Claude Agent SDK (Python): [22b8eb9 → 4720d36](https://github.com/anthropics/claude-agent-sdk-python/compare/22b8eb9c19adfa78759b79e22bd664a57843bb06...4720d367f7db9d5df8a166c74d7f36a538ac8c34)
+- Claude Code (the CLI): [e44ef77 → 7afddbb](https://github.com/anthropics/claude-code/compare/e44ef7766e6d9c547f7cbeee9de1affe99dc334a...7afddbbc5369f7051a7a841e56475f4737657ba1)
+- Claude Code Action (GitHub): [4d75e5f → 9fa6885](https://github.com/anthropics/claude-code-action/compare/4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8...9fa68854da5fadef4ed3dce240325a0dfe251880)
+- Busabase: [c5552bd → 20610c2](https://github.com/busabase/busabase/compare/c5552bdfa24f3a3f6f005a536997a23f04032f10...20610c2ecce68f9500220e50db7d4ec97030f6fa)
+
+**Notes**
+- Impeccable: npm:impeccable 4.9.0 → 4.9.1
+- HyperFrames: npm:hyperframes 0.9.41 → 0.9.46
+- ccusage: npm:ccusage 20.0.50 → 20.0.51
+- Claude Agent SDK (Python): pypi:claude-agent-sdk 0.2.181 → 0.2.182
+- Claude Code (the CLI): npm:@anthropic-ai/claude-code 2.1.323 → 2.1.325
+- Busabase: npm:busabase 1.3.2 → 1.4.0
+- Busabase: npm:busabase-cli 1.3.2 → 1.4.0
+- Agent Skills (Addy Osmani): per-session tokens ~2,999 → ~3,192
+
+**Install tests**: 30/30 passed
+
 ## 2026-11-13 18:39 UTC
 
 **Upstream updates**

@@ -133,31 +133,31 @@
   "path": "skills/api-and-interface-design",
   "bytes": 7056,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
   "skill": "code-review-and-quality",
   "path": "skills/code-review-and-quality",
-  "bytes": 9671,
+  "bytes": 9688,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
   "skill": "debugging-and-error-recovery",
   "path": "skills/debugging-and-error-recovery",
-  "bytes": 5605,
+  "bytes": 5709,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
   "skill": "documentation-and-adrs",
   "path": "skills/documentation-and-adrs",
-  "bytes": 5824,
+  "bytes": 6488,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
@@ -165,7 +165,7 @@
   "path": "skills/idea-refine",
   "bytes": 18844,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
@@ -173,31 +173,31 @@
   "path": "skills/interview-me",
   "bytes": 6887,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
   "skill": "planning-and-task-breakdown",
   "path": "skills/planning-and-task-breakdown",
-  "bytes": 5271,
+  "bytes": 5335,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
   "skill": "security-and-hardening",
   "path": "skills/security-and-hardening",
-  "bytes": 14391,
+  "bytes": 14417,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "04-agent-skills",
   "skill": "spec-driven-development",
   "path": "skills/spec-driven-development",
-  "bytes": 6392,
+  "bytes": 7746,
   "license": "MIT",
-  "commit": "301b02b12bff98e4688e6984af6556802322bbde"
+  "commit": "39b723ceebf81474d0557c1fecd01eddab585563"
  },
  {
   "folder": "05-superpowers",
@@ -315,9 +315,9 @@
   "folder": "22-impeccable",
   "skill": "impeccable",
   "path": "plugin/skills/impeccable",
-  "bytes": 864988,
+  "bytes": 874555,
   "license": "Apache-2.0",
-  "commit": "c4cd1924c389f68d37c687d9c2bbf13f12547c41"
+  "commit": "1995764b4936f2bfbf4eb719cb37b384a45ceacb"
  },
  {
   "folder": "23-ui-ux-pro-max",
@@ -325,7 +325,7 @@
   "path": ".claude/skills/ui-ux-pro-max",
   "bytes": 574111,
   "license": "MIT",
-  "commit": "6ae86f61f520d6ca229d2f40e070410638c908c5"
+  "commit": "d643997c82e94742dd3bee43210b0198e8bbba3d"
  },
  {
   "folder": "25-marketing",
