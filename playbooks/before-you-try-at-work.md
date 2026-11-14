@@ -11,6 +11,10 @@ In a regulated firm, a few minutes on these questions saves a hard conversation 
   before install, the same as any other open-source dependency.
 - Prefer installing from the official source each entry links to. The catalog flags known fakes
   (for example, counterfeit "REA.exe" downloads).
+- Make "nothing leaves without a yes" mechanical, not a habit: the `top30-private` plugin's egress
+  gate asks before a command, skill or connector sends data out or carries personal data, and its
+  `claude-mem-private` and `ecc-private` agents install those two with telemetry, cloud sync and
+  outbound features off or ask-first.
 
 ## 2. Decide what data the assistant may see
 

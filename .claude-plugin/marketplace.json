@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.6.1"
+    "version": "0.7.0"
   },
   "plugins": [
     {
@@ -42,6 +42,13 @@
       "description": "EasyUI's workflow and motion forensics: motion components, your own shadcn registry, diagnosing how a site's animation is really built, and rebuilding scroll-driven canvas scenes.",
       "version": "0.2.0",
       "category": "design"
+    },
+    {
+      "name": "top30-private",
+      "source": "./plugins/top30-private",
+      "description": "Nothing leaves the machine without a yes: an egress gate hook that asks before commands, skills or connectors send data out or carry personal data, plus claude-mem-private and ecc-private agents that install Claude-Mem and ECC with telemetry off, no cloud sync and ask-first rules, then audit them.",
+      "version": "0.1.0",
+      "category": "security"
     }
   ]
 }

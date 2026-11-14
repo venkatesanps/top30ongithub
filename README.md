@@ -203,7 +203,7 @@ Three notes before installing:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with five plugins of its own:
+This repo is also a Claude Code plugin marketplace with six plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
@@ -212,6 +212,7 @@ claude plugin install top30-ops@top30ongithub     # Datadog app investigator
 claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
 claude plugin install top30-agents@top30ongithub  # loops, graphs, /goal writer + goal gate, /batch scout
 claude plugin install top30-ui@top30ongithub      # motion components, your own shadcn registry, motion forensics
+claude plugin install top30-private@top30ongithub # egress gate + private Claude-Mem and ECC setups
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -234,6 +235,9 @@ claude plugin install top30-ui@top30ongithub      # motion components, your own 
 | `top30-ui` | `ui-reverse-engineer` (agent) | Point it at a live component, recording or open-source code: it writes a behavior spec (anatomy, states, motion, keyboard, screen reader), rebuilds an original in your stack, and packages it for your registry. Copies behavior, not code or branding, unless the license allows and the notice is kept. | ~130 |
 | `top30-ui` | `motion-forensics` | Diagnoses how a site's motion is really built before anyone tries to copy it. `motion_probe.js` runs in the page (or `probe_page.py` in headless Chromium) and `motion_report.py` names the architecture (procedural canvas, WebGL, library timelines, smooth scroll, CSS keyframes, scroll-driven CSS, Lottie, video), why DOM copying fails, and the numbers to reuse. Ships `scroll-scene.js`, a dependency-free engine for scroll-driven canvas scenes, with a demo. Built from zeromark.io, whose motion is ~2,150 lines of hand-written Canvas 2D. Tests: `tests/motion_forensics/`. | ~180 |
 | `top30-ui` | `motion-detective` (agent) | Probes a live page, explains why earlier reverse-engineering failed, writes a motion spec, rebuilds an original with the matching technique, and proves it with side-by-side scroll strips. | ~170 |
+| `top30-private` | egress gate (hook) | Before Bash, Skill, web and connector calls: asks when a command uploads, posts, pushes, publishes, mails or copies to another machine (`curl -d`, `git push`, `gh pr create`, `aws s3 cp`, `scp`, `codex exec`, `ecc ito`, `claude-mem login`...), when a skill sends work to another provider (`astra-review`, `multi-*`, `ito-*`, `social-publisher`, `x-api`, `email-ops`), and when any request carries personal data or secrets (emails, SSNs, Luhn-checked card numbers, phone numbers, cloud keys). Plain downloads and localhost pass. Never blocks, never sends. `TOP30_EGRESS_GATE=off`, an allow list and a PII allow list in `~/.config/top30-private/`. Tests: `tests/private_gate/`. | ~0 (hook) |
+| `top30-private` | `claude-mem-private` (agent) + `cmem_private.py` | Installs Claude-Mem (**15**) with no cmem.ai sign-in, then `plan` / `apply` / `audit`: telemetry off (`DO_NOT_TRACK`, `CLAUDE_MEM_TELEMETRY=0`, `telemetry.json`), cloud sync and TeamBrain off, a local Ollama observer with no cloud fallback, screenshots and auto-update off, worker and Chroma on loopback, secret redaction on, work repos excluded. Every key comes from claude-mem's own settings file; each file is backed up first. | ~110 + ~120 |
+| `top30-private` | `ecc-private` (agent) + `ecc_private.py` | Installs ECC (**3**) once (no stacked installs), adds Claude Code `ask` rules for `codex` and `ecc ito`, pins a hook profile, and audits: ECC found, learning observer off, egress gate on, no blanket allow, and any hosted MCP servers you added. | ~120 |
 
 Always-on costs measured with `claude plugin details` on 2026-11-04.
 
@@ -370,7 +374,8 @@ _Checked 2026-11-13: 81 repos, 79 of 79 install-tested items passing, 1 needing 
 - **REA**: fake "REA.exe" copies circulate. Use only github.com/morluto/rea, rea.tools, or npm `rea-agents`.
 - **gstack** asks you to add CLAUDE.md lines making Claude use its own /browse instead of Claude in Chrome.
 - **OpenMontage** is AGPL-3.0; its AI generation providers need your own API keys.
-- **Claude-Mem** fails Claude Code's plugin-name policy check (names can't start with "claude-") but installs and runs.
+- **Claude-Mem** fails Claude Code's plugin-name policy check (names can't start with "claude-") but installs and runs. Its telemetry is on by default and its installer offers a hosted cmem.ai observer; `top30-private`'s `claude-mem-private` agent sets it up with nothing leaving the machine.
+- **ECC** can send diffs to OpenAI (`/astra-review`), work to other providers (`multi-*`) and requests to an external compute service (`ecc ito`); `top30-private`'s `ecc-private` agent makes each one ask first.
 - **Licences in the "20 to open first" additions**: context-mode is Elastic License 2.0 (source-available, not open source); rtk's default download adds a BUSL-1.1 engine, so the installer uses the Apache-2.0 OSS edition. Everything else added there is MIT or Apache-2.0.
 - **rtk** says its 60–90% figure is smaller bash output, not an equally smaller bill. `rtk init -g` adds a hook and edits your global CLAUDE.md.
 - **CC Switch** is a desktop app that stores your provider API keys locally; at work, use only providers your firm approves.

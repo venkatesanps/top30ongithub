@@ -69,4 +69,5 @@ jobs:
           python3 tests/goal_tools/test_goal_tools.py
           python3 tests/harness_kit/test_harness_kit.py
           python3 tests/first_team/test_first_team.py
+          python3 tests/private_gate/test_private.py
           python3 -m py_compile scripts/ab.py
