@@ -145,6 +145,10 @@ projects to. To make that concrete for a data team, this kit includes one:
   built on the Agent SDK. A custom tool runs sqlglot checks, a hook blocks every write and any
   path outside the folder, and a budget cap stops runaway cost. On the samples it found all seven
   planted problems for about $0.10 with Sonnet.
+- **[examples/nl-sql-assistant](examples/nl-sql-assistant/)**: ask SQLite or Snowflake a question
+  in plain English. Claude writes one query through tool calling; a sqlglot guard, a read-only
+  session and a read-only role each block writes on their own; personal columns are flagged and
+  their values never reach the model. CLI and Streamlit, built test-first with Superpowers (5).
 - **[templates/claude-code-action](templates/claude-code-action/)**: `claude.yml` (tag @claude on
   issues and PRs) and `sql-review-bedrock.yml` (reviews every PR that touches `.sql`, on Amazon
   Bedrock through GitHub OIDC, so there's no Anthropic API key and traffic stays in your AWS account).
