@@ -207,7 +207,7 @@ Three notes before installing:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with six plugins of its own:
+This repo is also a Claude Code plugin marketplace with seven plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
@@ -217,6 +217,7 @@ claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill
 claude plugin install top30-agents@top30ongithub  # loops, graphs, /goal writer + goal gate, /batch scout
 claude plugin install top30-ui@top30ongithub      # motion components, your own shadcn registry, motion forensics
 claude plugin install top30-private@top30ongithub # egress gate + private Claude-Mem and ECC setups
+claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wensity UI: data → dashboard plan, theme check, scout/builder/QA agents
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -242,8 +243,15 @@ claude plugin install top30-private@top30ongithub # egress gate + private Claude
 | `top30-private` | egress gate (hook) | Before Bash, Skill, web and connector calls: asks when a command uploads, posts, pushes, publishes, mails or copies to another machine (`curl -d`, `git push`, `gh pr create`, `aws s3 cp`, `scp`, `codex exec`, `ecc ito`, `claude-mem login`...), when a skill sends work to another provider (`astra-review`, `multi-*`, `ito-*`, `social-publisher`, `x-api`, `email-ops`), and when any request carries personal data or secrets (emails, SSNs, Luhn-checked card numbers, phone numbers, cloud keys). Plain downloads and localhost pass. Never blocks, never sends. `TOP30_EGRESS_GATE=off`, an allow list and a PII allow list in `~/.config/top30-private/`. Tests: `tests/private_gate/`. | ~0 (hook) |
 | `top30-private` | `claude-mem-private` (agent) + `cmem_private.py` | Installs Claude-Mem (**15**) with no cmem.ai sign-in, then `plan` / `apply` / `audit`: telemetry off (`DO_NOT_TRACK`, `CLAUDE_MEM_TELEMETRY=0`, `telemetry.json`), cloud sync and TeamBrain off, a local Ollama observer with no cloud fallback, screenshots and auto-update off, worker and Chroma on loopback, secret redaction on, work repos excluded. Every key comes from claude-mem's own settings file; each file is backed up first. | ~110 + ~120 |
 | `top30-private` | `ecc-private` (agent) + `ecc_private.py` | Installs ECC (**3**) once (no stacked installs), adds Claude Code `ask` rules for `codex` and `ecc ito`, pins a hook profile, and audits: ECC found, learning observer off, egress gate on, no blanket allow, and any hosted MCP servers you added. | ~120 |
+| `top30-wensity` | `wensity-dashboard-kit` | Dashboards on [Wensity UI](https://ui.wensity.com)'s free, MIT primitives (Sidebar, Tabs, Date Picker, Select/Combobox, Chart on Recharts, Data Table). `schema_to_ui.py` reads a CSV/JSON sample and plans the page: column types, the row key Data Table needs (`id` or `getRowId`), chart series with CSS-safe keys (each key becomes `--color-<key>`, so `Opening Bid ($)` would break it), KPIs, filters and the install command. `--format ts` writes the row type, a raw-row mapper, column specs and chart config. Says when Wensity doesn't fit (Streamlit, maps, very large tables). Tests: `tests/wensity_kit/`. | ~120 |
+| `top30-wensity` | `wensity-brand-preset` | One Wensity preset (`wsty1…`) per project so dashboards and sites look alike: brand ramp, chart palette, fonts, radius, dark mode with next-themes, renaming `chili-*`. `token_check.py` (read-only, CI-ready) flags a missing `@theme inline` or `.dark` block, an incomplete ramp, leftover `chili-*`, a Wensity MCP server on `@latest`, and `.wensity-tmp/` committed. | ~130 |
+| `top30-wensity` | `wensity-landing-composer` | Landing and portfolio pages: a section order mapped to Wensity's block categories with free fallbacks, one showpiece animation per page, lazy WebGL with a poster, reduced motion, copy in one typed file, no invented proof, and the Pro license rule (no Pro source in public repos). | ~130 |
+| `top30-wensity` | `wensity-ui-scout` (agent) | Read-only: searches the catalog through Wensity's MCP server (pinned `@wensity/mcp@0.1.2`, project scope), checks the project, maps each zone to Free/Pro items with dependencies, and returns install plans (files, token diff, exact command). It has no install tool. | ~110 |
+| `top30-wensity` | `wensity-dashboard-builder` (agent) | Data source to a working page: profile, plan, **stop for approval**, re-plan and install only if the plan is unchanged, wire the typed page, then type-check and build. Refuses with uncommitted changes, since the installer doesn't roll back package changes. | ~100 |
+| `top30-wensity` | `wensity-ui-qa` (agent) | Read-only gate before merge: tsc, lint and build (the installer runs none), token check, package diff vs. the approved plan, row ids and chart keys, loading/empty/error states, reduced motion, lazy WebGL, and Pro items in a public repo. PASS/FAIL with fixes. | ~120 |
 
-Always-on costs measured with `claude plugin details` on 2026-11-04.
+Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07). `top30-wensity`
+works with Wensity UI, a third-party library (free tier MIT, Pro paid); this repo contains none of its code.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 

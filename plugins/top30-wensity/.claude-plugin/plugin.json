@@ -1,0 +1,8 @@
+{
+  "name": "top30-wensity",
+  "version": "0.1.0",
+  "description": "Dashboards and websites on Wensity UI (React + Tailwind v4). wensity-dashboard-kit turns a CSV/JSON sample into a dashboard plan (columns, chart config with CSS-safe keys, KPIs, filters) built from Wensity's free primitives; wensity-brand-preset keeps one theme per project and checks tokens, dark mode and the MCP pin; wensity-landing-composer lays out a landing page from Wensity blocks with free fallbacks. Agents: wensity-ui-scout (read-only plan), wensity-dashboard-builder (installs only after approval) and wensity-ui-qa (checks before merge).",
+  "author": { "name": "venkatesanps" },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": ["wensity", "react", "tailwind", "dashboard", "data-table", "recharts", "landing-page", "mcp", "design-system"]
+}
