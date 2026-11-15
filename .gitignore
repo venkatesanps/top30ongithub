@@ -5,3 +5,4 @@ node_modules/
 .venv/
 graphify-out/
 build/
+examples/nl-sql-assistant/sample/shop.db

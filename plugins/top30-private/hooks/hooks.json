@@ -1,0 +1,17 @@
+{
+  "description": "egress gate: asks for approval before a command, skill or connector call sends data outside the machine, and before any request carries personal data or secrets. Never blocks outright, never sends anything itself. TOP30_EGRESS_GATE=off switches it off.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell|Skill|WebFetch|WebSearch|mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/egress_gate.py\" hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

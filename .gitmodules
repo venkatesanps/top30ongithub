@@ -100,7 +100,7 @@
 	shallow = true
 [submodule "sources/27-openmontage"]
 	path = sources/27-openmontage
-	url = https://github.com/calesthio/OpenMontage.git
+	url = https://github.com/OpenMontageInc/OpenMontage.git
 	shallow = true
 [submodule "sources/28-humanizer"]
 	path = sources/28-humanizer
@@ -284,7 +284,7 @@
 	shallow = true
 [submodule "sources/72-obsidian-skills"]
 	path = sources/72-obsidian-skills
-	url = https://github.com/kepano/obsidian-skills.git
+	url = https://github.com/obsidianmd/obsidian-skills.git
 	shallow = true
 [submodule "sources/73-notebooklm-skill"]
 	path = sources/73-notebooklm-skill

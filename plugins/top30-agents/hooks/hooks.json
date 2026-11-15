@@ -1,0 +1,16 @@
+{
+  "description": "goal gate: when switched on for a project (goal_gate.py on --check \"...\"), keeps Claude working until that command exits 0. Does nothing otherwise.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hooks/goal_gate.py\" hook",
+            "timeout": 900
+          }
+        ]
+      }
+    ]
+  }
+}

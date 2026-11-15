@@ -1,0 +1,21 @@
+{
+  "name": "top30-private",
+  "version": "0.1.0",
+  "description": "Nothing leaves the machine without a yes. The egress gate hook asks before a command, skill or connector sends data out, and before anything carries personal data or secrets. claude-mem-private installs Claude-Mem with telemetry off, no cloud sync, no cmem.ai sign-in and a local Ollama observer; ecc-private installs ECC with ask-first rules for codex, astra-review and Ito. Both audit what they set.",
+  "author": {
+    "name": "venkatesanps"
+  },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": [
+    "privacy",
+    "pii",
+    "egress",
+    "telemetry",
+    "approval",
+    "hooks",
+    "claude-mem",
+    "ecc",
+    "memory",
+    "security"
+  ]
+}

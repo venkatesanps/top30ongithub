@@ -205,3 +205,5 @@ for injuries a professional has assessed.
 Sources: Anthropic help center articles on memory, projects, skills, model and thinking
 settings, Claude in Chrome and scheduled tasks (support.claude.com); the prompt caching guide
 (platform.claude.com/docs/en/build-with-claude/prompt-caching); Unite.AI on the Claude Design launch.
+
+For the built-in slash commands (`/goal`, `/batch`, `/simplify`, `/rewind` and more), fact-checked with their catches, see [claude-commands.md](claude-commands.md).
