@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant M as Merchant (terminal, Orbital, direct link)
+    participant H as Host (Stratus or Tandem)
+    participant S as Switch
+    participant N as Card network
+    participant I as Issuer
+    M->>H: Auth request (MID, TID, amount, card or token, action code)
+    H->>S: Validated, fraud-checked network message
+    S->>N: Routed by MOP and BIN range
+    N->>I: Forwarded (network stands in if issuer unreachable)
+    I-->>N: Approve / decline / partial, auth code
+    N-->>S: Response
+    S-->>H: Response
+    H-->>M: Response (with TxRefNum on Orbital)

@@ -1,0 +1,7 @@
+flowchart LR
+    R["Retrieval request<br/>No money moves"] --> F["First chargeback<br/>Merchant debited"]
+    F --> P["Representment<br/>Evidence sent via Chase"]
+    P -->|issuer reviews| D{"Issuer accepts?"}
+    D -->|yes| OK["Case closed<br/>Merchant credited back"]
+    D -->|no| PA["Pre-arbitration<br/>Merchant debited again"]
+    PA --> A["Arbitration<br/>Network gives final ruling"]

@@ -1,0 +1,4 @@
+flowchart LR
+    D0["Day 0<br/>Auth approved<br/>Order captured<br/>Batch settles"] --> D1["Day 1<br/>Net deposit by ACH<br/>Per-item fees post (daily billing)"]
+    D1 --> ME["Month end<br/>Monthly and PCI fees<br/>Statement published"]
+    ME --> WL["Weeks later<br/>Chargeback debit<br/>Representment credit if accepted"]

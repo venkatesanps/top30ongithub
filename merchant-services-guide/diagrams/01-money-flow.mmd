@@ -1,0 +1,7 @@
+flowchart LR
+    I["Issuer<br/>Cardholder's bank"] -->|sale amount| N["Card network<br/>Visa, MC, others"]
+    N -->|sale amount| C["Chase<br/>Acquirer"]
+    C -->|sale amount| M["Merchant<br/>Acquirer's client"]
+    M -.->|all fees| C
+    C -.->|interchange + assessments| N
+    N -.->|interchange| I

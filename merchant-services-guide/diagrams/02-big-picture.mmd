@@ -1,0 +1,28 @@
+flowchart TD
+    subgraph ENTRY["Entry points"]
+        POS["POS terminals<br/>Card-present, TID per device"]
+        ORB["Orbital gateway<br/>E-com XML/SOAP, tokens, fraud"]
+        H2H["Host-to-host<br/>Direct links, deposit files"]
+    end
+    POS --> HOSTS
+    ORB --> HOSTS
+    H2H --> HOSTS
+    subgraph HOSTS["Authorization hosts"]
+        STR["Stratus (Salem)<br/>BIN 000001, 6-digit MID"]
+        TAN["Tandem (PNS, Tampa)<br/>BIN 000002, 12-digit MID"]
+    end
+    HOSTS --> SW["Switch (RS switch, confirm internally)<br/>Routes each auth by MOP and BIN range"]
+    SW -->|real-time auth| NET["Card networks<br/>Visa, MC, Discover, debit, Amex"]
+    NET <-->|auth / response| ISS["Issuers<br/>Approve, decline, dispute"]
+    NET -->|clearing files, disputes| BO
+    subgraph BO["Back office, end of day and later"]
+        SET["Settlement<br/>Capture, rejects, interchange"]
+        FEE["Fees and billing<br/>Interchange, assessments, processing"]
+        CB["Chargebacks<br/>Cases, representment, arbitration"]
+    end
+    BO -->|net of fees and chargebacks| FUND["Funding (MFS)<br/>Net transfer, reserves, holds"]
+    FUND -->|ACH, wire| BANK["Merchant bank account"]
+    FUND --> REP["Reporting platform<br/>Warehouse behind every merchant output"]
+    REP --> PORTAL["Resource Online portal"]
+    REP --> DFR["DFR files over SFTP"]
+    REP --> STMT["Monthly statement"]
