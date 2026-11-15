@@ -301,7 +301,7 @@
   "path": "archify",
   "bytes": 4595964,
   "license": "Apache-2.0",
-  "commit": "e37848822238e3a61b12739185cdadd49843a620"
+  "commit": "a7ed6fd6657da90414831d1d42cf95987188750c"
  },
  {
   "folder": "21-diagram-design",
@@ -315,9 +315,9 @@
   "folder": "22-impeccable",
   "skill": "impeccable",
   "path": "plugin/skills/impeccable",
-  "bytes": 874555,
+  "bytes": 879119,
   "license": "Apache-2.0",
-  "commit": "1995764b4936f2bfbf4eb719cb37b384a45ceacb"
+  "commit": "2b86d9c07b97d4bed7de23583e1bd1e58dd2baae"
  },
  {
   "folder": "23-ui-ux-pro-max",
@@ -325,7 +325,7 @@
   "path": ".claude/skills/ui-ux-pro-max",
   "bytes": 574111,
   "license": "MIT",
-  "commit": "d643997c82e94742dd3bee43210b0198e8bbba3d"
+  "commit": "0e8d408204fdc66b8189960dd28cc20d71db188e"
  },
  {
   "folder": "25-marketing",

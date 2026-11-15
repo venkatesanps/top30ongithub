@@ -2,6 +2,42 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-15 17:47 UTC
+
+**Upstream updates**
+- Career Ops: [b0a0375 → 4eb444d](https://github.com/career-ops-hq/career-ops/compare/b0a03753b70c5cc21cea2066a0b2002ca2099f53...4eb444d0ba5fa75569c11ec503e2c0a864cf41fd)
+- REA (Reverse Engineer Anything): [1ba93b4 → 94bf2bd](https://github.com/morluto/rea/compare/1ba93b46022002f6cdf3f682cea2e3009897cf46...94bf2bdecdfa686527f4b676f06575bee05af53f)
+- Graphify: [52cb282 → d4a5b32](https://github.com/Graphify-Labs/graphify/compare/52cb28218eea0c68d80a9f4b2ae102d2fa63e267...d4a5b323ef8501518b82c58a05fe21b35ce24992)
+- Understand Anything: [5cc4aad → b861852](https://github.com/Egonex-AI/Understand-Anything/compare/5cc4aad9b8b43596dfedaee00755a7223825fe9b...b861852dda79273bd9d2e01c3160d42e2df510d2)
+- Last 30 Days: [f087650 → ccea112](https://github.com/mvanhorn/last30days-skill/compare/f0876504bdfcada40fcf5a4a3ada014c9408b9ed...ccea1125cfa9d5922e8766e2e9b5eddef241c827)
+- Headroom: [fda75de → 5023c84](https://github.com/headroomlabs-ai/headroom/compare/fda75de5058443666d558832f587d915974885c0...5023c84e527e28281dd73d1ba04184fe738aac0f)
+- Claude-Mem: [0c488b5 → f876a7a](https://github.com/thedotmack/claude-mem/compare/0c488b54e761d7f6f4091b3a6e1958712f13b19d...f876a7ac0847a641e11a941300792928c62e8536)
+- gstack: [81fb900 → 0326b14](https://github.com/garrytan/gstack/compare/81fb9008351d29fccc3e146d860a9cda8c104a2d...0326b144af36676d599dcf63a9fad9a870d22ed6)
+- GSD (Get Shit Done): [d1ae72c → ae0280d](https://github.com/open-gsd/gsd-core/compare/d1ae72c4de1c2a890aef0a2cdfa60f19152eda36...ae0280d8929de51941c49b9e204ac03efc293c64)
+- Archify: [e378488 → a7ed6fd](https://github.com/tt-a1i/archify/compare/e37848822238e3a61b12739185cdadd49843a620...a7ed6fd6657da90414831d1d42cf95987188750c)
+- Impeccable: [1995764 → 2b86d9c](https://github.com/pbakaus/impeccable/compare/1995764b4936f2bfbf4eb719cb37b384a45ceacb...2b86d9c07b97d4bed7de23583e1bd1e58dd2baae)
+- UI UX Pro Max: [d643997 → 0e8d408](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/d643997c82e94742dd3bee43210b0198e8bbba3d...0e8d408204fdc66b8189960dd28cc20d71db188e)
+- PPT Master: [b243a95 → 3af3e8e](https://github.com/hugohe3/ppt-master/compare/b243a950e9f85998705551fb1b77c6459573ff39...3af3e8ef774c4d67ee57e1306d9256d08c9ee1bf)
+- HyperFrames: [29533f6 → 3a4f572](https://github.com/heygen-com/hyperframes/compare/29533f631fdfd3b5bd733319de49d2a97c1fbf3f...3a4f57252377051f6602bd0149e84f8ead0845b2)
+- Agent Toolkit for AWS: [19b89b2 → f18bffe](https://github.com/aws/agent-toolkit-for-aws/compare/19b89b263b725b04082a55b4fc4d24d22f065999...f18bffee72a2b35cb979a015926208fdab8b6548)
+- AWS MCP servers (data & ops): [5d58a6a → 2ed7f90](https://github.com/awslabs/mcp/compare/5d58a6adaf89a056d0c14e732593dceb12e633df...2ed7f904ae146f5d8bc8e775cbdf69d95e8484ef)
+- SQLFluff: [56a22f9 → c300d7d](https://github.com/sqlfluff/sqlfluff/compare/56a22f93ae8e54b3095baeae56d740b668c53d3a...c300d7da99c80f44b6aec16b76dba1e3e0b54dfc)
+- Jira & Confluence MCP (Data Center): [a633020 → 9336987](https://github.com/sooperset/mcp-atlassian/compare/a633020248d6e559c5719c6bcb8f668f76273fd9...9336987e0e39c835fce6a6e62174ea153284b287)
+- ccusage: [93d343f → ff51a77](https://github.com/ccusage/ccusage/compare/93d343f844b86db68f9496fb1981cbac7c1b7613...ff51a7711168d6e41ec46f4f6e9ff0f75290c682)
+- Keep (alert hub & AIOps): [127a78d → d3f2561](https://github.com/keephq/keep/compare/127a78d915c4880fa75d8b265a49216d6a552588...d3f25612fbc4d72f41ae6ff2ff18ff528319e997)
+- HolmesGPT (AI SRE agent): [0f1bbb9 → c5b89f9](https://github.com/HolmesGPT/holmesgpt/compare/0f1bbb959eee4f9d40fc515370637305feaedb0c...c5b89f970e832d5980fdbfb8b01f3569ca50bca4)
+- context-mode: [1e50946 → b151bbd](https://github.com/mksglu/context-mode/compare/1e5094693e8a2e44e3c18262dda8885a960a0c15...b151bbde8ebb42f6c7d9c0028c2cfd535db2c10b)
+- video-shotcraft: [6700db2 → 253ae59](https://github.com/Vincentwei1021/video-shotcraft/compare/6700db2ba80572ebc777b99d72049679fed9840c...253ae59081cd8f85cee47074eec9ad1121f2e5ad)
+- CC Switch (desktop): [93d2381 → 1d68de3](https://github.com/farion1231/cc-switch/compare/93d2381c8730aaf0078d44cd9c060dfa8133f859...1d68de345884e2484410c427623b386b5b953130)
+- Claude Code (the CLI): [7afddbb → ebbbadc](https://github.com/anthropics/claude-code/compare/7afddbbc5369f7051a7a841e56475f4737657ba1...ebbbadc9617ebe177d22bf64876981159a01e6a7)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.108 → 0.9.109
+- HyperFrames: npm:hyperframes 0.9.46 → 0.9.53
+- Impeccable: per-session tokens ~212 → ~252
+
+**Install tests**: 24/24 passed
+
 ## 2026-11-14 17:11 UTC
 
 **Upstream updates**
