@@ -1,0 +1,13 @@
+flowchart TD
+    subgraph STORE["In store · card present · 2.6% + 10¢"]
+        S1["Tap, dip or swipe<br/>Terminal or reader reads the chip"] --> S2["Encrypted auth request<br/>Terminal ID, entry mode"] --> S3["Issuer approves<br/>Chip data proves the card is real"] --> S4["Batch closes end of day<br/>Card-present interchange"]
+    end
+    subgraph WEB["On your website · card not present · 2.9% + 25¢"]
+        W1["Card or wallet at checkout<br/>On site or hosted payment form"] --> W2["Gateway screens, tokenizes<br/>Authorize.net fraud filters"] --> W3["Issuer approves<br/>Returns AVS and CVV match codes"] --> W4["Capture when goods ship<br/>Card-not-present interchange"]
+    end
+    subgraph GO["On the go · card present · 2.6% + 10¢"]
+        G1["Tap on the phone<br/>Phone NFC acts as the terminal"] --> G2["App sends auth request<br/>Over cellular or Wi-Fi"] --> G3["Issuer approves<br/>Contactless chip data checked"] --> G4["Digital receipt sent<br/>By text or email"]
+    end
+    S4 --> BE["Chase / Paymentech back end, shared by every channel<br/>Network routing, settlement, funding, fees, disputes, reporting"]
+    W4 --> BE
+    G4 --> BE
