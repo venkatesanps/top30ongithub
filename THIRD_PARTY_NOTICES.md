@@ -10,12 +10,12 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 04-agent-skills | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | MIT | [39b723ceeb](https://github.com/addyosmani/agent-skills/tree/39b723ceebf81474d0557c1fecd01eddab585563) |
 | 05-superpowers | [obra/superpowers](https://github.com/obra/superpowers) | MIT | [22f0b463e7](https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7) |
 | 06-ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | MIT | [96608e078b](https://github.com/DietrichGebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846) |
-| 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [b4ee71d557](https://github.com/JuliusBrussee/caveman/tree/b4ee71d557d96e3cbc14f88fa6e953a1362865f5) |
+| 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [9b243662ff](https://github.com/JuliusBrussee/caveman/tree/9b243662ff98d392bc0a95b865a554583d71be75) |
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [f6b76575f9](https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8) |
 | 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [a7ed6fd665](https://github.com/tt-a1i/archify/tree/a7ed6fd6657da90414831d1d42cf95987188750c) |
 | 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [f6db0decea](https://github.com/cathrynlavery/diagram-design/tree/f6db0decea96de66b901331a0f79a8d4b147ebae) |
-| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [2b86d9c07b](https://github.com/pbakaus/impeccable/tree/2b86d9c07b97d4bed7de23583e1bd1e58dd2baae) |
-| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [0e8d408204](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/0e8d408204fdc66b8189960dd28cc20d71db188e) |
+| 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [d41d9860b0](https://github.com/pbakaus/impeccable/tree/d41d9860b0094dcb68030657da63461212835aaa) |
+| 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [e59ff376a4](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/e59ff376a41f7ca47b7541ad5c116495cbade3ee) |
 | 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [1f837447b2](https://github.com/coreyhaines31/marketingskills/tree/1f837447b20bb6f0e72d87b80ece1c221c362c7d) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [b48c832f0f](https://github.com/blader/humanizer/tree/b48c832f0f809c1b5658edbb838c2521b72f2413) |
 | 30-i-have-adhd | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | [1ecea1993b](https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6) |
@@ -25,4 +25,4 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 75-n8n | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | MIT | [e037563e10](https://github.com/czlonkowski/n8n-skills/tree/e037563e101749e630e6688d121d04529fe6ee7b) |
 | 77-trailofbits | [trailofbits/skills](https://github.com/trailofbits/skills) | see LICENSE | [149d7b21f4](https://github.com/trailofbits/skills/tree/149d7b21f4067765b82e67029730b42d228ef4b4) |
 | 78-context-engineering | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | MIT | [9ff0c99108](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/9ff0c99108b36d3b886defd825d8ac1f47dba374) |
-| 80-interfaces | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | MIT | [a72290d140](https://github.com/jakubkrehel/skills/tree/a72290d140249813898ba8648becf6415abcb059) |
+| 80-interfaces | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | MIT | [6c21201036](https://github.com/jakubkrehel/skills/tree/6c2120103600407a1a9986afd834e73144ef8998) |

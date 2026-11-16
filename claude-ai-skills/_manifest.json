@@ -285,7 +285,7 @@
   "path": "skills/caveman",
   "bytes": 8217,
   "license": "Apache-2.0",
-  "commit": "b4ee71d557d96e3cbc14f88fa6e953a1362865f5"
+  "commit": "9b243662ff98d392bc0a95b865a554583d71be75"
  },
  {
   "folder": "19-taste",
@@ -317,15 +317,15 @@
   "path": "plugin/skills/impeccable",
   "bytes": 879119,
   "license": "Apache-2.0",
-  "commit": "2b86d9c07b97d4bed7de23583e1bd1e58dd2baae"
+  "commit": "d41d9860b0094dcb68030657da63461212835aaa"
  },
  {
   "folder": "23-ui-ux-pro-max",
   "skill": "ui-ux-pro-max",
   "path": ".claude/skills/ui-ux-pro-max",
-  "bytes": 574111,
+  "bytes": 583320,
   "license": "MIT",
-  "commit": "0e8d408204fdc66b8189960dd28cc20d71db188e"
+  "commit": "e59ff376a41f7ca47b7541ad5c116495cbade3ee"
  },
  {
   "folder": "25-marketing",
@@ -1053,7 +1053,7 @@
   "path": "skills/better-accessibility",
   "bytes": 18737,
   "license": "MIT",
-  "commit": "a72290d140249813898ba8648becf6415abcb059"
+  "commit": "6c2120103600407a1a9986afd834e73144ef8998"
  },
  {
   "folder": "80-interfaces",
@@ -1061,7 +1061,7 @@
   "path": "skills/better-colors",
   "bytes": 19228,
   "license": "MIT",
-  "commit": "a72290d140249813898ba8648becf6415abcb059"
+  "commit": "6c2120103600407a1a9986afd834e73144ef8998"
  },
  {
   "folder": "80-interfaces",
@@ -1069,7 +1069,7 @@
   "path": "skills/better-interface",
   "bytes": 6154,
   "license": "MIT",
-  "commit": "a72290d140249813898ba8648becf6415abcb059"
+  "commit": "6c2120103600407a1a9986afd834e73144ef8998"
  },
  {
   "folder": "80-interfaces",
@@ -1077,7 +1077,7 @@
   "path": "skills/better-typography",
   "bytes": 15119,
   "license": "MIT",
-  "commit": "a72290d140249813898ba8648becf6415abcb059"
+  "commit": "6c2120103600407a1a9986afd834e73144ef8998"
  },
  {
   "folder": "80-interfaces",
@@ -1085,7 +1085,7 @@
   "path": "skills/better-ui",
   "bytes": 15696,
   "license": "MIT",
-  "commit": "a72290d140249813898ba8648becf6415abcb059"
+  "commit": "6c2120103600407a1a9986afd834e73144ef8998"
  },
  {
   "folder": "80-interfaces",
@@ -1093,7 +1093,7 @@
   "path": "skills/explain-interface",
   "bytes": 15518,
   "license": "MIT",
-  "commit": "a72290d140249813898ba8648becf6415abcb059"
+  "commit": "6c2120103600407a1a9986afd834e73144ef8998"
  },
  {
   "folder": "80-interfaces",
@@ -1101,6 +1101,6 @@
   "path": "skills/interface-review",
   "bytes": 10532,
   "license": "MIT",
-  "commit": "a72290d140249813898ba8648becf6415abcb059"
+  "commit": "6c2120103600407a1a9986afd834e73144ef8998"
  }
 ]
