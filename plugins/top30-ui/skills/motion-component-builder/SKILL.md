@@ -49,6 +49,15 @@ Animate `transform` and `opacity`, not layout properties. Cursor-follow effects 
 `useSpring`/`useMotionValue` (no React state per mouse move). Canvas or particle effects pause
 when off screen and stop under reduced motion.
 
+## 4a. Fast, and confirmed
+
+- Keep every one-shot animation inside the motion budget (under 300 ms; layout morphs up to
+  about 400 ms). Run the `motion-budget` skill's checker on the component before shipping.
+- For actions with no visible result of their own (copy, save, an error), add a cue with
+  `templates/use-feedback.ts`: a short vibration on phones, and a quiet tick only if the product
+  opts in (`useFeedback({ sound: true })`). It stays silent under reduced motion, and the action
+  must work without it. Pair it with a visible change (an icon swap, a toast); never use it alone.
+
 ## 5. Ship it as a registry item
 
 Each component is `src/components/ui/Name.tsx` + `Name.meta.json` (`title`, `description`,

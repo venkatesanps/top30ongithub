@@ -3400,6 +3400,46 @@
     "date": "2026-11-14",
     "result": "pass"
    }
+  },
+  {
+   "n": 82,
+   "collection": "picks",
+   "alt": "npx @subhanhq/amicro@latest add <name>, or browse and copy at https://amicro.dev. Its design-system skill: npx skills add Subhan-code/Amicro--Micro-transitions- -s amicro-design-system",
+   "note": "MIT. Its design-system skill holds a rule worth borrowing: every one-shot animation under 300 ms. This kit's motion-budget skill (top30-ui) enforces that rule on any project; on Amicro's own 157 components it finds 9 warnings (a pattern check). Components leave reduced motion to the app: wrap yours in <MotionConfig reducedMotion=\"user\"> when you copy one.",
+   "row": 4,
+   "name": "Amicro",
+   "repo": "Subhan-code/Amicro--Micro-transitions-",
+   "what": "176 React micro-interaction components and hooks (Motion, Tailwind, TypeScript) as a shadcn registry: morphing icon buttons, card spreads, 3D carousels, loaders, text effects and mono charts.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx shadcn@latest add https://raw.githubusercontent.com/Subhan-code/Amicro--Micro-transitions-/main/registry/ui/fade-in.json"
+   ],
+   "verify": "test -f components/amicro/fade-in.tsx || test -f src/components/amicro/fade-in.tsx || ls components/ui/fade-in.tsx src/components/ui/fade-in.tsx 2>/dev/null | grep -q .",
+   "use": "In a React + Tailwind project with shadcn set up: npx shadcn@latest add https://raw.githubusercontent.com/Subhan-code/Amicro--Micro-transitions-/main/registry/ui/<name>.json",
+   "always_on": "n/a (copied source)",
+   "ci": {
+    "install": [
+     "npx -y shadcn@latest view https://raw.githubusercontent.com/Subhan-code/Amicro--Micro-transitions-/main/registry/ui/fade-in.json > /tmp/amicro-view.json"
+    ],
+    "verify": "grep -q '\"fade-in\"' /tmp/amicro-view.json"
+   },
+   "source": "sources/82-amicro",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "73a6d5c2b28b30ad6f6d98550bb6175cbf51132b",
+    "stars": null,
+    "pushed": "2026-11-08",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "73a6d5c2b28b30ad6f6d98550bb6175cbf51132b"
+   },
+   "verified": {
+    "date": "2026-11-15",
+    "result": "pass"
+   }
   }
  ],
  "schema": 2,

@@ -6,6 +6,10 @@ import type { Transition } from "framer-motion";
  * Spring values adapted from EasyUI (github.com/Surajmaurya1/easyui, src/lib/motion-tokens.ts),
  * MIT License, Copyright (c) 2026 Suraj Maurya. See THIRD_PARTY_NOTICE.md next to this file.
  *
+ * Budget: feedback tokens (springSnappy, springResponsive, easeSoft, easeFast) settle inside 300 ms.
+ * Layout tokens (springGentle, springSmooth, springMorph) take about 330-400 ms on purpose; check
+ * them with `motion_budget.py lint --budget-ms 400`. springSoft smooths continuous cursor motion.
+ *
  * Tuning rules: damping near critical (no wobble) unless overshoot is the point; settle in
  * ~200 ms for feedback, ~400 ms for layout; keep mass low (0.4-1.0) so motion feels immediate.
  */
@@ -23,7 +27,7 @@ export const motionTransitions = {
   /** Cursor-follow smoothing defaults for useSpring. */
   springSoft: { type: "spring", stiffness: 150, damping: 22, mass: 0.9 } as Transition,
   /** Color and opacity changes. */
-  easeSoft: { duration: 0.32, ease: [0.22, 1, 0.36, 1] } as Transition,
+  easeSoft: { duration: 0.28, ease: [0.22, 1, 0.36, 1] } as Transition,
   /** Fast property changes, and the stand-in for movement when reduced motion is on. */
   easeFast: { duration: 0.2, ease: [0.2, 0, 0, 1] } as Transition,
 };
