@@ -106,12 +106,31 @@ def motion_targets(src):
     return spans
 
 
-def has_layout_prop(src, pos):
-    """True when the motion element whose props hold pos also has Motion's layout prop (FLIP, transform-based)."""
+def motion_tag(src, pos):
+    """The opening <motion.x ...> tag that contains pos, or "" when pos isn't inside one."""
     tag = src.rfind("<motion.", 0, pos)
-    if tag == -1 or ">" in re.sub(r"=>|\{[^{}]*\}", "", src[tag:pos]).replace("->", ""):
-        return False
-    return bool(re.search(r"\slayout(?:\s*=\s*(?:\{true\}|['\"](?:position|size|preserve-aspect)['\"]))?(?=[\s/>])", src[tag:pos]))
+    if tag == -1:
+        return ""
+    depth, q, i = 0, None, tag + 1
+    while i < len(src):
+        ch = src[i]
+        if q:
+            q = None if ch == q and src[i - 1] != "\\" else q
+        elif ch in "\"'`":
+            q = ch
+        elif ch == "{":
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+        elif ch == ">" and depth == 0 and src[i - 1] != "=":
+            return src[tag:i + 1] if pos <= i else ""
+        i += 1
+    return ""
+
+
+def has_layout_prop(tag):
+    """True when the tag has Motion's layout prop (it animates size and position with transforms)."""
+    return bool(re.search(r"\slayout(?:\s*=\s*(?:\{true\}|['\"](?:position|size|preserve-aspect)['\"]))?(?=[\s/>])", tag))
 
 
 def inside(pos, spans):
@@ -137,8 +156,11 @@ def lint_js(path, raw):
             if re.search(r"""['"]auto['"]""", val) or re.fullmatch(r"\s*0\s*", val) and m.group(1).startswith(("margin", "padding")):
                 continue  # height: "auto" accordions; padding 0 resets
             pos = a + m.start()
-            if pos in seen or has_layout_prop(src, pos):
+            tag = motion_tag(src, pos)
+            if pos in seen or has_layout_prop(tag):
                 continue
+            if re.search(rf"""\b{m.group(1)}\s*:\s*[^,}}\n]*['"]auto['"]""", tag or obj):
+                continue  # the closed half of an accordion that opens to "auto"
             seen.add(pos)
             loops = re.search(r"\brepeat\s*:\s*(?!0\b)", src[b:b + 600].split("<motion.")[0])
             add("warn", "layout-animation", pos,

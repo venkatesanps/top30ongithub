@@ -86,7 +86,9 @@ CODE = """export const A = () => (
   <a href="#fff" className="bg-[#1A1C1C] text-[#fff] border-[#3ecf8f] rounded-[24px] rounded-[13px] shadow-[0_1px_2px_rgba(0,0,0,.1)]"
      style={{ fontFamily: 'Inter, sans-serif', color: '#123456' }}>
     <span style={{ fontFamily: 'Geist Mono' }} />
-    <span className="font-['Geist_Sans'] font-[system-ui]" />
+    <span className="font-['Geist_Sans'] font-[system-ui] font-[450] font-[family-name:var(--font-pixel)]" />
+    <p>Adding a #5347 to PR #482, order #1234</p>
+    <i style={{ border: '1px solid #123', background: 'linear-gradient(#456, #789)' }} />
   </a>
 );
 """
@@ -150,7 +152,7 @@ def main():
         r = rules(f)
         hexes = sorted(x["found"] for x in f if x["rule"] == "hex-color")
         # #1A1C1C, #fff, #1a1c1c are tokens (case and 3-digit forms normalised); href="#fff" is skipped
-        assert hexes == ["#123456", "#3ecf8f", "#f6f5f3"], hexes  # --paper: #F6F5F2 is the canvas token
+        assert hexes == ["#123", "#123456", "#3ecf8f", "#456", "#789", "#f6f5f3"], hexes  # --paper: #F6F5F2 is the canvas token
         near = next(x for x in f if x["found"] == "#3ecf8f")
         assert "accent" in near["message"], near
         fonts = sorted(x["found"] for x in f if x["rule"] == "undeclared-font")

@@ -25,6 +25,9 @@ python3 $K/design-md/scripts/design_drift.py check DESIGN.md                    
 python3 $K/design-md/scripts/design_drift.py drift DESIGN.md <paths> --json /tmp/drift.json
 ```
 
+`${CLAUDE_PLUGIN_ROOT}` is this plugin's folder. If it isn't set, find the scripts with Glob,
+e.g. `**/skills/motion-perf/scripts/motion_perf.py`, and use that path.
+
 If DESIGN.md sets a motion budget, pass it (`--budget-ms`). If the project uses the kit's
 registry layout (`<Name>.meta.json` beside components), also run
 `$K/component-registry/scripts/registry_kit.py audit`.

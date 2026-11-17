@@ -299,6 +299,14 @@ def css_vars(texts):
     return out
 
 
+def is_color_context(t, pos):
+    """Whether the text before pos reads like a CSS value or a color string, not prose."""
+    before = t[max(0, pos - 40):pos]
+    if re.search(r"""[:(,\[="'`]\s*$""", before):
+        return True
+    return bool(re.search(r"(?:\b(?:solid|dashed|dotted|double|inset|outset|ridge|groove)|\d(?:px|em|rem|%)?)\s+$", before))
+
+
 def first_family(v, lower=True):
     v = v.strip().strip(";").split(",")[0].strip().strip("'\"` ")
     return v.lower() if lower else v
@@ -339,6 +347,8 @@ def drift(design, paths):
                 pre = t[max(0, m.start() - 6):m.start()]
                 if re.search(r"(?:href|id|to)=['\"]?$|url\(\s*$", pre):
                     continue
+                if m.group(1).isdigit() and len(m.group(1)) <= 4 and not is_color_context(t, m.start()):
+                    continue  # "PR #482", "Order #1234": a number in copy, not a color
                 h = norm_hex(m.group(0))
                 if h in pal or h[:7] in pal and len(h) == 9:
                     continue
@@ -347,8 +357,10 @@ def drift(design, paths):
                 add(f, t, m.start(), "warn", "hex-color", f"{m.group(0)} isn't in the palette ({source}).{hint}", m.group(0))
         if fonts:
             for m in re.finditer(r"""font-family\s*:\s*([^;}\n]+)|\bfontFamily\s*:\s*['"`]([^'"`]+)['"`]|(?<![\w-])font-\[['"]?([^\]'"]+)['"]?\]""", t):
-                fam = first_family(m.group(1) or m.group(2) or m.group(3).replace("_", " "))
-                if not fam or fam in GENERIC_FONTS or fam.startswith(("var(", "theme(", "$", "{")) or fam in fonts:
+                raw = m.group(1) or m.group(2) or m.group(3).replace("_", " ")
+                raw = re.sub(r"^\s*family-name\s*:", "", raw)
+                fam = first_family(raw)
+                if not fam or re.fullmatch(r"[\d.]+", fam) or fam in GENERIC_FONTS or fam.startswith(("var(", "theme(", "$", "{")) or fam in fonts:
                     continue
                 add(f, t, m.start(), "warn", "undeclared-font", f"Font {fam!r} isn't used by any typography token (declared: {', '.join(sorted(fonts))}).", fam)
         if radii:

@@ -52,6 +52,10 @@ export function Good({ open, el, items }: Props) {
       <motion.div layout initial={{ width: '4rem' }} animate={{ width: open ? '20rem' : '4rem' }} />
       <motion.div animate={{ x: 120, scaleX: 2 }} />
       <motion.div style={{ y }} exit={{ filter: 'blur(6px)' }} />
+      <motion.section initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0, opacity: 0 }} />
+      <motion.div variants={{ open: { height: "auto" }, closed: { height: 0 } }} animate={open ? "open" : "closed"} />
+      <motion.div animate={{ width: open ? 320 : 64 }} transition={{ duration: 0.2 }} layout />
+      <motion.div animate={{ x: open > 0 ? 8 : 0 }} layout="position" initial={{ width: 0 }} />
     </div>
   );
 }

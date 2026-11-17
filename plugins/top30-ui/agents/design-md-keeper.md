@@ -39,6 +39,9 @@ $D check DESIGN.md
 $D drift DESIGN.md <component and page folders>
 ```
 
+`${CLAUDE_PLUGIN_ROOT}` is this plugin's folder. If it isn't set, find the scripts with Glob,
+e.g. `**/skills/design-md/scripts/design_drift.py`, and use that path.
+
 `check` must be clean of errors. For `drift`, sort the findings: values that are clearly
 mistakes (the code should change), values used in many places (the file should probably gain a
 token), and one-offs to ask about. Don't edit code yourself unless the user asks; hand code

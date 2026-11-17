@@ -73,6 +73,9 @@ python3 ${CLAUDE_PLUGIN_ROOT}/skills/motion-perf/scripts/motion_perf.py lint <fi
 python3 ${CLAUDE_PLUGIN_ROOT}/skills/design-md/scripts/design_drift.py drift DESIGN.md <files>   # if there's a DESIGN.md
 ```
 
+`${CLAUDE_PLUGIN_ROOT}` is this plugin's folder. If it isn't set, find the scripts with Glob,
+e.g. `**/skills/motion-perf/scripts/motion_perf.py`, and use that path.
+
 Fix every finding the code confirms, or say why it stays (a deliberate long reveal, a measured
 height). `npx shadcn@latest build` and `npx shadcn@latest add` download the shadcn CLI from npm:
 ask the user before running them.
