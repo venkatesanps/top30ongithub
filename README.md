@@ -16,9 +16,10 @@ guide, and upload-ready skill zips for the Claude app:
 - **[27 skills, one at a time](#27-skills-one-at-a-time)** (items 72–78, row 14, plus 25 and 28): notes
   and research, writing, marketing, n8n automation, and build & ship, mapped skill by skill to the
   repos they come from.
-- **Picked since the posts** (items 79–82): EasyUI's animated component registry, the
-  Interfaces skills its author builds with and Amicro's micro-interaction components (row 4), and
-  Busabase, a shared, reviewable memory for agents (row 10).
+- **Picked since the posts** (items 79–83): EasyUI's animated component registry, the
+  Interfaces skills its author builds with, Amicro's micro-interaction components and Cult UI's
+  components and agent skills (row 4), and Busabase, a shared, reviewable memory for agents
+  (row 10).
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
@@ -215,7 +216,7 @@ claude plugin install top30-data@top30ongithub    # Oracle → Snowflake, Snowfl
 claude plugin install top30-ops@top30ongithub     # Datadog app investigator
 claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
 claude plugin install top30-agents@top30ongithub  # loops, graphs, /goal writer + goal gate, /batch scout
-claude plugin install top30-ui@top30ongithub      # motion components, your own shadcn registry, motion forensics
+claude plugin install top30-ui@top30ongithub      # components, registry, reviewer, motion checks, DESIGN.md, motion forensics
 claude plugin install top30-private@top30ongithub # egress gate + private Claude-Mem and ECC setups
 claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wensity UI: data → dashboard plan, theme check, scout/builder/QA agents
 ```
@@ -241,6 +242,11 @@ claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wens
 | `top30-ui` | `motion-forensics` | Diagnoses how a site's motion is really built before anyone tries to copy it. `motion_probe.js` runs in the page (or `probe_page.py` in headless Chromium) and `motion_report.py` names the architecture (procedural canvas, WebGL, library timelines, smooth scroll, CSS keyframes, scroll-driven CSS, Lottie, video), why DOM copying fails, and the numbers to reuse. Ships `scroll-scene.js`, a dependency-free engine for scroll-driven canvas scenes, with a demo. Built from zeromark.io, whose motion is ~2,150 lines of hand-written Canvas 2D. Tests: `tests/motion_forensics/`. | ~180 |
 | `top30-ui` | `motion-detective` (agent) | Probes a live page, explains why earlier reverse-engineering failed, writes a motion spec, rebuilds an original with the matching technique, and proves it with side-by-side scroll strips. | ~170 |
 | `top30-ui` | `motion-budget` | Checks that interface motion is fast. `motion_budget.py lint` flags one-shot animations over a time budget (300 ms by default) in Motion, Tailwind and CSS, springs whose computed settle time is too long, ease-in, uncapped stagger and Recharts' 1500 ms default; loops are exempt. `spring` gives a spring's settle time and the fix. The rule is from Amicro's design system (item **82**). `motion-component-builder` also gains a `use-feedback.ts` hook for vibration and optional sound cues. Tests: `tests/motion_budget/`. | ~110 |
+| `top30-ui` | `motion-perf` | Finds animation that is expensive to render. `motion_perf.py lint` flags layout properties animated (`width`, `height`, `left`, `margin`... in Motion targets and variants, motion values in `style`, CSS keyframes and transitions, Tailwind `transition-[width]`; louder when it loops), `transition-all`, scroll handlers that write styles or state, `requestAnimationFrame` loops that never stop, layout reads mixed with style writes, animated blur over 8px, and (as notes) permanent `will-change` and mixed animation libraries. `height: "auto"` and Motion's `layout` are allowed. Warnings only: it's a pattern check. From Cult UI's fixing-motion-performance skill (item **83**); on Cult UI's 141 components: 136 warnings in 51 files. Tests: `tests/motion_perf/`. | ~130 |
+| `top30-ui` | `design-md` | Writes and enforces a `DESIGN.md` in Google's format (YAML tokens for colors, type, radii, spacing and components, then prose sections in a set order). `design_drift.py draft` reads starting tokens from your CSS and components; `check` catches a missing token block or name, broken `{group.token}` references, sections out of order and low-contrast component colors; `drift` finds code that strays (hex colors off the palette with the nearest token, undeclared fonts, off-scale radii, one-off shadows). Offline; `npx @google/design.md lint` stays the reference. Tests: `tests/design_md/`. | ~140 |
+| `top30-ui` | `ui-component-builder` (agent) | Builds one component to the components.build contract Cult UI's agents follow: native props extended, `ref` and `className` passed through, `data-slot` and `data-state`, controlled and uncontrolled, composable parts, `asChild`, accessible. Ships component, demo, registry entry with a description, and docs in the repo's layout, then runs motion-budget, motion-perf and design-md drift on it. DESIGN.md wins. | ~130 |
+| `top30-ui` | `ui-component-reviewer` (agent) | Read-only review of components or a whole library: runs the kit's checkers, reads each component against the contract and the DESIGN.md, opens every finding before reporting it, and returns one ranked table (must fix, should fix, consider). Never edits, installs or fetches. | ~120 |
+| `top30-ui` | `design-md-keeper` (agent) | Writes a DESIGN.md from the code a project already has (adding a token block above a prose-only one without rewriting it), keeps it current as UI changes, and sorts drift into code mistakes, missing tokens and questions for you. | ~120 |
 | `top30-private` | egress gate (hook) | Before Bash, Skill, web and connector calls: asks when a command uploads, posts, pushes, publishes, mails or copies to another machine (`curl -d`, `git push`, `gh pr create`, `aws s3 cp`, `scp`, `codex exec`, `ecc ito`, `claude-mem login`...), when a skill sends work to another provider (`astra-review`, `multi-*`, `ito-*`, `social-publisher`, `x-api`, `email-ops`), and when any request carries personal data or secrets (emails, SSNs, Luhn-checked card numbers, phone numbers, cloud keys). Plain downloads and localhost pass. Never blocks, never sends. `TOP30_EGRESS_GATE=off`, an allow list and a PII allow list in `~/.config/top30-private/`. Tests: `tests/private_gate/`. | ~0 (hook) |
 | `top30-private` | `claude-mem-private` (agent) + `cmem_private.py` | Installs Claude-Mem (**15**) with no cmem.ai sign-in, then `plan` / `apply` / `audit`: telemetry off (`DO_NOT_TRACK`, `CLAUDE_MEM_TELEMETRY=0`, `telemetry.json`), cloud sync and TeamBrain off, a local Ollama observer with no cloud fallback, screenshots and auto-update off, worker and Chroma on loopback, secret redaction on, work repos excluded. Every key comes from claude-mem's own settings file; each file is backed up first. | ~110 + ~120 |
 | `top30-private` | `ecc-private` (agent) + `ecc_private.py` | Installs ECC (**3**) once (no stacked installs), adds Claude Code `ask` rules for `codex` and `ecc ito`, pins a hook profile, and audits: ECC found, learning observer off, egress gate on, no blanket allow, and any hosted MCP servers you added. | ~120 |
@@ -265,7 +271,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-11-16: 82 repos, 80 of 80 install-tested items passing, 1 needing attention. Token costs measured with 2.1.325 (Claude Code) on 2026-11-16._
+_Checked 2026-11-16: 83 repos, 81 of 81 install-tested items passing, 1 needing attention. Token costs measured with 2.1.325 (Claude Code) on 2026-11-16._
 
 **Top 30 from the post**
 
@@ -378,6 +384,7 @@ _Checked 2026-11-16: 82 repos, 80 of 80 install-tested items passing, 1 needing 
 | 80 | Interfaces skills | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 12.2k | 2026-11-16 | pass (2026-11-16) | ~553 | OK |
 | 81 | Busabase | [busabase/busabase](https://github.com/busabase/busabase) | 915 | 2026-11-16 | pass (2026-11-16) | ~470 (est., skills dir) | OK |
 | 82 | Amicro | [Subhan-code/Amicro--Micro-transitions-](https://github.com/Subhan-code/Amicro--Micro-transitions-) | 2.8k | 2026-11-08 | pass (2026-11-16) | n/a (copied source) | OK |
+| 83 | Cult UI | [nolly-studio/cult-ui](https://github.com/nolly-studio/cult-ui) | — | 2026-10-28 | pass (2026-11-16) | n/a (copied source) | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick

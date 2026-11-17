@@ -3440,6 +3440,46 @@
     "date": "2026-11-16",
     "result": "pass"
    }
+  },
+  {
+   "n": 83,
+   "collection": "picks",
+   "alt": "npx shadcn@latest add https://www.cult-ui.com/r/<name>.json (cult-ui.com), or add \"@cult-ui\": \"https://www.cult-ui.com/r/{name}.json\" to registries in components.json and run npx shadcn@latest add @cult-ui/<name>. Its agent skills: npx skills add nolly-studio/cult-ui --skill components-build --skill fixing-motion-performance (its frontend-design skill has the same name as Anthropic's; install it only if you want it to replace that one).",
+   "note": "MIT. Ships the skills its own agents build with: components-build (the components.build API contract), fixing-motion-performance and frontend-design (\"DESIGN.md wins\"), plus a prose DESIGN.md for its site. This kit turns them into the motion-perf and design-md skills and the ui-component-builder, ui-component-reviewer and design-md-keeper agents (top30-ui). motion-perf on its 141 components: 136 warnings in 51 files, most of them layout properties animated (37 on loops, the Halo family's moving glows) and transition-all; a pattern check, confirm before changing.",
+   "row": 4,
+   "name": "Cult UI",
+   "repo": "nolly-studio/cult-ui",
+   "what": "150+ animated React components for shadcn (Motion, Tailwind, TypeScript): dynamic island, docks, expandable cards and toolbars, Halo controls, device mockups, AI chat and agent UI blocks, with a demo for each.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx shadcn@latest add https://raw.githubusercontent.com/nolly-studio/cult-ui/main/apps/www/public/r/shift-card.json"
+   ],
+   "verify": "ls components/ui/shift-card.tsx src/components/ui/shift-card.tsx 2>/dev/null | grep -q .",
+   "use": "In a React + Tailwind project with shadcn set up: npx shadcn@latest add https://www.cult-ui.com/r/<name>.json; browse at https://www.cult-ui.com",
+   "always_on": "n/a (copied source)",
+   "ci": {
+    "install": [
+     "npx -y shadcn@latest view https://raw.githubusercontent.com/nolly-studio/cult-ui/main/apps/www/public/r/shift-card.json > /tmp/cult-ui-view.json"
+    ],
+    "verify": "grep -q '\"shift-card\"' /tmp/cult-ui-view.json"
+   },
+   "source": "sources/83-cult-ui",
+   "status": "ok",
+   "problems": [],
+   "upstream": {
+    "head": "d71b1428b811c2779d46ea41b7ef8c9f9c9991c2",
+    "stars": null,
+    "pushed": "2026-10-28",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "d71b1428b811c2779d46ea41b7ef8c9f9c9991c2"
+   },
+   "verified": {
+    "date": "2026-11-16",
+    "result": "pass"
+   }
   }
  ],
  "schema": 2,

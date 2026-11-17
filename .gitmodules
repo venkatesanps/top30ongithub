@@ -326,3 +326,7 @@
 	path = sources/82-amicro
 	url = https://github.com/Subhan-code/Amicro--Micro-transitions-.git
 	shallow = true
+[submodule "sources/83-cult-ui"]
+	path = sources/83-cult-ui
+	url = https://github.com/nolly-studio/cult-ui.git
+	shallow = true

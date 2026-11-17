@@ -1,7 +1,7 @@
 {
   "name": "top30-ui",
-  "version": "0.3.0",
-  "description": "EasyUI's workflow, reverse-engineered, plus motion forensics. motion-component-builder builds animated React components to one standard; component-registry publishes them as a shadcn GitHub registry; motion-forensics diagnoses how a site's motion is really built (canvas, WebGL, timelines, smooth scroll, CSS) and rebuilds scroll-driven canvas scenes; motion-budget checks that every one-shot animation and spring finishes inside a time budget; agents: ui-reverse-engineer and motion-detective.",
+  "version": "0.4.0",
+  "description": "EasyUI's workflow, reverse-engineered, plus motion forensics. motion-component-builder builds animated React components to one standard; component-registry publishes them as a shadcn GitHub registry; motion-forensics diagnoses how a site's motion is really built (canvas, WebGL, timelines, smooth scroll, CSS) and rebuilds scroll-driven canvas scenes; motion-budget checks that every one-shot animation and spring finishes inside a time budget; motion-perf finds animation that is expensive to render (layout properties, transition-all, scroll handlers, endless frame loops); design-md writes and enforces a DESIGN.md in Google's format; agents: ui-reverse-engineer, motion-detective, ui-component-builder, ui-component-reviewer and design-md-keeper.",
   "author": {
     "name": "venkatesanps"
   },
@@ -16,6 +16,8 @@
     "accessibility",
     "canvas",
     "scroll-animation",
-    "motion"
+    "motion",
+    "design-md",
+    "performance"
   ]
 }

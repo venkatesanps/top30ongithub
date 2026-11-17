@@ -48,6 +48,8 @@ empty, and what happens on touch (no hover) and on small screens.
 Animate `transform` and `opacity`, not layout properties. Cursor-follow effects use
 `useSpring`/`useMotionValue` (no React state per mouse move). Canvas or particle effects pause
 when off screen and stop under reduced motion.
+Run the `motion-perf` skill's checker to catch layout properties, `transition-all`, scroll
+handlers and endless frame loops that slip in.
 
 ## 4a. Fast, and confirmed
 
