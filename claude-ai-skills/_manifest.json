@@ -301,7 +301,7 @@
   "path": "archify",
   "bytes": 4595964,
   "license": "Apache-2.0",
-  "commit": "a7ed6fd6657da90414831d1d42cf95987188750c"
+  "commit": "44781293f38728baf04dbad33ce1a0cef8c39cca"
  },
  {
   "folder": "21-diagram-design",
@@ -957,7 +957,7 @@
   "path": "skills/huggingface-gradio",
   "bytes": 14324,
   "license": "Apache-2.0",
-  "commit": "25910b3d0ba31a2ba102f901cdc9e008c278a69c"
+  "commit": "5291c2b9365e06b175dc04817610c778623f4836"
  },
  {
   "folder": "74-huggingface",
@@ -965,7 +965,7 @@
   "path": "skills/huggingface-local-models",
   "bytes": 11151,
   "license": "Apache-2.0",
-  "commit": "25910b3d0ba31a2ba102f901cdc9e008c278a69c"
+  "commit": "5291c2b9365e06b175dc04817610c778623f4836"
  },
  {
   "folder": "74-huggingface",
@@ -973,7 +973,7 @@
   "path": "skills/huggingface-papers",
   "bytes": 7268,
   "license": "Apache-2.0",
-  "commit": "25910b3d0ba31a2ba102f901cdc9e008c278a69c"
+  "commit": "5291c2b9365e06b175dc04817610c778623f4836"
  },
  {
   "folder": "75-n8n",

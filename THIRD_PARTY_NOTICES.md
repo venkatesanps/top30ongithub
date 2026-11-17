@@ -12,7 +12,7 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 06-ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | MIT | [96608e078b](https://github.com/DietrichGebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846) |
 | 17-caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | Apache-2.0 | [9b243662ff](https://github.com/JuliusBrussee/caveman/tree/9b243662ff98d392bc0a95b865a554583d71be75) |
 | 19-taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | MIT | [f6b76575f9](https://github.com/Leonxlnx/taste-skill/tree/f6b76575f949707b4e3c37cd86cb44b0b98643e8) |
-| 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [a7ed6fd665](https://github.com/tt-a1i/archify/tree/a7ed6fd6657da90414831d1d42cf95987188750c) |
+| 20-archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | Apache-2.0 | [44781293f3](https://github.com/tt-a1i/archify/tree/44781293f38728baf04dbad33ce1a0cef8c39cca) |
 | 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [f6db0decea](https://github.com/cathrynlavery/diagram-design/tree/f6db0decea96de66b901331a0f79a8d4b147ebae) |
 | 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [d41d9860b0](https://github.com/pbakaus/impeccable/tree/d41d9860b0094dcb68030657da63461212835aaa) |
 | 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [e59ff376a4](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/e59ff376a41f7ca47b7541ad5c116495cbade3ee) |
@@ -21,7 +21,7 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 30-i-have-adhd | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | [1ecea1993b](https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6) |
 | 32-dbt | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | Apache-2.0 | [b8facde20b](https://github.com/dbt-labs/dbt-agent-skills/tree/b8facde20b7a92c40ce3e6b86b71c4b92aa44040) |
 | 34-airflow | [astronomer/agents](https://github.com/astronomer/agents) | Apache-2.0 | [35b9610bb2](https://github.com/astronomer/agents/tree/35b9610bb2710c37ca11326c4cbf7818b6725fec) |
-| 74-huggingface | [huggingface/skills](https://github.com/huggingface/skills) | Apache-2.0 | [25910b3d0b](https://github.com/huggingface/skills/tree/25910b3d0ba31a2ba102f901cdc9e008c278a69c) |
+| 74-huggingface | [huggingface/skills](https://github.com/huggingface/skills) | Apache-2.0 | [5291c2b936](https://github.com/huggingface/skills/tree/5291c2b9365e06b175dc04817610c778623f4836) |
 | 75-n8n | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | MIT | [e037563e10](https://github.com/czlonkowski/n8n-skills/tree/e037563e101749e630e6688d121d04529fe6ee7b) |
 | 77-trailofbits | [trailofbits/skills](https://github.com/trailofbits/skills) | see LICENSE | [149d7b21f4](https://github.com/trailofbits/skills/tree/149d7b21f4067765b82e67029730b42d228ef4b4) |
 | 78-context-engineering | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | MIT | [9ff0c99108](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/9ff0c99108b36d3b886defd825d8ac1f47dba374) |
