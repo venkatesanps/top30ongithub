@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><style>body{margin:0;background:#0d0e13}canvas{display:block}</style></head>
+<body><canvas id="c"></canvas>
+<script type="module">
+// Renders fixed frames of the sunburst for visual review: ?scene=home|drill|entrance|zoom|lift|rm&t=ms&w=&h=
+import { prepare, partition, geometry, frameStates, transitionStarts, drawScene, findNode } from './sunburst3d.js';
+const q = new URLSearchParams(location.search);
+const W = +q.get('w') || 640, H = +q.get('h') || 460, scene = q.get('scene') || 'home', t = +q.get('t') || 0;
+const c = document.getElementById('c'), dpr = 2;
+c.width = W * dpr; c.height = H * dpr; c.style.width = W + 'px'; c.style.height = H + 'px';
+const ctx = c.getContext('2d'); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+const data = await (await fetch('./sample.json')).json();
+const root = prepare(data), g = geometry(W, H);
+const home = partition(root), lib = findNode(root, ['Home', 'Library']), drilled = partition(lib);
+let arcs = home, states, lift = new Map();
+if (scene === 'home' || scene === 'rm') states = frameStates(home, null, 0);
+if (scene === 'drill') { arcs = drilled; states = frameStates(drilled, null, 0); }
+if (scene === 'entrance') states = frameStates(home, { kind: 'entrance', ms: 560, staggerMs: 60, rings: 4, innerU: g.inner / g.ringW }, t);
+if (scene === 'zoom') { arcs = drilled; states = frameStates(drilled, { kind: 'zoom', ms: 650, starts: transitionStarts(home, root.path, drilled, g.inner / g.ringW) }, t); }
+if (scene === 'zoomout') { states = frameStates(home, { kind: 'zoom', ms: 650, starts: transitionStarts(drilled, lib.path, home, g.inner / g.ringW) }, t); }
+if (scene === 'lift') { states = frameStates(home, null, 0); const a = home.filter((x) => x.depth === 2)[+q.get('i') || 3]; lift.set(a.key, 1); }
+drawScene(ctx, g, arcs, states, lift, { puckLift: scene === 'lift' ? 0 : 0 });
+document.title = 'done';
+</script></body></html>

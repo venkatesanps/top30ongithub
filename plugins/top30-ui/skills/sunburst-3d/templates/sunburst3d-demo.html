@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tilted sunburst: disk usage</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: radial-gradient(120% 80% at 50% 0%, #171922 0%, #0b0c10 60%); color: #e9ebf2;
+         font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; display: grid; place-items: start center; }
+  main { width: min(760px, 100%); padding: 28px 16px 40px; }
+  h1 { font-size: 22px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .sub { color: #9aa0b2; margin: 0 0 18px; font-size: 14px; }
+  nav { display: flex; align-items: center; gap: 8px; min-height: 34px; margin-bottom: 6px; }
+  nav button { font: inherit; font-size: 13px; color: #c9cdf5; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+               border-radius: 8px; padding: 4px 10px; cursor: pointer; transition: background-color .15s; }
+  nav button:hover { background: rgba(255,255,255,.12); }
+  nav button:disabled { opacity: .35; cursor: default; }
+  .crumbs { font-size: 13px; color: #9aa0b2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .crumbs b { color: #e9ebf2; font-weight: 600; }
+  #chart { width: 100%; height: min(72vw, 520px); min-height: 300px; }
+  .hint { font-size: 13px; color: #8a90a2; text-align: center; margin: 6px 0 0; }
+  details { margin-top: 18px; font-size: 14px; }
+  summary { cursor: pointer; color: #c9cdf5; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-variant-numeric: tabular-nums; }
+  td, th { text-align: left; padding: 6px 8px; border-bottom: 1px solid rgba(255,255,255,.08); }
+  td:nth-child(n+2), th:nth-child(n+2) { text-align: right; }
+  .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Where the space went</h1>
+  <p class="sub">A sample home folder, 4 levels deep. Hover to lift a folder, tap to open it, tap the center to go back.</p>
+  <nav>
+    <button id="up" type="button" aria-label="Go up one level">&larr; Up</button>
+    <span class="crumbs" id="crumbs"></span>
+  </nav>
+  <div id="chart"></div>
+  <p class="hint">Keyboard: focus the chart, arrows to move, Enter to open, Escape to go back.</p>
+  <details>
+    <summary>Show as a table</summary>
+    <table><thead><tr><th>Folder</th><th>Size</th><th>Share</th></tr></thead><tbody id="rows"></tbody></table>
+  </details>
+</main>
+<script type="module">
+import { Sunburst3D, CSS, arcColor, rgb, formatBytes } from './sunburst3d.js';
+
+// Sample data: a seeded, made-up home folder (sizes in bytes).
+function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6d2b79f5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
+const rand = rng(11);
+const GB = 1e9;
+const leaf = (name, gb) => ({ name, size: Math.round(gb * GB) });
+function bunch(prefix, n, total, depth) {
+  const w = Array.from({ length: n }, (_, i) => (1 / (i + 1.3)) ** 1.1 * (0.6 + rand()));
+  const sum = w.reduce((a, b) => a + b, 0);
+  return w.map((x, i) => {
+    const gb = (total * x) / sum, name = `${prefix} ${i + 1}`;
+    return depth > 0 && gb > 0.4 && rand() < 0.7 ? { name, children: bunch(prefix, 3 + Math.floor(rand() * 5), gb, depth - 1) } : leaf(name, gb);
+  });
+}
+const data = {
+  name: 'Home',
+  children: [
+    { name: 'Library', children: [
+      { name: 'Caches', children: [ { name: 'Browser', children: bunch('Profile', 4, 9.5, 1) }, { name: 'Package managers', children: bunch('Cache', 6, 7.2, 1) }, ...bunch('App cache', 9, 6.1, 0) ] },
+      { name: 'Application Support', children: bunch('App', 10, 31, 2) },
+      { name: 'Containers', children: bunch('Container', 8, 14, 1) },
+      { name: 'Developer', children: [ { name: 'Build products', children: bunch('Project', 6, 22, 1) }, { name: 'Simulators', children: bunch('Device', 5, 18, 0) } ] },
+      { name: 'Mail', children: bunch('Mailbox', 6, 4.2, 0) },
+      leaf('Logs', 1.6),
+    ] },
+    { name: 'Movies', children: [ { name: 'Exports', children: bunch('Clip', 7, 38, 0) }, { name: 'Screen recordings', children: bunch('Recording', 9, 21, 0) } ] },
+    { name: 'Pictures', children: [ { name: 'Photo library', children: bunch('Year', 8, 64, 1) }, { name: 'Screenshots', children: bunch('Month', 12, 3.4, 0) } ] },
+    { name: 'Projects', children: bunch('repo', 12, 46, 2) },
+    { name: 'Downloads', children: [ ...bunch('Installer', 6, 12, 0), ...bunch('Archive', 8, 9, 0), ...bunch('File', 40, 3, 0) ] },
+    { name: 'Documents', children: bunch('Folder', 9, 19, 2) },
+    { name: 'Music', children: bunch('Album', 14, 11, 0) },
+    { name: 'Virtual machines', children: bunch('Disk image', 3, 26, 0) },
+    { name: 'Desktop', children: bunch('Item', 20, 2.4, 0) },
+  ],
+};
+
+document.head.insertAdjacentHTML('beforeend', `<style>${CSS}</style>`);
+const crumbs = document.getElementById('crumbs'), upBtn = document.getElementById('up'), rows = document.getElementById('rows');
+let chart;
+function sync(node) {
+  const p = node.path;
+  crumbs.innerHTML = p.map((n, i) => (i === p.length - 1 ? `<b>${esc(n)}</b>` : esc(n))).join(' / ') + ` &middot; ${formatBytes(node.size)}`;
+  upBtn.disabled = p.length < 2;
+  rows.innerHTML = '';
+  for (const a of chart.arcs.filter((c) => c.depth === 1)) {
+    const tr = rows.insertRow();
+    tr.insertCell().innerHTML = `<span class="sw" style="background:${rgb(arcColor(a))}"></span>${esc(a.node.name)}`;
+    tr.insertCell().textContent = formatBytes(a.node.size);
+    tr.insertCell().textContent = `${Math.round((100 * a.node.size) / node.size)}%`;
+  }
+}
+function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]); }
+
+chart = new Sunburst3D(document.getElementById('chart'), data, { ariaLabel: 'Disk usage', onFocus: sync });
+sync(chart.focusNode);
+upBtn.addEventListener('click', () => chart.up());
+window.chart = chart; // handy in the console
+
+// One guided drill after the entrance, unless the visitor gets there first.
+let touched = false;
+document.getElementById('chart').addEventListener('pointerdown', () => { touched = true; }, { once: true });
+setTimeout(() => { if (!touched && chart.focusNode.path.length === 1) chart.focus(['Home', 'Library']); }, 2600);
+</script>
+</body>
+</html>
