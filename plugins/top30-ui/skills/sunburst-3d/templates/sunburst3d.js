@@ -227,7 +227,7 @@ export function frameStates(arcs, tr, t) {
       const k = clamp01((t - (c.depth - 1) * tr.staggerMs) / tr.ms);
       if (k >= 1) { out.set(c.key, end); continue; }
       const sweep = ease.outCubic(k), grow = ease.outBack(k);
-      out.set(c.key, { a0: c.a0 * sweep, a1: c.a1 * sweep, u0: mix(-tr.innerU, end.u0, grow), u1: mix(-tr.innerU, end.u1, grow), alpha: clamp01(k * 2.5) });
+      out.set(c.key, { a0: c.a0 * sweep, a1: c.a1 * sweep, u0: mix(-tr.innerU, end.u0, grow), u1: mix(-tr.innerU, end.u1, grow), alpha: clamp01(k * 2) });
     } else {
       if (t >= tr.ms) { out.set(c.key, end); continue; }
       const k = ease.inOutCubic(clamp01(t / tr.ms)), s = tr.starts.get(c.key) || end;
@@ -303,7 +303,8 @@ export function wallJobs(g, items, lifted) {
   const edges = (d) => (byDepth.get(d) || []).filter((x) => x !== lifted).map((x) => [x.s.a0, x.s.a1]).sort((p, q) => p[0] - q[0]);
   for (const it of items) {
     const { arc, s, px } = it, free = it === lifted;
-    const zTop = it.z, zBot = -g.thick;
+    // A lifted arc's walls stop at the surface: below it the neighbours' own walls show the hole.
+    const zTop = it.z, zBot = free ? 0 : -g.thick;
     // Outer wall: faces the viewer on the near half (cos a < 0); hidden where the next ring covers it.
     const outer = free ? [[s.a0, s.a1]] : uncovered(s.a0, s.a1, edges(arc.depth + 1));
     for (const [b0, b1] of outer) {
@@ -400,15 +401,15 @@ export function drawPuck(ctx, g, hot = 0, o = DEFAULTS) {
   ctx.fillStyle = '#121318';
   ctx.fill();
   const top = ctx.createLinearGradient(0, g.cy - z - r * g.tilt, 0, g.cy - z + r * g.tilt);
-  const v = (a, b) => { const k = Math.round(a + (b - a) * hot); return `rgb(${k}, ${k}, ${k + 7})`; };
-  top.addColorStop(0, v(60, 78));
-  top.addColorStop(1, v(26, 36));
+  const v = (a, b) => { const k = Math.round(a + (b - a) * hot); return `rgb(${k}, ${k + 1}, ${k + 10})`; };
+  top.addColorStop(0, v(52, 70));
+  top.addColorStop(1, v(22, 30));
   ctx.beginPath();
   ctx.ellipse(g.cx, g.cy - z, r, r * g.tilt, 0, 0, TAU);
   ctx.fillStyle = top;
   ctx.fill();
-  ctx.strokeStyle = `rgba(255, 255, 255, ${0.14 + 0.2 * hot})`;
-  ctx.lineWidth = 1.25;
+  ctx.strokeStyle = `rgba(255, 255, 255, ${0.12 + 0.22 * hot})`;
+  ctx.lineWidth = 1;
   ctx.stroke();
   void o;
   return z;
@@ -568,7 +569,7 @@ export class Sunburst3D {
       const parent = findNode(this.root, h.path.slice(0, -1)) || this.focusNode;
       this.tip.innerHTML = '<b></b><span></span>';
       this.tip.firstChild.textContent = h.node.name;
-      this.tip.lastChild.textContent = `${this.o.formatSize(h.node.size)} · ${Math.round((100 * h.node.size) / (parent.size || 1))}% of ${parent.name}${h.kind === 'dir' ? ' · click to open' : ''}`;
+      this.tip.lastChild.textContent = `${this.o.formatSize(h.node.size)} · ${Math.round((100 * h.node.size) / (parent.size || 1))}% of ${parent.name}${h.kind === 'dir' ? (this.lastPointer === 'touch' ? ' · tap again to open' : ' · click to open') : ''}`;
       const left = Math.min(Math.max(8, x + 14), this.w - 200), top = Math.max(8, y - 44);
       this.tip.style.cssText = `left:${left}px;top:${top}px;opacity:1`;
     } else this.tip.style.opacity = '0';
@@ -580,12 +581,17 @@ export class Sunburst3D {
 
   _bind() {
     this.handlers = {
-      move: (e) => { if (!this.g) return; const [x, y] = this._point(e); this._setHover(hitTest(this.g, this.arcs, x, y), x, y); },
-      leave: () => this._setHover(null),
+      move: (e) => { if (!this.g || e.pointerType === 'touch') return; const [x, y] = this._point(e); this._setHover(hitTest(this.g, this.arcs, x, y), x, y); },
+      leave: (e) => { if (e.pointerType !== 'touch') this._setHover(null); },
+      down: (e) => { this.lastPointer = e.pointerType; },
       click: (e) => {
         const [x, y] = this._point(e), hit = hitTest(this.g, this.arcs, x, y);
-        if (hit === 'center') this.up();
-        else if (hit && hit.kind === 'dir') this.focus(hit.path);
+        const touch = this.lastPointer === 'touch' || this.lastPointer === 'pen';
+        if (hit === 'center') { this.up(); return; }
+        // Touch has no hover: the first tap selects (lift, tooltip, center label), a second tap opens.
+        if (touch && hit !== this.hover) { this._setHover(hit, x, y); return; }
+        if (hit && hit.kind === 'dir') this.focus(hit.path);
+        else if (touch && !hit) this._setHover(null);
       },
       key: (e) => {
         const ring = this.arcs.filter((c) => c.depth === 1);
@@ -604,6 +610,7 @@ export class Sunburst3D {
         }
       },
     };
+    this.canvas.addEventListener('pointerdown', this.handlers.down);
     this.canvas.addEventListener('pointermove', this.handlers.move);
     this.canvas.addEventListener('pointerleave', this.handlers.leave);
     this.canvas.addEventListener('click', this.handlers.click);
@@ -611,6 +618,7 @@ export class Sunburst3D {
   }
 
   _unbind() {
+    this.canvas.removeEventListener('pointerdown', this.handlers.down);
     this.canvas.removeEventListener('pointermove', this.handlers.move);
     this.canvas.removeEventListener('pointerleave', this.handlers.leave);
     this.canvas.removeEventListener('click', this.handlers.click);

@@ -10,9 +10,11 @@ walls. It reads as an object you can poke: hovering lifts a slice, clicking one 
 the dark puck in the middle takes you back up. Disk analyzers use it to show where space went.
 
 The case this skill was built from is the hero chart on maczentra.com (a Mac disk analyzer).
-Its behavior was observed in a browser and written down; the code here is an independent
-implementation, with its own defaults, colors and sample data. Nothing from that site's source,
-data, text or brand is included.
+It was studied in a browser: its behavior on load, hover and click, and its shipped (minified)
+script, read for the technique (squashed-ellipse projection, which walls to draw and in what
+order, how arcs move between levels). The code here was written fresh from those notes, with
+its own defaults, shading, colors and sample data; none of that site's code, data, text or brand
+is included. Touch, reduced motion and zoom-out on the original were not observed.
 
 ## Files
 
@@ -100,6 +102,8 @@ For other hierarchies (cost by service, budget lines, bundle modules), build the
   one family of hues as you drill. Deeper rings get lighter and calmer; files are less saturated
   than folders; merged arcs are near-grey. Identity is never color alone: tooltip, center label
   and the table view name everything.
+- **Input.** Mouse hovers to lift and clicks to open. Touch has no hover, so the first tap
+  selects (lift, tooltip, center label) and a second tap on the same folder opens it.
 - **Motion.** Entrance: each ring sweeps open from 12 o'clock (ease-out) and grows from the puck
   (ease-out-back), rings 60 ms apart. Drill: every arc on screen moves from where it was to where
   it ends (ease-in-out); arcs new to the screen open out of their parent; the old focus starts as

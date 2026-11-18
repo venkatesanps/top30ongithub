@@ -98,6 +98,8 @@ const lifted = items.find((x) => x.arc.depth === 2 && x.s.a0 < 0.5);
 lifted.z = 5;
 const lj = sb.wallJobs(g, [lifted], lifted);
 check(lj.some((j) => j.type === 'inner') || lifted.s.a0 > Math.PI / 2, 'a lifted arc on the far side shows its inner wall');
+check(lj.length > 0 && lj.every((j) => j.zBot === 0 && j.zTop === 5), "a lifted arc's walls run from its lift down to the surface, not through the neighbours");
+check(jobs.every((j) => j.zBot === -g.thick), 'resting walls run the full slab height');
 
 // drawScene runs against a recording context
 const calls = [];
