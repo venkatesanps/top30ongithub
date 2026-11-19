@@ -2,6 +2,59 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-19 19:35 UTC
+
+**Upstream updates**
+- Matt Pocock Skills: [5863806 → abeeaf9](https://github.com/mattpocock/skills/compare/5863806dd4e15c63174bee4e7515a4256792ecfa...abeeaf95660ba9e8b7c753eb38f441ca707a8823)
+- Agent Skills (Addy Osmani): [39b723c → 8c99fa3](https://github.com/addyosmani/agent-skills/compare/39b723ceebf81474d0557c1fecd01eddab585563...8c99fa36d90068c82d547f7c12a9d67a3e95f4ee)
+- Career Ops: [0060d0c → 3c15976](https://github.com/career-ops-hq/career-ops/compare/0060d0c0910802ded92907be11b261b7da0fa5fc...3c15976d1c434403b73c5b6ca641101b85a30c65)
+- REA (Reverse Engineer Anything): [b236bcf → b5a9d48](https://github.com/morluto/rea/compare/b236bcfe34a006fa61e6df0924ba6b4784870b09...b5a9d487344f21e299df8928c37dcd88160ab1b3)
+- Last 30 Days: [a854f3b → 2623916](https://github.com/mvanhorn/last30days-skill/compare/a854f3bcb2c4344d7498426d653378510f8b253a...262391603f3c2807606bffa0170547273fc273e5)
+- Headroom: [53a2521 → 3a8270b](https://github.com/headroomlabs-ai/headroom/compare/53a2521637ec6d71a5b53e11f5698ebef96d97b1...3a8270b836bc9ffa050eb7066a902ea936bc7ef2)
+- Claude-Mem: [f8f3681 → c0f37d6](https://github.com/thedotmack/claude-mem/compare/f8f3681c5fdb73849cda08ec651c83c380edb319...c0f37d60b2e4860851575e3cbb003f23fc340d4e)
+- gstack: [2f57b07 → ab6a38b](https://github.com/garrytan/gstack/compare/2f57b07495f04e53ab146747d48dd9aed2aded29...ab6a38b76753a3aebf948781ca065745ab1213da)
+- GSD (Get Shit Done): [1bef0db → 5e981b9](https://github.com/open-gsd/gsd-core/compare/1bef0db56cba1f46234e9eda455b40df59c88af4...5e981b968dab3dd2cc87ea95514f4ae675e952a5)
+- Diagram Design: [bddddb6 → d74d8c2](https://github.com/cathrynlavery/diagram-design/compare/bddddb607f0416815084b7db25255ee646076ca9...d74d8c2d0c78a9e1efd43137f6a9a51182a8b5f0)
+- Impeccable: [d41d986 → b49177d](https://github.com/pbakaus/impeccable/compare/d41d9860b0094dcb68030657da63461212835aaa...b49177d32788f2dc585c42831d845dacf1ebed2c)
+- UI UX Pro Max: [ed766d3 → 2de1134](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/ed766d3bf62f32c8d27762ad49abdc3a4744c84f...2de1134dc4d1cfe112934611ae5803ae17a1bd7e)
+- PPT Master: [4478b1f → d8f704b](https://github.com/hugohe3/ppt-master/compare/4478b1f464442269f480a8a6265acc37174e4e7e...d8f704bc8c1552d53a8769b55d1eecd22c782042)
+- Humanizer: [b48c832 → a32f244](https://github.com/blader/humanizer/compare/b48c832f0f809c1b5658edbb838c2521b72f2413...a32f24407364c74c812b43c15926d638bee1e072)
+- HyperFrames: [284b28b → 77134c9](https://github.com/heygen-com/hyperframes/compare/284b28bfcee50440a412f66aa8b66df5ab966eaa...77134c92735f0101a78d8ff54e5eacef00a3d862)
+- Agent Toolkit for AWS: [bd7e001 → 12d7f78](https://github.com/aws/agent-toolkit-for-aws/compare/bd7e0013bf3db2f15ce81dedd824eba1380e4a5d...12d7f7868707fbb10a9616ff5e1ba6b19af7dba1)
+- AWS MCP servers (data & ops): [6b8a6f7 → 0386d53](https://github.com/awslabs/mcp/compare/6b8a6f7878f1a4d151ca8af6f597440f19b6a47f...0386d53aad258e58163e6bba2bc4ca78780dd526)
+- Oracle SQLcl MCP server: [cdea374 → dbf167e](https://github.com/oracle/mcp/compare/cdea374d50c230c221fe4ea306fcd953b3977ef9...dbf167e8436cf5bd7f73c22ddb09acda4f3328e9)
+- SQLGlot: [a59724c → c6707fb](https://github.com/tobymao/sqlglot/compare/a59724cdf3a05f061e4faceae3f28ba59b9e28b7...c6707fb4564140f587e7361c3e7dadebd54b189a)
+- SQLFluff: [1f410e7 → 0dc8d9b](https://github.com/sqlfluff/sqlfluff/compare/1f410e71a97d2d71596a22a1495f86732a01dc19...0dc8d9b78c52edd44855f3b346b6719f1ff29ec2)
+- Apache DevLake (DORA dashboards): [4725fc7 → 652d7da](https://github.com/apache/devlake/compare/4725fc75479bac987566ef1f04c44e22340f9b8f...652d7da9323fd4447d3c2d3705f482ff5a9f54d8)
+- ccusage: [7ac5f23 → 20734a9](https://github.com/ccusage/ccusage/compare/7ac5f2329fe1cd6bed5645867b18703ad86aaba5...20734a97ee1e18ccf6451ab8e269b752865cc579)
+- Grafana OTel LGTM (all-in-one): [a7b9b4b → f736e0e](https://github.com/grafana/docker-otel-lgtm/compare/a7b9b4b937bb64381843294ca4c814fa0aa90861...f736e0e251e87d96246f0cdbaa5f6070f80b7c57)
+- Grafana MCP server: [70b0494 → 2c5d5b2](https://github.com/grafana/mcp-grafana/compare/70b04944ed598cfa811d168d7b96a797fd3ee291...2c5d5b2c476cf66cd5545c82722f813b2eebd71a)
+- Keep (alert hub & AIOps): [17f906e → a91575e](https://github.com/keephq/keep/compare/17f906e6357c4f8d3771d4a7c3bf8dbecad656da...a91575ea6d7403e4cdc3f9f86c010161fca0012c)
+- Uptime Kuma (status pages): [c504a6b → 160acac](https://github.com/louislam/uptime-kuma/compare/c504a6b400fb0f82a40aee41ddfcc6e170a5b76c...160acac6ed696c938a5179113910c6ec352705ed)
+- Ruflo (agent swarms): [edf7ddb → f8267e7](https://github.com/ruvnet/ruflo/compare/edf7ddb3fefa15bca87986225b5a5ef7d4d059e5...f8267e76d91eb75e4e66735200e1d23112f05484)
+- rtk (OSS edition): [76be19c → 24ff226](https://github.com/rtk-ai/rtk/compare/76be19c59eff38b395fc6e2c891b7b32474da224...24ff22670aa03f94bc7eb8165179d9f4a91d28e5)
+- context-mode: [eff52c5 → c78022e](https://github.com/mksglu/context-mode/compare/eff52c55db87585cfec720bfc12fc8b8c449456a...c78022e3e6374f982f3959c8014b49bb1add02f1)
+- video-shotcraft: [55eb60d → 075b548](https://github.com/Vincentwei1021/video-shotcraft/compare/55eb60d155d703b0267a46a0507f6e268a053ad1...075b548c2405a07b77129eb448b0b504fc60dea3)
+- CC Switch (desktop): [b044f4b → fa4a237](https://github.com/farion1231/cc-switch/compare/b044f4b03190b8208e7e592d326609e7f2fbe097...fa4a23700e92a3b964650f3039f897b3137b3e2b)
+- Claude Agent SDK (Python): [cd08fa0 → a98138b](https://github.com/anthropics/claude-agent-sdk-python/compare/cd08fa086187e7f938775621e39da7ec70995fae...a98138b6ed9aafef05ff646965b15de1ec24ceb5)
+- Claude Code (the CLI): [0bd56cf → b5f2b81](https://github.com/anthropics/claude-code/compare/0bd56cf67610ac307b8c8d2a64e95cb1ec6a381d...b5f2b81d0aa498232013cf3e6c0bfd5aae2c7d44)
+- Claude Code Action (GitHub): [5a85689 → f431ada](https://github.com/anthropics/claude-code-action/compare/5a856893345e332afa621934082d8c660c26d689...f431adaf77e0fecf918431e75a2b5b45b85af002)
+- Obsidian Skills: [1c3f6df → 462a27f](https://github.com/obsidianmd/obsidian-skills/compare/1c3f6df5683588e39b12462a75d1d0fcf550f955...462a27fa456e43a68bd645fef457217326bfd369)
+- EasyUI: [7de0008 → 95d1bb5](https://github.com/Surajmaurya1/easyui/compare/7de000877ea7448c5fa72a41e4ddc5ff582aa70e...95d1bb529cca267e4b717b330c8c024d021e9d7d)
+- Interfaces skills: [547d415 → 672ae44](https://github.com/jakubkrehel/skills/compare/547d415dc10a23e66088eba5aa6664e6e772432c...672ae44ace6aaed65b86cbb1e2fd6fbea0e79578)
+
+**Notes**
+- GSD (Get Shit Done): npm:@opengsd/gsd-core 1.21.0 → 1.22.0
+- Impeccable: npm:impeccable 4.9.2 → 4.10.0
+- HyperFrames: npm:hyperframes 0.9.67 → 0.9.70
+- Claude Agent SDK (Python): pypi:claude-agent-sdk 0.2.184 → 0.2.185
+- Claude Code (the CLI): npm:@anthropic-ai/claude-code 2.1.327 → 2.1.328
+- Agent Skills (Addy Osmani): per-session tokens ~3,192 → ~3,354
+- Diagram Design: per-session tokens ~438 → ~443
+- Interfaces skills: per-session tokens ~600 → ~650
+
+**Install tests**: 36/36 passed
+
 ## 2026-11-18 19:32 UTC
 
 **Upstream updates**
