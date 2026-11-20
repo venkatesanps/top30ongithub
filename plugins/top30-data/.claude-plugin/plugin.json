@@ -1,7 +1,7 @@
 {
   "name": "top30-data",
-  "version": "0.4.0",
-  "description": "Data engineering skills and an agent from the top30ongithub kit. oracle-to-snowflake translates Oracle SQL with SQLGlot and flags silent differences; snowflake-cost-investigator finds where credits go from read-only ACCOUNT_USAGE views; snowflake-query-advisor turns a query or .sql file into an explain-style plan with rewrites that cut scanning, spill and credits; snowflake-de-team runs a researcher, drafter, independent critic and refiner (sf-* agents) routed by task type, with a SQL gate and PreToolUse hook that block prod writes; the pipeline-failure-triage agent finds the root cause of a failed Airflow/dbt/Snowflake run.",
+  "version": "0.5.0",
+  "description": "Data engineering skills and an agent from the top30ongithub kit. oracle-to-snowflake translates Oracle SQL with SQLGlot and flags silent differences; snowflake-cost-investigator finds where credits go from read-only ACCOUNT_USAGE views; snowflake-query-advisor turns a query or .sql file into an explain-style plan with rewrites that cut scanning, spill and credits; snowflake-de-team runs a researcher, drafter, independent critic and refiner (sf-* agents) routed by task type, with a SQL gate and PreToolUse hook that block prod writes; the pipeline-failure-triage agent finds the root cause of a failed Airflow/dbt/Snowflake run; de-project-setup gets any data repo (Snowflake, BigQuery, Databricks, Postgres, Redshift, DuckDB) ready for Claude Code - a CLAUDE.md with real dbt/Airflow/bundle commands and a dev-only rule, a read-only database MCP config plus dbt MCP, prod-blocking permission rules and three project skills - and checks for committed secrets; the read-only warehouse-explorer agent maps grain, keys, freshness and join paths through MCP.",
   "author": {
     "name": "venkatesanps"
   },
@@ -20,6 +20,11 @@
     "data-engineering",
     "ai-team",
     "multi-agent",
-    "critic"
+    "critic",
+    "mcp",
+    "bigquery",
+    "databricks",
+    "postgres",
+    "onboarding"
   ]
 }

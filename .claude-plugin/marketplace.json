@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.18.0"
+    "version": "0.19.0"
   },
   "plugins": [
     {
@@ -18,8 +18,8 @@
     {
       "name": "top30-data",
       "source": "./plugins/top30-data",
-      "description": "Oracle-to-Snowflake translation with silent-difference checks, a Snowflake cost investigator, a per-query plan and tuning advisor, a Snowflake data-engineering agent team (researcher, drafter, critic, refiner) with a prod-write gate, and a read-only pipeline failure triage agent.",
-      "version": "0.4.0",
+      "description": "Oracle-to-Snowflake translation with silent-difference checks, a Snowflake cost investigator, a per-query plan and tuning advisor, a Snowflake data-engineering agent team (researcher, drafter, critic, refiner) with a prod-write gate, and a read-only pipeline failure triage agent, plus a setup for any warehouse (CLAUDE.md, read-only MCP, prod-blocking rules, project skills) and a read-only warehouse explorer agent.",
+      "version": "0.5.0",
       "category": "data"
     },
     {
