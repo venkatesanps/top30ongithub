@@ -275,7 +275,7 @@ Before using them at work:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with nine plugins of its own:
+This repo is also a Claude Code plugin marketplace with ten plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
@@ -288,6 +288,7 @@ claude plugin install top30-private@top30ongithub # egress gate + private Claude
 claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wensity UI: data → dashboard plan, theme check, scout/builder/QA agents
 claude plugin install top30-sparring@top30ongithub # mentor, devil's advocate, A-vs-B, conversation rehearsal + a decision log
 claude plugin install top30-motion@top30ongithub  # animation: stack picker, beat cues, word captions, licensed sound, ship + check
+claude plugin install top30-duet@top30ongithub    # your own Claude Duet: chief-of-staff folder, morning brief, permission audit, schedules
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -335,8 +336,10 @@ claude plugin install top30-motion@top30ongithub  # animation: stack picker, bea
 | `top30-motion` | `free-sound` | `openverse_audio.py` searches Openverse for music and effects your use allows (commercial and editing by default, so NC and ND are out), downloads them, and keeps `credits.json` and a `CREDITS.md` with title, creator, source and licence for each file; `fetch` re-checks every licence. `license <code>` explains one. Optional `OPENVERSE_TOKEN`. Tests: `tests/motion_kit/` against a local stand-in API. | ~120 |
 | `top30-motion` | `ship-video` | `ship.py run` makes Reels/TikTok/Shorts, YouTube (1080p, 4K), square, 4:5, LinkedIn/X, web WebM, GIF or ProRes from a video or image sequence: blur or pad fill for 9:16, captions burned (lifted clear of app buttons) or soft, music muxed, loudness to -14 LUFS / -1 dBTP in two passes, `veryfast` unless `--quality best`. `check` verifies size, fps, codec, yuv420p, fast start, 48 kHz, loudness and true peak with ffprobe, exit 1 on failure. Tests: `tests/motion_kit/` (real renders). | ~150 |
 | `top30-motion` | `motion-director` (agent) | Makes a short film from a one-line brief: one style source, scenes cut on the music's downbeats, picture built with the chosen repo, captions and licensed sound, a contact sheet for approval, then `ship-video` and its check. Stops before installs, third-party assets and the final render; never publishes. | ~130 |
+| `top30-duet` | `duet-chief-of-staff` | Builds the proactive chief of staff from Mika's "Claude Duet" course in Claude Code, and checks what the course leaves to trust. `cos_kit.py init` creates the folder (CLAUDE.md that treats inbox text as data, `memory/people` and `memory/projects` with dated promises and `Last confirmed:` lines, `/morning-brief`, `/weekly-review`, `/end-of-day`, `/prep`, four subagents, three-level `settings.json`) and never overwrites. `audit` checks the levels hold: no blanket Bash/Edit, no whole-MCP-server allows, send/move tools not allowed, pay/delete tools not allowed, WebFetch not allowed, denies for CLAUDE.md, `.claude/` and `.env`, no bypass modes, schedules in `dontAsk`, and that the folder is trusted (until it is, Claude Code ignores its allow rules and a scheduled run can't write the brief). `promises` and `stale` find late, undated and unlogged promises and unconfirmed notes with no model; `schedule` prints launchd plists (catch up after sleep), cron or Task Scheduler entries with full paths. Tests: `tests/duet/`. | ~190 (est.) |
+| `top30-duet` | `cos-checker` (agent) | Read-only weekly check of the memory another agent wrote: contradictions across files, stale and UNCONFIRMED notes, late promises, names with no file, and brief lines claiming something was sent, moved or paid. Cites `file:line`, changes nothing. | ~140 (est.) |
 
-Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07, `top30-motion` on 2026-11-19: ~774 in all; `top30-sparring` estimated from description length). `top30-wensity`
+Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07, `top30-motion` on 2026-11-19: ~774 in all; `top30-sparring` and `top30-duet` estimated from description length). `top30-wensity`
 works with Wensity UI, a third-party library (free tier MIT, Pro paid); this repo contains none of its code.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Edit(memory/**)",
+      "Edit(inbox/**)",
+      "Edit(briefs/**)"
+    ],
+    "ask": [
+      "Bash",
+      "WebFetch",
+      "WebSearch"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Edit(CLAUDE.md)",
+      "Edit(.claude/**)"
+    ]
+  }
+}

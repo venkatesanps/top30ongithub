@@ -1,0 +1,8 @@
+{
+  "name": "top30-duet",
+  "version": "0.1.0",
+  "description": "Your own Claude Duet in Claude Code: a chief-of-staff folder (CLAUDE.md, file memory, morning brief, weekly review, four subagents), three-level permissions with an audit that checks they hold, promise and staleness checks without a model, launchd/cron/Task Scheduler entries in dontAsk mode, and a read-only cos-checker agent.",
+  "author": { "name": "venkatesanps" },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": ["chief-of-staff", "proactive-agent", "morning-brief", "permissions", "scheduling", "memory"]
+}
