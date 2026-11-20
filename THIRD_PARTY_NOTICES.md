@@ -16,11 +16,11 @@ Each zip carries its project's license file. Install scripts fetch code directly
 | 21-diagram-design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | MIT | [d74d8c2d0c](https://github.com/cathrynlavery/diagram-design/tree/d74d8c2d0c78a9e1efd43137f6a9a51182a8b5f0) |
 | 22-impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | [b49177d327](https://github.com/pbakaus/impeccable/tree/b49177d32788f2dc585c42831d845dacf1ebed2c) |
 | 23-ui-ux-pro-max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | MIT | [2de1134dc4](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/2de1134dc4d1cfe112934611ae5803ae17a1bd7e) |
-| 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [73573e94a0](https://github.com/coreyhaines31/marketingskills/tree/73573e94a06a39965978b3fa1f9c1eace8cebc7c) |
+| 25-marketing | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | MIT | [5b2b400eec](https://github.com/coreyhaines31/marketingskills/tree/5b2b400eec1e7e1cec76245a715d0b0d4fd2a9c1) |
 | 28-humanizer | [blader/humanizer](https://github.com/blader/humanizer) | MIT | [a32f244073](https://github.com/blader/humanizer/tree/a32f24407364c74c812b43c15926d638bee1e072) |
 | 30-i-have-adhd | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | MIT | [1ecea1993b](https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6) |
 | 32-dbt | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | Apache-2.0 | [b8facde20b](https://github.com/dbt-labs/dbt-agent-skills/tree/b8facde20b7a92c40ce3e6b86b71c4b92aa44040) |
-| 34-airflow | [astronomer/agents](https://github.com/astronomer/agents) | Apache-2.0 | [35b9610bb2](https://github.com/astronomer/agents/tree/35b9610bb2710c37ca11326c4cbf7818b6725fec) |
+| 34-airflow | [astronomer/agents](https://github.com/astronomer/agents) | Apache-2.0 | [f38c558471](https://github.com/astronomer/agents/tree/f38c558471cea720957a9a25adfab7584a8ceb4f) |
 | 74-huggingface | [huggingface/skills](https://github.com/huggingface/skills) | Apache-2.0 | [5291c2b936](https://github.com/huggingface/skills/tree/5291c2b9365e06b175dc04817610c778623f4836) |
 | 75-n8n | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | MIT | [ecdeca6f76](https://github.com/czlonkowski/n8n-skills/tree/ecdeca6f760b56bb1b11c0a7c961f11b69cb87d5) |
 | 77-trailofbits | [trailofbits/skills](https://github.com/trailofbits/skills) | see LICENSE | [149d7b21f4](https://github.com/trailofbits/skills/tree/149d7b21f4067765b82e67029730b42d228ef4b4) |
