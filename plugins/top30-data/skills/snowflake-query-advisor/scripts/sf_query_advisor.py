@@ -12,12 +12,27 @@ analyze options (all optional; each one adds evidence):
   --stats FILE        GET_QUERY_OPERATOR_STATS(<query_id>) rows, CSV or JSON
   --history FILE      QUERY_HISTORY rows for the query, CSV or JSON (time, size, spill, queueing)
   --tables FILE       INFORMATION_SCHEMA.TABLES rows (ROW_COUNT, BYTES, CLUSTERING_KEY), CSV or JSON
+  --columns FILE      INFORMATION_SCHEMA.COLUMNS rows (TABLE_NAME, COLUMN_NAME, DATA_TYPE): type checks on joins and
+                      filters, checked date rewrites, SELECT * expanded to the real column list
+  --attribution FILE  QUERY_ATTRIBUTION_HISTORY rows for the run, and/or the per-pattern summary `queries` prints:
+                      Snowflake's own per-query credits instead of rate x time (repeatable)
   --warehouse SIZE    XS..6XL, used for the credit estimate when history doesn't say
   --generation 1|2    warehouse generation (default 1; pass 2 only for a warehouse you know is Gen2)
   --cloud aws|azure|gcp   for Gen2 rates (default aws)
   --credit-price USD  per credit, for dollar figures (default 3.00)
   --runs-per-day N    to turn per-run cost into a daily figure
   --md FILE / --json FILE   write the report / findings (Markdown goes to stdout otherwise)
+  --sarif FILE        findings as SARIF 2.1.0 (GitHub code scanning and other SARIF viewers)
+  --brief             one line per finding on stdout (path:line: [severity] rule: title), for hooks and CI logs
+  --fail-on SEVERITY  exit 1 if any finding is at least this severe (high, medium, low, info)
+  --changed-only [REF]  only files changed against REF's merge base (default HEAD), plus untracked files
+  --config FILE / --no-config   settings file; by default the nearest .sf-advisor.toml or .sf-advisor.json
+                      up to the git root (keys: disable, severity, exclude, fail_on, generation, cloud,
+                      credit_price, warehouse). Command-line options win.
+
+Turn a rule off for one spot with a SQL comment: `-- sf-advisor: disable=select-star` on the line it reports,
+`-- sf-advisor: disable-next-line=rule[,rule]` above it, or `-- sf-advisor: disable-file=rule` anywhere.
+Without `=rules` the comment turns off every rule. Turned-off findings are listed in the report.
 
 It never connects to Snowflake and never runs the SQL: it reads files only. Needs sqlglot
 (pip install sqlglot). Statements it can't parse are reported and still get text-level checks.
@@ -25,11 +40,16 @@ Rates and rules are from Snowflake documentation checked 2026-11-19 (references/
 """
 import argparse
 import csv
+import fnmatch
+import hashlib
 import io
 import json
+import os
 import re
+import subprocess
 import sys
 from collections import Counter, defaultdict
+from datetime import datetime
 from pathlib import Path
 
 try:
@@ -47,6 +67,8 @@ GEN2_FACTOR = {"aws": 1.35, "gcp": 1.35, "azure": 1.25}
 NONDETERMINISTIC = {"RANDOM", "UUID_STRING", "RANDSTR"}  # the examples Snowflake's result-reuse docs give
 TIME_NOW = {"CURRENT_TIMESTAMP", "SYSDATE", "GETDATE", "LOCALTIMESTAMP", "CURRENT_TIME", "SYSTIMESTAMP"}
 GB = 1024 ** 3
+VERSION = "0.3.0"
+HOME = "https://github.com/venkatesanps/top30ongithub/tree/main/plugins/top30-data/skills/snowflake-query-advisor"
 
 
 # ---------------------------------------------------------------- input handling
@@ -707,6 +729,7 @@ def rule_findings(stmt, base, text, tables_info):
                      + (", from the whole table" if not s.args.get("where") else "") + ".",
                      "List the columns you use. In a pipeline, name them so a new upstream column can't widen the load.",
                      snippet(s, 80), "scan"))
+        out[-1]["_select"], out[-1]["_star"] = s, star
 
     for s in selects:
         sw = s.args.get("where")
@@ -749,6 +772,7 @@ def rule_findings(stmt, base, text, tables_info):
                              "can stop Snowflake from using those ranges, so more partitions are scanned.",
                              "Compare the raw column with a range of constants instead" + (" (this rewrite assumes the column is a DATE or TIMESTAMP):" if rw else "; put any function on the constant side."),
                              snippet(cmp, 80), "pruning", rewrite=rw))
+                out[-1]["_col"] = col
             # R3 leading wildcard
             for lk in p.find_all(exp.Like, exp.ILike):
                 pat = unparen(lk.expression)
@@ -1090,10 +1114,539 @@ def annotate_sizes(plan, tables_info, findings):
                                       "If you can, add a filter on the clustering column too; otherwise expect a wider scan.", n["filter"][:80], "pruning"))
 
 
+# ---------------------------------------------------------------- cost Snowflake attributed (QUERY_ATTRIBUTION_HISTORY)
+
+def load_attribution(paths, hist_rows=()):
+    """Per-query rows (QUERY_ID, ROOT_QUERY_ID, QUERY_PARAMETERIZED_HASH, CREDITS_ATTRIBUTED_COMPUTE,
+    CREDITS_USED_QUERY_ACCELERATION) and per-pattern summary rows (RUNS, FIRST_START, LAST_START), as `queries` prints them.
+    History rows that already carry CREDITS_ATTRIBUTED_COMPUTE (a join the user did) count as per-query rows."""
+    runs, patterns = [], []
+    for p in paths or []:
+        for r in read_rows(p):
+            if str(r.get("RUNS") or "").strip():
+                patterns.append(r)
+            elif str(r.get("CREDITS_ATTRIBUTED_COMPUTE") or "").strip():
+                runs.append(r)
+    runs += [r for r in hist_rows if str(r.get("CREDITS_ATTRIBUTED_COMPUTE") or "").strip()]
+    return runs, patterns
+
+
+def parse_ts(v):
+    s = str(v or "").strip().replace("T", " ")
+    for cut in (19, 16, 10):
+        try:
+            return datetime.fromisoformat(s[:cut])
+        except ValueError:
+            continue
+    return None
+
+
+def attributed_credits(query_id, runs):
+    """Credits attributed to one query plus its child queries (a stored procedure's statements), or None."""
+    if not runs:
+        return None
+    if query_id:
+        mine = [r for r in runs if query_id in (r.get("QUERY_ID"), r.get("ROOT_QUERY_ID"))]
+    else:
+        roots = {r.get("ROOT_QUERY_ID") or r.get("QUERY_ID") for r in runs}
+        mine = runs if len(roots) == 1 else []
+    if not mine:
+        return None
+    comp = sum(num(r.get("CREDITS_ATTRIBUTED_COMPUTE")) for r in mine)
+    qas = sum(num(r.get("CREDITS_USED_QUERY_ACCELERATION")) for r in mine)
+    top = next((r for r in mine if not r.get("ROOT_QUERY_ID") or r.get("ROOT_QUERY_ID") == r.get("QUERY_ID")), mine[0])
+    return {"query_id": top.get("QUERY_ID"), "compute": comp, "qas": qas, "total": comp + qas, "rows": len(mine),
+            "hash": top.get("QUERY_PARAMETERIZED_HASH") or None, "warehouse": top.get("WAREHOUSE_NAME") or None}
+
+
+def pattern_summary(patterns, runs, qhash):
+    """Every run of the same query shape (same QUERY_PARAMETERIZED_HASH): runs, credits, credits a day."""
+    row = next((p for p in patterns if not qhash or (p.get("QUERY_PARAMETERIZED_HASH") or qhash) == qhash), None)
+    if row is not None:
+        n = num(row.get("RUNS"))
+        credits = num(row.get("CREDITS_ATTRIBUTED_COMPUTE")) + num(row.get("CREDITS_USED_QUERY_ACCELERATION"))
+        first, last = parse_ts(row.get("FIRST_START")), parse_ts(row.get("LAST_START"))
+        qhash = qhash or row.get("QUERY_PARAMETERIZED_HASH")
+    elif qhash:
+        by_root = defaultdict(list)
+        for r in runs:
+            by_root[r.get("ROOT_QUERY_ID") or r.get("QUERY_ID")].append(r)
+        mine = [rs for rs in by_root.values() if any(r.get("QUERY_PARAMETERIZED_HASH") == qhash for r in rs)]
+        if len(mine) < 2:
+            return None
+        n = len(mine)
+        credits = sum(num(r.get("CREDITS_ATTRIBUTED_COMPUTE")) + num(r.get("CREDITS_USED_QUERY_ACCELERATION")) for rs in mine for r in rs)
+        times = [t for rs in mine for t in (parse_ts(r.get("START_TIME")) for r in rs) if t]
+        first, last = (min(times), max(times)) if times else (None, None)
+    else:
+        return None
+    days = max(1.0, (last - first).total_seconds() / 86400) if first and last and n >= 2 else None
+    return {"hash": qhash, "runs": int(n), "credits": credits, "first": str(first or ""), "last": str(last or ""),
+            "days": days, "per_day": credits / days if days else None}
+
+
+# ---------------------------------------------------------------- schema-aware checks (INFORMATION_SCHEMA.COLUMNS)
+
+def type_family(t):
+    t = re.sub(r"\(.*", "", str(t or "")).strip().upper()
+    if not t:
+        return None
+    if t.startswith("TIMESTAMP") or t == "DATETIME":
+        return "timestamp"
+    for fam, names in (("number", ("NUMBER", "DECIMAL", "NUMERIC", "INT", "INTEGER", "BIGINT", "SMALLINT", "TINYINT", "BYTEINT",
+                                   "FLOAT", "FLOAT4", "FLOAT8", "DOUBLE", "DOUBLE PRECISION", "REAL", "FIXED")),
+                       ("text", ("TEXT", "VARCHAR", "CHAR", "CHARACTER", "STRING", "NCHAR", "NVARCHAR", "NVARCHAR2", "CHAR VARYING")),
+                       ("date", ("DATE",)), ("time", ("TIME",)), ("boolean", ("BOOLEAN",)),
+                       ("semi", ("VARIANT", "OBJECT", "ARRAY", "MAP")), ("binary", ("BINARY", "VARBINARY"))):
+        if t in names:
+            return fam
+    return "other"
+
+
+def load_columns(path):
+    """INFORMATION_SCHEMA.COLUMNS rows -> {table_lower: [{"key": (CATALOG, SCHEMA), "name": TABLE, "cols": {col_lower: (NAME, TYPE)}}]}."""
+    info = {}
+    if not path:
+        return info
+    rows = read_rows(path)
+    rows.sort(key=lambda r: num(r.get("ORDINAL_POSITION"), 0))
+    for r in rows:
+        t = (r.get("TABLE_NAME") or "").strip()
+        c = (r.get("COLUMN_NAME") or "").strip()
+        if not t or not c:
+            continue
+        key = ((r.get("TABLE_CATALOG") or "").strip().upper(), (r.get("TABLE_SCHEMA") or "").strip().upper())
+        entries = info.setdefault(t.lower(), [])
+        e = next((x for x in entries if x["key"] == key), None)
+        if e is None:
+            e = {"key": key, "name": ".".join(x for x in (*key, t) if x), "cols": {}}
+            entries.append(e)
+        e["cols"][c.lower()] = (c, (r.get("DATA_TYPE") or r.get("TYPE") or "").strip())
+    return info
+
+
+def schema_entry(tnode, columns_info):
+    entries = columns_info.get(tnode.name.lower()) if columns_info else None
+    if not entries:
+        return None
+    db, cat = (tnode.db or "").upper(), (tnode.catalog or "").upper()
+    if db:
+        return next((e for e in entries if e["key"][1] in (db, "") and (not cat or e["key"][0] in (cat, ""))), None)
+    if len(entries) == 1 or all(e["cols"] == entries[0]["cols"] for e in entries):
+        return entries[0]
+    return None  # the same table name in several schemas with different columns: don't guess
+
+
+def resolve_name(sel, name, qualifier, columns_info, stmt, depth=0):
+    """(family, TYPE, table) of column `name` as seen from SELECT `sel`, following CTEs and subqueries; None if unknown or ambiguous."""
+    if sel is None or depth > 8:
+        return None
+    srcs = source_alias_map(sel)
+    ctes = ctes_of(stmt)
+    cand = [srcs.get(qualifier.lower())] if qualifier else list(srcs.values())
+    hits = []
+    for src in cand:
+        if src is None:
+            continue
+        kind, _, nd = src
+        t = None
+        if kind == "table":
+            cte = ctes.get(nd.name.lower()) if not nd.db else None
+            if cte is not None:
+                t = projection_type(cte.this, name, columns_info, stmt, depth + 1)
+            else:
+                e = schema_entry(nd, columns_info)
+                if e and name in e["cols"]:
+                    typ = e["cols"][name][1]
+                    t = (type_family(typ), typ.upper(), e["name"])
+        elif kind == "subquery":
+            t = projection_type(nd.this, name, columns_info, stmt, depth + 1)
+        if t:
+            hits.append(t)
+    return hits[0] if len(hits) == 1 else None
+
+
+def projection_type(q, name, columns_info, stmt, depth):
+    q = unparen(q)
+    while isinstance(q, (exp.Union, exp.Intersect, exp.Except, exp.Subquery)):
+        q = unparen(q.this)
+    if not isinstance(q, exp.Select):
+        return None
+    for e in q.expressions:
+        if isinstance(e, exp.Star):
+            t = resolve_name(q, name, None, columns_info, stmt, depth)
+            if t:
+                return t
+            continue
+        if isinstance(e, exp.Column) and isinstance(e.this, exp.Star):
+            t = resolve_name(q, name, e.table, columns_info, stmt, depth)
+            if t:
+                return t
+            continue
+        if (e.alias_or_name or "").lower() != name:
+            continue
+        inner = unparen(e.this if isinstance(e, exp.Alias) else e)
+        if isinstance(inner, exp.Column):
+            return resolve_name(q, inner.name.lower(), inner.table, columns_info, stmt, depth)
+        if isinstance(inner, exp.Cast):
+            typ = inner.to.sql(dialect="snowflake").upper()
+            return (type_family(typ), typ, "a CAST")
+        return None
+    return None
+
+
+def column_type(col, columns_info, stmt):
+    if not columns_info or not isinstance(col, exp.Column) or isinstance(col.this, exp.Star):
+        return None
+    return resolve_name(own_select(col), col.name.lower(), col.table, columns_info, stmt)
+
+
+def literal_family(e):
+    e = unparen(e)
+    if isinstance(e, exp.Neg):
+        e = unparen(e.this)
+    if isinstance(e, exp.Literal):
+        return "text" if e.is_string else "number"
+    if isinstance(e, exp.Cast):
+        return type_family(e.to.sql(dialect="snowflake"))
+    if isinstance(e, (exp.Date, exp.TsOrDsToDate, exp.CurrentDate)):
+        return "date"
+    if isinstance(e, (exp.CurrentTimestamp, exp.TimeStrToTime, exp.StrToTime)):
+        return "timestamp"
+    return None
+
+
+COMPARABLE = [{"date", "timestamp"}]
+
+
+def quote_ident(n):
+    return n if re.fullmatch(r"[A-Z_][A-Z0-9_$]*", n) else '"' + n.replace('"', '""') + '"'
+
+
+def schema_findings(stmt, base, columns_info, findings):
+    """Checks that need column types, and type-aware updates to findings the rules already made."""
+    out = []
+    if not columns_info:
+        return out
+    ctes = ctes_of(stmt)
+    # 1. function-on-filter-column: check the date rewrite against the column's real type
+    for f in findings:
+        col = f.get("_col")
+        if f["rule"] != "function-on-filter-column" or col is None:
+            continue
+        t = column_type(col, columns_info, stmt)
+        if t is None:
+            if f.get("rewrite"):
+                f["rewrite_status"] = "unchecked: the column's type isn't in the --columns export"
+            continue
+        fam, typ, tab = t
+        f["confidence"] = "high"
+        if fam in ("date", "timestamp"):
+            if f.get("rewrite"):
+                f["fix"] = f["fix"].replace("(this rewrite assumes the column is a DATE or TIMESTAMP)", f"({col.name} is {typ} in {tab}, so the range applies)")
+                f["rewrite_status"] = f"type checked: {col.name} is {typ}" + (
+                    "; TO_DATE uses each value's own time zone, the range uses the session's, so check the zone" if typ.startswith(("TIMESTAMP_TZ", "TIMESTAMP_LTZ")) else "")
+        elif fam == "text":
+            f.pop("rewrite", None)
+            f["fix"] = (f"{col.name} is {typ} in {tab}, so the date is parsed from text on every row. If every value is written as YYYY-MM-DD, "
+                        f"compare the text itself ({col.name} = 'YYYY-MM-DD', or a string range), which can prune; otherwise store it as DATE "
+                        "(in the load or a staging model) and filter that column.")
+            f["rewrite_status"] = "no rewrite: the column is text"
+        elif f.get("rewrite"):
+            f.pop("rewrite", None)
+            f["rewrite_status"] = f"no rewrite: {col.name} is {typ}, not a date"
+    # 2. SELECT *: the real column list
+    for f in findings:
+        s, star = f.get("_select"), f.get("_star")
+        if f["rule"] != "select-star" or s is None:
+            continue
+        srcs = source_alias_map(s)
+        if isinstance(star, exp.Column):  # t.*
+            pick = {star.table.lower(): srcs.get(star.table.lower())}
+        else:
+            pick = srcs
+        if not pick or any(v is None or v[0] != "table" or (not v[2].db and v[2].name.lower() in ctes) for v in pick.values()):
+            continue
+        entries = [(a, schema_entry(v[2], columns_info)) for a, v in pick.items()]
+        if not all(e for _, e in entries):
+            continue
+        multi = len(srcs) > 1
+        names = [f"{a}.{quote_ident(n)}" if multi else quote_ident(n) for a, e in entries for n, _ in e["cols"].values()]
+        shown = ", ".join(names[:30]) + (f", … ({len(names) - 30} more)" if len(names) > 30 else "")
+        f["why"] += f" Here that is {len(names)} column{'s' if len(names) != 1 else ''}."
+        f["rewrite"] = f"SELECT {shown}"
+        f["rewrite_status"] = "columns from the --columns export: keep only the ones you use"
+        f["confidence"] = "high"
+    # 3. joins and filters that compare different types
+    seen = set()
+    for s in stmt.find_all(exp.Select):
+        preds = []
+        for j in s.args.get("joins") or []:
+            if j.args.get("on") is not None:
+                preds += conjuncts(j.args["on"])
+        w = s.args.get("where")
+        if w is not None:
+            preds += conjuncts(w.this)
+        for p in preds:
+            for cmp in p.find_all(exp.EQ, exp.NEQ, exp.GT, exp.GTE, exp.LT, exp.LTE, exp.In):
+                if own_select(cmp) is not s:
+                    continue
+                if isinstance(cmp, exp.In):
+                    if cmp.args.get("query") is not None or not cmp.expressions:
+                        continue
+                    a, b = unparen(cmp.this), unparen(cmp.expressions[0])
+                else:
+                    a, b = unparen(cmp.this), unparen(cmp.expression)
+                if isinstance(a, exp.Column) and isinstance(b, exp.Column) and isinstance(cmp, exp.EQ):
+                    ta, tb = column_type(a, columns_info, stmt), column_type(b, columns_info, stmt)
+                    if not ta or not tb or ta[0] == tb[0] or "other" in (ta[0], tb[0]) or {ta[0], tb[0]} in COMPARABLE:
+                        continue
+                    key = ("j", cmp.sql())
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    out.append(F("join-type-mismatch", "medium" if {ta[0], tb[0]} == {"number", "text"} else "low", line_of(cmp, base),
+                                 f"{a.sql(dialect='snowflake')} ({ta[1]}) is compared with {b.sql(dialect='snowflake')} ({tb[1]})",
+                                 "Snowflake converts one side on every row to compare them. That costs CPU, can stop the join filter from pruning "
+                                 "the other table, and for NUMBER against text it can fail, or not match values like '007' and 7.",
+                                 "Give both keys the same type in the tables (or cast once in a staging model), then compare the raw columns.",
+                                 snippet(cmp, 80), "join"))
+                    out[-1]["confidence"] = "high"
+                    continue
+                col, const = (a, b) if isinstance(a, exp.Column) and is_constant(b) else (b, a) if isinstance(b, exp.Column) and is_constant(a) else (None, None)
+                if col is None:
+                    continue
+                t = column_type(col, columns_info, stmt)
+                lf = literal_family(const)
+                if t and t[0] == "text" and lf in ("number", "date", "timestamp"):
+                    key = ("c", cmp.sql())
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    word = {"number": "number", "date": "date", "timestamp": "timestamp"}[lf]
+                    out.append(F("implicit-cast-filter", "medium", line_of(cmp, base), f"{col.sql(dialect='snowflake')} is {t[1]} but compared with a {word}",
+                                 f"Snowflake converts the text column to a {word} to compare them, which can stop pruning on its min/max "
+                                 "ranges, and one value that doesn't convert makes the whole query fail.",
+                                 f"If the column really is text, compare it with a quoted string; if it holds {word}s, store it as "
+                                 f"{'NUMBER' if lf == 'number' else lf.upper()}.", snippet(cmp, 80), "pruning"))
+                    out[-1]["confidence"] = "high"
+    # 4. qualified columns that the table doesn't have
+    for c in stmt.find_all(exp.Column):
+        if not c.table or isinstance(c.this, exp.Star):
+            continue
+        s = own_select(c)
+        src = source_alias_map(s).get(c.table.lower()) if s is not None else None
+        if not src or src[0] != "table" or (not src[2].db and src[2].name.lower() in ctes):
+            continue
+        e = schema_entry(src[2], columns_info)
+        key = ("u", c.table.lower(), c.name.lower())
+        if e and c.name.lower() not in e["cols"] and key not in seen:
+            seen.add(key)
+            out.append(F("unknown-column", "medium", line_of(c, base), f"{c.sql(dialect='snowflake')} isn't a column of {e['name']}",
+                         "The --columns export has no such column, so the statement won't compile (or the export is out of date).",
+                         "Check the spelling, or export the columns again.", snippet(c, 60), "correctness"))
+            out[-1]["confidence"] = "high"
+    return out
+
+
+# ---------------------------------------------------------------- confidence
+
+MEASURED_RULES = {"explain-poor-pruning", "explain-cartesian", "remote-spill", "local-spill", "poor-pruning", "exploding-join", "late-filter",
+                  "queued", "slow-compile", "history-poor-pruning"}
+SURE_RULES = {"select-star", "leading-wildcard", "not-in-subquery", "union-distinct", "update-all-rows", "delete-all-rows", "large-in-list",
+              "no-result-reuse", "current-time-reuse", "limit-without-order", "inner-order-by"}
+STEP_DOWN = {"high": "medium", "medium": "low", "low": "low"}
+
+
+def assign_confidence(r, jinja):
+    """high: measured, or certain from the SQL alone. medium: the cost depends on data the SQL doesn't show.
+    low: text-level checks on unparsed SQL. One step down inside dbt/Jinja templates (the SQL was reconstructed)."""
+    for f in r["findings"]:
+        if f["rule"] in MEASURED_RULES:
+            f["confidence"] = "high"
+            continue
+        if "confidence" not in f:
+            f["confidence"] = "low" if not r["parsed"] else "high" if f["rule"] in SURE_RULES else "medium"
+        if jinja:
+            f["confidence"] = STEP_DOWN[f["confidence"]]
+        if f.get("rewrite") and "rewrite_status" not in f:
+            f["rewrite_status"] = "unchecked: test that it returns the same rows"
+
+
+# ---------------------------------------------------------------- suppression and project config
+
+DIRECTIVE = re.compile(r"(?:--|//|/\*|\{#)\s*sf-advisor:\s*(disable-next-line|disable-file|disable)\b(?:\s*=\s*([\w\-]+(?:\s*,\s*[\w\-]+)*))?", re.I)
+CONFIG_NAMES = (".sf-advisor.toml", ".sf-advisor.json")
+CONFIG_KEYS = {"disable", "severity", "exclude", "fail_on", "generation", "cloud", "credit_price", "warehouse"}
+
+
+def directives(raw):
+    """`-- sf-advisor: disable=rule[,rule]` (this line), `disable-next-line=...`, `disable-file=...`; no `=rules` means every rule."""
+    by_line, file_rules = defaultdict(set), set()
+    for i, ln in enumerate(raw.splitlines(), 1):
+        for m in DIRECTIVE.finditer(ln):
+            kind = m.group(1).lower()
+            rules = {x.strip().lower() for x in (m.group(2) or "").split(",") if x.strip()} or {"*"}
+            if kind == "disable-file":
+                file_rules |= rules
+            elif kind == "disable-next-line":
+                by_line[i + 1] |= rules
+            else:
+                by_line[i] |= rules
+    return by_line, file_rules
+
+
+def is_suppressed(f, r, by_line, file_rules, cfg_disabled):
+    rule = f["rule"]
+
+    def hit(s):
+        return "*" in s or rule in s
+    if rule in cfg_disabled or hit(file_rules):
+        return True
+    if f["line"]:
+        return hit(by_line.get(f["line"], set()))
+    return any(hit(by_line.get(n, set())) for n in range(r["line"], r["end"] + 1))  # a finding with no line: anywhere in its statement
+
+
+def find_config(start):
+    p = Path(start).resolve()
+    p = p if p.is_dir() else p.parent
+    for d in [p, *p.parents]:
+        for n in CONFIG_NAMES:
+            if (d / n).is_file():
+                return d / n
+        if (d / ".git").exists():
+            break
+    return None
+
+
+def load_config(path):
+    """.sf-advisor.toml ([sf-advisor] table or top level) or .sf-advisor.json."""
+    text = Path(path).read_text(encoding="utf-8")
+    if str(path).endswith(".toml"):
+        try:
+            import tomllib
+        except ImportError:  # pragma: no cover - Python < 3.11
+            sys.exit(f"{path}: TOML config needs Python 3.11+; use .sf-advisor.json instead")
+        data = tomllib.loads(text)
+    else:
+        data = json.loads(text)
+    data = data.get("sf-advisor", data)
+    unknown = set(data) - CONFIG_KEYS
+    if unknown:
+        sys.exit(f"{path}: unknown setting(s) {', '.join(sorted(unknown))}; known: {', '.join(sorted(CONFIG_KEYS))}")
+    for rule, sev in (data.get("severity") or {}).items():
+        if sev not in SEV_ORDER:
+            sys.exit(f"{path}: severity for {rule} must be one of {', '.join(SEV_ORDER)}")
+    data["disable"] = {x.lower() for x in data.get("disable") or []}
+    data["_dir"] = Path(path).resolve().parent
+    data["_path"] = str(path)
+    return data
+
+
+def excluded(path, cfg):
+    pats = cfg.get("exclude") or []
+    if not pats:
+        return False
+    try:
+        rel = Path(path).resolve().relative_to(cfg["_dir"]).as_posix()
+    except ValueError:
+        rel = Path(path).as_posix()
+    return any(fnmatch.fnmatch(rel, p) for p in pats)
+
+
+def changed_files(ref):
+    """Files changed against REF's merge base (or HEAD), committed or not, plus untracked files."""
+    def git(*args):
+        return subprocess.run(["git", *args], capture_output=True, text=True, check=True).stdout
+    try:
+        root = git("rev-parse", "--show-toplevel").strip()
+        against = git("merge-base", ref, "HEAD").strip() if ref else "HEAD"
+        names = set(git("diff", "--name-only", "--diff-filter=ACMR", against).splitlines())
+        names |= set(git("ls-files", "--others", "--exclude-standard", "--full-name").splitlines())
+    except (OSError, subprocess.CalledProcessError) as e:
+        sys.exit(f"--changed-only needs a git checkout with {ref or 'HEAD'} available: {getattr(e, 'stderr', '') or e}".strip())
+    return {(Path(root) / n).resolve() for n in names if n}
+
+
+# ---------------------------------------------------------------- SARIF (GitHub code scanning and other viewers)
+
+SARIF_LEVEL = {"high": "error", "medium": "warning", "low": "note", "info": "note"}
+
+
+def to_sarif(all_results):
+    rules, results = {}, []
+    for path, rs, _ in all_results:
+        try:
+            uri = Path(os.path.relpath(Path(path).resolve(), Path.cwd())).as_posix()
+        except ValueError:  # another drive on Windows
+            uri = ".."
+        if uri.startswith(".."):  # outside the folder it ran from: an absolute file URI
+            uri = Path(path).resolve().as_uri()
+        for r in rs:
+            for f in r["findings"]:
+                if f["rule"] not in rules:
+                    rules[f["rule"]] = {"id": f["rule"], "name": "".join(w.title() for w in f["rule"].split("-")),
+                                        "shortDescription": {"text": f["rule"].replace("-", " ")},
+                                        "fullDescription": {"text": f["why"]},
+                                        "help": {"text": f["fix"]}, "helpUri": HOME,
+                                        "defaultConfiguration": {"level": SARIF_LEVEL[f["severity"]]},
+                                        "properties": {"tags": ["snowflake", f["category"]]}}
+                msg = f"{f['title']}. {f['why']} Fix: {f['fix']}"
+                if f.get("rewrite"):
+                    msg += f" Rewrite ({f.get('rewrite_status', 'unchecked')}): {f['rewrite']}"
+                fp = hashlib.sha1(f"{f['rule']}|{uri}|{' '.join((f['evidence'] or f['title']).split())}".encode()).hexdigest()
+                results.append({"ruleId": f["rule"], "level": SARIF_LEVEL[f["severity"]], "message": {"text": msg},
+                                "locations": [{"physicalLocation": {"artifactLocation": {"uri": uri},
+                                                                    "region": {"startLine": max(1, f["line"] or r.get("code_line") or r["line"] or 1)}}}],
+                                "partialFingerprints": {"sfQueryAdvisor/v1": fp},
+                                "properties": {"severity": f["severity"], "confidence": f.get("confidence"), "category": f["category"],
+                                               "statement": r["n"]}})
+    return {"$schema": "https://json.schemastore.org/sarif-2.1.0.json", "version": "2.1.0",
+            "runs": [{"tool": {"driver": {"name": "sf-query-advisor", "version": VERSION, "informationUri": HOME,
+                                          "rules": list(rules.values())}},
+                      "results": results}]}
+
+
+def brief_lines(all_results):
+    out = []
+    for path, rs, _ in all_results:
+        for r in rs:
+            if r["error"]:
+                out.append(f"{path}:{r.get('code_line') or r['line']}: [info] not-parsed: statement {r['n']} couldn't be parsed; only text checks ran")
+            for f in r["findings"]:
+                out.append(f"{path}:{f['line'] or r.get('code_line') or r['line']}: [{f['severity']}] {f['rule']}: {f['title']} ({f.get('confidence', '?')} confidence)")
+    return out
+
+
 # ---------------------------------------------------------------- report
 
-def analyze_file(path, a, explains, stats_rows, hist_rows, tables_info):
+def first_code_line(sql, base):
+    """The first line of a statement that isn't blank or a comment (its text starts at any leading comment)."""
+    in_block = False
+    for i, ln in enumerate(sql.splitlines()):
+        t = ln.strip()
+        while t:
+            if in_block:
+                end = t.find("*/")
+                if end == -1:
+                    t = ""
+                    break
+                t, in_block = t[end + 2:].strip(), False
+            elif t.startswith("/*"):
+                t, in_block = t[2:], True
+            elif t.startswith(("--", "//")):
+                t = ""
+            else:
+                return base + i
+    return base
+
+
+def analyze_file(path, a, explains, stats_rows, hist_rows, tables_info, columns_info=None, attribution=None, cfg=None):
+    cfg = cfg or {}
+    runs, patterns = attribution or ([], [])
     raw = Path(path).read_text(encoding="utf-8", errors="replace")
+    by_line, file_rules = directives(raw)
     text, jinja = strip_jinja(raw)
     stmts = split_statements(text)
     results = []
@@ -1114,6 +1667,7 @@ def analyze_file(path, a, explains, stats_rows, hist_rows, tables_info):
                 r["kind"] = f"Create {(stmt.args.get('kind') or '').title()}".strip()
             plan = plan_statement(stmt)
             r["findings"] = rule_findings(stmt, line, sql, tables_info)
+            r["findings"] += schema_findings(stmt, line, columns_info, r["findings"])
             if plan is not None:
                 annotate_sizes(plan, tables_info, r["findings"])
                 r["plan"] = "\n".join(render_plan(plan))
@@ -1142,8 +1696,13 @@ def analyze_file(path, a, explains, stats_rows, hist_rows, tables_info):
         h = history_summary(hist_rows, a) if hist_rows else []
         target["history"] = h
         target["findings"] += history_findings(h, target["line"])
-    elif stats_rows or hist_rows:
-        print("note: --stats/--history are matched to a single statement; this file has several, so they were not used", file=sys.stderr)
+        if runs or patterns:
+            att = attributed_credits(h[0]["query_id"] if len(h) == 1 else None, runs)
+            target["attributed"] = att
+            target["pattern"] = pattern_summary(patterns, runs, (att or {}).get("hash"))
+    elif stats_rows or hist_rows or runs or patterns:
+        print("note: --stats/--history/--attribution are matched to a single statement; this file has several, so they were not used", file=sys.stderr)
+    sev_over = cfg.get("severity") or {}
     for r in results:
         rules = {f["rule"] for f in r["findings"]}
         if rules & {"explain-poor-pruning", "poor-pruning"}:
@@ -1151,6 +1710,18 @@ def analyze_file(path, a, explains, stats_rows, hist_rows, tables_info):
         if "explain-poor-pruning" in rules:
             explained = {f["title"].split(":")[0].upper() for f in r["findings"] if f["rule"] == "explain-poor-pruning"}
             r["findings"] = [f for f in r["findings"] if not (f["rule"] == "poor-pruning" and any(t in f["title"].upper() for t in explained))]
+        r["code_line"] = first_code_line(r["sql"], r["line"])
+        for f in r["findings"]:
+            for k in ("_col", "_select", "_star"):
+                f.pop(k, None)
+            if f["line"] and f["line"] < r["code_line"]:
+                f["line"] = r["code_line"]
+            if f["rule"] in sev_over:
+                f["severity"] = sev_over[f["rule"]]
+        assign_confidence(r, jinja)
+        off = [is_suppressed(f, r, by_line, file_rules, cfg.get("disable") or set()) for f in r["findings"]]
+        r["suppressed"] = [f["rule"] for f, o in zip(r["findings"], off) if o]
+        r["findings"] = [f for f, o in zip(r["findings"], off) if not o]
         r["findings"].sort(key=lambda f: (SEV_ORDER[f["severity"]], f["line"] or 0))
     return results, jinja
 
@@ -1174,6 +1745,34 @@ def sizing_note(r, a):
             "Time the query on two adjacent sizes: the bigger one costs 2x per second, so keep it only if it finishes more than twice as fast.")
 
 
+def attributed_line(att, r, a):
+    t = att["total"]
+    s = f"Credits Snowflake attributed to this run: {t:.4f} (${t * a.credit_price:.2f})"
+    if att["qas"]:
+        s += f", of which {att['qas']:.4f} were Query Acceleration"
+    if att["rows"] > 1:
+        s += f", across {att['rows']} queries (the statement and its child queries)"
+    s += ". This is Snowflake's own figure, not an estimate; it leaves out warehouse idle time and cloud services."
+    est = next((q["credits"] for q in r.get("history") or [] if q["credits"]), None)
+    if est and att["compute"] > 0 and est > 1.25 * att["compute"]:
+        s += (f" Rate × run time would have said {est:.4f}. A gap like that usually means the warehouse was shared with other queries "
+              "while this one ran (or the size or generation used for the estimate is wrong).")
+    if a.runs_per_day:
+        s += f" At {a.runs_per_day:g} runs a day: {t * a.runs_per_day:.2f} credits (${t * a.credit_price * a.runs_per_day:.2f}) a day."
+    return s
+
+
+def pattern_line(p, a):
+    h = f" (parameterized hash {p['hash'][:12]}…)" if p.get("hash") else ""
+    s = f"Every run of this query shape{h}: {p['runs']} runs, {p['credits']:.2f} credits (${p['credits'] * a.credit_price:.2f})"
+    if p["first"] and p["last"]:
+        s += f" between {p['first'][:10]} and {p['last'][:10]}"
+    if p["per_day"]:
+        s += f", about {p['per_day']:.2f} credits (${p['per_day'] * a.credit_price:.2f}) a day"
+    return s + (". A change that halves this query's cost saves about half of that. For every query shape on the warehouse, and its idle time, "
+                "use the snowflake-cost-investigator skill.")
+
+
 def report_md(all_results, a, inputs):
     lines = []
     total = Counter()
@@ -1181,7 +1780,8 @@ def report_md(all_results, a, inputs):
         for r in results:
             total.update(f["severity"] for f in r["findings"])
     ev = ["the SQL text"] + [x for x, ok in (("EXPLAIN plan", inputs["explain"]), ("operator stats", inputs["stats"]),
-                                            ("query history", inputs["history"]), ("table sizes", inputs["tables"])) if ok]
+                                            ("query history", inputs["history"]), ("table sizes", inputs["tables"]),
+                                            ("column types", inputs.get("columns")), ("attributed credits", inputs.get("attribution"))) if ok]
     lines.append("# Snowflake query review")
     lines.append("")
     lines.append(f"Evidence: {', '.join(ev)}. Findings: " + ", ".join(f"{total[s]} {s}" for s in SEV_ORDER if total[s]) + ("" if total else "none") + ".")
@@ -1213,10 +1813,11 @@ def report_md(all_results, a, inputs):
             if r.get("top_operators"):
                 lines.append("")
                 lines.append("Most expensive operators (share of execution time): " + ", ".join(f"{t} {p:.0f}%" for t, p in r["top_operators"]) + ".")
+            att = r.get("attributed")
             for q in r.get("history") or []:
                 lines.append("")
                 cost = ""
-                if q["credits"] is not None:
+                if q["credits"] is not None and not att:
                     cost = (f" At {q['size']} ({q['rate']} credits/hour, Gen{a.generation}{'' if a.generation == 1 else ' ' + a.cloud.upper()}) that is about "
                             f"{q['credits']:.4f} credits (${q['credits'] * a.credit_price:.2f}) per run")
                     if a.runs_per_day:
@@ -1225,6 +1826,12 @@ def report_md(all_results, a, inputs):
                 lines.append(f"Measured run {q['query_id'] or ''}: {q['exec_s']:.1f} s executing, {q['compile_s']:.1f} s compiling, {q['queued_s']:.1f} s queued, "
                              f"{fmt_bytes(q['bytes'])} scanned ({q['cache_pct'] * 100 if q['cache_pct'] <= 1 else q['cache_pct']:.0f}% from cache), "
                              f"spill {fmt_bytes(q['spill_l'])} local / {fmt_bytes(q['spill_r'])} remote.{cost}")
+            if att:
+                lines.append("")
+                lines.append(attributed_line(att, r, a))
+            if r.get("pattern"):
+                lines.append("")
+                lines.append(pattern_line(r["pattern"], a))
             note = sizing_note(r, a)
             if note:
                 lines.append("")
@@ -1233,17 +1840,21 @@ def report_md(all_results, a, inputs):
                 lines.append("")
                 for f in r["findings"]:
                     loc = f" (line {f['line']})" if f["line"] else ""
-                    lines.append(f"- **[{f['severity']}] {f['title']}**{loc}. {f['why']} *Fix:* {f['fix']}")
+                    lines.append(f"- **[{f['severity']}] {f['title']}**{loc} · {f.get('confidence', '?')} confidence. {f['why']} *Fix:* {f['fix']}")
                     if f.get("rewrite"):
-                        lines.append(f"  - Rewrite: `{f['rewrite']}`")
+                        lines.append(f"  - Rewrite ({f.get('rewrite_status', 'unchecked')}): `{f['rewrite']}`")
                     if f["evidence"]:
                         lines.append(f"  - Seen: `{f['evidence'].replace('`', '')}`")
-            elif r["parsed"] and r["plan"]:
+            elif r["parsed"] and r["plan"] and not r.get("suppressed"):
                 lines.append("")
                 lines.append("No issues found by the checks.")
-            elif r["parsed"]:
+            elif r["parsed"] and not r["plan"]:
                 lines.append("")
                 lines.append("Not a query (DDL, a procedure or a command): nothing to plan.")
+            if r.get("suppressed"):
+                lines.append("")
+                c = Counter(r["suppressed"])
+                lines.append(f"Turned off by sf-advisor comments or config: " + ", ".join(f"{k}" + (f" ×{v}" if v > 1 else "") for k, v in sorted(c.items())) + ".")
     lines.append("")
     lines.append("## Before changing anything")
     lines.append("")
@@ -1271,7 +1882,34 @@ def collect(paths):
     return files
 
 
+def resolve_settings(a):
+    """Command line first, then the project config (.sf-advisor.toml / .json), then the defaults."""
+    cfg = {}
+    if not a.no_config:
+        cpath = a.config or find_config(a.paths[0])
+        if cpath:
+            cfg = load_config(cpath)
+    gen = a.generation or cfg.get("generation") or 1
+    if int(gen) not in (1, 2):
+        sys.exit("generation must be 1 or 2")
+    a.generation = int(gen)
+    a.cloud = a.cloud or cfg.get("cloud") or "aws"
+    if a.cloud not in GEN2_FACTOR:
+        sys.exit("cloud must be aws, azure or gcp")
+    a.credit_price = a.credit_price if a.credit_price is not None else float(cfg.get("credit_price") or 3.0)
+    a.warehouse = a.warehouse or cfg.get("warehouse")
+    a.fail_on = a.fail_on or cfg.get("fail_on")
+    if a.fail_on and a.fail_on not in SEV_ORDER:
+        sys.exit(f"fail_on must be one of {', '.join(SEV_ORDER)}")
+    return cfg
+
+
+def write_sarif(path, all_results):
+    Path(path).write_text(json.dumps(to_sarif(all_results), indent=1) + "\n", encoding="utf-8")
+
+
 def cmd_analyze(a):
+    cfg = resolve_settings(a)
     explains = []
     for p in a.explain or []:
         plan = load_explain(p)
@@ -1281,15 +1919,34 @@ def cmd_analyze(a):
     stats = read_rows(a.stats) if a.stats else []
     hist = read_rows(a.history) if a.history else []
     tables = load_tables(a.tables)
-    files = collect(a.paths)
+    columns = load_columns(a.columns)
+    attribution = load_attribution(a.attribution, hist)
+    files = [f for f in collect(a.paths) if not excluded(f, cfg)]
+    if a.changed_only is not None:
+        changed = changed_files(a.changed_only or None)
+        files = [f for f in files if Path(f).resolve() in changed]
+        if not files:
+            print("no changed .sql files to review")
+            if a.sarif:
+                write_sarif(a.sarif, [])
+            return
     if not files:
         sys.exit("no .sql files found")
     all_results = []
     for f in files:
-        results, jinja = analyze_file(f, a, explains if len(files) == 1 else [], stats, hist, tables)
+        results, jinja = analyze_file(f, a, explains if len(files) == 1 else [], stats, hist, tables, columns, attribution, cfg)
         all_results.append((str(f), results, jinja))
-    md = report_md(all_results, a, {"explain": bool(explains), "stats": bool(stats), "history": bool(hist), "tables": bool(tables)})
-    if a.md:
+    md = report_md(all_results, a, {"explain": bool(explains), "stats": bool(stats), "history": bool(hist), "tables": bool(tables),
+                                    "columns": bool(columns), "attribution": bool(attribution[0] or attribution[1])})
+    if a.sarif:
+        write_sarif(a.sarif, all_results)
+    if a.brief:
+        lines = brief_lines(all_results)
+        n = sum(len(r["findings"]) for _, rs, _ in all_results for r in rs)
+        sys.stdout.write("\n".join(lines + [f"{len(files)} file(s), {n} finding(s)"]) + "\n")
+        if a.md:
+            Path(a.md).write_text(md, encoding="utf-8")
+    elif a.md:
         Path(a.md).write_text(md, encoding="utf-8")
         n = sum(len(r["findings"]) for _, rs, _ in all_results for r in rs)
         print(f"wrote {a.md}: {sum(len(rs) for _, rs, _ in all_results)} statement(s), {n} finding(s)")
@@ -1347,6 +2004,10 @@ def cmd_queries(a):
             conds = " OR ".join(f"(table_name = '{n.upper()}'" + (f" AND table_schema = '{d.upper()}')" if d else ")") for d, n in sorted(items, key=lambda x: (x[0] or "", x[1])))
             out.append(f"SELECT table_catalog, table_schema, table_name, row_count, bytes, clustering_key\nFROM {prefix}INFORMATION_SCHEMA.TABLES\nWHERE {conds};")
             out.append("")
+            out.append("-- Column names and types for the same tables (save as columns.csv; turns on the type checks)")
+            out.append(f"SELECT table_catalog, table_schema, table_name, column_name, ordinal_position, data_type\nFROM {prefix}INFORMATION_SCHEMA.COLUMNS\n"
+                       f"WHERE {conds}\nORDER BY table_schema, table_name, ordinal_position;")
+            out.append("")
     out.append("-- After running the query once: per-operator statistics (save as stats.csv). Needs OPERATE or MONITOR on the warehouse.")
     out.append("SELECT * FROM TABLE(GET_QUERY_OPERATOR_STATS('<query_id>'));")
     out.append("")
@@ -1356,6 +2017,24 @@ def cmd_queries(a):
                "       bytes_scanned, percentage_scanned_from_cache, partitions_scanned, partitions_total,\n"
                "       bytes_spilled_to_local_storage, bytes_spilled_to_remote_storage\n"
                "FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY WHERE query_id = '<query_id>';")
+    out.append("")
+    out.append("-- Credits Snowflake attributed to the run and its child queries, excluding warehouse idle time (save as attribution.csv).")
+    out.append("-- Needs the USAGE_VIEWER or GOVERNANCE_VIEWER database role; the view lags by up to about 8 hours and omits very short queries.")
+    out.append("SELECT query_id, parent_query_id, root_query_id, query_parameterized_hash, warehouse_name, start_time,\n"
+               "       credits_attributed_compute, credits_used_query_acceleration\n"
+               "FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_ATTRIBUTION_HISTORY\n"
+               "WHERE query_id = '<query_id>' OR root_query_id = '<query_id>';")
+    out.append("")
+    out.append("-- Every run of the same query shape over the last 30 days (save as pattern.csv; pass both files with --attribution).")
+    out.append("SELECT a.query_parameterized_hash, COUNT(*) AS runs,\n"
+               "       SUM(a.credits_attributed_compute) AS credits_attributed_compute,\n"
+               "       SUM(COALESCE(a.credits_used_query_acceleration, 0)) AS credits_used_query_acceleration,\n"
+               "       MIN(a.start_time) AS first_start, MAX(a.start_time) AS last_start\n"
+               "FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_ATTRIBUTION_HISTORY a\n"
+               "WHERE a.query_parameterized_hash = (SELECT query_parameterized_hash FROM SNOWFLAKE.ACCOUNT_USAGE.QUERY_ATTRIBUTION_HISTORY\n"
+               "                                    WHERE query_id = '<query_id>')\n"
+               "  AND a.start_time >= DATEADD(day, -30, CURRENT_TIMESTAMP())\n"
+               "GROUP BY a.query_parameterized_hash;")
     sys.stdout.write("\n".join(out) + "\n")
 
 
@@ -1369,13 +2048,20 @@ def main(argv=None):
     p.add_argument("--history")
     p.add_argument("--tables")
     p.add_argument("--warehouse")
-    p.add_argument("--generation", type=int, choices=[1, 2], default=1)
-    p.add_argument("--cloud", choices=["aws", "azure", "gcp"], default="aws")
-    p.add_argument("--credit-price", type=float, default=3.0)
+    p.add_argument("--columns")
+    p.add_argument("--attribution", action="append")
+    p.add_argument("--generation", type=int, choices=[1, 2])
+    p.add_argument("--cloud", choices=["aws", "azure", "gcp"])
+    p.add_argument("--credit-price", type=float)
     p.add_argument("--runs-per-day", type=float)
     p.add_argument("--md")
     p.add_argument("--json")
     p.add_argument("--fail-on", choices=list(SEV_ORDER))
+    p.add_argument("--sarif")
+    p.add_argument("--brief", action="store_true")
+    p.add_argument("--changed-only", nargs="?", const="", metavar="REF")
+    p.add_argument("--config")
+    p.add_argument("--no-config", action="store_true")
     q = sub.add_parser("queries")
     q.add_argument("paths", nargs="+")
     a = ap.parse_args(argv)

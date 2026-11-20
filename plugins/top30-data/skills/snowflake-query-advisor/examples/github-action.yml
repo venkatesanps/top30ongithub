@@ -1,0 +1,43 @@
+# Save as .github/workflows/sql-review.yml, after copying scripts/sf_query_advisor.py
+# from this skill to tools/sf_query_advisor.py in your repo.
+name: Snowflake SQL review
+on:
+  pull_request:
+    paths: ["**/*.sql", ".sf-advisor.toml"]
+
+permissions:
+  contents: read
+  security-events: write   # only for the SARIF upload step
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0     # --changed-only needs the base branch's history
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install "sqlglot>=25"
+      - name: Review changed SQL
+        run: >
+          python tools/sf_query_advisor.py analyze .
+          --changed-only "origin/${{ github.base_ref }}"
+          --brief --fail-on high
+          --sarif sf-advisor.sarif --md sf-advisor.md
+      - name: Keep the full report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sf-advisor-report
+          path: sf-advisor.md
+          if-no-files-found: ignore
+      # Code scanning: needs GitHub Advanced Security on private repos, and sends findings
+      # (with short SQL snippets) to GitHub. Remove this step if either is a problem.
+      - name: Show findings on the pull request
+        if: always()
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: sf-advisor.sarif
+          category: sf-query-advisor

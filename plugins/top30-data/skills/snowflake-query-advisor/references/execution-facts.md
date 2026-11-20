@@ -84,6 +84,28 @@ Where sources disagreed or only blogs said it, the wording is hedged and marked.
   Joins with output_rows > input_rows can mean an exploding join.
   https://docs.snowflake.com/en/sql-reference/functions/get_query_operator_stats
 
+## Cost per query (checked 2026-11-19)
+
+- `SNOWFLAKE.ACCOUNT_USAGE.QUERY_ATTRIBUTION_HISTORY.CREDITS_ATTRIBUTED_COMPUTE` is the warehouse
+  credits attributed to one query, including resizing and multi-cluster scaling. Queries that run
+  at the same time share the cost by weighted resource use.
+- It leaves out warehouse idle time, cloud services, storage, data transfer, serverless features
+  and AI tokens, and omits queries of about 100 ms or less. Adaptive warehouses aren't in it.
+- Query Acceleration credits are a separate column (`CREDITS_USED_QUERY_ACCELERATION`); the
+  query's total is the two added. Child queries (a stored procedure's statements) carry the
+  caller in `ROOT_QUERY_ID`.
+- Access needs the USAGE_VIEWER or GOVERNANCE_VIEWER database role; rows can lag by up to about
+  eight hours; retention is 365 days.
+- `QUERY_PARAMETERIZED_HASH` is the same for queries that differ only in literal values in
+  simple comparisons, so it groups every run of a query shape.
+
+- Comparing a text column with a number makes Snowflake convert the text to a number (when one
+  input is numeric, the result is numeric), and a value that can't convert, such as `'xyz'`,
+  makes the statement fail. https://docs.snowflake.com/en/sql-reference/data-type-conversion
+
+Sources: <https://docs.snowflake.com/en/sql-reference/account-usage/query_attribution_history>,
+<https://docs.snowflake.com/en/user-guide/query-hash>.
+
 ## What the explainer adds to the community infographic (Abhisek Sahu)
 
 The original is a good one-page summary; some of what follows it simplified on purpose.

@@ -1,0 +1,13 @@
+# Save as .sf-advisor.toml at the root of the repo (or of the dbt project).
+# Every key is optional; command-line options win.
+[sf-advisor]
+disable = []                          # e.g. ["count-distinct", "window-no-partition"]
+exclude = ["target/*", "dbt_packages/*"]
+fail_on = "high"                      # high, medium, low or info
+generation = 1                        # 2 only for warehouses you know are Gen2
+cloud = "aws"                         # for Gen2 rates: aws, azure or gcp
+credit_price = 3.00                   # your contract's price per credit
+# warehouse = "M"                     # size used for estimates when history doesn't say
+
+[sf-advisor.severity]
+# not-in-subquery = "high"

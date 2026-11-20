@@ -1,6 +1,6 @@
 ---
 name: snowflake-query-advisor
-description: Review a Snowflake query or .sql file (dbt models included) like an explain plan - an operator tree showing scans, pruning, joins, aggregates and sorts - and recommend specific rewrites and settings that make it faster and cheaper (less scanning, no spills, fewer credits). Reads EXPLAIN output, GET_QUERY_OPERATOR_STATS and QUERY_HISTORY exports when the user has them. Use when someone asks why a Snowflake query is slow or expensive, to tune or review SQL, to read an explain plan or query profile, or to size a warehouse for a query.
+description: Review a Snowflake query or .sql file (dbt models included) like an explain plan - an operator tree showing scans, pruning, joins, aggregates and sorts - and recommend specific rewrites and settings that make it faster and cheaper (less scanning, no spills, fewer credits). Reads EXPLAIN output, GET_QUERY_OPERATOR_STATS, QUERY_HISTORY, QUERY_ATTRIBUTION_HISTORY and INFORMATION_SCHEMA.COLUMNS exports when the user has them, and runs as a pre-commit hook or CI check with SARIF output. Use when someone asks why a Snowflake query is slow or expensive, to tune or review SQL, to read an explain plan or query profile, or to size a warehouse for a query.
 ---
 
 # Snowflake query advisor
@@ -43,9 +43,12 @@ It lists, using the user's own SQL text:
 
 - `EXPLAIN USING JSON <statement>`: compiles without running and needs no warehouse. It gives the
   real plan and `partitionsAssigned` of `partitionsTotal` after compile-time pruning.
-- An `INFORMATION_SCHEMA.TABLES` query for the tables' rows, bytes and clustering keys.
+- `INFORMATION_SCHEMA.TABLES` (rows, bytes, clustering keys) and `INFORMATION_SCHEMA.COLUMNS`
+  (column types) queries for the tables it reads.
 - After one real run: `GET_QUERY_OPERATOR_STATS('<query_id>')` (rows in and out, spill, pruning,
-  time per operator) and the `QUERY_HISTORY` row (time, size, queueing, cache %, spill).
+  time per operator), the `QUERY_HISTORY` row (time, size, queueing, cache %, spill), and two
+  `QUERY_ATTRIBUTION_HISTORY` queries: the credits Snowflake attributed to this run, and every run
+  of the same query shape over 30 days (same `query_parameterized_hash`).
 
 Pick the route the user's setup allows, the same way as `snowflake-cost-investigator`:
 
@@ -58,16 +61,23 @@ Pick the route the user's setup allows, the same way as `snowflake-cost-investig
 Never ask for a password, key or token. Then re-run with whatever they bring back:
 
 ```bash
-$Q analyze query.sql --explain query_1.explain.json --tables tables.csv \
-   --stats stats.csv --history history.csv --warehouse L \
-   --credit-price 3.00 --runs-per-day 24
+$Q analyze query.sql --explain query_1.explain.json --tables tables.csv --columns columns.csv \
+   --stats stats.csv --history history.csv --attribution attribution.csv --attribution pattern.csv \
+   --warehouse L --credit-price 3.00
 ```
 
 EXPLAIN accepts the JSON, a JSON string pasted from a cell, or a CSV of `EXPLAIN USING TABULAR`.
-With history it estimates credits per run: the warehouse rate times the execution time. Say it's
-an estimate, since a warehouse runs other queries too. Rates are Gen1 unless the user says the
-warehouse is Gen2; then add `--generation 2 --cloud aws|azure|gcp`. Ask for their credit price;
-if they don't know, use $3.00 and say so.
+
+- **Cost.** With `--attribution` the report uses the credits Snowflake attributed to the run
+  (compute plus Query Acceleration, child queries included) and totals every run of the query
+  shape, so a fix can be priced per day. That figure leaves out idle time and cloud services; the
+  view needs USAGE_VIEWER or GOVERNANCE_VIEWER and lags by hours. Without it, history gives an
+  estimate (rate × execution time): say it's an estimate. Rates are Gen1 unless the user says the
+  warehouse is Gen2; then add `--generation 2 --cloud aws|azure|gcp`. Ask for their credit price;
+  if they don't know, use $3.00 and say so. For a whole warehouse, use `snowflake-cost-investigator`.
+- **Types.** With `--columns` it checks join keys and filters for type mismatches, flags columns a
+  table doesn't have, checks each date rewrite against the column's real type (and drops it for a
+  text column), and turns `SELECT *` into the table's column list.
 
 ## 3. Write the answer
 
@@ -76,14 +86,26 @@ if they don't know, use $3.00 and say so.
 2. **The top three changes** in order of payoff, each with:
    - what to change
    - why, in terms of the plan
-   - the rewritten SQL (use the script's `Rewrite:` lines and finish the rest by hand)
+   - the rewritten SQL (use the script's `Rewrite:` lines and finish the rest by hand). Repeat
+     the rewrite's status: "type checked" means the column types fit, not that results are
+     proven equal; "unchecked" means test it on real data first
    - how to check it
    Show the full rewritten query when changes interact.
 3. **Compute and cost:** sizing only from evidence (EXPLAIN bytes, spill, measured time). Upsizing
    doubles the rate per second, so it saves money only when the query runs more than twice as fast:
    propose a timed test on two sizes, not a verdict. Queueing calls for multi-cluster or a separate
    warehouse, not a bigger one.
-4. **What wasn't checked**, for example "estimated plan only; no EXPLAIN yet".
+4. **What wasn't checked**, for example "estimated plan only; no EXPLAIN yet". Each finding has a
+   confidence: high (measured, or certain from the SQL), medium (the cost depends on data the SQL
+   doesn't show), low (unparsed SQL); one level lower inside dbt templates. Lead with high ones.
+
+## 4. Run it on every change
+
+For a repo of SQL or dbt models, `references/ci.md` sets up a pre-commit hook, a GitHub Actions
+check with SARIF for code scanning, a project config (`.sf-advisor.toml`) and comments that turn a
+rule off where it's intended (`-- sf-advisor: disable=select-star`). The `examples/` folder has
+files to copy. Before suggesting SARIF upload, note that it sends findings, with SQL snippets, to
+GitHub: only for repos whose SQL is already there.
 
 ## Judgement the script can't make
 

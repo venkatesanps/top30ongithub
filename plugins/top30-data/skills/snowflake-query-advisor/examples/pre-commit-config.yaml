@@ -1,0 +1,13 @@
+# Add this to your repo's .pre-commit-config.yaml, after copying
+# scripts/sf_query_advisor.py from this skill to tools/sf_query_advisor.py.
+# Then: pip install pre-commit && pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: sf-query-advisor
+        name: Snowflake query advisor
+        entry: python tools/sf_query_advisor.py analyze --brief --fail-on high
+        language: python
+        additional_dependencies: ["sqlglot>=25"]
+        files: \.sql$
+        exclude: ^(target|dbt_packages)/
