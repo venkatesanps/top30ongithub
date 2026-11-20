@@ -44,7 +44,7 @@ SIZE_ALIASES = {"XSMALL": "XS", "X-SMALL": "XS", "SMALL": "S", "MEDIUM": "M", "L
                 "XXLARGE": "2XL", "X2LARGE": "2XL", "2X-LARGE": "2XL", "XXXLARGE": "3XL", "X3LARGE": "3XL", "3X-LARGE": "3XL",
                 "X4LARGE": "4XL", "4X-LARGE": "4XL", "X5LARGE": "5XL", "5X-LARGE": "5XL", "X6LARGE": "6XL", "6X-LARGE": "6XL"}
 GEN2_FACTOR = {"aws": 1.35, "gcp": 1.35, "azure": 1.25}
-NONDETERMINISTIC = {"RANDOM", "UUID_STRING", "RANDSTR", "SEQ1", "SEQ2", "SEQ4", "SEQ8"}
+NONDETERMINISTIC = {"RANDOM", "UUID_STRING", "RANDSTR"}  # the examples Snowflake's result-reuse docs give
 TIME_NOW = {"CURRENT_TIMESTAMP", "SYSDATE", "GETDATE", "LOCALTIMESTAMP", "CURRENT_TIME", "SYSTIMESTAMP"}
 GB = 1024 ** 3
 
@@ -221,14 +221,14 @@ def load_explain(path):
             continue
         break
     if data is None:
-        # a CSV export whose single cell holds the JSON
+        # a CSV export (any header) with the JSON in one of its cells
         try:
-            cells = next(csv.reader(io.StringIO(raw.split("\n", 1)[-1] if raw.lower().startswith(("\"explain", "explain", "system$")) else raw)))
-            for cell in cells:
-                if cell.strip().startswith("{"):
+            for row in csv.reader(io.StringIO(raw)):
+                cell = next((c for c in row if c.strip().startswith("{") and "Operations" in c), None)
+                if cell:
                     data = json.loads(cell)
                     break
-        except (StopIteration, json.JSONDecodeError, csv.Error):
+        except (json.JSONDecodeError, csv.Error):
             data = None
     if isinstance(data, list) and data and isinstance(data[0], dict) and any(k.upper().startswith("SYSTEM$EXPLAIN") or k.upper() == "EXPLAIN" for k in data[0]):
         data = json.loads(next(iter(data[0].values())))
@@ -628,17 +628,18 @@ def rewrite_date_filter(cmp):
     if col is None:
         return None
     c, v = col.sql(dialect="snowflake"), right.sql(dialect="snowflake")
+    d = v if not (isinstance(right, exp.Literal) and right.is_string) else f"{v}::DATE"
     name = left.sql_name().upper() if isinstance(left, exp.Func) else ""
     if isinstance(left, exp.Cast) and left.to.is_type("date") or isinstance(left, (exp.TsOrDsToDate, exp.Date)) or name in DATE_FUNCS:
-        return f"{c} >= {v} AND {c} < DATEADD(day, 1, {v})"
+        return f"{c} >= {d} AND {c} < DATEADD(day, 1, {d})"
     if isinstance(left, exp.Year) or name == "YEAR":
         if right.is_int:
             y = int(right.name)
-            return f"{c} >= '{y}-01-01' AND {c} < '{y + 1}-01-01'"
+            return f"{c} >= '{y}-01-01'::DATE AND {c} < '{y + 1}-01-01'::DATE"
     if isinstance(left, (exp.DateTrunc, exp.TimestampTrunc)) or name in ("DATE_TRUNC", "TRUNC"):
         unit = left.args.get("unit")
         u = (unit.name if unit is not None else "").lower().strip("'") or "day"
-        return f"{c} >= {v} AND {c} < DATEADD({u}, 1, {v})"
+        return f"{c} >= {d} AND {c} < DATEADD({u}, 1, {d})"
     return None
 
 
@@ -746,7 +747,7 @@ def rule_findings(stmt, base, text, tables_info):
                              f"{snippet(subject, 50)} wraps the filtered column",
                              "Pruning compares the filter with each micro-partition's min/max for the column. Wrapping the column in a function or cast "
                              "can stop Snowflake from using those ranges, so more partitions are scanned.",
-                             "Compare the raw column with a range of constants instead" + (":" if rw else "; put any function on the constant side."),
+                             "Compare the raw column with a range of constants instead" + (" (this rewrite assumes the column is a DATE or TIMESTAMP):" if rw else "; put any function on the constant side."),
                              snippet(cmp, 80), "pruning", rewrite=rw))
             # R3 leading wildcard
             for lk in p.find_all(exp.Like, exp.ILike):
@@ -886,8 +887,8 @@ def rule_findings(stmt, base, text, tables_info):
         elif name in TIME_NOW and name not in seen and isinstance(stmt, (exp.Select, exp.Union)):
             seen.add(name)
             out.append(F("current-time-reuse", "info", line_of(f, base), f"{name} changes on every run",
-                         "Its value is different each time, so the result cache is unlikely to help this query.",
-                         "For dashboards refreshed often, filter on CURRENT_DATE() or a parameter so identical runs can be reused.", name, "cache"))
+                         "Snowflake's docs don't say whether results of queries using it are reused, so don't count on the result cache here.",
+                         "Nothing to change unless repeated runs of this query matter; then measure whether they're served from the cache.", name, "cache"))
     # R17 the same subquery written twice
     by_text = defaultdict(list)
     for sq in stmt.find_all(exp.Subquery):
@@ -1096,7 +1097,9 @@ def analyze_file(path, a, explains, stats_rows, hist_rows, tables_info):
     text, jinja = strip_jinja(raw)
     stmts = split_statements(text)
     results = []
-    exp_iter = iter(explains)
+    # files named like <stem>_<k>.explain.json (as `queries` suggests) go to statement k; others in order
+    numbered = {p["n"]: p for p in explains if p.get("n")}
+    exp_iter = iter([p for p in explains if not p.get("n")])
     for k, (sql, line) in enumerate(stmts, 1):
         r = {"file": str(path), "n": k, "line": line, "end": line + sql.count("\n"), "kind": None, "parsed": False, "plan": None,
              "plan_source": "estimated from the SQL", "findings": [], "error": None, "sql": sql}
@@ -1122,7 +1125,7 @@ def analyze_file(path, a, explains, stats_rows, hist_rows, tables_info):
             r["findings"] = text_findings(sql, line)
             r["tables"] = []
         if r["parsed"] and r["plan"] and r["kind"] in ("Select", "Union", "Insert", "Create Table", "Create View", "Merge", "Update", "Delete", "Intersect", "Except", "Subquery"):
-            ep = next(exp_iter, None)
+            ep = numbered.get(k) if numbered else next(exp_iter, None)
             if ep is not None:
                 r["plan"] = render_explain(ep)
                 g = ep["global"] or {}
@@ -1259,7 +1262,8 @@ def collect(paths):
     files = []
     for p in map(Path, paths):
         if p.is_dir():
-            files += sorted(f for f in p.rglob("*.sql") if f.is_file() and not ({"target", "dbt_packages", "node_modules", ".git", "macros"} & set(f.parts)))
+            files += sorted(f for f in p.rglob("*.sql") if f.is_file()
+                            and not ({"target", "dbt_packages", "node_modules", ".git", "macros"} & set(f.relative_to(p).parts[:-1])))
         elif p.is_file():
             files.append(p)
         else:
@@ -1268,7 +1272,12 @@ def collect(paths):
 
 
 def cmd_analyze(a):
-    explains = [load_explain(p) for p in (a.explain or [])]
+    explains = []
+    for p in a.explain or []:
+        plan = load_explain(p)
+        m = re.search(r"_(\d+)\.explain\.(?:json|csv|tsv|txt)$", str(p))
+        plan["n"] = int(m.group(1)) if m else None
+        explains.append(plan)
     stats = read_rows(a.stats) if a.stats else []
     hist = read_rows(a.history) if a.history else []
     tables = load_tables(a.tables)
@@ -1300,7 +1309,11 @@ def cmd_queries(a):
            "-- EXPLAIN compiles without executing (no warehouse needed). Save each result as JSON or CSV.", ""]
     tables = set()
     for f in collect(a.paths):
-        text, _ = strip_jinja(Path(f).read_text(encoding="utf-8", errors="replace"))
+        text, jinja = strip_jinja(Path(f).read_text(encoding="utf-8", errors="replace"))
+        if jinja:
+            out.append(f"-- {f}: dbt/Jinja template. Run `dbt compile`, then pass the compiled file from target/compiled/ to `queries`.")
+            out.append("")
+            continue
         for k, (sql, line) in enumerate(split_statements(text), 1):
             try:
                 stmt = sqlglot.parse_one(sql, read="snowflake")

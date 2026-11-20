@@ -4,6 +4,7 @@ the formats in Snowflake's documentation; they were not exported from a live acc
 
 python3 tests/sf_query_advisor/test_sf_query_advisor.py   (needs sqlglot; no network)
 """
+import csv
 import json
 import subprocess
 import sys
@@ -51,9 +52,13 @@ def rules(sql, **kw):
 r = rules("select * from db.s.orders where to_date(order_ts) = '2026-03-15'")
 check(r["select-star"] == 1 and r["function-on-filter-column"] == 1, f"star + function filter: {r}")
 f = [x for x in run_sql("select a from t where to_date(ts) = '2026-03-15'")[0]["findings"] if x["rule"] == "function-on-filter-column"][0]
-check(f["rewrite"] == "ts >= '2026-03-15' AND ts < DATEADD(day, 1, '2026-03-15')", f"date rewrite: {f.get('rewrite')}")
+check(f["rewrite"] == "ts >= '2026-03-15'::DATE AND ts < DATEADD(day, 1, '2026-03-15'::DATE)", f"date rewrite: {f.get('rewrite')}")
+for sql, want in [("select a from t where ts::date = '2026-03-15'", "ts >= '2026-03-15'::DATE AND ts < DATEADD(day, 1, '2026-03-15'::DATE)"),
+                  ("select a from t where date_trunc('month', ts) = '2026-03-01'", "ts >= '2026-03-01'::DATE AND ts < DATEADD(month, 1, '2026-03-01'::DATE)")]:
+    got = [x for x in run_sql(sql)[0]["findings"] if x["rule"] == "function-on-filter-column"][0].get("rewrite")
+    check(got == want, f"rewrite for {sql}: {got}")
 f = [x for x in run_sql("select a from t where year(d) = 2026")[0]["findings"] if x["rule"] == "function-on-filter-column"][0]
-check(f["rewrite"] == "d >= '2026-01-01' AND d < '2027-01-01'", f"year rewrite: {f.get('rewrite')}")
+check(f["rewrite"] == "d >= '2026-01-01'::DATE AND d < '2027-01-01'::DATE", f"year rewrite: {f.get('rewrite')}")
 check(rules("select a from t, u")["cartesian-join"] == 1, "comma join with no condition is cartesian")
 check(rules("select a from t where id not in (select id from u)")["not-in-subquery"] == 1, "NOT IN subquery")
 check(rules("select a from t join u on t.a < u.b")["non-equi-join"] == 1, "non-equi join")
@@ -111,6 +116,27 @@ with tempfile.TemporaryDirectory() as d:
                    "1,1,[0],TableScan,TESTDB.DOC.Z1,NULL,ID,2,2,1024\n")
     tp = sfa.load_explain(tab)
     check(tp["global"]["partitionsTotal"] == 2 and tp["ops"][1]["parents"] == [0], "TABULAR export loads")
+    cellcsv = Path(d) / "snowsight.csv"  # a one-cell export with whatever header Snowsight gives the column
+    with cellcsv.open("w", newline="") as fh:
+        w = csv.writer(fh)
+        w.writerow(["SOME HEADER"])
+        w.writerow([(FIX / "explain_orders.json").read_text()])
+    check(len(sfa.load_explain(cellcsv)["ops"]) == 9, "JSON in a CSV cell loads, whatever the header")
+    # statement numbers in file names route plans: a plan for statement 2 must not attach to statement 1
+    two = Path(d) / "two.sql"
+    two.write_text("select a from t;\n" + (FIX / "orders_report.sql").read_text())
+    named = Path(d) / "two_2.explain.json"
+    named.write_text((FIX / "explain_orders.json").read_text())
+    r2 = subprocess.run([sys.executable, str(SCRIPT), "analyze", str(two), "--explain", str(named), "--json", str(Path(d) / "two.json")],
+                        capture_output=True, text=True)
+    st = json.loads((Path(d) / "two.json").read_text())[0]["statements"]
+    check(st[0]["plan_source"].startswith("estimated") and st[1]["plan_source"].startswith("from EXPLAIN"), f"plan routed by number: {[s['plan_source'][:20] for s in st]}")
+    # files under a folder the user names explicitly (dbt's target/compiled) are read
+    comp = Path(d) / "target" / "compiled"
+    comp.mkdir(parents=True)
+    (comp / "m.sql").write_text("select a from t")
+    check(sfa.collect([comp]) == [comp / "m.sql"], "target/compiled is read when passed directly")
+    check(sfa.collect([Path(d)]) and all("target" not in p.parts for p in sfa.collect([Path(d)])), "target is skipped when scanning a project")
 
 stats = sfa.read_rows(FIX / "operator_stats.csv")
 hist = sfa.read_rows(FIX / "history.csv")
@@ -148,6 +174,9 @@ r = subprocess.run([sys.executable, str(SCRIPT), "analyze", str(FIX / "orders_re
                     "--fail-on", "high"], capture_output=True, text=True)
 check(r.returncode == 1 and "from EXPLAIN: 45,870 of 48,210 partitions" in r.stdout and "Measured run 01b2-demo" in r.stdout, r.stdout[-400:] + r.stderr)
 r = subprocess.run([sys.executable, str(SCRIPT), "queries", str(FIX / "orders_report.sql")], capture_output=True, text=True)
+r3 = subprocess.run([sys.executable, str(SCRIPT), "queries", str(FIX / "dbt_model.sql")], capture_output=True, text=True)
+check("dbt compile" in r3.stdout and "__jinja__" not in r3.stdout, "queries asks for compiled SQL for a dbt model")
+check(rules("select seq4() from t")["no-result-reuse"] == 0, "SEQ functions aren't claimed to block reuse")
 check(r.returncode == 0 and "EXPLAIN USING JSON\n-- Daily revenue" in r.stdout and "NOT IN (SELECT status" in r.stdout
       and "table_name = 'ORDERS' AND table_schema = 'SALES'" in r.stdout, "queries keeps the user's SQL and lists tables")
 with tempfile.TemporaryDirectory() as d:

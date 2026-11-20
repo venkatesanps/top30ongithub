@@ -84,20 +84,19 @@ Where sources disagreed or only blogs said it, the wording is hedged and marked.
   Joins with output_rows > input_rows can mean an exploding join.
   https://docs.snowflake.com/en/sql-reference/functions/get_query_operator_stats
 
-## What the community infographic (Abhisek Sahu) got wrong or left out
+## What the explainer adds to the community infographic (Abhisek Sahu)
 
-1. Pruning drawn as monthly buckets: micro-partitions are 50-500 MB units and prune by min/max
-   ranges; good pruning depends on clustering, not on a calendar.
-2. Compile-time pruning happens in cloud services (EXPLAIN shows it without a warehouse);
-   runtime pruning happens again in the warehouse. The original shows one pruning step.
-3. Metadata-only answers (COUNT(*) and similar) are missing: they skip the warehouse.
-4. Result-cache conditions are cut to "same text, unchanged data": privileges, nondeterministic
-   functions, external functions, hybrid tables and settings also matter, and reuse is never
-   guaranteed.
-5. Warehouse sizes list only Gen1. Gen2 (now the default for new warehouses) costs 1.35x (AWS,
-   GCP) or 1.25x (Azure) per hour and stops at 4XL.
-6. Cloud services billing (only above 10% of daily warehouse credits) is missing.
-7. Resume and queueing are missing: a suspended warehouse adds startup time and a 60-second
-   minimum; a busy one queues the query.
-8. Query Acceleration Service and its cost cap are missing.
-9. The pruning example text is garbled (`order_date =^ prime 2026-3-15`).
+The original is a good one-page summary; some of what follows it simplified on purpose.
+
+1. Pruning by micro-partition min/max ranges (50-500 MB units) rather than monthly buckets, so the
+   role of clustering shows.
+2. Two pruning passes: compile time in cloud services (EXPLAIN shows it without a warehouse) and
+   runtime in the warehouse.
+3. Metadata-only answers (COUNT(*) and similar) that skip the warehouse.
+4. The full result-reuse conditions: privileges, per-run functions, external functions, hybrid
+   tables, settings; and that reuse is never guaranteed.
+5. Gen2 rates (1.35x on AWS and GCP, 1.25x on Azure), the Gen2 default for new warehouses, and no
+   Gen2 at 5XL/6XL.
+6. Cloud services billing above 10% of daily warehouse credits.
+7. Warehouse resume (start-up, 60-second minimum) and queueing.
+8. Query Acceleration Service and its scale-factor cap.

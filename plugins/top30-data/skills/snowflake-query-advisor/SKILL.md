@@ -66,7 +66,9 @@ $Q analyze query.sql --explain query_1.explain.json --tables tables.csv \
 EXPLAIN accepts the JSON, a JSON string pasted from a cell, or a CSV of `EXPLAIN USING TABULAR`.
 With history it estimates credits per run: the warehouse rate times the execution time. Say it's
 an estimate, since a warehouse runs other queries too. Ask for their credit price and generation;
-if they don't know, use the defaults ($3.00, Gen2 AWS) and say so.
+if they don't know, use the defaults ($3.00, Gen2 AWS) and say so. Existing warehouses keep
+Gen1 unless someone changed them, so ask them to check `SHOW WAREHOUSES` and pass
+`--generation 1` if so: the Gen2 default overstates their cost.
 
 ## 3. Write the answer
 
