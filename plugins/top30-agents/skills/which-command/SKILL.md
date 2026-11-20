@@ -1,6 +1,6 @@
 ---
 name: which-command
-description: Pick the right Claude Code built-in command for the situation - /plan, /goal, /loop, /schedule, /batch, /subtask, /fork, /branch, /rewind, /compact, /simplify, /code-review, /deep-research, /design, /remote-control, /mcp, /memory - with the catches each one has. Use when the user asks which command to use, how to make Claude keep going, run things in parallel, undo, save context, review code, or automate something, or when a command they tried did the wrong thing.
+description: Pick the right Claude Code built-in command for the situation - /plan, /goal, /loop, /schedule, /batch, /subtask, /fork, /branch, /rewind, /compact, /context, /btw, /init, /effort, /advisor, /background, /verify, /simplify, /code-review, /autofix-pr, /debug and more - with the catches each one has. Use when the user asks which command to use, how to make Claude keep going, run things in parallel, undo, save context, review code, or automate something, or when a command they tried did the wrong thing.
 ---
 
 # Which command
@@ -17,6 +17,10 @@ isn't in the user's `/` menu, they need to update Claude Code.
 | Want to see the approach before any edit | `/plan <task>` | Plan mode reads, never edits. Approve the plan to start. |
 | Need researched facts with sources | `/deep-research <question>` | A bundled workflow: fans out searches in the background and returns a cited report. |
 | Need a UI mockup to react to | `/design <brief>` | Needs v2.1.265+, artifacts on, and isn't available on Bedrock, Google Cloud or Foundry. |
+| New project, Claude keeps missing its conventions | `/init` | Writes CLAUDE.md from the codebase (`CLAUDE_CODE_NEW_INIT=1` for the interactive flow). Trim it: it loads every session. |
+| The hard step needs more thinking | `/effort high` (or `xhigh`, `max`) | `max` lasts only this session; slower and costlier, so lower it again after. |
+| Want a second model's view of the approach | `/advisor opus` | `fable` needs access. `/advisor off` to stop. |
+| Different model for this session only | `/model`, then `s` | Without `s` it becomes your default. |
 
 ## Keep it going without me
 
@@ -34,7 +38,8 @@ isn't in the user's `/` menu, they need to update Claude Code.
 |---|---|---|
 | One big mechanical change across many files | `/batch <instruction>` | Splits into 5-30 units with one background agent per unit in its own worktree. Needs git (or v2.1.281+). Units must be independent: use the `batch-scout` agent first. |
 | Side task that should report back here | `/subtask <task>` | Inherits the whole conversation. Needs agent view on. |
-| A copy of this session working on its own | `/fork <prompt>` | Runs as a separate background session. |
+| A copy of this session working on its own | `/fork <prompt>` | A separate background session in its own worktree; merge its branch to get the changes. |
+| Free the terminal, keep this session running | `/background` (`/bg`) | See its work and other background shells with `/tasks`. |
 | Try another direction, keep this one | `/branch [name]` | Switches you into the branch; return with `/resume`. |
 
 ## Undo and context
@@ -42,7 +47,10 @@ isn't in the user's `/` menu, they need to update Claude Code.
 | Situation | Command | Catch |
 |---|---|---|
 | Go back to before a change | `/rewind` (also `/checkpoint`, `/undo`) | Restores Claude's edits and the conversation. Commands Claude ran (DB writes, pushes) aren't undone. |
+| What is using up context? | `/context` (`/context all`) | Look before you compact: big tool outputs and whole-file reads are the usual cause. |
 | Context is full or drifting | `/compact <what to keep>` | Say what must survive, e.g. "keep the schema decisions and open TODOs". |
+| Quick question that shouldn't pollute the task | `/btw <question>` | The answer isn't added to the conversation. |
+| Pick up yesterday's session | `/resume <name or id>` | Name sessions so you can find them. |
 | Teach the project a standing rule | `/memory` | Edits CLAUDE.md and auto memory; keep rules short and true. |
 | Add, fix or re-auth a tool connection | `/mcp` | `/mcp reconnect all` retries failed servers. |
 
@@ -50,11 +58,23 @@ isn't in the user's `/` menu, they need to update Claude Code.
 
 | Situation | Command | Catch |
 |---|---|---|
+| See what changed | `/diff` | The whole working tree, not only Claude's edits. |
+| Show it works in the real app | `/verify` or `/run` | Builds, launches and drives the app; `/run-skill-generator` teaches it a project with special steps. |
 | Tidy the change | `/simplify` | Four parallel reviewers for reuse, simplicity, efficiency, abstraction. It does **not** look for bugs. |
 | Find bugs | `/code-review` | Effort levels up to `ultra` (cloud multi-agent review). |
-| Security pass | `/security-review` | Reviews your branch against origin's default branch. |
+| Security pass | `/security-review` | Reviews your branch against origin's default branch; needs an `origin` remote. |
+| Keep the PR green while I'm away | `/autofix-pr` | A cloud session watches the current branch's PR; push first. |
+
+## When something is off
+
+| Situation | Command | Catch |
+|---|---|---|
+| A session went badly and I want to know why | `session-doctor` skill | Reads the transcript offline and names the layer: prompt, context, loop or harness. |
+| Patterns across many recent sessions | `/insights` | An HTML report; not in cloud sessions. |
+| Claude Code itself is misbehaving | `/debug`, then reproduce | Logs only from when you turn it on. `/doctor` checks the setup. |
+| Test a web page in a real browser | `/claude-in-chrome` | Needs the Chrome extension (`claude --chrome`). |
 
 ## A good default flow
 
-`/plan` → `/goal` (with a stated check and a bound) → `/simplify` → `/code-review`.
+`/plan` → `/goal` (with a stated check and a bound) → `/verify` → `/simplify` → `/code-review`.
 For a large mechanical change: `batch-scout` agent → `/batch` → `/code-review`.
