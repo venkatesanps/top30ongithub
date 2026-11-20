@@ -84,4 +84,5 @@ jobs:
           python3 tests/duet/test_cos_kit.py
           python3 tests/session_doctor/test_session_doctor.py
           python3 tests/pattern_kit/test_pattern_kit.py
+          python3 tests/setup_audit/test_setup_audit.py
           python3 -m py_compile scripts/ab.py
