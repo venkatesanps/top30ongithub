@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.12.0"
+    "version": "0.13.0"
   },
   "plugins": [
     {
@@ -63,6 +63,13 @@
       "description": "Push back instead of agreeing: hard mentor, case against a decision, A-vs-B, hard-conversation rehearsal and a questioning sounding board, with a decision log that scores your pre-mortems and confidence later, and a fresh-context devils-advocate agent.",
       "version": "0.1.0",
       "category": "productivity"
+    },
+    {
+      "name": "top30-motion",
+      "source": "./plugins/top30-motion",
+      "description": "Copy, style, move, sound, ship: a stack picker for the 18 motion repos, beat cues as frame numbers (librosa), word-timed captions from WhisperX (SRT, VTT, ASS karaoke, Remotion), licensed Openverse music with credits, and platform-ready exports at -14 LUFS checked with ffprobe; plus a motion-director agent.",
+      "version": "0.1.0",
+      "category": "design"
     }
   ]
 }

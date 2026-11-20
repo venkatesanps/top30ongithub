@@ -86,9 +86,27 @@ verify_cmd() {
     81) echo 'test -f ~/.claude/skills/busabase/SKILL.md' ;;
     82) echo 'test -f components/amicro/fade-in.tsx || test -f src/components/amicro/fade-in.tsx || ls components/ui/fade-in.tsx src/components/ui/fade-in.tsx 2>/dev/null | grep -q .' ;;
     83) echo 'ls components/ui/shift-card.tsx src/components/ui/shift-card.tsx 2>/dev/null | grep -q .' ;;
+    84) echo 'test -f ~/.claude/skills/reanimate/SKILL.md' ;;
+    85) echo 'test -f ~/.claude/skills/motion-design/SKILL.md' ;;
+    86) echo 'test -f ~/mg-styles-15/rubric.md && ls ~/mg-styles-15/prompts | grep -q .' ;;
+    87) echo 'test -f ~/.claude/skills/huashu-art-motion/SKILL.md' ;;
+    88) echo 'claude plugin list | grep -q anidoodle@alexgreensh-anidoodle' ;;
+    89) echo 'claude plugin list | grep -q cinetic@cinetic' ;;
+    90) echo 'test -f ~/.claude/skills/motionmaxxing/SKILL.md' ;;
+    91) echo 'manim --version' ;;
+    92) echo 'claude plugin list | grep -q blender-agent-skills@blender-agent-skills' ;;
+    93) echo 'test -d ~/motion-lab/node_modules/three.quarks' ;;
+    94) echo 'test -d ~/motion-lab/node_modules/@react-three/postprocessing' ;;
+    95) echo 'test -d ~/motion-lab/node_modules/tweakpane' ;;
+    96) echo 'command -v effectcraft-cli >/dev/null || test -d /Applications/EffectCraft.app' ;;
+    97) echo 'claude plugin list | grep -q top30-motion@top30ongithub' ;;
+    98) echo 'python3 -c '\''import librosa'\''' ;;
+    99) echo 'whisperx --help >/dev/null' ;;
+    100) echo 'test -f ~/.claude/skills/remotion-best-practices/SKILL.md' ;;
+    101) echo 'ffmpeg -version >/dev/null && ffprobe -version >/dev/null' ;;
   esac
 }
-NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD' 'Snowflake AI Kit (Cortex Code)' 'dbt Agent Skills' 'dbt MCP server' 'Astronomer Airflow agents' 'Snowflake cost monitoring (dbt)' 'Elementary (data observability)' 'Great Expectations' 'Agent Toolkit for AWS' 'AWS MCP servers (data & ops)' 'Oracle SQLcl MCP server' SQLGlot SQLFluff 'Informatica for Claude (IDMC)' 'Anthropic knowledge-work plugins' 'Jira & Confluence MCP (Data Center)' 'Apache DevLake (DORA dashboards)' 'Middleware (DORA metrics)' 'Claude Code ROI monitoring' ccusage 'Grafana OTel LGTM (all-in-one)' 'Grafana MCP server' 'Keep (alert hub & AIOps)' 'HolmesGPT (AI SRE agent)' 'Uptime Kuma (status pages)' 'Dynatrace for AI (plugin + MCP)' 'PagerDuty MCP server (hosted)' 'Datadog app investigator' 'Ruflo (agent swarms)' 'wshobson agents (plugin packs)' planning-with-files 'rtk (OSS edition)' context-mode video-shotcraft 'CC Switch (desktop)' pm-skills 'claude-skills (380+ skills)' 'Prompt engineering tutorial' 'Claude quickstarts' 'Claude Agent SDK (Python)' 'Claude Code (the CLI)' 'Claude Code Action (GitHub)' 'Obsidian Skills' 'NotebookLM skill' 'Hugging Face skills' 'n8n skills' 'Vercel agent skills' 'Trail of Bits skills' 'Context engineering skills' EasyUI 'Interfaces skills' Busabase Amicro 'Cult UI')
+NAMES=('Karpathy Skills' 'Matt Pocock Skills' 'ECC (Everything Claude Code)' 'Agent Skills (Addy Osmani)' Superpowers Ponytail 'Career Ops' 'REA (Reverse Engineer Anything)' Graphify 'Understand Anything' 'Last 30 Days' 'Agent Reach' Headroom 'BMAD Method' Claude-Mem gstack Caveman 'GSD (Get Shit Done)' Taste Archify 'Diagram Design' Impeccable 'UI UX Pro Max' 'PPT Master' 'Marketing Skills' 'Skills by Anthropic' OpenMontage Humanizer HyperFrames 'I Have ADHD' 'Snowflake AI Kit (Cortex Code)' 'dbt Agent Skills' 'dbt MCP server' 'Astronomer Airflow agents' 'Snowflake cost monitoring (dbt)' 'Elementary (data observability)' 'Great Expectations' 'Agent Toolkit for AWS' 'AWS MCP servers (data & ops)' 'Oracle SQLcl MCP server' SQLGlot SQLFluff 'Informatica for Claude (IDMC)' 'Anthropic knowledge-work plugins' 'Jira & Confluence MCP (Data Center)' 'Apache DevLake (DORA dashboards)' 'Middleware (DORA metrics)' 'Claude Code ROI monitoring' ccusage 'Grafana OTel LGTM (all-in-one)' 'Grafana MCP server' 'Keep (alert hub & AIOps)' 'HolmesGPT (AI SRE agent)' 'Uptime Kuma (status pages)' 'Dynatrace for AI (plugin + MCP)' 'PagerDuty MCP server (hosted)' 'Datadog app investigator' 'Ruflo (agent swarms)' 'wshobson agents (plugin packs)' planning-with-files 'rtk (OSS edition)' context-mode video-shotcraft 'CC Switch (desktop)' pm-skills 'claude-skills (380+ skills)' 'Prompt engineering tutorial' 'Claude quickstarts' 'Claude Agent SDK (Python)' 'Claude Code (the CLI)' 'Claude Code Action (GitHub)' 'Obsidian Skills' 'NotebookLM skill' 'Hugging Face skills' 'n8n skills' 'Vercel agent skills' 'Trail of Bits skills' 'Context engineering skills' EasyUI 'Interfaces skills' Busabase Amicro 'Cult UI' reanimate 'Motion Design Skill (LottieFiles)' '15 Motion Design Styles' huashu-art-motion anidoodle cinetic motionmaxxing 'Manim (Community)' 'Blender Agent Skills' three.quarks 'React Postprocessing' Tweakpane EffectCraft Openverse librosa WhisperX 'Remotion Skills' FFmpeg)
 SEL="$*"; [ -z "$SEL" ] && SEL=$(seq 1 ${#NAMES[@]})
 pass=0; fail=0
 for n in $SEL; do

@@ -1,0 +1,22 @@
+{
+  "name": "top30-motion",
+  "version": "0.1.0",
+  "description": "Copy, style, move, sound, ship: motion-stack picks which of the 18 motion repos a job needs and checks the machine; beat-cues turns a track's beats, bars and sections into frame numbers (librosa); word-captions turns WhisperX word timings into readable SRT, VTT, ASS karaoke or Remotion captions; free-sound finds Openverse music and effects your use allows and writes the credits; ship-video makes platform-ready files (Reels, Shorts, YouTube, GIF, WebM, ProRes) at -14 LUFS and checks them with ffprobe; agent: motion-director.",
+  "author": {
+    "name": "venkatesanps"
+  },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": [
+    "animation",
+    "motion-design",
+    "video",
+    "remotion",
+    "ffmpeg",
+    "captions",
+    "whisperx",
+    "librosa",
+    "beat-sync",
+    "openverse",
+    "creative-commons"
+  ]
+}
