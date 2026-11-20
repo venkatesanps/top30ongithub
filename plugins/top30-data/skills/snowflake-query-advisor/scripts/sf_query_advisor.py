@@ -13,7 +13,7 @@ analyze options (all optional; each one adds evidence):
   --history FILE      QUERY_HISTORY rows for the query, CSV or JSON (time, size, spill, queueing)
   --tables FILE       INFORMATION_SCHEMA.TABLES rows (ROW_COUNT, BYTES, CLUSTERING_KEY), CSV or JSON
   --warehouse SIZE    XS..6XL, used for the credit estimate when history doesn't say
-  --generation 1|2    warehouse generation (default 2: the default for new warehouses)
+  --generation 1|2    warehouse generation (default 1; pass 2 only for a warehouse you know is Gen2)
   --cloud aws|azure|gcp   for Gen2 rates (default aws)
   --credit-price USD  per credit, for dollar figures (default 3.00)
   --runs-per-day N    to turn per-run cost into a daily figure
@@ -59,7 +59,7 @@ def norm_size(s):
     return s if s in SIZES else None
 
 
-def credits_per_hour(size, generation=2, cloud="aws"):
+def credits_per_hour(size, generation=1, cloud="aws"):
     size = norm_size(size)
     if not size:
         return None
@@ -1369,7 +1369,7 @@ def main(argv=None):
     p.add_argument("--history")
     p.add_argument("--tables")
     p.add_argument("--warehouse")
-    p.add_argument("--generation", type=int, choices=[1, 2], default=2)
+    p.add_argument("--generation", type=int, choices=[1, 2], default=1)
     p.add_argument("--cloud", choices=["aws", "azure", "gcp"], default="aws")
     p.add_argument("--credit-price", type=float, default=3.0)
     p.add_argument("--runs-per-day", type=float)

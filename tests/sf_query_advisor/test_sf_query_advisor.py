@@ -30,7 +30,7 @@ def check(ok, msg):
 
 class Args:
     warehouse = None
-    generation = 2
+    generation = 1
     cloud = "aws"
     credit_price = 3.0
     runs_per_day = None
@@ -151,7 +151,8 @@ check(orders and orders[0]["severity"] == "high", "382 GB scan with poor pruning
 cust = [f for f in full["findings"] if f["rule"] == "explain-poor-pruning" and "CUSTOMERS" in f["title"]]
 check(cust and cust[0]["severity"] == "low", "a 2 GB dimension read in full is low")
 h = full["history"][0]
-check(h["size"] == "L" and abs(h["credits"] - 10.8 * 412 / 3600) < 1e-6, f"Gen2 AWS L credits: {h}")
+check(h["size"] == "L" and abs(h["credits"] - 8 * 412 / 3600) < 1e-6, f"Gen1 L credits (the default): {h}")
+check(sfa.credits_per_hour("L") == 8 and sfa.credits_per_hour("L", 2, "aws") == 10.8, "Gen1 by default, Gen2 only when asked")
 check(sfa.credits_per_hour("XS", 2, "azure") == 1.25 and sfa.credits_per_hour("6XL", 2) is None and sfa.credits_per_hour("Medium", 1) == 4, "rates")
 check(full["findings"][0]["severity"] == "high", "findings sorted worst first")
 

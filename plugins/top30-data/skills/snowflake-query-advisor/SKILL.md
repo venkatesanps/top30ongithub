@@ -59,16 +59,15 @@ Never ask for a password, key or token. Then re-run with whatever they bring bac
 
 ```bash
 $Q analyze query.sql --explain query_1.explain.json --tables tables.csv \
-   --stats stats.csv --history history.csv --warehouse L --generation 2 --cloud aws \
+   --stats stats.csv --history history.csv --warehouse L \
    --credit-price 3.00 --runs-per-day 24
 ```
 
 EXPLAIN accepts the JSON, a JSON string pasted from a cell, or a CSV of `EXPLAIN USING TABULAR`.
 With history it estimates credits per run: the warehouse rate times the execution time. Say it's
-an estimate, since a warehouse runs other queries too. Ask for their credit price and generation;
-if they don't know, use the defaults ($3.00, Gen2 AWS) and say so. Existing warehouses keep
-Gen1 unless someone changed them, so ask them to check `SHOW WAREHOUSES` and pass
-`--generation 1` if so: the Gen2 default overstates their cost.
+an estimate, since a warehouse runs other queries too. Rates are Gen1 unless the user says the
+warehouse is Gen2; then add `--generation 2 --cloud aws|azure|gcp`. Ask for their credit price;
+if they don't know, use $3.00 and say so.
 
 ## 3. Write the answer
 
