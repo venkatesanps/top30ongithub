@@ -1,7 +1,7 @@
 {
   "name": "top30-agents",
-  "version": "0.5.0",
-  "description": "Loops and graphs for agent work you don't have to watch, plus Claude Code's built-in commands used well. agent-graph-designer and agent-loop; goal-writer lints /goal conditions and ships goal gate, a Stop hook that keeps Claude working until a real command exits 0 (off until you switch it on); which-command picks the right built-in command; session-doctor reads a session transcript and names the layer that failed (prompt, context, loop, harness) with the command that fixes it, with a read-only session-reviewer agent; the batch-scout agent prepares safe /batch runs; harness-starter sets up a locked feature list, progress log and init script for multi-session work, with a separate harness-evaluator agent; first-ai-team designs a small agent team end to end.",
+  "version": "0.6.0",
+  "description": "Loops and graphs for agent work you don't have to watch, plus Claude Code's built-in commands used well. agent-pattern-picker chooses the smallest of 15 agent design patterns (or no agent) and audits a design against how that pattern breaks and ten production rules, with a read-only pattern-reviewer agent; agent-graph-designer and agent-loop; goal-writer lints /goal conditions and ships goal gate, a Stop hook that keeps Claude working until a real command exits 0 (off until you switch it on); which-command picks the right built-in command; session-doctor reads a session transcript and names the layer that failed (prompt, context, loop, harness) with the command that fixes it, with a read-only session-reviewer agent; the batch-scout agent prepares safe /batch runs; harness-starter sets up a locked feature list, progress log and init script for multi-session work, with a separate harness-evaluator agent; first-ai-team designs a small agent team end to end.",
   "author": {
     "name": "venkatesanps"
   },
@@ -19,6 +19,7 @@
     "commands",
     "harness",
     "long-running",
-    "post-mortem"
+    "post-mortem",
+    "design-patterns"
   ]
 }

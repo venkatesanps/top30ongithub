@@ -20,6 +20,7 @@ before any agent touched the code. That's what made the volume trustworthy.
 
 | Need | Use |
 |---|---|
+| Pick the pattern first (or decide it needs no agent) | `agent-pattern-picker` skill + `pattern_kit.py` (plugin `top30-agents`): 15 patterns, an audit against how each breaks |
 | Design or review a pipeline as a graph | `agent-graph-designer` skill + `graph_check.py` (plugin `top30-agents`) |
 | Fix one unit until a check passes; hunt until nothing new | `agent-loop` skill + `agent_loop.py` (plugin `top30-agents`) |
 | Run a fan-out at scale inside Claude Code | Dynamic workflows: Claude writes a script that runs subagents, up to 16 at a time by default and 1,000 per run, and you can save it to `.claude/workflows/` ([docs](https://code.claude.com/docs/en/workflows)) |
