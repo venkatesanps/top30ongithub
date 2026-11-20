@@ -1,0 +1,11 @@
+{"GlobalStats":{"partitionsTotal":48210,"partitionsAssigned":45870,"bytesAssigned":412316860416},"Operations":[[
+{"id":0,"operation":"Result","expressions":["C.REGION","COUNT(DISTINCT R.CUSTOMER_ID)","SUM(R.AMOUNT)"]},
+{"id":1,"parentOperators":[0],"operation":"Sort","expressions":["SUM(R.AMOUNT) DESC NULLS FIRST"]},
+{"id":2,"parentOperators":[1],"operation":"Aggregate","expressions":["aggExprs: [COUNT(DISTINCT R.CUSTOMER_ID), SUM(R.AMOUNT)]","groupKeys: [C.REGION]"]},
+{"id":3,"parentOperators":[2],"operation":"InnerJoin","expressions":["joinKey: (R.CUSTOMER_ID = C.CUSTOMER_ID)"]},
+{"id":4,"parentOperators":[3],"operation":"Filter","expressions":["(TO_DATE(ORDERS.ORDER_TS)) = '2026-03-15'"]},
+{"id":5,"parentOperators":[4],"operation":"TableScan","objects":["ANALYTICS.SALES.ORDERS"],"expressions":["ORDER_TS","CUSTOMER_ID","AMOUNT"],"partitionsAssigned":45800,"partitionsTotal":48000,"bytesAssigned":410000000000},
+{"id":6,"parentOperators":[3],"operation":"AntiJoin","expressions":["joinKey: (C.STATUS = BLOCKED_STATUS.STATUS)"]},
+{"id":7,"parentOperators":[6],"operation":"TableScan","objects":["ANALYTICS.SALES.CUSTOMERS"],"alias":"C","expressions":["CUSTOMER_ID","REGION","STATUS"],"partitionsAssigned":200,"partitionsTotal":200,"bytesAssigned":2300000000},
+{"id":8,"parentOperators":[6],"operation":"TableScan","objects":["ANALYTICS.REF.BLOCKED_STATUS"],"expressions":["STATUS"],"partitionsAssigned":10,"partitionsTotal":10,"bytesAssigned":16860416}
+]]}

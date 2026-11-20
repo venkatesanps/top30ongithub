@@ -32,6 +32,10 @@ guide, and upload-ready skill zips for the Claude app:
 
 **Field guide:** https://venkatesanps.github.io/top30ongithub/ (refreshed daily)
 
+**Explainer: how a Snowflake query runs.** An animated walk from Run to rows (caches, pruning, warehouse, spill, credits), checked against Snowflake's docs: [`guide/snowflake-query-execution/`](guide/snowflake-query-execution/) ([what it corrects](guide/snowflake-query-execution/README.md)). The `snowflake-query-advisor` skill applies it to your own SQL.
+
+<img src="guide/snowflake-query-execution/flow.gif" alt="Animated flow of a Snowflake query through cloud services, the warehouse and storage" width="300">
+
 A GitHub Action re-checks everything every day:
 
 - **New upstream commits** are re-pinned under `sources/`, and affected skill zips are rebuilt.
@@ -212,7 +216,7 @@ This repo is also a Claude Code plugin marketplace with seven plugins of its own
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
-claude plugin install top30-data@top30ongithub    # Oracle → Snowflake, Snowflake cost, pipeline triage
+claude plugin install top30-data@top30ongithub    # Oracle → Snowflake, Snowflake cost and query tuning, pipeline triage
 claude plugin install top30-ops@top30ongithub     # Datadog app investigator
 claude plugin install top30-coach@top30ongithub   # skill-trial: adopt one skill at a time
 claude plugin install top30-agents@top30ongithub  # loops, graphs, /goal writer + goal gate, /batch scout
@@ -225,6 +229,7 @@ claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wens
 |---|---|---|---|
 | `top30-data` | `oracle-to-snowflake` | Translates Oracle SQL with SQLGlot (`ora2sf.py`) and flags what a translator can't know: ROWNUM, `''` vs NULL, `NUMBER` losing decimals, SYSDATE timezone, date arithmetic, db links, triggers, packages, row-by-row loops. Keeps PL/SQL for a set-based rewrite, writes a per-file effort report, and `--fail-on error` blocks merges in CI. Tests: `tests/ora2sf/`. | ~150 |
 | `top30-data` | `snowflake-cost-investigator` | Read-only `ACCOUNT_USAGE` queries (`sf_cost.py`) run through your MCP, CLI, a named connector connection or Snowsight exports, then a report: idle and never-suspending warehouses, costliest query patterns, remote spill, full partition scans, queuing, serverless share and storage kept only for time travel, each with the fix and the credits behind it. Hides literals in query text. Tests: `tests/sf_cost/`. | ~160 |
+| `top30-data` | `snowflake-query-advisor` | Turns a query or `.sql` file (multi-statement, `$$` bodies, binds, dbt/Jinja) into an explain-style operator tree (scans with their columns and pushed-down filters, joins, aggregates, windows, sorts) and ranked fixes with rewrites: functions on filtered columns that block pruning, cartesian, OR and non-equality joins, NOT IN, SELECT *, correlated subqueries, MERGE target scans, UPDATE without WHERE, result-cache blockers. `sf_query_advisor.py queries` prints the read-only `EXPLAIN USING JSON` and metadata statements to run; feeding back EXPLAIN, `GET_QUERY_OPERATOR_STATS` and `QUERY_HISTORY` exports adds real pruning, spill, exploding joins, queueing and credits per run (Gen1/Gen2 rates). Never connects or runs your SQL. Checked on TPC-H, TPC-DS and two Fivetran dbt packages. Tests: `tests/sf_query_advisor/`. | ~140 |
 | `top30-data` | `pipeline-failure-triage` (agent) | Read-only subagent for a failed or slow Airflow, dbt, Snowflake task, Glue or refiner run: first real error, what changed, root cause, smallest safe fix, whether a re-run is safe, and the test that would have caught it. | ~160 |
 | `top30-ops` | `datadog-app-investigator` | Signs in through Datadog's official plugin (OAuth) and collects one service's error logs, slow and failing endpoints, alerting monitors, SLOs, deploys, incidents and error-tracking issues into an investigation report. Read-only, masks personal data. Has a key-based fallback script (`dd_collect.py`) and a test suite (`tests/datadog/`). Install with item **57**. | ~455 + ~94 |
 | `top30-coach` | `skill-trial` | The "don't install all of them tonight" rule as a skill: one skill for a week on real work, log minutes saved (`trial.py`), then keep, extend or drop on evidence, and get the next three for your role from `catalog.json`. Tests: `tests/skill_trial/`. | ~150 |
@@ -411,7 +416,7 @@ _Checked 2026-11-19: 83 repos, 81 of 81 install-tested items passing, 1 needing 
 | `install.sh`, `verify.sh` | Generated from the catalog. Bash 3.2 compatible. |
 | `claude-ai-skills/` | Skill zips + `_manifest.json` (skill, source path, upstream commit, license). |
 | `playbooks/` | Role playbooks and the at-work guardrails page. |
-| `guide/` | Field guide page (`index.html` is generated from `template.html`). Published to GitHub Pages. |
+| `guide/` | Field guide page (`index.html` is generated from `template.html`) and the Snowflake query explainer (`snowflake-query-execution/`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
 | `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-data`, `top30-ops`, `top30-coach`). |
 | `examples/sql-review-agent/` | A working Agent SDK agent: read-only Snowflake SQL review with a custom tool, guard hook and budget cap. |

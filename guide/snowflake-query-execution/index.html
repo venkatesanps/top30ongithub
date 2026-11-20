@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How a Snowflake query runs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Layout: a sticky, animated flow map on the left; the stages it walks through on the right. One column on phones. */
+  --bg: #f3f6f8;
+  --panel: #ffffff;
+  --ink: #14212b;
+  --muted: #566672;
+  --line: #c9d4dc;
+  --accent: #0a6c80;
+  --accent-soft: #d5edf2;
+  --hit: #1d7a46;
+  --miss: #b0570f;
+  --cost: #b3261e;
+  --zone-cloud: #e8f3f6;
+  --zone-wh: #eef1fa;
+  --zone-store: #f4f0e8;
+  --font-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0e151b; --panel: #15202a; --ink: #e6eef3; --muted: #9aaab6; --line: #2c3b47;
+    --accent: #5fc9dc; --accent-soft: #163640; --hit: #5cc98a; --miss: #f0a35b; --cost: #ff8a80;
+    --zone-cloud: #12262e; --zone-wh: #161e33; --zone-store: #24201a;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0e151b; --panel: #15202a; --ink: #e6eef3; --muted: #9aaab6; --line: #2c3b47;
+  --accent: #5fc9dc; --accent-soft: #163640; --hit: #5cc98a; --miss: #f0a35b; --cost: #ff8a80;
+  --zone-cloud: #12262e; --zone-wh: #161e33; --zone-store: #24201a;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--font-body); }
+a { color: var(--accent); }
+code, .mono { font-family: var(--font-mono); font-size: 0.92em; }
+header.top { max-width: 1180px; margin: 0 auto; padding: 28px 16px 8px; }
+.kicker { font: 600 12px/1 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+h1 { font: 800 clamp(30px, 6vw, 46px)/1.05 var(--font-display); margin: 0 0 12px; letter-spacing: -0.01em; text-wrap: balance; }
+.lede { max-width: 64ch; color: var(--muted); margin: 0; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 16px; display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 28px; align-items: start; }
+@media (max-width: 860px) { .wrap { grid-template-columns: 1fr; } }
+.mapcol { position: sticky; top: 12px; }
+@media (max-width: 860px) { .mapcol { position: static; } }
+.map { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 10px 10px 12px; }
+.controls { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.controls button, .scen button { font: 500 13px/1 var(--font-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; cursor: pointer; }
+.controls button:hover, .scen button:hover { border-color: var(--accent); }
+.controls button:focus-visible, .scen button:focus-visible, .stage:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.scen { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 8px; }
+.scen button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--panel); }
+.controls .primary { background: var(--ink); color: var(--panel); border-color: var(--ink); }
+.caption { min-height: 3.6em; margin: 8px 4px 0; font-size: 14px; color: var(--ink); }
+.caption b { color: var(--accent); }
+svg.flow { display: block; width: 100%; height: auto; color: var(--ink); }
+svg.flow text { font-family: var(--font-body); fill: currentColor; }
+svg.flow .zone-label { font: 700 10.5px var(--font-body); letter-spacing: .06em; fill: var(--muted); paint-order: stroke; stroke-width: 5px; stroke-linejoin: round; }
+svg.flow .zl-cloud { stroke: var(--zone-cloud); } svg.flow .zl-wh { stroke: var(--zone-wh); } svg.flow .zl-store { stroke: var(--zone-store); }
+svg.flow .box { fill: var(--panel); stroke: var(--line); stroke-width: 1.2; transition: stroke .2s, fill .2s; }
+svg.flow .node.on .box { stroke: var(--accent); stroke-width: 2.4; fill: var(--accent-soft); }
+svg.flow .node.done .box { stroke: var(--accent); }
+svg.flow .t { font-size: 12.5px; font-weight: 600; }
+svg.flow .s { font-size: 10.5px; fill: var(--muted); }
+svg.flow .edge { fill: none; stroke: var(--muted); stroke-width: 1.4; }
+svg.flow .edge.hit { stroke: var(--hit); stroke-dasharray: 4 3; }
+svg.flow .edge-label { font-size: 10px; fill: var(--muted); }
+svg.flow .edge-label.hit { fill: var(--hit); font-weight: 600; }
+svg.flow .tile { fill: var(--accent); opacity: .85; transition: opacity .35s, fill .35s; }
+svg.flow .tile.pruned { opacity: .14; }
+svg.flow .tile.cached { fill: var(--hit); }
+svg.flow .cpu { fill: var(--line); transition: fill .25s; }
+svg.flow .cpu.busy { fill: var(--accent); }
+svg.flow .spill { fill: var(--line); }
+svg.flow .spill.used { fill: var(--miss); }
+svg.flow .spill.remote.used { fill: var(--cost); }
+svg.flow .token { fill: var(--accent); stroke: var(--panel); stroke-width: 2; }
+svg.flow .badge { font: 700 10px var(--font-body); }
+.stages { display: grid; gap: 14px; counter-reset: st; }
+.stage { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 12px; padding: 16px 18px; transition: border-color .2s; }
+.stage.on { border-color: var(--accent); }
+.stage h2 { font: 700 19px/1.25 var(--font-display); margin: 0 0 6px; display: flex; gap: 10px; align-items: baseline; text-wrap: balance; }
+.stage h2 .n { font: 600 12px/1 var(--font-mono); color: var(--accent); border: 1px solid var(--accent); border-radius: 6px; padding: 3px 6px; }
+.stage p { margin: 6px 0; max-width: 68ch; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 8px 16px; margin-top: 10px; font-size: 14px; }
+.facts div { border-top: 1px solid var(--line); padding-top: 6px; }
+.facts dt { font: 600 11px/1.2 var(--font-body); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 3px; }
+.facts dd { margin: 0; }
+.pill { display: inline-block; font: 600 11px/1 var(--font-body); padding: 4px 7px; border-radius: 999px; border: 1px solid currentColor; vertical-align: 1px; }
+.pill.hit { color: var(--hit); } .pill.miss { color: var(--miss); } .pill.cost { color: var(--cost); }
+section.ref { max-width: 1180px; margin: 12px auto 0; padding: 0 16px; }
+section.ref h2 { font: 800 24px/1.2 var(--font-display); margin: 28px 0 10px; text-wrap: balance; }
+.tablewrap { overflow-x: auto; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+tr:last-child td { border-bottom: 0; }
+pre { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; overflow-x: auto; font: 13px/1.5 var(--font-mono); }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 14px; }
+.note { color: var(--muted); font-size: 14px; max-width: 75ch; }
+footer { max-width: 1180px; margin: 28px auto 40px; padding: 0 16px; color: var(--muted); font-size: 13px; }
+footer ol { padding-left: 18px; }
+.static .controls, .static .scen { display: none; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <p class="kicker">Snowflake · checked against the docs, Nov 2026</p>
+  <h1>How a Snowflake query runs</h1>
+  <p class="lede">From the moment you press Run to the rows on your screen: what happens in cloud services, when a warehouse is needed at all, how micro-partitions get skipped, and where the credits go. Press play, or pick a scenario to see a different route.</p>
+</header>
+
+<div class="wrap" id="app">
+  <div class="mapcol">
+    <div class="map">
+      <div class="scen" role="group" aria-label="Scenario">
+        <button type="button" data-scen="cold" aria-pressed="true">First run</button>
+        <button type="button" data-scen="repeat" aria-pressed="false">Same query again</button>
+        <button type="button" data-scen="meta" aria-pressed="false">COUNT(*)</button>
+        <button type="button" data-scen="warm" aria-pressed="false">Warm warehouse</button>
+      </div>
+      <div class="controls">
+        <button type="button" class="primary" id="play">Play</button>
+        <button type="button" id="prev" aria-label="Previous step">&larr; Step</button>
+        <button type="button" id="next" aria-label="Next step">Step &rarr;</button>
+      </div>
+      <figure style="margin:0">
+        <svg class="flow" viewBox="0 0 420 940" role="img" aria-labelledby="flowcap">
+          <defs>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+            <marker id="arrhit" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d7a46"/></marker>
+          </defs>
+          <!-- client -->
+          <g class="node" id="n-client"><rect class="box" x="70" y="10" width="200" height="40" rx="20"/><text class="t" x="170" y="35" text-anchor="middle">You · SQL editor or BI tool</text></g>
+          <!-- zones -->
+          <rect x="8" y="66" width="404" height="318" rx="12" fill="var(--zone-cloud)"/>
+          <rect x="8" y="398" width="404" height="350" rx="12" fill="var(--zone-wh)"/>
+          <rect x="8" y="762" width="404" height="170" rx="12" fill="var(--zone-store)"/>
+
+          <!-- spine edges -->
+          <g class="edges">
+            <path class="edge" d="M150,50 V96" marker-end="url(#arr)"/>
+            <path class="edge" d="M150,136 V156" marker-end="url(#arr)"/>
+            <path class="edge" d="M150,206 V228" marker-end="url(#arr)"/>
+            <path class="edge" d="M150,268 V290" marker-end="url(#arr)"/>
+            <path class="edge" d="M150,330 V444" marker-end="url(#arr)"/>
+            <text class="edge-label" x="158" y="392">no: needs compute</text>
+            <path class="edge" d="M150,484 V504" marker-end="url(#arr)"/>
+            <path class="edge" d="M150,544 V568" marker-end="url(#arr)"/>
+            <path class="edge" d="M150,654 V668" marker-end="url(#arr)"/>
+            <!-- metadata feeds compile -->
+            <path class="edge" d="M286,182 H274" marker-end="url(#arr)"/>
+            <!-- hits go back to the client -->
+            <path class="edge hit" d="M270,248 H402 V22 H276" marker-end="url(#arrhit)"/>
+            <text class="edge-label hit" x="278" y="242">hit: no warehouse</text>
+            <path class="edge hit" d="M270,310 H402"/>
+            <text class="edge-label hit" x="278" y="304">yes: no warehouse</text>
+            <!-- results back -->
+            <path class="edge" d="M270,612 H384 V38 H276" marker-end="url(#arr)"/>
+            <text class="edge-label" x="278" y="606">results, saved 24 h</text>
+            <!-- storage fetch -->
+            <path class="edge" d="M40,524 H28 V830 H44" marker-end="url(#arr)"/>
+                        <text class="edge-label" x="22" y="700" transform="rotate(-90 22 700)">fetch partitions</text>
+            <path class="edge" d="M286,524 H274" marker-end="url(#arr)"/>
+          </g>
+
+          <text class="zone-label zl-cloud" x="20" y="84">CLOUD SERVICES · NO WAREHOUSE NEEDED</text>
+          <text class="zone-label zl-wh" x="20" y="416">VIRTUAL WAREHOUSE · PER SECOND, 60 S MIN PER START</text>
+          <text class="zone-label zl-store" x="44" y="780">STORAGE · S3 / ADLS / GCS</text>
+          <g class="node" id="n-auth"><rect class="box" x="40" y="96" width="230" height="40" rx="8"/><text class="t" x="52" y="114">Authenticate, check access</text><text class="s" x="52" y="128">roles, policies, network rules</text></g>
+          <g class="node" id="n-compile"><rect class="box" x="40" y="156" width="230" height="50" rx="8"/><text class="t" x="52" y="174">Parse, optimize, compile</text><text class="s" x="52" y="188">picks join order; compile-time</text><text class="s" x="52" y="200">pruning from partition metadata</text></g>
+          <g class="node" id="n-meta-store"><rect class="box" x="286" y="158" width="88" height="48" rx="8"/><text class="s" x="330" y="176" text-anchor="middle">metadata:</text><text class="s" x="330" y="190" text-anchor="middle">min/max per</text><text class="s" x="330" y="202" text-anchor="middle">partition</text></g>
+          <g class="node" id="n-rcache"><rect class="box" x="40" y="228" width="230" height="40" rx="8"/><text class="t" x="52" y="246">Result cache hit?</text><text class="s" x="52" y="260">same text, same data, same access</text></g>
+          <g class="node" id="n-meta"><rect class="box" x="40" y="290" width="230" height="40" rx="8"/><text class="t" x="52" y="308">Answerable from metadata?</text><text class="s" x="52" y="322">e.g. SELECT COUNT(*) FROM t</text></g>
+
+          <g class="node" id="n-resume"><rect class="box" x="40" y="444" width="230" height="40" rx="8"/><text class="t" x="52" y="462">Resume, or wait in queue</text><text class="s" x="52" y="476">suspended: start-up + 60 s minimum</text></g>
+          <g class="node" id="n-qas"><rect class="box" x="286" y="444" width="88" height="40" rx="8"/><text class="s" x="330" y="460" text-anchor="middle">QAS: extra</text><text class="s" x="330" y="474" text-anchor="middle">compute</text></g>
+          <g class="node" id="n-scan"><rect class="box" x="40" y="504" width="230" height="40" rx="8"/><text class="t" x="52" y="522">Scan only the needed columns</text><text class="s" x="52" y="536">runtime pruning skips more</text></g>
+          <g class="node" id="n-ssd"><rect class="box" x="286" y="500" width="88" height="48" rx="8"/><text class="s" x="330" y="518" text-anchor="middle">SSD cache,</text><text class="s" x="330" y="532" text-anchor="middle">dropped on</text><text class="s" x="330" y="544" text-anchor="middle">suspend</text></g>
+          <g class="node" id="n-exec"><rect class="box" x="40" y="568" width="230" height="86" rx="8"/><text class="t" x="52" y="586">Execute in parallel</text><text class="s" x="52" y="600">joins, aggregates, sorts on every node</text>
+            <rect class="cpu" x="56" y="612" width="44" height="30" rx="5"/><rect class="cpu" x="108" y="612" width="44" height="30" rx="5"/><rect class="cpu" x="160" y="612" width="44" height="30" rx="5"/><rect class="cpu" x="212" y="612" width="44" height="30" rx="5"/>
+          </g>
+          <g class="node" id="n-spill"><rect class="box" x="40" y="668" width="230" height="64" rx="8"/><text class="t" x="52" y="686">If memory runs out: spill</text>
+            <rect class="spill" id="sp-mem" x="52" y="696" width="62" height="12" rx="3"/><rect class="spill" id="sp-loc" x="120" y="696" width="62" height="12" rx="3"/><rect class="spill remote" id="sp-rem" x="188" y="696" width="70" height="12" rx="3"/>
+            <text class="s" x="52" y="724">memory</text><text class="s" x="120" y="724">local SSD</text><text class="s" x="188" y="724">remote: slowest</text>
+          </g>
+
+          <g class="node" id="n-store">
+            <text class="s" x="50" y="800">micro-partitions, 50–500 MB each before compression,</text>
+            <text class="s" x="50" y="814">min/max kept per column; columnar inside</text>
+            <g id="tiles"></g>
+          </g>
+          <circle class="token" id="token" r="8" cx="270" cy="30"/>
+        </svg>
+        <figcaption id="flowcap" class="caption" aria-live="polite">A query starts in cloud services, which can answer it from the result cache or from metadata. Only when it needs compute does a warehouse run, reading just the micro-partitions and columns it needs.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <main class="stages" id="stages">
+    <article class="stage" tabindex="-1" id="s-auth">
+      <h2><span class="n">1</span>Authenticate and check access</h2>
+      <p>Cloud services checks who you are and what your role may read: row access and masking policies are applied to the plan here, before any data moves.</p>
+      <dl class="facts"><div><dt>Costs</dt><dd>Cloud services credits, billed only above 10% of the day's warehouse credits</dd></div><div><dt>Check</dt><dd><code>LOGIN_HISTORY</code>, role grants</dd></div></dl>
+    </article>
+    <article class="stage" tabindex="-1" id="s-compile">
+      <h2><span class="n">2</span>Parse, optimize, compile</h2>
+      <p>The optimizer picks join order and methods and prunes at compile time: each micro-partition's min/max metadata says whether it can hold matching rows. <code>EXPLAIN</code> shows this plan without running anything, and needs no warehouse.</p>
+      <dl class="facts"><div><dt>Read it</dt><dd><code>EXPLAIN USING JSON &lt;query&gt;</code>: <code>partitionsAssigned</code> of <code>partitionsTotal</code></dd></div><div><dt>Watch for</dt><dd>Compile time in seconds: very large IN lists, deep views, thousands of UNION branches</dd></div></dl>
+    </article>
+    <article class="stage" tabindex="-1" id="s-rcache">
+      <h2><span class="n">3</span>Result cache <span class="pill hit">hit: no warehouse</span></h2>
+      <p>A result is kept 24 hours, and every reuse resets the clock, up to 31 days from the first run. Reuse needs the same query text (case and aliases count), unchanged data and micro-partitions, access to every table, no per-run functions such as <code>RANDOM</code> or <code>UUID_STRING</code>, no external functions or hybrid tables, and <code>USE_CACHED_RESULT</code> on. Even then, reuse isn't guaranteed.</p>
+      <dl class="facts"><div><dt>Costs</dt><dd>No warehouse credits</dd></div><div><dt>Helps</dt><dd>BI tools that send identical SQL; stable formatting in generated queries</dd></div></dl>
+    </article>
+    <article class="stage" tabindex="-1" id="s-meta">
+      <h2><span class="n">4</span>Answer from metadata <span class="pill hit">no warehouse</span></h2>
+      <p>Some simple aggregates, such as <code>SELECT COUNT(*) FROM t</code>, come straight from the metadata Snowflake keeps for every micro-partition. Query Profile shows a metadata-based result.</p>
+    </article>
+    <article class="stage" tabindex="-1" id="s-resume">
+      <h2><span class="n">5</span>Resume or queue the warehouse <span class="pill miss">compute starts</span></h2>
+      <p>A suspended warehouse resumes first: billing is per second with a 60-second minimum each time it starts. A busy one queues the query; multi-cluster warehouses (Enterprise edition) add clusters for many users, which helps concurrency, not a single slow query. Query Acceleration can lease extra compute for big eligible scans, capped by a scale factor.</p>
+      <dl class="facts"><div><dt>Check</dt><dd><code>QUERY_HISTORY</code>: <code>QUEUED_OVERLOAD_TIME</code>, <code>QUEUED_PROVISIONING_TIME</code></dd></div><div><dt>Check</dt><dd><code>SHOW WAREHOUSES</code>: generation, <code>enable_query_acceleration</code></dd></div></dl>
+    </article>
+    <article class="stage" tabindex="-1" id="s-scan">
+      <h2><span class="n">6</span>Scan: fewer partitions, fewer columns</h2>
+      <p>Each node reads its share of the assigned micro-partitions, only the columns the query uses. Runtime pruning skips more, for example partitions a join filter rules out. Data already on the warehouse's SSD cache is read locally; the rest comes from remote storage. The cache is dropped when the warehouse suspends.</p>
+      <dl class="facts"><div><dt>Good sign</dt><dd>Partitions scanned far below total; high "percentage scanned from cache"</dd></div><div><dt>Prunes badly</dt><dd>Functions or casts on the filtered column, filters on columns the data isn't ordered by, leading-wildcard LIKE</dd></div></dl>
+    </article>
+    <article class="stage" tabindex="-1" id="s-exec">
+      <h2><span class="n">7</span>Execute in parallel, spill if needed</h2>
+      <p>The plan runs on every node of the warehouse at once. When an operator outgrows memory it spills to local SSD, then to remote storage. Remote spill is the slow, expensive case: shrink the work first (filter earlier, fewer columns, fix exploding joins), then try a bigger warehouse.</p>
+      <dl class="facts"><div><dt>Read it</dt><dd><code>GET_QUERY_OPERATOR_STATS(LAST_QUERY_ID())</code>: rows in vs out, spilling, time per operator</dd></div><div><dt>Exploding join</dt><dd>A join with more output rows than input rows</dd></div></dl>
+    </article>
+    <article class="stage" tabindex="-1" id="s-return">
+      <h2><span class="n">8</span>Return results, keep them for next time</h2>
+      <p>Rows stream back to you and the result is persisted, so the same query within 24 hours can skip all of the above. The warehouse keeps billing until it auto-suspends.</p>
+      <dl class="facts"><div><dt>Tune</dt><dd><code>AUTO_SUSPEND</code>: short for ETL; a few minutes for BI keeps the SSD cache warm</dd></div></dl>
+    </article>
+  </main>
+</div>
+
+<section class="ref">
+  <h2>Four places a query can be answered from</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Where</th><th>Lives in</th><th>Warehouse?</th><th>Kept</th><th>Lost when</th></tr></thead>
+    <tbody>
+      <tr><td>Result cache</td><td>Cloud services</td><td><span class="pill hit">no</span></td><td>24 h, reset on reuse, max 31 days</td><td>Data or micro-partitions change, text differs</td></tr>
+      <tr><td>Metadata</td><td>Cloud services</td><td><span class="pill hit">no</span></td><td>Always current</td><td>Query needs more than counts or ranges</td></tr>
+      <tr><td>Warehouse SSD cache</td><td>The running warehouse</td><td><span class="pill miss">yes</span></td><td>While it runs</td><td>Suspend</td></tr>
+      <tr><td>Remote storage</td><td>S3 / ADLS / GCS</td><td><span class="pill miss">yes</span></td><td>Permanent</td><td>Never; slowest to read</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>What a warehouse costs per hour</h2>
+  <p class="note">Credits per hour while running, billed per second with a 60-second minimum per start. Gen2 is the default for new standard warehouses where available; existing warehouses keep their generation. Gen2 isn't offered at 5XL or 6XL. Size up doubles the rate; it pays off only when the query finishes more than twice as fast.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Size</th><th class="num">Gen1</th><th class="num">Gen2 AWS, GCP</th><th class="num">Gen2 Azure</th></tr></thead>
+    <tbody id="sizes"></tbody>
+  </table></div>
+  <p class="note">Cloud services (compiling, metadata, the result cache) are billed only for the part above 10% of each day's warehouse credits, in UTC.</p>
+
+  <h2>See it for your own query</h2>
+  <div class="grid2">
+    <div><p class="note">Before running: the plan, partitions and bytes it would read. No warehouse needed.</p>
+<pre>EXPLAIN USING JSON
+SELECT region, SUM(amount)
+FROM sales
+WHERE order_date = '2026-03-15'
+GROUP BY region;</pre></div>
+    <div><p class="note">After running: what each operator really did.</p>
+<pre>SELECT operator_type,
+  operator_statistics:input_rows,
+  operator_statistics:output_rows,
+  operator_statistics:pruning,
+  operator_statistics:spilling,
+  execution_time_breakdown:overall_percentage
+FROM TABLE(GET_QUERY_OPERATOR_STATS(LAST_QUERY_ID()));</pre></div>
+  </div>
+  <p class="note">The <code>snowflake-query-advisor</code> skill in the top30ongithub kit reads a .sql file (and, if you have them, these two outputs) and returns an annotated plan with fixes.</p>
+</section>
+
+<footer>
+  <p>Checked against Snowflake documentation on 19 Nov 2026. A rework of a community infographic by Abhisek Sahu: pruning shown as micro-partition ranges rather than months, compile-time and runtime pruning separated, metadata answers, resume and queueing, Gen2 rates, Query Acceleration and cloud-services billing added. Simplified: the real order of some cloud-services steps is internal.</p>
+  <ol>
+    <li><a href="https://docs.snowflake.com/en/user-guide/querying-persisted-results">Using persisted query results</a></li>
+    <li><a href="https://docs.snowflake.com/en/sql-reference/sql/explain">EXPLAIN</a> and <a href="https://docs.snowflake.com/en/sql-reference/functions/get_query_operator_stats">GET_QUERY_OPERATOR_STATS</a></li>
+    <li><a href="https://docs.snowflake.com/en/user-guide/tables-clustering-micropartitions">Micro-partitions and data clustering</a></li>
+    <li><a href="https://docs.snowflake.com/en/user-guide/warehouses-overview">Overview of warehouses</a>, <a href="https://docs.snowflake.com/user-guide/warehouses-gen2">Gen2 standard warehouses</a>, <a href="https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf">Service consumption table</a></li>
+    <li><a href="https://docs.snowflake.com/en/user-guide/performance-query-warehouse-cache">Optimizing the warehouse cache</a>, <a href="https://docs.snowflake.com/en/user-guide/query-acceleration-service">Query Acceleration Service</a></li>
+    <li><a href="https://docs.snowflake.com/en/user-guide/cost-understanding-compute">Understanding compute cost</a></li>
+  </ol>
+</footer>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const params = new URLSearchParams(location.search);
+  const isStatic = params.has('static');
+  if (isStatic) document.body.classList.add('static');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Warehouse size table
+  const sizes = ['X-Small', 'Small', 'Medium', 'Large', 'X-Large', '2X-Large', '3X-Large', '4X-Large', '5X-Large', '6X-Large'];
+  const fmt = (n) => (Number.isInteger(n) ? String(n) : n.toFixed(n < 10 ? 2 : 1).replace(/0$/, ''));
+  $('#sizes').innerHTML = sizes.map((s, i) => {
+    const g1 = 2 ** i, gen2 = i <= 7;
+    return `<tr><td>${s}</td><td class="num">${g1}</td><td class="num">${gen2 ? fmt(g1 * 1.35) : 'n/a'}</td><td class="num">${gen2 ? fmt(g1 * 1.25) : 'n/a'}</td></tr>`;
+  }).join('');
+
+  // Micro-partition tiles: 2 rows x 9. Each tile is one micro-partition with its order_date range.
+  const tilesG = $('#tiles'), NS = 'http://www.w3.org/2000/svg', tiles = [];
+  for (let r = 0; r < 2; r++) for (let c = 0; c < 9; c++) {
+    const t = document.createElementNS(NS, 'rect');
+    t.setAttribute('class', 'tile'); t.setAttribute('x', 50 + c * 38); t.setAttribute('y', 828 + r * 46);
+    t.setAttribute('width', 32); t.setAttribute('height', 38); t.setAttribute('rx', 4);
+    tilesG.appendChild(t); tiles.push(t);
+  }
+  const lbl = document.createElementNS(NS, 'text');
+  lbl.setAttribute('class', 's'); lbl.setAttribute('x', 50); lbl.setAttribute('y', 926);
+  lbl.textContent = "WHERE order_date = '2026-03-15': 2 of 18 partitions can match";
+  tilesG.appendChild(lbl);
+  const MATCH = [4, 14]; // the partitions whose min/max range contains the date
+
+  // Scenarios: a route of waypoints. Each stop names the node it lights, the card, and the caption.
+  const P = {
+    client: [270, 30], auth: [270, 116], compile: [270, 181], rcache: [270, 248], meta: [270, 310],
+    resume: [270, 464], scan: [270, 524], exec: [270, 612], spill: [270, 700], out: [384, 612], top: [384, 38], hitR: [402, 248], hitM: [402, 310], hitTop: [402, 22],
+  };
+  const S = {
+    cold: [
+      { at: 'client', node: 'n-client', say: '<b>First run.</b> You send <span class="mono">SELECT region, SUM(amount) … WHERE order_date = \'2026-03-15\'</span>.' },
+      { at: 'auth', node: 'n-auth', card: 's-auth', say: '<b>Access.</b> Your role is checked; policies are folded into the plan.' },
+      { at: 'compile', node: 'n-compile', card: 's-compile', act: 'prune1', say: '<b>Compile.</b> Partition metadata rules out 16 of 18 micro-partitions before any compute starts.' },
+      { at: 'rcache', node: 'n-rcache', card: 's-rcache', say: '<b>Result cache: miss.</b> Nothing with this exact text and data has run in the last 24 hours.' },
+      { at: 'meta', node: 'n-meta', card: 's-meta', say: '<b>Metadata can\'t answer</b> a SUM per region, so it needs compute.' },
+      { at: 'resume', node: 'n-resume', card: 's-resume', say: '<b>Warehouse resumes.</b> Billing starts: per second, 60 seconds minimum.' },
+      { at: 'scan', node: 'n-scan', card: 's-scan', act: 'fetch', say: '<b>Scan.</b> Only 2 partitions, and only the order_date, region and amount columns, come from remote storage.' },
+      { at: 'exec', node: 'n-exec', card: 's-exec', act: 'cpu', say: '<b>Execute.</b> Every node aggregates its share in parallel, then the partial sums are combined.' },
+      { at: 'spill', node: 'n-spill', card: 's-exec', act: 'spill1', say: '<b>Fits in memory.</b> No spill. A heavier join would spill to local SSD, then remote storage.' },
+      { at: 'exec', node: 'n-exec' },
+      { at: 'out', node: 'n-client', card: 's-return' },
+      { at: 'top', node: 'n-client', card: 's-return', say: '<b>Done.</b> Rows return and the result is saved for 24 hours. The warehouse bills until it auto-suspends.' },
+    ],
+    repeat: [
+      { at: 'client', node: 'n-client', say: '<b>Same query again,</b> same text, nothing changed in the table.' },
+      { at: 'auth', node: 'n-auth', card: 's-auth', say: '<b>Access</b> is checked again: reuse needs privileges on every table.' },
+      { at: 'compile', node: 'n-compile', card: 's-compile' },
+      { at: 'rcache', node: 'n-rcache', card: 's-rcache', say: '<b>Result cache: hit.</b> The stored result comes back. No warehouse resumes.' },
+      { at: 'hitR', node: 'n-rcache' }, { at: 'hitTop', node: 'n-client', card: 's-rcache', say: '<b>0 warehouse credits.</b> The 24-hour clock resets, up to 31 days from the first run.' },
+    ],
+    meta: [
+      { at: 'client', node: 'n-client', say: '<b>SELECT COUNT(*) FROM sales.</b>' },
+      { at: 'auth', node: 'n-auth', card: 's-auth' },
+      { at: 'compile', node: 'n-compile', card: 's-compile' },
+      { at: 'rcache', node: 'n-rcache', card: 's-rcache', say: '<b>Result cache: miss</b> (first time today).' },
+      { at: 'meta', node: 'n-meta', card: 's-meta', say: '<b>Metadata answers it:</b> row counts are kept per micro-partition.' },
+      { at: 'hitM', node: 'n-meta' }, { at: 'hitTop', node: 'n-client', card: 's-meta', say: '<b>No warehouse needed.</b> Query Profile shows a metadata-based result.' },
+    ],
+    warm: [
+      { at: 'client', node: 'n-client', say: '<b>Warm warehouse,</b> a new date: <span class="mono">WHERE order_date = \'2026-03-16\'</span>.' },
+      { at: 'auth', node: 'n-auth', card: 's-auth' },
+      { at: 'compile', node: 'n-compile', card: 's-compile', act: 'prune1' },
+      { at: 'rcache', node: 'n-rcache', card: 's-rcache', say: '<b>Result cache: miss.</b> The text changed, so the old result can\'t be reused.' },
+      { at: 'meta', node: 'n-meta', card: 's-meta' },
+      { at: 'resume', node: 'n-resume', card: 's-resume', say: '<b>Already running:</b> no start-up, no new 60-second minimum.' },
+      { at: 'scan', node: 'n-scan', card: 's-scan', act: 'ssd', say: '<b>SSD cache hit.</b> Those partitions were read a minute ago, so they come from local disk, not remote storage.' },
+      { at: 'exec', node: 'n-exec', card: 's-exec', act: 'cpu' },
+      { at: 'out', node: 'n-client', card: 's-return' },
+      { at: 'top', node: 'n-client', card: 's-return', say: '<b>Faster and cheaper</b> than the first run: same compute, less waiting on storage.' },
+    ],
+  };
+
+  const token = $('#token'), cap = $('#flowcap');
+  let scen = 'cold', i = 0, timer = 0, playing = false, anim = 0;
+  const nodes = [...document.querySelectorAll('svg.flow .node')];
+  const cards = [...document.querySelectorAll('.stage')];
+
+  function reset() {
+    tiles.forEach((t) => t.classList.remove('pruned', 'cached'));
+    document.querySelectorAll('.cpu').forEach((c) => c.classList.remove('busy'));
+    document.querySelectorAll('.spill').forEach((c) => c.classList.remove('used'));
+    nodes.forEach((n) => n.classList.remove('on', 'done'));
+  }
+  function act(a) {
+    if (a === 'prune1') tiles.forEach((t, k) => setTimeout(() => !MATCH.includes(k) && t.classList.add('pruned'), reduce ? 0 : k * 30));
+    if (a === 'ssd') tiles.forEach((t, k) => MATCH.includes(k) && t.classList.add('cached'));
+    if (a === 'cpu') document.querySelectorAll('.cpu').forEach((c, k) => setTimeout(() => c.classList.add('busy'), reduce ? 0 : k * 90));
+    if (a === 'spill1') $('#sp-mem').classList.add('used');
+  }
+  function show(k, move = true) {
+    const stop = S[scen][k];
+    nodes.forEach((n) => n.classList.toggle('on', n.id === stop.node));
+    if (stop.card) cards.forEach((c) => c.classList.toggle('on', c.id === stop.card));
+    if (stop.say) cap.innerHTML = stop.say;
+    if (stop.act) act(stop.act);
+    const [x, y] = P[stop.at];
+    if (!move || reduce) { token.setAttribute('cx', x); token.setAttribute('cy', y); return 0; }
+    const x0 = +token.getAttribute('cx'), y0 = +token.getAttribute('cy');
+    const dist = Math.hypot(x - x0, y - y0), ms = Math.max(180, dist * 2.2), t0 = performance.now();
+    cancelAnimationFrame(anim);
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / ms), e = p < 0.5 ? 2 * p * p : 1 - (-2 * p + 2) ** 2 / 2;
+      token.setAttribute('cx', x0 + (x - x0) * e); token.setAttribute('cy', y0 + (y - y0) * e);
+      if (p < 1) anim = requestAnimationFrame(step);
+    };
+    anim = requestAnimationFrame(step);
+    return ms;
+  }
+  function stop() { playing = false; clearTimeout(timer); $('#play').textContent = 'Play'; }
+  function run() {
+    if (!playing) return;
+    const ms = show(i);
+    const hold = S[scen][i].say ? 1500 : 250;
+    if (i >= S[scen].length - 1) { timer = setTimeout(stop, ms); return; }
+    timer = setTimeout(() => { i++; run(); }, ms + hold);
+  }
+  function play() {
+    if (playing) { stop(); return; }
+    if (i >= S[scen].length - 1) { i = 0; reset(); }
+    playing = true; $('#play').textContent = 'Pause'; run();
+  }
+  function choose(s) {
+    stop(); scen = s; i = 0; reset();
+    document.querySelectorAll('.scen button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.scen === s)));
+    show(0, false);
+  }
+  $('#play').addEventListener('click', play);
+  $('#next').addEventListener('click', () => { stop(); if (i < S[scen].length - 1) { i++; show(i); } });
+  $('#prev').addEventListener('click', () => { stop(); if (i > 0) { i--; reset(); for (let k = 0; k <= i; k++) { const a = S[scen][k].act; if (a) act(a); } show(i); } });
+  document.querySelectorAll('.scen button').forEach((b) => b.addEventListener('click', () => choose(b.dataset.scen)));
+
+  // Rest state: the full first-run picture, so the page reads complete before anything moves.
+  if (isStatic || params.has('end')) {
+    reset(); act('prune1'); act('cpu'); act('spill1');
+    tiles.forEach((t, k) => !MATCH.includes(k) && t.classList.add('pruned'));
+    document.querySelectorAll('.cpu').forEach((c) => c.classList.add('busy'));
+    token.style.display = 'none';
+    nodes.forEach((n) => n.classList.remove('on'));
+    return;
+  }
+  show(0, false);
+  if (!reduce && !params.has('noplay')) setTimeout(play, 700);
+  window.__flow = { choose, play, stop };
+})();
+</script>
+</body>
+</html>

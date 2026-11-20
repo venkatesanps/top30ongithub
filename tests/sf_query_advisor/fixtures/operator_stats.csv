@@ -1,0 +1,7 @@
+QUERY_ID,STEP_ID,OPERATOR_ID,PARENT_OPERATORS,OPERATOR_TYPE,OPERATOR_STATISTICS,EXECUTION_TIME_BREAKDOWN,OPERATOR_ATTRIBUTES
+01b2-demo,1,0,,Result,"{""input_rows"":12,""output_rows"":12}","{""overall_percentage"":0.1}","{}"
+01b2-demo,1,1,[0],Sort,"{""input_rows"":12,""output_rows"":12}","{""overall_percentage"":0.2}","{}"
+01b2-demo,1,2,[1],Aggregate,"{""input_rows"":95000000,""output_rows"":12,""spilling"":{""bytes_spilled_local_storage"":21474836480,""bytes_spilled_remote_storage"":3221225472}}","{""overall_percentage"":38.0}","{}"
+01b2-demo,1,3,[2],InnerJoin,"{""input_rows"":31000000,""output_rows"":95000000}","{""overall_percentage"":22.5}","{}"
+01b2-demo,1,4,[3],Filter,"{""input_rows"":2900000000,""output_rows"":30000000}","{""overall_percentage"":8.0}","{}"
+01b2-demo,1,5,[4],TableScan,"{""input_rows"":0,""output_rows"":2900000000,""pruning"":{""partitions_scanned"":45800,""partitions_total"":48000},""io"":{""percentage_scanned_from_cache"":0.02}}","{""overall_percentage"":30.0}","{""table_name"":""ANALYTICS.SALES.ORDERS""}"
