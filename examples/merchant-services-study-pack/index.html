@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Merchant Services Study Pack</title>
+<style>
+:root{--bg:#f8fafc;--card:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--accent:#2563eb;--warn-bg:#fef3c7;--warn-ink:#78350f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--card:#111a2e;--ink:#e2e8f0;--muted:#94a3b8;--line:#22304d;--accent:#60a5fa;--warn-bg:#3b2f0b;--warn-ink:#fde68a}}
+:root[data-theme="dark"]{--bg:#0b1220;--card:#111a2e;--ink:#e2e8f0;--muted:#94a3b8;--line:#22304d;--accent:#60a5fa;--warn-bg:#3b2f0b;--warn-ink:#fde68a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+main{max-width:1180px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:30px;margin:0 0 6px}h2{font-size:21px;margin:0}
+.lede{color:var(--muted);margin:0 0 18px;max-width:760px}
+.note{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 14px;font-size:14px;margin-bottom:28px}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+nav a{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;color:var(--ink);text-decoration:none;font-size:14px}
+nav a:hover{border-color:var(--accent)}
+section{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:28px}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.cmd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;color:var(--accent)}
+.desc{color:var(--muted);margin:0 0 14px;font-size:15px}
+.links{display:flex;gap:12px;flex-wrap:wrap;font-size:14px;margin-bottom:14px}
+.links a{color:var(--accent)}
+.frame{background:#fff;border-radius:10px;border:1px solid var(--line);overflow:auto}
+.frame img{display:block;width:100%;height:auto;min-width:640px}
+.pages{display:grid;gap:16px}
+iframe{width:100%;height:560px;border:0;border-radius:10px;background:var(--bg)}
+footer{color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+<main>
+<h1>Merchant services study pack</h1>
+<p class="lede">How card acquiring works (authorization, settlement, funding, fees and chargebacks), taught four ways with the <code>top30-learn</code> plugin: a mind map, a sketchnote, flashcards and an educational comic.</p>
+<div class="note"><strong>Unofficial sample.</strong> Built from public sources (the merchant-services-guide in this repo). Not produced or endorsed by JPMorgan Chase or any acquirer. No real pricing, logos or customer data. The comic's people and shop are fictional.</div>
+<nav><a href="#mindmap">Mind map</a><a href="#sketchnote">Sketchnote</a><a href="#flashcards">Flashcards</a><a href="#comic">Comic</a></nav>
+
+<section id="mindmap">
+<div class="head"><h2>How a card payment works</h2><span class="cmd">/mindmap</span></div>
+<p class="desc">Seven branches and 48 nodes, from the five parties to the monthly statement. Hover a node marked • for its note.</p>
+<div class="links"><a href="mindmap/payment-lifecycle.html">Collapsible outline</a><a href="mindmap/payment-lifecycle.mmd">Mermaid</a><a href="mindmap/payment-lifecycle.opml">OPML (XMind, MindNode)</a></div>
+<div class="frame"><img src="mindmap/payment-lifecycle.svg" alt="Mind map: how a card payment works"></div>
+</section>
+
+<section id="sketchnote">
+<div class="head"><h2>Life of a $100 online order</h2><span class="cmd">/sketchnotes</span></div>
+<p class="desc">Nine numbered steps, from checkout through funding and fees to a chargeback won on evidence.</p>
+<div class="frame"><img src="sketchnote/life-of-a-100-order.svg" alt="Sketchnote: life of a $100 online order"></div>
+</section>
+
+<section id="flashcards">
+<div class="head"><h2>Merchant services basics</h2><span class="cmd">/flashcards</span></div>
+<p class="desc">30 cards (26 Q&amp;A and 4 cloze), tagged by topic, each citing its source section. Click a card to flip it, then grade it. Cards move through five Leitner boxes.</p>
+<div class="links"><a href="flashcards/merchant-services.html">Open full screen</a><a href="flashcards/merchant-services.anki.txt">Anki import</a><a href="flashcards/merchant-services.print.html">Printable cards</a><a href="flashcards/merchant-services.md">Markdown</a></div>
+<iframe src="flashcards/merchant-services.html" title="Flashcard study page"></iframe>
+</section>
+
+<section id="comic">
+<div class="head"><h2>The case of the disputed $100 order</h2><span class="cmd">/educationalcomics</span></div>
+<p class="desc">Two pages and eight panels: a normal sale, then a dispute, a chargeback, representment, and the money coming back.</p>
+<div class="links"><a href="comic/disputed-order.html">Reader with lesson list</a><a href="comic/disputed-order.prompts.md">Image-generation prompts</a></div>
+<div class="pages">
+<div class="frame"><img src="comic/disputed-order-page1.svg" alt="Comic page 1: a normal sale"></div>
+<div class="frame"><img src="comic/disputed-order-page2.svg" alt="Comic page 2: the dispute"></div>
+</div>
+</section>
+
+<footer>Generated by top30-learn from the specs in <code>specs/</code>. Re-render with the commands in README.md.</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,49 @@
+# How a card payment works
+
+- Five parties
+  - Cardholder :: Pays with a card or wallet
+  - Merchant :: The acquirer's client; accepts the card
+  - Acquirer / processor :: Authorizes, settles and funds the merchant; carries chargeback liability
+  - Card network :: Visa, Mastercard, Discover; routes, clears, sets interchange and rules
+  - Issuer :: Cardholder's bank; approves or declines; starts disputes
+- Authorization
+  - About one second :: Real-time question: will the issuer stand behind this amount?
+  - No money moves :: The issuer places a hold on available credit
+  - Route by BIN :: The switch picks the network from the card's BIN range
+  - Variants
+    - Auth-only, capture later
+    - Incremental auth :: Hotels and car rental
+    - Reversal
+    - $0 verification
+- Capture and settlement
+  - Batch close :: End of day or on a schedule
+  - Rejects :: Items failing edits must be fixed and resubmitted
+  - Interchange qualification :: Each deposit is matched to its auth
+  - Downgrades :: Missing or stale data earns a higher rate
+  - Clearing files :: Sent to the networks, usually daily
+- Funding
+  - Net amount :: Sales minus refunds, chargebacks, fees if netted, reserve moves
+  - ACH, wire, book transfer
+  - Schedule :: Daily, weekly, monthly or manual
+  - Conveyed brands :: Amex can fund the merchant directly
+- Fees
+  - Interchange :: To the issuer; by card type, entry mode, risk
+  - Assessments :: To the card brand; % of volume
+  - Acquirer markup :: Discount rate, per-item, monthly
+  - Pricing plans
+    - Interchange-plus
+    - Tiered
+    - Flat rate
+    - Swiped / keyed
+  - Rates reset :: Brands update interchange in April and October
+- Chargebacks
+  - Retrieval request :: Proof asked for; no money moves
+  - First chargeback :: Merchant debited
+  - Representment :: Merchant sends evidence through the acquirer
+  - Pre-arbitration :: Issuer rejects; merchant debited again
+  - Arbitration :: Network gives the final ruling
+- Reporting and data
+  - Deposit detail
+  - Funding summary
+  - Chargeback activity
+  - Monthly statement :: Published around the 1st or 2nd

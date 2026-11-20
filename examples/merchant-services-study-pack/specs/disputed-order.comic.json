@@ -1,0 +1,44 @@
+{
+  "title": "The case of the disputed $100 order",
+  "subtitle": "One online sale, followed from checkout to a chargeback and back. An unofficial teaching comic built from public sources.",
+  "style": "clean flat cartoon, thick dark outlines, soft pastel backgrounds, friendly faces, no logos or brand names",
+  "characters": {
+    "maya": {"name": "Maya", "role": "runs a small online tea shop", "color": "#059669", "hair": "#1f2937", "hair_style": "bun", "accessory": "apron",
+             "look": "woman in her 30s, black hair in a bun, green shirt with a white apron"},
+    "leo": {"name": "Leo", "role": "a shopper", "color": "#7c3aed", "hair": "#92400e", "hair_style": "short", "accessory": "cap",
+            "look": "man in his 20s, short brown hair, purple hoodie and a matching cap"},
+    "priya": {"name": "Priya", "role": "dispute analyst at the merchant's acquirer", "color": "#2563eb", "hair": "#3f2a1d", "hair_style": "long", "accessory": "headset",
+              "look": "woman in her 40s, long dark-brown hair, blue blazer, phone headset"}
+  },
+  "pages": [
+    {"title": "A normal sale", "panels": [
+      {"scene": "Leo on his couch buying a tin of tea on his phone", "setting": "home", "caption": "Day 0, 8 pm. Leo orders $100 of tea online.", "cast": ["leo"], "props": ["phone"],
+       "bubbles": [{"who": "leo", "text": "Pay now... done!"}], "lesson": "Checkout: the shopper's card or wallet details go to the merchant's gateway."},
+      {"scene": "Priya at her desk explaining how the authorization travels", "setting": "office", "caption": "One second later.", "cast": ["priya"], "props": ["network", "card"],
+       "bubbles": [{"who": "priya", "text": "Our switch routes the auth by the card's BIN to the network, then to Leo's bank. It says yes and places a hold."}],
+       "lesson": "Authorization asks the issuer to stand behind the amount. No money moves yet."},
+      {"scene": "Maya packing a box in her shop at the end of the day", "setting": "shop", "caption": "Day 0, evening.", "cast": ["maya"], "props": ["store"],
+       "bubbles": [{"who": "maya", "text": "Shipped! I'll capture it and the batch closes tonight."}],
+       "lesson": "Capture and batch close turn the auth into a deposit the acquirer settles through the networks."},
+      {"scene": "Maya smiling at a laptop showing her bank deposit", "setting": "shop", "caption": "Day 1.", "cast": ["maya"], "props": ["money", "bank"],
+       "bubbles": [{"who": "maya", "text": "The net deposit landed by ACH: sales minus fees."}],
+       "lesson": "Funding: the acquirer pays the merchant the net amount on the agreed schedule."}
+    ]},
+    {"title": "The dispute", "panels": [
+      {"scene": "Leo on the phone with his bank, worried", "setting": "home", "caption": "Five weeks later.", "cast": ["leo"], "props": ["phone"],
+       "bubbles": [{"who": "leo", "text": "I don't think my tea ever arrived. Can you dispute it?", "kind": "speech"}],
+       "lesson": "The cardholder disputes with the issuer, not with the merchant's acquirer."},
+      {"scene": "Maya reading a chargeback notice, surprised", "setting": "shop", "caption": "The issuer files a chargeback.", "cast": ["maya"], "props": ["warning", "doc"],
+       "bubbles": [{"who": "maya", "text": "$100 debited?!", "kind": "shout"}],
+       "lesson": "A first chargeback debits the merchant through the acquirer right away."},
+      {"scene": "Priya on a video call with Maya, pointing at a tracking record", "setting": "office", "caption": "", "cast": ["priya", "maya"], "props": ["doc", "check"],
+       "bubbles": [{"who": "priya", "text": "Send me the delivery tracking and the order record, before the deadline."},
+                   {"who": "maya", "text": "Signed for on day 3. Here it is."}],
+       "lesson": "Representment: the merchant answers with evidence, sent through the acquirer by the network's deadline."},
+      {"scene": "Maya relieved, Priya giving a thumbs up", "setting": "shop", "caption": "The issuer accepts the evidence.", "cast": ["maya", "priya"], "props": ["scale", "money"],
+       "bubbles": [{"who": "priya", "text": "The $100 is credited back. If they push further, it's pre-arbitration, then the network decides."}],
+       "lesson": "If representment wins, the money comes back; otherwise the case can go to pre-arbitration and arbitration."}
+    ]}
+  ],
+  "footer": "Unofficial teaching comic. Fictional people and shop. Facts from the merchant-services-guide in this repo (public sources)."
+}

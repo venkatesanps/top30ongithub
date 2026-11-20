@@ -1,0 +1,8 @@
+{
+  "name": "top30-learn",
+  "version": "0.1.0",
+  "description": "ChatGPT-style learning commands for Claude Code: /mindmap (SVG, HTML, Mermaid, OPML), /sketchnotes (hand-drawn SVG with doodle icons), /flashcards (Anki, printable, spaced-repetition study page) and /educationalcomics (SVG pages plus image prompts), each with a linter, plus study-pack-builder and study-pack-reviewer agents.",
+  "author": { "name": "venkatesanps" },
+  "repository": "https://github.com/venkatesanps/top30ongithub",
+  "keywords": ["mindmap", "sketchnotes", "flashcards", "anki", "comics", "education", "learning", "study"]
+}

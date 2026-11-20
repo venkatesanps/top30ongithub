@@ -1,0 +1,19 @@
+{
+  "title": "Life of a $100 online order",
+  "subtitle": "What the acquirer does, from checkout to a dispute weeks later",
+  "layout": "path",
+  "columns": 3,
+  "sections": [
+    {"heading": "Checkout", "icon": "cart", "points": ["Shopper pays on the merchant's site", "Gateway sends an auth request: MID, amount, card or token"]},
+    {"heading": "Authorization", "icon": "network", "points": ["Switch routes by BIN to the card network", "Issuer approves and places a hold", "No money moves yet"], "note": "about one second"},
+    {"heading": "Capture", "icon": "store", "points": ["Order ships, merchant marks it for capture", "Batch closes at end of day"]},
+    {"heading": "Settlement", "icon": "bank", "points": ["Deposit matched to its auth", "Qualifies for a card-not-present rate", "Cleared to the network"], "note": "missing data = downgrade"},
+    {"heading": "Funding", "icon": "money", "points": ["Day 1: net deposit by ACH", "Sales minus refunds, chargebacks, fees, reserves"]},
+    {"heading": "Fees", "icon": "coins", "points": ["Interchange to the issuer", "Assessments to the brand", "Acquirer's markup"]},
+    {"heading": "Statement", "icon": "doc", "points": ["Monthly and PCI fees post", "Statement published around the 1st"]},
+    {"heading": "Dispute", "icon": "warning", "points": ["Weeks later the cardholder disputes", "Chargeback debits the merchant"]},
+    {"heading": "Representment", "icon": "scale", "points": ["Merchant sends proof of delivery", "Issuer accepts: money credited back"]}
+  ],
+  "takeaway": "One sale makes records in every layer for weeks. Join them on the transaction reference.",
+  "footer": "Illustrative timing. Based on the merchant-services-guide in this repo, compiled from public sources."
+}

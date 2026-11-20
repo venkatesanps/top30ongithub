@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head><title>How a card payment works</title></head>
+  <body>
+    <outline text="How a card payment works">
+      <outline text="Five parties">
+        <outline text="Cardholder" _note="Pays with a card or wallet"/>
+        <outline text="Merchant" _note="The acquirer&#x27;s client; accepts the card"/>
+        <outline text="Acquirer / processor" _note="Authorizes, settles and funds the merchant; carries chargeback liability"/>
+        <outline text="Card network" _note="Visa, Mastercard, Discover; routes, clears, sets interchange and rules"/>
+        <outline text="Issuer" _note="Cardholder&#x27;s bank; approves or declines; starts disputes"/>
+      </outline>
+      <outline text="Authorization">
+        <outline text="About one second" _note="Real-time question: will the issuer stand behind this amount?"/>
+        <outline text="No money moves" _note="The issuer places a hold on available credit"/>
+        <outline text="Route by BIN" _note="The switch picks the network from the card&#x27;s BIN range"/>
+        <outline text="Variants">
+          <outline text="Auth-only, capture later"/>
+          <outline text="Incremental auth" _note="Hotels and car rental"/>
+          <outline text="Reversal"/>
+          <outline text="$0 verification"/>
+        </outline>
+      </outline>
+      <outline text="Capture and settlement">
+        <outline text="Batch close" _note="End of day or on a schedule"/>
+        <outline text="Rejects" _note="Items failing edits must be fixed and resubmitted"/>
+        <outline text="Interchange qualification" _note="Each deposit is matched to its auth"/>
+        <outline text="Downgrades" _note="Missing or stale data earns a higher rate"/>
+        <outline text="Clearing files" _note="Sent to the networks, usually daily"/>
+      </outline>
+      <outline text="Funding">
+        <outline text="Net amount" _note="Sales minus refunds, chargebacks, fees if netted, reserve moves"/>
+        <outline text="ACH, wire, book transfer"/>
+        <outline text="Schedule" _note="Daily, weekly, monthly or manual"/>
+        <outline text="Conveyed brands" _note="Amex can fund the merchant directly"/>
+      </outline>
+      <outline text="Fees">
+        <outline text="Interchange" _note="To the issuer; by card type, entry mode, risk"/>
+        <outline text="Assessments" _note="To the card brand; % of volume"/>
+        <outline text="Acquirer markup" _note="Discount rate, per-item, monthly"/>
+        <outline text="Pricing plans">
+          <outline text="Interchange-plus"/>
+          <outline text="Tiered"/>
+          <outline text="Flat rate"/>
+          <outline text="Swiped / keyed"/>
+        </outline>
+        <outline text="Rates reset" _note="Brands update interchange in April and October"/>
+      </outline>
+      <outline text="Chargebacks">
+        <outline text="Retrieval request" _note="Proof asked for; no money moves"/>
+        <outline text="First chargeback" _note="Merchant debited"/>
+        <outline text="Representment" _note="Merchant sends evidence through the acquirer"/>
+        <outline text="Pre-arbitration" _note="Issuer rejects; merchant debited again"/>
+        <outline text="Arbitration" _note="Network gives the final ruling"/>
+      </outline>
+      <outline text="Reporting and data">
+        <outline text="Deposit detail"/>
+        <outline text="Funding summary"/>
+        <outline text="Chargeback activity"/>
+        <outline text="Monthly statement" _note="Published around the 1st or 2nd"/>
+      </outline>
+    </outline>
+  </body>
+</opml>

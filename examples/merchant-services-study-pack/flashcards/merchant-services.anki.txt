@@ -1,0 +1,35 @@
+#separator:tab
+#html:true
+#notetype column:1
+#deck column:2
+#tags column:5
+Basic	Merchant services basics	What does an acquirer (merchant processor) do for a merchant?	Authorizes card payments, settles them through the networks, funds the merchant, and carries the chargeback liability.<br><small>merchant-services-guide: parties</small>	parties
+Basic	Merchant services basics	Who is the issuer in a card payment?	The cardholder's bank. It approves or declines the auth and starts disputes.<br><small>merchant-services-guide: parties</small>	parties
+Basic	Merchant services basics	What do card networks (Visa, Mastercard, Discover) do?	Route and clear transactions between acquirers and issuers, set interchange and write the rules.<br><small>merchant-services-guide: parties</small>	parties
+Cloze	Merchant services basics	Money for a sale flows {{c1::issuer}} -&gt; network -&gt; {{c2::acquirer}} -&gt; merchant; fees flow the other way.	<br><small>merchant-services-guide: money flows</small>	parties money-flow
+Basic	Merchant services basics	Does money move during authorization?	No. The issuer only places a hold on the cardholder's available credit.<br><small>merchant-services-guide: authorization</small>	authorization
+Basic	Merchant services basics	How does the acquirer's switch pick a card network for an auth?	By the card's BIN range and method of payment.<br><small>merchant-services-guide: authorization</small>	authorization
+Basic	Merchant services basics	Which merchants rely on incremental authorizations?	Hotels and car rentals, where the final amount grows after the first auth.<br><small>merchant-services-guide: authorization variants</small>	authorization
+Basic	Merchant services basics	What is a $0 verification?	An authorization for zero dollars that checks the card is valid without holding funds.<br><small>merchant-services-guide: authorization variants</small>	authorization
+Basic	Merchant services basics	Why reverse an authorization you won't capture?	It releases the cardholder's hold and avoids network fees for unused auths, such as Mastercard's processing integrity fee.<br><small>merchant-services-guide: fees</small>	authorization fees
+Cloze	Merchant services basics	Mastercard charges a processing integrity fee if an unused auth isn't reversed within {{c1::24 hours}} for card-present or {{c2::72 hours}} for card-not-present.	<br><small>merchant-services-guide: fees</small>	authorization fees
+Basic	Merchant services basics	What is capture?	The merchant confirming it will collect a previously authorized amount, usually when the order ships.<br><small>merchant-services-guide: settlement</small>	settlement
+Basic	Merchant services basics	What happens at batch close?	The day's captured transactions are submitted to the acquirer for settlement.<br><small>merchant-services-guide: settlement</small>	settlement
+Basic	Merchant services basics	What is interchange qualification?	Matching each deposit to its auth and data to decide which interchange rate applies.<br><small>merchant-services-guide: settlement</small>	settlement fees
+Basic	Merchant services basics	What causes an interchange downgrade?	Missing or stale data, like a late capture or missing address, which earns a higher rate.<br><small>merchant-services-guide: settlement</small>	settlement fees
+Basic	Merchant services basics	What is a reject in settlement?	A transaction that fails the acquirer's edits and must be fixed and resubmitted.<br><small>merchant-services-guide: settlement</small>	settlement
+Cloze	Merchant services basics	Funded amount = sales - {{c1::refunds}} - {{c1::chargebacks}} +/- adjustments - fees (if netted) +/- {{c2::reserve}} moves.	<br><small>merchant-services-guide: funding</small>	funding
+Basic	Merchant services basics	What funding schedules can a merchant have?	Daily, weekly, monthly or manual release.<br><small>merchant-services-guide: funding</small>	funding
+Basic	Merchant services basics	Which payment rails are used to fund merchants?	ACH, same-day ACH, wire, or a book transfer when the account is at the same bank.<br><small>merchant-services-guide: funding</small>	funding
+Basic	Merchant services basics	What does it mean that Amex is a conveyed brand?	The acquirer passes the transaction along and Amex funds the merchant directly.<br><small>merchant-services-guide: funding</small>	funding parties
+Basic	Merchant services basics	Who receives interchange?	The issuer.<br><small>merchant-services-guide: fees</small>	fees
+Basic	Merchant services basics	Who receives assessments?	The card brand (network), as a percentage of volume.<br><small>merchant-services-guide: fees</small>	fees
+Basic	Merchant services basics	Name the common merchant pricing plans.	Interchange-plus, tiered, flat rate, and swiped/keyed.<br><small>merchant-services-guide: pricing</small>	fees pricing
+Basic	Merchant services basics	How does interchange-plus pricing work?	The merchant pays actual interchange and assessments, plus a fixed acquirer markup.<br><small>merchant-services-guide: pricing</small>	fees pricing
+Basic	Merchant services basics	When do card brands usually update interchange rates?	Twice a year, in April and October.<br><small>merchant-services-guide: fees</small>	fees
+Basic	Merchant services basics	How is the effective merchant discount rate (EMDR) calculated?	Total processing cost divided by sales volume.<br><small>merchant-services-guide: fees</small>	fees
+Basic	Merchant services basics	What is a retrieval request?	The issuer asking for transaction proof before a dispute. No money moves.<br><small>merchant-services-guide: chargebacks</small>	chargebacks
+Basic	Merchant services basics	What happens to the merchant's money on a first chargeback?	The disputed amount is debited from the merchant.<br><small>merchant-services-guide: chargebacks</small>	chargebacks
+Basic	Merchant services basics	What is representment?	The merchant fighting a chargeback by sending evidence back through the acquirer.<br><small>merchant-services-guide: chargebacks</small>	chargebacks
+Cloze	Merchant services basics	Dispute stages: retrieval -&gt; first chargeback -&gt; {{c1::representment}} -&gt; {{c2::pre-arbitration}} -&gt; arbitration.	Arbitration is decided by the card network.<br><small>merchant-services-guide: chargebacks</small>	chargebacks
+Basic	Merchant services basics	On a merchant's reports, which key joins one sale across auth, deposit, funding and chargeback records?	The transaction reference. For online orders, the order number and gateway reference.<br><small>merchant-services-guide: data model</small>	reporting

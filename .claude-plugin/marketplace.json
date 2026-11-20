@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.19.0"
+    "version": "0.20.0"
   },
   "plugins": [
     {
@@ -77,6 +77,13 @@
       "description": "Your own Claude Duet: a chief-of-staff folder with file memory, morning brief and weekly review, three-level permissions with an audit that checks they hold (folder trust included), promise and stale-note checks without a model, scheduled runs in dontAsk mode, and a read-only memory checker agent.",
       "version": "0.1.0",
       "category": "productivity"
+    },
+    {
+      "name": "top30-learn",
+      "source": "./plugins/top30-learn",
+      "description": "ChatGPT-style learning commands: /mindmap (SVG, HTML, Mermaid, OPML), /sketchnotes (hand-drawn SVG), /flashcards (Anki, printable, spaced-repetition study page) and /educationalcomics (SVG pages plus image prompts), each with a linter, plus study-pack builder and reviewer agents.",
+      "version": "0.1.0",
+      "category": "education"
     }
   ]
 }
