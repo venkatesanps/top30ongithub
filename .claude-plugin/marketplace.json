@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.11.2"
+    "version": "0.12.0"
   },
   "plugins": [
     {
@@ -56,6 +56,13 @@
       "description": "Wensity UI dashboards and sites: data file \u2192 dashboard plan on free primitives, one theme per project with a token check, landing-page section recipe, and scout/builder/QA agents that install only after approval.",
       "version": "0.1.0",
       "category": "design"
+    },
+    {
+      "name": "top30-sparring",
+      "source": "./plugins/top30-sparring",
+      "description": "Push back instead of agreeing: hard mentor, case against a decision, A-vs-B, hard-conversation rehearsal and a questioning sounding board, with a decision log that scores your pre-mortems and confidence later, and a fresh-context devils-advocate agent.",
+      "version": "0.1.0",
+      "category": "productivity"
     }
   ]
 }

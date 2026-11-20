@@ -186,6 +186,8 @@ what landed and what didn't. Finish with a debrief and three phrases to use in t
 Wait for me to open.
 ```
 
+To run these as a skill instead of pasting them, with a decision log that checks your calls a month later and a fresh-context devil's-advocate agent, install `top30-sparring` (see the [README](../README.md#skills-built-here)); the Claude app version is `plugins/top30-sparring/claude-ai/sparring-partner.zip`.
+
 The post also suggests playing a therapist and a personal trainer. Claude can be a good sounding
 board for working through a decision, but it isn't therapy, and a training plan should account
 for injuries a professional has assessed.

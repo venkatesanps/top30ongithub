@@ -212,7 +212,7 @@ Three notes before installing:
 
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with seven plugins of its own:
+This repo is also a Claude Code plugin marketplace with eight plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
@@ -223,6 +223,7 @@ claude plugin install top30-agents@top30ongithub  # loops, graphs, /goal writer 
 claude plugin install top30-ui@top30ongithub      # components, registry, reviewer, motion checks, DESIGN.md, 3D sunburst, motion forensics
 claude plugin install top30-private@top30ongithub # egress gate + private Claude-Mem and ECC setups
 claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wensity UI: data → dashboard plan, theme check, scout/builder/QA agents
+claude plugin install top30-sparring@top30ongithub # mentor, devil's advocate, A-vs-B, conversation rehearsal + a decision log
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -262,8 +263,10 @@ claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wens
 | `top30-wensity` | `wensity-ui-scout` (agent) | Read-only: searches the catalog through Wensity's MCP server (pinned `@wensity/mcp@0.1.2`, project scope), checks the project, maps each zone to Free/Pro items with dependencies, and returns install plans (files, token diff, exact command). It has no install tool. | ~110 |
 | `top30-wensity` | `wensity-dashboard-builder` (agent) | Data source to a working page: profile, plan, **stop for approval**, re-plan and install only if the plan is unchanged, wire the typed page, then type-check and build. Refuses with uncommitted changes, since the installer doesn't roll back package changes. | ~100 |
 | `top30-wensity` | `wensity-ui-qa` (agent) | Read-only gate before merge: tsc, lint and build (the installer runs none), token check, package diff vs. the approved plan, row ids and chart keys, loading/empty/error states, reduced motion, lazy WebGL, and Pro items in a public repo. PASS/FAIL with fixes. | ~120 |
+| `top30-sparring` | `sparring-partner` | The role prompts from the "Claude can do all of this" post (the one [claude-features.md](playbooks/claude-features.md) fact-checks) as one skill that pushes back instead of agreeing. Five modes: **mentor** (weakest assumption first, the question your VP will ask), **against** (strongest case against a decision you've made: three failure modes with early warning signs, a kill signal), **decide** (A vs B: second-order effects, reversibility, a recommendation with a confidence), **rehearse** (plays the other person in a hard conversation, `[coach]` notes between turns, debrief with three phrases) and **reflect** (questions only, names thinking traps; a sounding board, not therapy, with crisis signposting). `decisions.py` logs each decision with its predicted risks and confidence, lists ones due for review, and scores you later: Brier score, calibration by confidence band, and how many things that went wrong the pre-mortem predicted. Paste-ready prompts for the Claude app in `references/modes.md`, plus an upload zip in `plugins/top30-sparring/claude-ai/`. Tests: `tests/sparring/`. | ~180 (est.) |
+| `top30-sparring` | `devils-advocate` (agent) | Fresh-context red team: reads only the plan (a file or pasted summary), never the conversation that argued for it, and returns load-bearing assumptions ranked by danger, a three-story pre-mortem with warning signs, what's underestimated, unanswered reviewer questions and one kill signal. Read-only (Read, Grep, Glob). | ~150 (est.) |
 
-Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07). `top30-wensity`
+Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07; `top30-sparring` estimated from description length). `top30-wensity`
 works with Wensity UI, a third-party library (free tier MIT, Pro paid); this repo contains none of its code.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
