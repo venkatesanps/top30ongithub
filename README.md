@@ -1,6 +1,6 @@
-# Top 30 Claude plugins, a data & ops toolkit, the 20 to open first, Anthropic's build repos and the 27-skill list, kept current
+# Top 30 Claude plugins, a data & ops toolkit, the 20 to open first, Anthropic's build repos, the 27-skill list and 18 animation repos, kept current
 
-Six collections, each traced to its real repository, with one installer, a verifier, a field
+Seven collections, each traced to its real repository, with one installer, a verifier, a field
 guide, and upload-ready skill zips for the Claude app:
 
 - **Top 30 from the post** (items 1–30, rows 1–5): coding, research, token savers, design, writing.
@@ -20,6 +20,9 @@ guide, and upload-ready skill zips for the Claude app:
   Interfaces skills its author builds with, Amicro's micro-interaction components and Cult UI's
   components and agent skills (row 4), and Busabase, a shared, reviewable memory for agents
   (row 10).
+- **[18 repos to copy any animation](#18-repos-to-copy-any-animation)** (items 84–101, row 15):
+  copy, style, paint, VFX, beat, captions and ship, with a `top30-motion` plugin for the parts
+  the repos leave to you (beat cues, word captions, licensed sound, platform-ready exports).
 
 **Playbooks** for putting them to work: [manager](playbooks/manager.md),
 [lead data engineer](playbooks/lead-data-engineer.md), [team rollout](playbooks/team-rollout.md),
@@ -210,9 +213,69 @@ Three notes before installing:
 - **76** Vercel's repo has no license file, so it installs from upstream but has no Claude app zips here.
 - **75** n8n skills assume the n8n-mcp server pointed at your own n8n instance, and add edit-checking hooks.
 
+## 18 repos to copy any animation
+
+A post listing 18 repos under one line: copy → style → move → sound → ship. All 18 are real and
+active; one of them (Openverse) is a public API rather than something to install, and two
+(Tweakpane, react-postprocessing) are libraries for your own project. They are items 84–101.
+`./install.sh --show motion18` prints the list.
+
+<!-- list:motion18:start -->
+| Post # | Catalog # | Name | Repo | Tokens/session | Install test |
+|---|---|---|---|---|---|
+| 1 | [84](#status) | reanimate | [NiazMorshed2007/reanimate](https://github.com/NiazMorshed2007/reanimate) | ~310 (est., skills dir) | pass |
+| 2 | [85](#status) | Motion Design Skill (LottieFiles) | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | ~130 (est., skills dir) | pass |
+| 3 | [86](#status) | 15 Motion Design Styles | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | n/a (prompts) | pass |
+| 4 | [87](#status) | huashu-art-motion | [alchaincyf/huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) | ~130 (est., skills dir) | pass |
+| 5 | [88](#status) | anidoodle | [alexgreensh/anidoodle](https://github.com/alexgreensh/anidoodle) | ~55 | pass |
+| 6 | [89](#status) | cinetic | [Leonxlnx/cinetic](https://github.com/Leonxlnx/cinetic) | ~205 | pass |
+| 7 | [90](#status) | motionmaxxing | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) | ~280 (est., skills dir) | pass |
+| 8 | [91](#status) | Manim (Community) | [ManimCommunity/manim](https://github.com/ManimCommunity/manim) | n/a | pass |
+| 9 | [92](#status) | Blender Agent Skills | [EL4CTEO/blender-skills](https://github.com/EL4CTEO/blender-skills) | ~2,771 | pass |
+| 10 | [93](#status) | three.quarks | [Alchemist0823/three.quarks](https://github.com/Alchemist0823/three.quarks) | n/a (library) | pass |
+| 11 | [94](#status) | React Postprocessing | [pmndrs/react-postprocessing](https://github.com/pmndrs/react-postprocessing) | n/a (library) | pass |
+| 12 | [95](#status) | Tweakpane | [cocopon/tweakpane](https://github.com/cocopon/tweakpane) | n/a (library) | pass |
+| 13 | [96](#status) | EffectCraft | [storytold/effectcraft](https://github.com/storytold/effectcraft) | n/a (MCP) | manual |
+| 14 | [97](#status) | Openverse | [WordPress/openverse](https://github.com/WordPress/openverse) | ~774 (top30-motion) | untested |
+| 15 | [98](#status) | librosa | [librosa/librosa](https://github.com/librosa/librosa) | n/a | pass |
+| 16 | [99](#status) | WhisperX | [m-bain/whisperX](https://github.com/m-bain/whisperX) | n/a | manual |
+| 17 | [100](#status) | Remotion Skills | [remotion-dev/skills](https://github.com/remotion-dev/skills) | ~340 (est., skills dir) | pass |
+| 18 | [101](#status) | FFmpeg | [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) | n/a | pass |
+<!-- list:motion18:end -->
+
+| Step | Post # | Repos | Built here (`top30-motion`) |
+|---|---|---|---|
+| Copy | 1 | **84** reanimate (rebuild an animation and prove it matches) | `motion-forensics` in `top30-ui` diagnoses how a site's motion is built first |
+| Style | 2–3, 7 | **85** motion-design principles, **86** 15 style prompts with source, **90** motionmaxxing gates | `motion-stack` picks one for the job |
+| Paint | 4–5 | **87** huashu-art-motion (36 painting styles), **88** anidoodle (32 drawing styles) | |
+| Move | 6, 8–9, 17 | **89** cinetic and **100** Remotion skills (films), **91** Manim (math), **92** Blender skills (3D) | `motion-director` agent runs a film end to end |
+| VFX | 10–13 | **93** three.quarks particles, **94** react-postprocessing, **95** Tweakpane sliders, **96** EffectCraft compositor | |
+| Sound | 14–15 | **97** Openverse, **98** librosa | `free-sound` (licence-checked downloads + credits), `beat-cues` (beats as frame numbers) |
+| Captions | 16 | **99** WhisperX | `word-captions` (SRT, VTT, ASS karaoke, Remotion) |
+| Ship | 18 | **101** FFmpeg | `ship-video` (Reels/Shorts/YouTube/GIF/WebM/ProRes at -14 LUFS, checked) |
+
+**The advice this kit adds:** make one film before installing eighteen. Pick the step you're
+weakest at, add one repo for it, and run the same brief with and without it.
+
+Before using them at work:
+
+- **100** Remotion (and **89** cinetic, **63** video-shotcraft and OpenMontage's Remotion
+  pipelines, which render with it) is free for individuals and companies of up to 3 people;
+  larger for-profit companies need a [company licence](https://www.remotion.dev/docs/license).
+  The skills repo itself has no license file, so it has no Claude app zips here.
+- **84** reanimate copies what you point it at. Another site's fonts, images and code still
+  belong to its owner: copy behaviour to learn or for your own product.
+- **97** Openverse files each carry their own licence; `free-sound` refuses NC and ND for a
+  film by default and writes `CREDITS.md`. **85**'s optional Creator MCP and **90**'s optional
+  ElevenLabs voice send your content to those services.
+- **86** is about 1.2 GB with its finished films; the installer takes a sparse copy (~260 MB).
+  **87**'s skill text is in Chinese. **92** adds ~2.8k tokens a session (28 skill descriptions):
+  install it only if you use Blender. **99** installs PyTorch (several GB) and **96** is a
+  desktop app, so neither is install-tested daily.
+
 ## Skills built here
 
-This repo is also a Claude Code plugin marketplace with eight plugins of its own:
+This repo is also a Claude Code plugin marketplace with nine plugins of its own:
 
 ```bash
 claude plugin marketplace add venkatesanps/top30ongithub
@@ -224,6 +287,7 @@ claude plugin install top30-ui@top30ongithub      # components, registry, review
 claude plugin install top30-private@top30ongithub # egress gate + private Claude-Mem and ECC setups
 claude plugin install top30-wensity@top30ongithub # dashboards and sites on Wensity UI: data → dashboard plan, theme check, scout/builder/QA agents
 claude plugin install top30-sparring@top30ongithub # mentor, devil's advocate, A-vs-B, conversation rehearsal + a decision log
+claude plugin install top30-motion@top30ongithub  # animation: stack picker, beat cues, word captions, licensed sound, ship + check
 ```
 
 | Plugin | Skill / agent | What it does | Always-on cost |
@@ -265,14 +329,20 @@ claude plugin install top30-sparring@top30ongithub # mentor, devil's advocate, A
 | `top30-wensity` | `wensity-ui-qa` (agent) | Read-only gate before merge: tsc, lint and build (the installer runs none), token check, package diff vs. the approved plan, row ids and chart keys, loading/empty/error states, reduced motion, lazy WebGL, and Pro items in a public repo. PASS/FAIL with fixes. | ~120 |
 | `top30-sparring` | `sparring-partner` | The role prompts from the "Claude can do all of this" post (the one [claude-features.md](playbooks/claude-features.md) fact-checks) as one skill that pushes back instead of agreeing. Five modes: **mentor** (weakest assumption first, the question your VP will ask), **against** (strongest case against a decision you've made: three failure modes with early warning signs, a kill signal), **decide** (A vs B: second-order effects, reversibility, a recommendation with a confidence), **rehearse** (plays the other person in a hard conversation, `[coach]` notes between turns, debrief with three phrases) and **reflect** (questions only, names thinking traps; a sounding board, not therapy, with crisis signposting). `decisions.py` logs each decision with its predicted risks and confidence, lists ones due for review, and scores you later: Brier score, calibration by confidence band, and how many things that went wrong the pre-mortem predicted. Paste-ready prompts for the Claude app in `references/modes.md`, plus an upload zip in `plugins/top30-sparring/claude-ai/`. Tests: `tests/sparring/`. | ~180 (est.) |
 | `top30-sparring` | `devils-advocate` (agent) | Fresh-context red team: reads only the plan (a file or pasted summary), never the conversation that argued for it, and returns load-bearing assumptions ranked by danger, a three-story pre-mortem with warning signs, what's underestimated, unanswered reviewer questions and one kill signal. Read-only (Read, Grep, Glob). | ~150 (est.) |
+| `top30-motion` | `motion-stack` | Picks which of the 18 motion repos a job needs (copy, ui-motion, explainer, math, launch-film, polish, styles, art, 3d, web-vfx, composite, beat, captions, sound, ship) and checks the machine: `stack_check.py tools` (Node 22+, Bun, uv, Python 3.11+, ffmpeg 6+ with libass/loudnorm/x264, Chrome, Blender 5.2+, LaTeX, Manim, WhisperX, librosa), `skills` (which repos are installed) and `plan <job>` (first choice, alternatives, what's missing, install lines). Read-only; asks before installing. Carries the at-work rules (Remotion's company licence, copied assets, per-file sound licences, hosted services). | ~130 |
+| `top30-motion` | `beat-cues` | `beat_cues.py analyze` measures a track with librosa: tempo fitted through all beats (not librosa's rounded estimate), beats, downbeats from bass energy, onsets with strength and sections with energy, all as frames at your fps. `cuts` puts N scene changes (or one every N bars) on downbeats, `snap` moves planned times onto the grid within a tolerance, `export` writes TypeScript for Remotion, GSAP labels, Manim waits, CSS variables, CSV or JSON. Tests: `tests/motion_kit/`. | ~120 |
+| `top30-motion` | `word-captions` | `captions.py build` turns WhisperX word timings (unaligned words filled from their neighbours) into captions that break at pauses, sentence ends and commas, with balanced lines, minimum display time and no overlaps: SRT, WebVTT, ASS sized for the video with a karaoke word highlight, or Remotion `Caption[]` for `createTikTokStyleCaptions`. Presets `social`, `subtitle` (2 x 42, 17 chars/s), `karaoke`; `check` flags reading speed, long lines and overlaps. Tests: `tests/motion_kit/`. | ~120 |
+| `top30-motion` | `free-sound` | `openverse_audio.py` searches Openverse for music and effects your use allows (commercial and editing by default, so NC and ND are out), downloads them, and keeps `credits.json` and a `CREDITS.md` with title, creator, source and licence for each file; `fetch` re-checks every licence. `license <code>` explains one. Optional `OPENVERSE_TOKEN`. Tests: `tests/motion_kit/` against a local stand-in API. | ~120 |
+| `top30-motion` | `ship-video` | `ship.py run` makes Reels/TikTok/Shorts, YouTube (1080p, 4K), square, 4:5, LinkedIn/X, web WebM, GIF or ProRes from a video or image sequence: blur or pad fill for 9:16, captions burned (lifted clear of app buttons) or soft, music muxed, loudness to -14 LUFS / -1 dBTP in two passes, `veryfast` unless `--quality best`. `check` verifies size, fps, codec, yuv420p, fast start, 48 kHz, loudness and true peak with ffprobe, exit 1 on failure. Tests: `tests/motion_kit/` (real renders). | ~150 |
+| `top30-motion` | `motion-director` (agent) | Makes a short film from a one-line brief: one style source, scenes cut on the music's downbeats, picture built with the chosen repo, captions and licensed sound, a contact sheet for approval, then `ship-video` and its check. Stops before installs, third-party assets and the final render; never publishes. | ~130 |
 
-Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07; `top30-sparring` estimated from description length). `top30-wensity`
+Always-on costs measured with `claude plugin details` on 2026-11-04 (`top30-wensity` on 2026-11-07, `top30-motion` on 2026-11-19: ~774 in all; `top30-sparring` estimated from description length). `top30-wensity`
 works with Wensity UI, a third-party library (free tier MIT, Pro paid); this repo contains none of its code.
 
 ## Using them in the Claude app (claude.ai, desktop, mobile)
 
-`claude-ai-skills/` holds ready-to-upload skill zips from 22 of the repos, including dbt and
-Airflow skills. Upload in
+`claude-ai-skills/` holds ready-to-upload skill zips from 23 of the repos, including dbt and
+Airflow skills and LottieFiles' motion-design skill (85). Upload in
 Settings → Capabilities → Skills, one zip per skill. Each zip includes its project's license;
 see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). Start small: each enabled skill adds its
 description to every chat.
@@ -280,7 +350,7 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-11-19: 83 repos, 81 of 81 install-tested items passing, 1 needing attention. Token costs measured with 2.1.328 (Claude Code) on 2026-11-19._
+_Checked 2026-11-19: 101 repos, 96 of 96 install-tested items passing, 1 needing attention. Token costs measured with 2.1.328 (Claude Code) on 2026-11-19._
 
 **Top 30 from the post**
 
@@ -394,6 +464,29 @@ _Checked 2026-11-19: 83 repos, 81 of 81 install-tested items passing, 1 needing 
 | 81 | Busabase | [busabase/busabase](https://github.com/busabase/busabase) | 928 | 2026-11-17 | pass (2026-11-17) | ~470 (est., skills dir) | OK |
 | 82 | Amicro | [Subhan-code/Amicro--Micro-transitions-](https://github.com/Subhan-code/Amicro--Micro-transitions-) | 2.8k | 2026-11-17 | pass (2026-11-17) | n/a (copied source) | OK |
 | 83 | Cult UI | [nolly-studio/cult-ui](https://github.com/nolly-studio/cult-ui) | 7.6k | 2026-10-29 | pass (2026-11-16) | n/a (copied source) | OK |
+
+**From the '18 repos to copy any animation' post**
+
+| # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
+|---|---|---|---|---|---|---|---|
+| 84 | reanimate | [NiazMorshed2007/reanimate](https://github.com/NiazMorshed2007/reanimate) | 1.9k | 2026-10-31 | pass (2026-11-19) | ~310 (est., skills dir) | OK |
+| 85 | Motion Design Skill (LottieFiles) | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | 3.4k | 2026-11-19 | pass (2026-11-19) | ~130 (est., skills dir) | OK |
+| 86 | 15 Motion Design Styles | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | 3.7k | 2026-11-19 | pass (2026-11-19) | n/a (prompts) | OK |
+| 87 | huashu-art-motion | [alchaincyf/huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) | 7.3k | 2026-11-18 | pass (2026-11-19) | ~130 (est., skills dir) | OK |
+| 88 | anidoodle | [alexgreensh/anidoodle](https://github.com/alexgreensh/anidoodle) | 1.9k | 2026-11-05 | pass (2026-11-19) | ~55 | OK |
+| 89 | cinetic | [Leonxlnx/cinetic](https://github.com/Leonxlnx/cinetic) | 1.3k | 2026-11-09 | pass (2026-11-19) | ~205 | OK |
+| 90 | motionmaxxing | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) | 1.7k | 2026-10-06 | pass (2026-11-19) | ~280 (est., skills dir) | OK |
+| 91 | Manim (Community) | [ManimCommunity/manim](https://github.com/ManimCommunity/manim) | 42.7k | 2026-11-17 | pass (2026-11-19) | n/a | OK |
+| 92 | Blender Agent Skills | [EL4CTEO/blender-skills](https://github.com/EL4CTEO/blender-skills) | 2.5k | 2026-11-17 | pass (2026-11-19) | ~2,771 | OK |
+| 93 | three.quarks | [Alchemist0823/three.quarks](https://github.com/Alchemist0823/three.quarks) | 1.2k | 2026-11-18 | pass (2026-11-19) | n/a (library) | OK |
+| 94 | React Postprocessing | [pmndrs/react-postprocessing](https://github.com/pmndrs/react-postprocessing) | 1.7k | 2026-10-21 | pass (2026-11-19) | n/a (library) | OK |
+| 95 | Tweakpane | [cocopon/tweakpane](https://github.com/cocopon/tweakpane) | 4.7k | 2026-03-15 | pass (2026-11-19) | n/a (library) | OK |
+| 96 | EffectCraft | [storytold/effectcraft](https://github.com/storytold/effectcraft) | 9k | 2026-11-20 | manual (2026-11-19) | n/a (MCP) | OK |
+| 97 | Openverse | [WordPress/openverse](https://github.com/WordPress/openverse) | 711 | 2026-11-19 | untested (2026-11-19) | ~774 (top30-motion) | OK |
+| 98 | librosa | [librosa/librosa](https://github.com/librosa/librosa) | 9k | 2026-11-19 | pass (2026-11-19) | n/a | OK |
+| 99 | WhisperX | [m-bain/whisperX](https://github.com/m-bain/whisperX) | 25.5k | 2026-11-12 | manual (2026-11-19) | n/a | OK |
+| 100 | Remotion Skills | [remotion-dev/skills](https://github.com/remotion-dev/skills) | 7.6k | 2026-11-18 | pass (2026-11-19) | ~340 (est., skills dir) | OK |
+| 101 | FFmpeg | [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) | 67.7k | 2026-11-20 | pass (2026-11-19) | n/a | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick
@@ -421,7 +514,7 @@ _Checked 2026-11-19: 83 repos, 81 of 81 install-tested items passing, 1 needing 
 | `playbooks/` | Role playbooks and the at-work guardrails page. |
 | `guide/` | Field guide page (`index.html` is generated from `template.html`) and the Snowflake query explainer (`snowflake-query-execution/`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
-| `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-data`, `top30-ops`, `top30-coach`). |
+| `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-data`, `top30-ops`, `top30-coach`, `top30-agents`, `top30-ui`, `top30-private`, `top30-wensity`, `top30-sparring`, `top30-motion`). |
 | `examples/sql-review-agent/` | A working Agent SDK agent: read-only Snowflake SQL review with a custom tool, guard hook and budget cap. |
 | `templates/claude-code-action/` | GitHub workflows to copy: @claude mentions, and SQL review on Amazon Bedrock. `sql_checks.py` there is a copy of the agent's `checks.py` (CI keeps them identical). |
 | `examples/prompt-caching/` | Measures what prompt caching saves on your own document, from the API's usage numbers (write premium included). |

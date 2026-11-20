@@ -330,3 +330,75 @@
 	path = sources/83-cult-ui
 	url = https://github.com/nolly-studio/cult-ui.git
 	shallow = true
+[submodule "sources/84-reanimate"]
+	path = sources/84-reanimate
+	url = https://github.com/NiazMorshed2007/reanimate.git
+	shallow = true
+[submodule "sources/85-motion-design-skill"]
+	path = sources/85-motion-design-skill
+	url = https://github.com/LottieFiles/motion-design-skill.git
+	shallow = true
+[submodule "sources/86-mg-styles-15"]
+	path = sources/86-mg-styles-15
+	url = https://github.com/Vincentwei1021/mg-styles-15.git
+	shallow = true
+[submodule "sources/87-huashu-art-motion"]
+	path = sources/87-huashu-art-motion
+	url = https://github.com/alchaincyf/huashu-art-motion.git
+	shallow = true
+[submodule "sources/88-anidoodle"]
+	path = sources/88-anidoodle
+	url = https://github.com/alexgreensh/anidoodle.git
+	shallow = true
+[submodule "sources/89-cinetic"]
+	path = sources/89-cinetic
+	url = https://github.com/Leonxlnx/cinetic.git
+	shallow = true
+[submodule "sources/90-motionmaxxing"]
+	path = sources/90-motionmaxxing
+	url = https://github.com/Tejashmakwana/motionmaxxing.git
+	shallow = true
+[submodule "sources/91-manim"]
+	path = sources/91-manim
+	url = https://github.com/ManimCommunity/manim.git
+	shallow = true
+[submodule "sources/92-blender-skills"]
+	path = sources/92-blender-skills
+	url = https://github.com/EL4CTEO/blender-skills.git
+	shallow = true
+[submodule "sources/93-three-quarks"]
+	path = sources/93-three-quarks
+	url = https://github.com/Alchemist0823/three.quarks.git
+	shallow = true
+[submodule "sources/94-react-postprocessing"]
+	path = sources/94-react-postprocessing
+	url = https://github.com/pmndrs/react-postprocessing.git
+	shallow = true
+[submodule "sources/95-tweakpane"]
+	path = sources/95-tweakpane
+	url = https://github.com/cocopon/tweakpane.git
+	shallow = true
+[submodule "sources/96-effectcraft"]
+	path = sources/96-effectcraft
+	url = https://github.com/storytold/effectcraft.git
+	shallow = true
+[submodule "sources/97-openverse"]
+	path = sources/97-openverse
+	url = https://github.com/WordPress/openverse.git
+	shallow = true
+[submodule "sources/98-librosa"]
+	path = sources/98-librosa
+	url = https://github.com/librosa/librosa.git
+	shallow = true
+[submodule "sources/99-whisperx"]
+	path = sources/99-whisperx
+	url = https://github.com/m-bain/whisperX.git
+	shallow = true
+[submodule "sources/100-remotion-skills"]
+	path = sources/100-remotion-skills
+	url = https://github.com/remotion-dev/skills.git
+	shallow = true
+[submodule "sources/101-ffmpeg"]
+	path = sources/101-ffmpeg
+	url = https://github.com/FFmpeg/FFmpeg.git
+	shallow = true

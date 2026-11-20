@@ -1102,5 +1102,13 @@
   "bytes": 10741,
   "license": "MIT",
   "commit": "672ae44ace6aaed65b86cbb1e2fd6fbea0e79578"
+ },
+ {
+  "folder": "85-motion-design",
+  "skill": "motion-design",
+  "path": "skills/motion-design",
+  "bytes": 31346,
+  "license": "MIT",
+  "commit": "d77a9fc8cb371cab1ba5420df5bfd232cd14c9bb"
  }
 ]

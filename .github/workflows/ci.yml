@@ -54,7 +54,8 @@ jobs:
 
       - name: Skill and example tests
         run: |
-          pip install --quiet sqlglot claude-agent-sdk anthropic
+          command -v ffmpeg >/dev/null || { sudo apt-get update -q && sudo apt-get install -y -q ffmpeg; }
+          pip install --quiet sqlglot claude-agent-sdk anthropic librosa
           python3 tests/sql_agent/test_sql_agent.py
           python3 tests/caching/test_cache_demo.py
           python3 tests/datadog/test_dd_collect.py
@@ -78,4 +79,5 @@ jobs:
           python3 tests/nl_sql/test_nl_sql.py
           python3 tests/wensity_kit/test_wensity_kit.py
           python3 tests/sparring/test_decisions.py
+          python3 tests/motion_kit/test_motion_kit.py
           python3 -m py_compile scripts/ab.py

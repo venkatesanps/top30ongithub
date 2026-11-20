@@ -14,7 +14,8 @@
   "11": "Token savers",
   "12": "Product, video & everyday tools",
   "13": "Learn & build with Anthropic's repos",
-  "14": "Notes, automation & shipping"
+  "14": "Notes, automation & shipping",
+  "15": "Animation, motion & video"
  },
  "items": [
   {
@@ -3480,6 +3481,689 @@
     "date": "2026-11-16",
     "result": "pass"
    }
+  },
+  {
+   "n": 84,
+   "row": 15,
+   "name": "reanimate",
+   "repo": "NiazMorshed2007/reanimate",
+   "what": "Rebuilds an animation from a live site, screen recording, mp4, gif or Lottie file in your code, then films the copy the same way and fixes the biggest difference until timing, easing and pixels match.",
+   "needs": [
+    "node",
+    "bun"
+   ],
+   "install": [
+    "npx -y skills add NiazMorshed2007/reanimate -g -a claude-code -y"
+   ],
+   "alt": "",
+   "verify": "test -f ~/.claude/skills/reanimate/SKILL.md",
+   "use": "/reanimate the hero entrance on https://example.com, into components/Hero.tsx  (or: /reanimate this loader, 0:03 to 0:05 of ~/Downloads/loader.mov)",
+   "always_on": "~310 (est., skills dir)",
+   "note": "MIT. Needs Bun 1.1+; the first run puts a static ffmpeg and Playwright's Chromium (about 250 MB) on the machine. No API keys. motion-forensics (top30-ui) tells you how a site's motion is built; reanimate records the original and the copy at a fixed frame rate and iterates, usually 2 to 5 rounds, with canvas, WebGL and WebGPU tracing. Fonts, images and code it copies still belong to the site's owner: use it on your own products or to learn, then make your own.",
+   "source": "sources/84-reanimate",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "3f7a55a2986a84ca2173e86ee9127eefe31d046d",
+    "stars": 1866,
+    "pushed": "2026-10-31",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "3f7a55a2986a84ca2173e86ee9127eefe31d046d"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 85,
+   "row": 15,
+   "name": "Motion Design Skill (LottieFiles)",
+   "repo": "LottieFiles/motion-design-skill",
+   "what": "Motion design principles for agents: timing and easing tables, Disney's 12 principles adapted for UI, choreography, emotion-to-motion and quality checks, for CSS, Framer Motion, GSAP or Lottie.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx -y skills add LottieFiles/motion-design-skill -g -a claude-code -y"
+   ],
+   "alt": "Claude app: upload claude-ai-skills/85-motion-design/motion-design.zip",
+   "verify": "test -f ~/.claude/skills/motion-design/SKILL.md",
+   "use": "'Choreograph the entrance for this dashboard: hero chart first, then the stat cards, then the sidebar.'",
+   "always_on": "~130 (est., skills dir)",
+   "note": "MIT. Guidance only, no scripts, so it also works in the Claude app. Its README offers LottieFiles' hosted Creator MCP for MP4, GIF and Lottie export; that sends your scenes to LottieFiles, so at work treat it like any outside service. motion-budget (top30-ui) checks the resulting numbers.",
+   "source": "sources/85-motion-design-skill",
+   "zip": {
+    "folder": "85-motion-design",
+    "base": "skills",
+    "skills": [
+     "motion-design"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "d77a9fc8cb371cab1ba5420df5bfd232cd14c9bb",
+    "stars": 3415,
+    "pushed": "2026-11-19",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "d77a9fc8cb371cab1ba5420df5bfd232cd14c9bb"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 86,
+   "row": 15,
+   "name": "15 Motion Design Styles",
+   "repo": "Vincentwei1021/mg-styles-15",
+   "what": "Fifteen 10-second films, one motion style each (line boil, isometric, flat vector, 3D render, shape morph, HUD, collage, glass, Bauhaus, synthwave, pixel art, liquid, 9:16 captions...), with the full prompt, source and soundtrack code for every one.",
+   "needs": [
+    "git",
+    "node",
+    "python",
+    "ffmpeg"
+   ],
+   "install": [
+    "test -d ~/mg-styles-15 || git clone --depth 1 --filter=blob:none --sparse https://github.com/Vincentwei1021/mg-styles-15 ~/mg-styles-15",
+    "cd ~/mg-styles-15 && git sparse-checkout set prompts harness lib demos assets"
+   ],
+   "alt": "To render the source films: cd ~/mg-styles-15 && npm install && pip install -r requirements.txt",
+   "verify": "test -f ~/mg-styles-15/rubric.md && ls ~/mg-styles-15/prompts | grep -q .",
+   "use": "Open Claude Code in an empty folder and paste one prompt from ~/mg-styles-15/prompts/, changing only its Creative seed; then review the film against rubric.md.",
+   "always_on": "n/a (prompts)",
+   "note": "MIT. Not a skill: prompts, a renderer (harness/render.mjs: headless Chrome frames, then ffmpeg) and per-film audio.py soundtracks. The prompt instructions are in Chinese, the prompts in English. The full repo is about 1.2 GB because of the finished films, so the install leaves out videos/ and docs/ (about 260 MB). Same author as video-shotcraft (63).",
+   "source": "sources/86-mg-styles-15",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "8fab7eb49cc60590c518d1a932dfff753697fce7",
+    "stars": 3713,
+    "pushed": "2026-11-19",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "8fab7eb49cc60590c518d1a932dfff753697fce7"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 87,
+   "row": 15,
+   "name": "huashu-art-motion",
+   "repo": "alchaincyf/huashu-art-motion",
+   "what": "Paintings that move: 36 art styles and 9 explainer grammars (Kurzgesagt-style flat, Vox clippings, whiteboard, 3Blue1Brown, kinetic type, keynote UI...), drawn and animated in code.",
+   "needs": [
+    "node",
+    "uv",
+    "ffmpeg"
+   ],
+   "install": [
+    "npx -y skills add alchaincyf/huashu-art-motion -g -a claude-code -y"
+   ],
+   "alt": "",
+   "verify": "test -f ~/.claude/skills/huashu-art-motion/SKILL.md",
+   "use": "'Make a 20-second explainer of how a Snowflake query is pruned, in the Kurzgesagt grammar.'",
+   "always_on": "~130 (est., skills dir)",
+   "note": "MIT. The skill itself is written in Chinese (the README has an English guide); Claude follows it either way. Needs uv, ffmpeg and Playwright Chromium. Painted scenes are code; characters in some demos are composited from generated frames, which needs an image model of your own.",
+   "source": "sources/87-huashu-art-motion",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "a97c45018d46e950d56d61981138e08f4e092909",
+    "stars": 7284,
+    "pushed": "2026-11-18",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "a97c45018d46e950d56d61981138e08f4e092909"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 88,
+   "row": 15,
+   "name": "anidoodle",
+   "repo": "alexgreensh/anidoodle",
+   "what": "Hand-drawn art written as code: stills, drawing timelapses, films, explainers and interactive web art in 32 styles (ballpoint, gouache, risograph, embroidery, pixel art...), with scores composed in code.",
+   "needs": [
+    "claude",
+    "node"
+   ],
+   "install": [
+    "claude plugin marketplace add alexgreensh/anidoodle",
+    "claude plugin install anidoodle@alexgreensh-anidoodle"
+   ],
+   "alt": "npx skills add alexgreensh/anidoodle -g -a claude-code -y",
+   "verify": "claude plugin list | grep -q anidoodle@alexgreensh-anidoodle",
+   "use": "'Draw our onboarding flow as a 15-second ink-and-wash loop with a soft score.'",
+   "always_on": "~55",
+   "note": "Apache-2.0. Collects nothing (PRIVACY.md). The first render in a project installs npm packages and Playwright Chromium there. The same source redraws the same picture at any size.",
+   "source": "sources/88-anidoodle",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "4ae27d2c281fcfd01bce87ab13dc5ad4df81a795",
+    "stars": 1861,
+    "pushed": "2026-11-05",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "4ae27d2c281fcfd01bce87ab13dc5ad4df81a795"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 89,
+   "row": 15,
+   "name": "cinetic",
+   "repo": "Leonxlnx/cinetic",
+   "what": "Directs launch films and update videos from code: copy first, one animation per line, film templates, real product marks, a licensed music track and sound effects, then gates that fail snapping, freezing and banding.",
+   "needs": [
+    "claude",
+    "node",
+    "python",
+    "ffmpeg"
+   ],
+   "install": [
+    "claude plugin marketplace add Leonxlnx/cinetic",
+    "claude plugin install cinetic@cinetic"
+   ],
+   "alt": "npx skills add Leonxlnx/cinetic -g -a claude-code -y",
+   "verify": "claude plugin list | grep -q cinetic@cinetic",
+   "use": "'Make a 25-second launch film with music for our database branching tool. Invent the brand.'",
+   "always_on": "~205",
+   "note": "MIT. Needs Node 22+, ffmpeg 6+, Python 3.11+, headless Chromium and its sister tool earshot for sound effects. Music comes from no-credit catalogs (Mixkit, and CC0 on Wikimedia Commons, ccMixter and Openverse) with the licence recorded. Renders with Remotion by default (company licence above 3 people, see 100) or HyperFrames (29).",
+   "source": "sources/89-cinetic",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "f4bbfc844877891fe92279d47b7874fb44d485ae",
+    "stars": 1301,
+    "pushed": "2026-11-09",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "f4bbfc844877891fe92279d47b7874fb44d485ae"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 90,
+   "row": 15,
+   "name": "motionmaxxing",
+   "repo": "Tejashmakwana/motionmaxxing",
+   "what": "Turns 'slide deck that moves' AI films into designed motion: rules measured from about 4,300 professional moves, plus scripted gates and a lint for corner labels, deck layouts, dead frames and fades everywhere.",
+   "needs": [
+    "git",
+    "node",
+    "python",
+    "ffmpeg"
+   ],
+   "install": [
+    "mkdir -p ~/.claude/skills",
+    "test -d ~/.claude/skills/motionmaxxing || git clone --depth 1 https://github.com/Tejashmakwana/motionmaxxing ~/.claude/skills/motionmaxxing"
+   ],
+   "alt": "bash ~/.claude/skills/motionmaxxing/install.sh checks Node 22+, Python, ffmpeg and Chrome without installing anything",
+   "verify": "test -f ~/.claude/skills/motionmaxxing/SKILL.md",
+   "use": "'Make this 20-second promo look designed with motionmaxxing, then show me the contact sheet and which gates passed.'",
+   "always_on": "~280 (est., skills dir)",
+   "note": "Apache-2.0, early release. Measured numbers worth knowing even without it: median move 10 frames, landings ease out, under 9% of moves overshoot, pros cut on motion. Needs Google Chrome; voice and music are optional through your own ElevenLabs key.",
+   "source": "sources/90-motionmaxxing",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "8c8ec0f2a6f6c9a0da15cd24f7b1298ab298368c",
+    "stars": 1690,
+    "pushed": "2026-10-06",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "8c8ec0f2a6f6c9a0da15cd24f7b1298ab298368c"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 91,
+   "row": 15,
+   "name": "Manim (Community)",
+   "repo": "ManimCommunity/manim",
+   "what": "Python framework for mathematical animation: formulas, graphs and geometry that transform smoothly, the 3Blue1Brown look.",
+   "needs": [
+    "uv",
+    "ffmpeg"
+   ],
+   "install": [
+    "uv tool install manim"
+   ],
+   "alt": "pip install manim. Linux has no ManimPango wheel: sudo apt install libpango1.0-dev pkg-config first. LaTeX (MacTeX or TeX Live) is only needed for MathTex and Tex.",
+   "verify": "manim --version",
+   "use": "'Write a Manim scene that derives the compound-interest formula step by step', then: manim -pql scene.py Derivation",
+   "always_on": "n/a",
+   "note": "MIT, the community edition (not 3b1b/manim). Text works without LaTeX; formulas need it. On macOS and Windows ManimPango installs as a wheel; on Linux it builds from source and needs the Pango development package.",
+   "source": "sources/91-manim",
+   "packages": [
+    {
+     "pypi": "manim"
+    }
+   ],
+   "ci": {
+    "install": [
+     "sudo apt-get install -y -q libpango1.0-dev pkg-config",
+     "uv tool install manim"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "ab7f9527fa2b37893aacc367e21b723845f44ef0",
+    "stars": 42703,
+    "pushed": "2026-11-17",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "ab7f9527fa2b37893aacc367e21b723845f44ef0"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 92,
+   "row": 15,
+   "name": "Blender Agent Skills",
+   "repo": "EL4CTEO/blender-skills",
+   "what": "28 Blender 5.x workflows as skills: modeling, UVs, PBR, baking, rigging, animation, cloth, hair, environments, toon, export to Roblox, Unity, Unreal, Godot and web, rendering, video, weather, simulation and QA.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add EL4CTEO/blender-skills",
+    "claude plugin install blender-agent-skills@blender-agent-skills"
+   ],
+   "alt": "Other agents: git clone https://github.com/EL4CTEO/blender-skills && ./blender-skills/install/install.sh",
+   "verify": "claude plugin list | grep -q blender-agent-skills@blender-agent-skills",
+   "use": "'Use blender-core to model a low-poly coffee cup with PBR materials and render a 4-second turntable.'",
+   "always_on": "~2,771",
+   "note": "MIT. Needs Blender 5.2 LTS or newer (verified on 5.3); a Blender MCP server is optional. 28 skill descriptions make it one of the heavier always-on installs: add it only if you work in Blender.",
+   "source": "sources/92-blender-skills",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "9e7e04a603c125a0d17447ab97112fa70a865067",
+    "stars": 2452,
+    "pushed": "2026-11-17",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "9e7e04a603c125a0d17447ab97112fa70a865067"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 93,
+   "row": 15,
+   "name": "three.quarks",
+   "repo": "Alchemist0823/three.quarks",
+   "what": "Particle systems and VFX for three.js: emitters, behaviours, trails and effects exported from its visual editor.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "mkdir -p ~/motion-lab && cd ~/motion-lab && { test -f package.json || npm init -y >/dev/null; } && npm install three three.quarks"
+   ],
+   "alt": "In your own three.js project: npm install three.quarks",
+   "verify": "test -d ~/motion-lab/node_modules/three.quarks",
+   "use": "import { BatchedRenderer, ParticleSystem } from 'three.quarks' in a three.js scene; design effects at https://quarks.art",
+   "always_on": "n/a (library)",
+   "note": "MIT. Needs three 0.182 or newer. ~/motion-lab is a scratch project shared by items 93-95 so the libraries can be tried without touching your own code.",
+   "source": "sources/93-three-quarks",
+   "packages": [
+    {
+     "npm": "three.quarks"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "9d0445c5949c7da570f412ad7007efecd0357886",
+    "stars": 1242,
+    "pushed": "2026-11-18",
+    "license": "MIT",
+    "default_branch": "master",
+    "pinned": "9d0445c5949c7da570f412ad7007efecd0357886"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 94,
+   "row": 15,
+   "name": "React Postprocessing",
+   "repo": "pmndrs/react-postprocessing",
+   "what": "Postprocessing for react-three-fiber: bloom, depth of field, noise, vignette, chromatic aberration, glitch and more, merged into as few passes as possible.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "mkdir -p ~/motion-lab && cd ~/motion-lab && { test -f package.json || npm init -y >/dev/null; } && npm install react react-dom three @react-three/fiber postprocessing @react-three/postprocessing"
+   ],
+   "alt": "In your own React Three Fiber project: npm install @react-three/postprocessing postprocessing",
+   "verify": "test -d ~/motion-lab/node_modules/@react-three/postprocessing",
+   "use": "<EffectComposer><Bloom luminanceThreshold={0.9} /><Vignette /></EffectComposer> inside a react-three-fiber Canvas",
+   "always_on": "n/a (library)",
+   "note": "MIT. Only for React Three Fiber (React 19, fiber 9.7+); plain three.js uses the postprocessing package directly.",
+   "source": "sources/94-react-postprocessing",
+   "packages": [
+    {
+     "npm": "@react-three/postprocessing"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "e07ef9a890c8a202a3b20eac0249032cff4e7805",
+    "stars": 1670,
+    "pushed": "2026-10-21",
+    "license": "MIT",
+    "default_branch": "master",
+    "pinned": "e07ef9a890c8a202a3b20eac0249032cff4e7805"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 95,
+   "row": 15,
+   "name": "Tweakpane",
+   "repo": "cocopon/tweakpane",
+   "what": "A small panel of sliders, colour pickers and graphs bound to your parameters, for tuning timing, easing and colour live instead of re-rendering.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "mkdir -p ~/motion-lab && cd ~/motion-lab && { test -f package.json || npm init -y >/dev/null; } && npm install tweakpane"
+   ],
+   "alt": "In your own project: npm install tweakpane",
+   "verify": "test -d ~/motion-lab/node_modules/tweakpane",
+   "use": "const pane = new Pane(); pane.addBinding(params, 'duration', { min: 100, max: 1200 });",
+   "always_on": "n/a (library)",
+   "note": "MIT. Version 4 is ESM only. The last npm release (4.0.5) is from November 2024: stable rather than busy.",
+   "source": "sources/95-tweakpane",
+   "packages": [
+    {
+     "npm": "tweakpane"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "50a18c3dba67cb78431d7248dbe4d5a76336885a",
+    "stars": 4714,
+    "pushed": "2026-03-15",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "50a18c3dba67cb78431d7248dbe4d5a76336885a"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 96,
+   "row": 15,
+   "name": "EffectCraft",
+   "repo": "storytold/effectcraft",
+   "what": "Open-source motion graphics and compositing app in pure Rust: layers, keyframes, 308 effects, expressions, 3D cameras, Lottie import and export, and a CLI and MCP server for agents.",
+   "needs": [],
+   "install": [
+    "open https://github.com/storytold/effectcraft/releases/latest 2>/dev/null || xdg-open https://github.com/storytold/effectcraft/releases/latest"
+   ],
+   "alt": "Easiest download: https://getartcraft.com/apps/effectcraft. Build it yourself with Rust 1.95+: cargo run --release -p effectcraft",
+   "verify": "command -v effectcraft-cli >/dev/null || test -d /Applications/EffectCraft.app",
+   "use": "effectcraft-cli mcp gives Claude its engine commands over MCP; effectcraft-cli render --comp Main --out main.mp4 renders headless",
+   "always_on": "n/a (MCP)",
+   "note": "Apache-2.0 or MIT. Young and moving fast; projects are readable JSON (.ecproj) that diff cleanly. Decodes and encodes video in Rust, without FFmpeg. Desktop app for macOS, Windows and Linux, plus a web build.",
+   "source": "sources/96-effectcraft",
+   "ci": {
+    "skip": "desktop app; releases and upstream are still checked daily"
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "manual"
+   },
+   "upstream": {
+    "head": "ab5c4751f3ab481457744ed6064df99cda61329d",
+    "stars": 8994,
+    "pushed": "2026-11-20",
+    "license": "Apache-2.0",
+    "default_branch": "main",
+    "pinned": "ab5c4751f3ab481457744ed6064df99cda61329d"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 97,
+   "row": 15,
+   "name": "Openverse",
+   "repo": "WordPress/openverse",
+   "what": "Search engine and API for openly licensed images and audio (CC and public domain), with the attribution text for each file.",
+   "needs": [
+    "claude"
+   ],
+   "install": [
+    "claude plugin marketplace add venkatesanps/top30ongithub",
+    "claude plugin install top30-motion@top30ongithub"
+   ],
+   "alt": "No install needed to browse: https://openverse.org. API: https://api.openverse.org/v1/",
+   "verify": "claude plugin list | grep -q top30-motion@top30ongithub",
+   "use": "'Find a calm 30-second piano track I can use commercially and write the credits' (the free-sound skill in top30-motion)",
+   "always_on": "~774 (top30-motion)",
+   "note": "The post links the public API; the pinned source is WordPress's monorepo (MIT). Works without a key at a low anonymous rate; register a free key for more. Licences are per file: BY needs credit, NC rules out commercial use, ND rules out edits, SA passes its licence on. free-sound filters for your use and writes the credits.",
+   "source": "sources/97-openverse",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "untested"
+   },
+   "upstream": {
+    "head": "10aec8251c6b3724c07215b77e8ff0570a4640c8",
+    "stars": 711,
+    "pushed": "2026-11-19",
+    "license": "MIT",
+    "default_branch": "main",
+    "pinned": "10aec8251c6b3724c07215b77e8ff0570a4640c8"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 98,
+   "row": 15,
+   "name": "librosa",
+   "repo": "librosa/librosa",
+   "what": "Python audio analysis: tempo and beat tracking, onsets, spectral features and structure.",
+   "needs": [
+    "python"
+   ],
+   "install": [
+    "python3 -m pip install --user librosa"
+   ],
+   "alt": "Without installing: uv run --with librosa python3 your_script.py",
+   "verify": "python3 -c 'import librosa'",
+   "use": "'Cut this film on the beat of track.mp3' (the beat-cues skill in top30-motion turns librosa's beats into frame numbers)",
+   "always_on": "n/a",
+   "note": "ISC. Reads WAV, FLAC and OGG through soundfile, and MP3 through its audio backends; ffmpeg covers anything else.",
+   "source": "sources/98-librosa",
+   "packages": [
+    {
+     "pypi": "librosa"
+    }
+   ],
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "e099b8933a34d968f5b4c652e4ccfa3acef9d64e",
+    "stars": 9038,
+    "pushed": "2026-11-19",
+    "license": "ISC",
+    "default_branch": "main",
+    "pinned": "e099b8933a34d968f5b4c652e4ccfa3acef9d64e"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 99,
+   "row": 15,
+   "name": "WhisperX",
+   "repo": "m-bain/whisperX",
+   "what": "Whisper transcription with forced alignment for word-level timestamps, plus optional speaker labels.",
+   "needs": [
+    "uv",
+    "ffmpeg"
+   ],
+   "install": [
+    "uv tool install whisperx"
+   ],
+   "alt": "pip install whisperx",
+   "verify": "whisperx --help >/dev/null",
+   "use": "whisperx voiceover.wav --model small --compute_type int8 --output_format json, then the word-captions skill (top30-motion) turns the JSON into SRT, VTT, ASS or Remotion captions",
+   "always_on": "n/a",
+   "note": "BSD-2-Clause. Runs locally; models download from Hugging Face on first use. Speaker labels need a Hugging Face token and accepting pyannote's model terms. Installs PyTorch (several GB); on CPU or a Mac use --compute_type int8.",
+   "source": "sources/99-whisperx",
+   "packages": [
+    {
+     "pypi": "whisperx"
+    }
+   ],
+   "ci": {
+    "skip": "installs PyTorch (several GB); the PyPI package and repo are still checked daily"
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "manual"
+   },
+   "upstream": {
+    "head": "b904f02b7e1f26fd10fb04840d655ff27e88e464",
+    "stars": 25499,
+    "pushed": "2026-11-12",
+    "license": "BSD-2-Clause",
+    "default_branch": "main",
+    "pinned": "b904f02b7e1f26fd10fb04840d655ff27e88e464"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 100,
+   "row": 15,
+   "name": "Remotion Skills",
+   "repo": "remotion-dev/skills",
+   "what": "Remotion's official agent skills: create, markup, studio, render, captions, maps, multimedia, interactivity, upgrade and licence.",
+   "needs": [
+    "node"
+   ],
+   "install": [
+    "npx -y skills add remotion-dev/skills -g -a claude-code -y"
+   ],
+   "alt": "Inside a Remotion project: npx remotion skills add",
+   "verify": "test -f ~/.claude/skills/remotion-best-practices/SKILL.md",
+   "use": "/remotion-create Make a 20-second promo for our new dashboard, then /remotion-render",
+   "always_on": "~340 (est., skills dir)",
+   "note": "The skills repo has no license file, so there are no Claude app zips for it here. Remotion itself is free for individuals, non-profits and companies of up to 3 people; larger for-profit companies need a company licence (remotion.dev/license). That also covers anything rendering with Remotion: cinetic (89), video-shotcraft (63), OpenMontage's Remotion pipelines (27).",
+   "source": "sources/100-remotion-skills",
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "6f55706d1069e512430582ad86e4e57dc07afe1b",
+    "stars": 7578,
+    "pushed": "2026-11-18",
+    "license": null,
+    "default_branch": "main",
+    "pinned": "6f55706d1069e512430582ad86e4e57dc07afe1b"
+   },
+   "collection": "motion18"
+  },
+  {
+   "n": 101,
+   "row": 15,
+   "name": "FFmpeg",
+   "repo": "FFmpeg/FFmpeg",
+   "what": "The command-line tool that turns frames and audio into real video files: encode, mux, scale, normalise loudness, burn captions, make GIFs.",
+   "needs": [],
+   "install": [
+    "command -v ffmpeg >/dev/null || brew install ffmpeg"
+   ],
+   "alt": "Linux: sudo apt install ffmpeg. Windows: winget install Gyan.FFmpeg",
+   "verify": "ffmpeg -version >/dev/null && ffprobe -version >/dev/null",
+   "use": "'Ship this for Reels with captions burned in' (the ship-video skill in top30-motion builds and checks the ffmpeg commands)",
+   "always_on": "n/a",
+   "note": "LGPL-2.1+, and GPL when built with x264 and other GPL parts, as Homebrew's and most Linux builds are. Fine to run as a tool; bundling it inside a product you ship is where the licence matters. The GitHub repo is a read-only mirror of git.ffmpeg.org.",
+   "source": "sources/101-ffmpeg",
+   "ci": {
+    "install": [
+     "command -v ffmpeg >/dev/null || sudo apt-get install -y ffmpeg"
+    ]
+   },
+   "status": "ok",
+   "problems": [],
+   "verified": {
+    "date": "2026-11-19",
+    "result": "pass"
+   },
+   "upstream": {
+    "head": "7ddf7bc8a482cf28b4fab2e63b7093ba35cb6a80",
+    "stars": 67654,
+    "pushed": "2026-11-20",
+    "license": "NOASSERTION",
+    "default_branch": "master",
+    "pinned": "7ddf7bc8a482cf28b4fab2e63b7093ba35cb6a80"
+   },
+   "collection": "motion18"
   }
  ],
  "schema": 2,
@@ -3491,7 +4175,8 @@
   "open20": "From '20 projects to open first'",
   "anthropic": "Anthropic's repos to build with",
   "post27": "From the '27 skills, one at a time' post",
-  "picks": "Picked since the posts"
+  "picks": "Picked since the posts",
+  "motion18": "From the '18 repos to copy any animation' post"
  },
  "lists": {
   "open20": {
@@ -3564,6 +4249,36 @@
     "Pick the folder closest to your daily work and add one skill from it.",
     "Use it on real tasks for a week. Keep it if it saved time, then add the next one.",
     "Three skills you use every day beat 27 you never open. The kit's skill-trial skill (top30-coach) keeps score for you."
+   ]
+  },
+  "motion18": {
+   "label": "18 repos to copy any animation",
+   "items": [
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101
+   ],
+   "heading": "Make one film before you install eighteen",
+   "source": "From the post listing 18 GitHub repos to copy, style, paint, add VFX, beat-sync, caption and ship animation.",
+   "advice": [
+    "Pick the step you are weakest at (copy, style, move, sound or ship) and add one repo for it, not all eighteen.",
+    "Check licences before using it at work: Remotion needs a company licence above 3 people, a copied site's fonts and images belong to its owner, and every Openverse file has its own licence.",
+    "Same brief with and without the new tool: keep it only if the film is better or quicker to make."
    ]
   }
  }
