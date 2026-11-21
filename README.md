@@ -29,7 +29,8 @@ guide, and upload-ready skill zips for the Claude app:
 [production & SRE](playbooks/production-and-sre.md), and
 [Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work), and
 [loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step), and
-[Claude Code commands, fact-checked](playbooks/claude-commands.md) (15, then 20 more by layer), and a
+[Claude Code commands, fact-checked](playbooks/claude-commands.md) (15, then 20 more by layer),
+[Claude Code in four folders](playbooks/claude-code-setup.md) (setup in order, fact-checked), and a
 [harness engineering reading path](playbooks/harness-engineering.md). Read
 [Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
