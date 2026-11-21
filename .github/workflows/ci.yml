@@ -65,6 +65,7 @@ jobs:
           python3 tests/sf_query_advisor/test_sf_query_advisor.py
           python3 tests/de_setup/test_de_setup.py
           python3 tests/learn_kit/test_learn_kit.py
+          python3 tests/think_through/test_think.py
           python3 tests/sf_de_team/test_de_team.py
           python3 tests/skill_trial/test_trial.py
           python3 tests/graph_check/test_graph_check.py
