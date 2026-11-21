@@ -1,7 +1,7 @@
 {
   "name": "top30-agents",
-  "version": "0.8.0",
-  "description": "Loops and graphs for agent work you don't have to watch, plus Claude Code's built-in commands used well. agent-pattern-picker chooses the smallest of 15 agent design patterns (or no agent) and audits a design against how that pattern breaks and ten production rules, with a read-only pattern-reviewer agent; agent-graph-designer and agent-loop; goal-writer lints /goal conditions and ships goal gate, a Stop hook that keeps Claude working until a real command exits 0 (off until you switch it on); which-command picks the right built-in command; session-doctor reads a session transcript and names the layer that failed (prompt, context, loop, harness) with the command that fixes it, with a read-only session-reviewer agent; the batch-scout agent prepares safe /batch runs; harness-starter sets up a locked feature list, progress log and init script for multi-session work, with a separate harness-evaluator agent; first-ai-team designs a small agent team end to end; agent-setup-audit checks a repo's CLAUDE.md, MCP, permissions, sandbox, hooks, pre-commit and CI by layer, checks a cloned repo's config for prompt injection and hidden Unicode before you trust it (with a read-only config-trust-reviewer agent), and ships a Bash guard hook that blocks curl|sh, rm -rf ~, force pushes to main and reading secrets; think-through routes a hard prompt to a short chain of thinking modes (frame, widen, diagnose, check, fresh, weigh, commit, taste, pushback, integrate) and lints the visible ledger, with a read-only think-auditor agent that catches unsupported claims, sycophancy and stale facts.",
+  "version": "0.9.0",
+  "description": "Loops and graphs for agent work you don't have to watch, plus Claude Code's built-in commands used well. agent-pattern-picker chooses the smallest of 15 agent design patterns (or no agent) and audits a design against how that pattern breaks and ten production rules, with a read-only pattern-reviewer agent; agent-graph-designer and agent-loop; goal-writer lints /goal conditions and ships goal gate, a Stop hook that keeps Claude working until a real command exits 0 (off until you switch it on); which-command picks the right built-in command; session-doctor reads a session transcript and names the layer that failed (prompt, context, loop, harness) with the command that fixes it, with a read-only session-reviewer agent; the batch-scout agent prepares safe /batch runs; harness-starter sets up a locked feature list, progress log and init script for multi-session work, with a separate harness-evaluator agent; first-ai-team designs a small agent team end to end; agent-setup-audit checks a repo's CLAUDE.md, MCP, permissions, sandbox, hooks, pre-commit and CI by layer, checks a cloned repo's config for prompt injection and hidden Unicode before you trust it (with a read-only config-trust-reviewer agent), and ships a Bash guard hook that blocks curl|sh, rm -rf ~, force pushes to main and reading secrets; think-through routes a hard prompt to a short chain of thinking modes (frame, widen, diagnose, check, fresh, weigh, commit, taste, pushback, integrate) and lints the visible ledger, with a read-only think-auditor agent that catches unsupported claims, sycophancy and stale facts; instincts learns small evidence-backed habits from your own session transcripts offline (corrections, error-then-fix pairs, repeated workflows) with computed confidence, decay, lint, promotion and ECC-compatible export/import, and evolves strong ones into CLAUDE.md rules, hook suggestions and skill drafts, with a read-only instinct-curator agent.",
   "author": {
     "name": "venkatesanps"
   },
@@ -26,6 +26,9 @@
     "guardrails",
     "reasoning",
     "thinking",
-    "sycophancy"
+    "sycophancy",
+    "learning",
+    "instincts",
+    "memory"
   ]
 }
