@@ -301,7 +301,7 @@
   "path": "archify",
   "bytes": 4595964,
   "license": "Apache-2.0",
-  "commit": "44781293f38728baf04dbad33ce1a0cef8c39cca"
+  "commit": "8509a3d63e763b4d454ea9aafa1f939545fcb1ea"
  },
  {
   "folder": "21-diagram-design",
@@ -323,9 +323,9 @@
   "folder": "23-ui-ux-pro-max",
   "skill": "ui-ux-pro-max",
   "path": ".claude/skills/ui-ux-pro-max",
-  "bytes": 588904,
+  "bytes": 592844,
   "license": "MIT",
-  "commit": "2de1134dc4d1cfe112934611ae5803ae17a1bd7e"
+  "commit": "f76d1653d7467fc11fb9d9d79295a421c92ab958"
  },
  {
   "folder": "25-marketing",
@@ -1021,7 +1021,7 @@
   "path": "skills/context-degradation",
   "bytes": 17828,
   "license": "MIT",
-  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
  },
  {
   "folder": "78-context-engineering",
@@ -1029,7 +1029,7 @@
   "path": "skills/context-fundamentals",
   "bytes": 16564,
   "license": "MIT",
-  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
  },
  {
   "folder": "78-context-engineering",
@@ -1037,7 +1037,7 @@
   "path": "skills/context-optimization",
   "bytes": 16862,
   "license": "MIT",
-  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
  },
  {
   "folder": "78-context-engineering",
@@ -1045,7 +1045,7 @@
   "path": "skills/tool-design",
   "bytes": 21464,
   "license": "MIT",
-  "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
  },
  {
   "folder": "80-interfaces",

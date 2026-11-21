@@ -2,6 +2,55 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-21 18:03 UTC
+
+**Upstream updates**
+- Career Ops: [c9ea23e → 267408a](https://github.com/career-ops-hq/career-ops/compare/c9ea23e9a522bc2d1bbc594cc5036834d3c7cd60...267408ab9aba9c47539d6192f31ba6b70230392b)
+- REA (Reverse Engineer Anything): [6e99f60 → 03b99c2](https://github.com/morluto/rea/compare/6e99f607f7e6ff10ec77cf0ebd5a34cf527d54a6...03b99c2bcf16463792ed9d096d57de8454ba5390)
+- Graphify: [f51d46c → b582ad4](https://github.com/Graphify-Labs/graphify/compare/f51d46c63d6280a5906277b29b118dc2dd119991...b582ad401aaef4378935ec6620e3b165ae8e03c1)
+- Last 30 Days: [bb2f1ed → 8ede659](https://github.com/mvanhorn/last30days-skill/compare/bb2f1ed2b9f6d07b90557c5eebd736b566533fec...8ede659374b298ffb0529e13b802c0bd9637f769)
+- Claude-Mem: [9665871 → f87d90f](https://github.com/thedotmack/claude-mem/compare/96658712bd46d0062eb19bbfb18723a364a9b0ef...f87d90fa7e0bbb089115baee562625cd907550d6)
+- gstack: [a529769 → f71e785](https://github.com/garrytan/gstack/compare/a529769efd989ac5e83e4ee09f1ac7b199e686d3...f71e785e4e75ade984efddfd9e8692b206b1951d)
+- GSD (Get Shit Done): [0a17287 → 109b28c](https://github.com/open-gsd/gsd-core/compare/0a172879d8fb05608c0bc99ef0946b1124f9fe1a...109b28c53e09cb0f299f7422257f7981261b6c40)
+- Archify: [4478129 → 8509a3d](https://github.com/tt-a1i/archify/compare/44781293f38728baf04dbad33ce1a0cef8c39cca...8509a3d63e763b4d454ea9aafa1f939545fcb1ea)
+- UI UX Pro Max: [2de1134 → f76d165](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/2de1134dc4d1cfe112934611ae5803ae17a1bd7e...f76d1653d7467fc11fb9d9d79295a421c92ab958)
+- HyperFrames: [be3d218 → e0d8440](https://github.com/heygen-com/hyperframes/compare/be3d218074ef051a30e41524a5fcdcd9dfc20637...e0d84403096c7b4d77c55448087251e9ffd3f44a)
+- Agent Toolkit for AWS: [d685372 → 947a491](https://github.com/aws/agent-toolkit-for-aws/compare/d685372be6239c57cbead818abecbfa1ec7458da...947a491774eed33d2a117bbecea50debc6ac1a20)
+- AWS MCP servers (data & ops): [b9dc168 → 253b675](https://github.com/awslabs/mcp/compare/b9dc168c64f489aa9786ea492db9dfa985f1ed1b...253b675b6e565abf0e1f45f1b7244d1b03baa505)
+- SQLGlot: [dc4afaf → 089891f](https://github.com/tobymao/sqlglot/compare/dc4afaf5c9a6748a004998ed13e3b438e20e431e...089891f2521780e2c5b243005017af9db62f25a6)
+- SQLFluff: [fa5e7cd → 51d7440](https://github.com/sqlfluff/sqlfluff/compare/fa5e7cdd7a3ac811cce3c4dab2e7a3fd584acb24...51d7440dbe1711de491c2fbcdb8f836f9a17c448)
+- ccusage: [c42bdf6 → 3724fd3](https://github.com/ccusage/ccusage/compare/c42bdf64a123ac3643df732593425f9b535649d7...3724fd32fc7460390bbcbb974b4b4633a8e7c4e8)
+- Grafana MCP server: [f5c0af9 → 10ea9d3](https://github.com/grafana/mcp-grafana/compare/f5c0af97a41d89b8bc12881f28cdd2f0c2056392...10ea9d38a5d6b0e4d5202b2834b05a3b9574c66f)
+- Ruflo (agent swarms): [3c2ae91 → 87f612c](https://github.com/ruvnet/ruflo/compare/3c2ae9117091675878a1b52998c382570902ae39...87f612cef121b50c2e31e2d3f88e46d88963a377)
+- wshobson agents (plugin packs): [4220308 → 91ff753](https://github.com/wshobson/agents/compare/42203085cfc5736204bf0f6d436dff7e1da0bf3f...91ff75307f5668916f3eb77d5ba556266c961376)
+- planning-with-files: [adcd0b0 → 7673790](https://github.com/OthmanAdi/planning-with-files/compare/adcd0b0a0a636c9e0ced71e6404b071d9eb4c1ed...7673790971ea36c88c3e9119bb2be105a29d7df0)
+- rtk (OSS edition): [1deaf91 → ef0b734](https://github.com/rtk-ai/rtk/compare/1deaf9155f219196a2ec4d46817db38123424c28...ef0b734b6b2f5df26267bf05d90d71b887658580)
+- context-mode: [a0e4295 → 8a61fa7](https://github.com/mksglu/context-mode/compare/a0e429558100c41fba1bb91be852da23c3423a90...8a61fa7ba461d5474bac35b5f6700ed598e7022f)
+- video-shotcraft: [075b548 → 59f3e9b](https://github.com/Vincentwei1021/video-shotcraft/compare/075b548c2405a07b77129eb448b0b504fc60dea3...59f3e9b9e936ff2bce0e18446226d770a3f2f61f)
+- CC Switch (desktop): [09d2f11 → 2c084ec](https://github.com/farion1231/cc-switch/compare/09d2f116d76e43f66b18d352ea83b0c239314878...2c084ec752a985fa77470facc14cad76ee67e8e1)
+- claude-skills (380+ skills): [f8593c4 → 5909a72](https://github.com/alirezarezvani/claude-skills/compare/f8593c4941210a621a6629ce1da9e07897976d5f...5909a72e62b5fbb809935fb6a55b58bdbe175074)
+- Claude Agent SDK (Python): [69846cd → 3184360](https://github.com/anthropics/claude-agent-sdk-python/compare/69846cdf82aef59add3b14a26b4f16d1ccee26ba...3184360393a92ca8a6ec7bbbdee571afd1ce1c56)
+- Claude Code (the CLI): [16043fc → e1cd3c1](https://github.com/anthropics/claude-code/compare/16043fc1342dbd65c13a94621af692c02086f978...e1cd3c1ba8e992c43e8317760096338596105a4d)
+- Claude Code Action (GitHub): [c84e279 → acfe799](https://github.com/anthropics/claude-code-action/compare/c84e279f859e2591391e95bd309286eb111c345f...acfe7992852970efb4fee683d63d628e3e52df67)
+- Vercel agent skills: [1a2c79d → 5a37a63](https://github.com/vercel-labs/agent-skills/compare/1a2c79d4e6c4a2283dc2c614b6538cbe1ed5ca62...5a37a6329fbad3666c3207392a6a7c0110e92efb)
+- Context engineering skills: [9ff0c99 → d9202c7](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/compare/9ff0c99108b36d3b886defd825d8ac1f47dba374...d9202c76d6dc8351e648badb576a6e9b5aae1e7f)
+- 15 Motion Design Styles: [8fab7eb → 46fd009](https://github.com/Vincentwei1021/mg-styles-15/compare/8fab7eb49cc60590c518d1a932dfff753697fce7...46fd009ff0988be7ab1d9a64dfe14e501c6c2521)
+- Manim (Community): [407a6a8 → 27bd7d7](https://github.com/ManimCommunity/manim/compare/407a6a887f7d4f8086d5f029f26c7a3024418ffa...27bd7d72c9320d84803d4b4f24316e222d6af957)
+- Blender Agent Skills: [9e7e04a → 1a1cc6c](https://github.com/EL4CTEO/blender-skills/compare/9e7e04a603c125a0d17447ab97112fa70a865067...1a1cc6c49312f9f370aae86f52b7b907f29c94f6)
+- EffectCraft: [c561e73 → 887c08b](https://github.com/storytold/effectcraft/compare/c561e7352f6047d335db75a32cda45553ed34cf0...887c08b31e8f86e24614fd4755fccdd7ba07b3a7)
+- librosa: [bf4f38d → 087a860](https://github.com/librosa/librosa/compare/bf4f38dc113e44541f33be3247e24aa34d182127...087a8607dd86e98a9032a62b357eb9afd23a14c5)
+- WhisperX: [b904f02 → 8d8e43b](https://github.com/m-bain/whisperX/compare/b904f02b7e1f26fd10fb04840d655ff27e88e464...8d8e43bf3698dd1df4b011c0f1a8dd1d468ae365)
+- FFmpeg: [21c8130 → b8c699b](https://github.com/FFmpeg/FFmpeg/compare/21c81303cb7c6c407dac1a8c03991ab273f1fe13...b8c699bfbebd889d7795fb07bd7679b84ab366fb)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.113 → 0.9.114
+- HyperFrames: npm:hyperframes 0.9.72 → 0.9.77
+- Claude Agent SDK (Python): pypi:claude-agent-sdk 0.2.186 → 0.2.187
+- Claude Code (the CLI): npm:@anthropic-ai/claude-code 2.1.329 → 2.1.330
+- Context engineering skills: per-session tokens ~1,992 → ~2,082
+
+**Install tests**: 33/33 passed
+
 ## 2026-11-20 19:15 UTC
 
 **Upstream updates**
