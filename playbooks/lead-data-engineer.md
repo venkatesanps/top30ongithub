@@ -7,7 +7,7 @@ Goal: faster migrations and safer pipelines, with checks the whole team runs the
 | Task | Use | Notes |
 |---|---|---|
 | Oracle SQL → Snowflake SQL | **41** SQLGlot + Claude, or this kit's `oracle-to-snowflake` skill (`top30-data`) | SQLGlot gives an exact, repeatable translation of SQL; the skill adds checks for the silent differences and a per-file effort report; Claude handles PL/SQL packages and procedures. |
-| Whole-warehouse Oracle/Teradata → Snowflake | **31** Snowflake AI Kit (Cortex Code `/migrate`), Snowflake SnowConvert AI | Snowflake's own tools. Its docs mark Oracle code extraction as "planned", so check the current status. |
+| Whole-warehouse Oracle/Teradata → Snowflake | **31** Snowflake AI Kit (Cortex Code `/migrate`; Cortex Code is now Snowflake CoCo, see [Snowflake's AI products](snowflake-ai-stack.md)), Snowflake SnowConvert AI | Snowflake's own tools. Its docs mark Oracle code extraction as "planned", so check the current status. |
 | Informatica PowerCenter → Snowflake/dbt | SnowConvert AI (free, from Snowflake), Cortex Code `/migrate` | Both document Informatica-to-dbt or Snowflake Scripting conversion. |
 | Informatica cloud catalog lookups | **43** Informatica for Claude (IDMC) | Only for Informatica's cloud (CDGC). |
 | Build and test dbt models | **32** dbt Agent Skills, **33** dbt MCP | Unit tests, semantic layer, job failure triage. |

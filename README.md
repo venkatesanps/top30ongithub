@@ -31,7 +31,8 @@ guide, and upload-ready skill zips for the Claude app:
 [loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step), and
 [Claude Code commands, fact-checked](playbooks/claude-commands.md) (15, then 20 more by layer),
 [Claude Code in four folders](playbooks/claude-code-setup.md) (setup in order, fact-checked),
-[Agentic AI study notes, checked](playbooks/agentic-ai-notes.md) (18 chapters, with a corrected first agent), and a
+[Agentic AI study notes, checked](playbooks/agentic-ai-notes.md) (18 chapters, with a corrected first agent),
+[Snowflake's AI products, checked](playbooks/snowflake-ai-stack.md) (CoCo, Cortex Agents, CoWork: access and cost defaults first), and a
 [harness engineering reading path](playbooks/harness-engineering.md). Read
 [Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
