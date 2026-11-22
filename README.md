@@ -30,7 +30,8 @@ guide, and upload-ready skill zips for the Claude app:
 [Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work), and
 [loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step), and
 [Claude Code commands, fact-checked](playbooks/claude-commands.md) (15, then 20 more by layer),
-[Claude Code in four folders](playbooks/claude-code-setup.md) (setup in order, fact-checked), and a
+[Claude Code in four folders](playbooks/claude-code-setup.md) (setup in order, fact-checked),
+[Agentic AI study notes, checked](playbooks/agentic-ai-notes.md) (18 chapters, with a corrected first agent), and a
 [harness engineering reading path](playbooks/harness-engineering.md). Read
 [Before you try this at work](playbooks/before-you-try-at-work.md) first.
 
@@ -154,6 +155,10 @@ projects to. To make that concrete for a data team, this kit includes one:
   built on the Agent SDK. A custom tool runs sqlglot checks, a hook blocks every write and any
   path outside the folder, and a budget cap stops runaway cost. On the samples it found all seven
   planted problems for about $0.10 with Sonnet.
+- **[examples/first-agent](examples/first-agent/)**: the "30-line" text-to-SQL agent from a widely shared
+  agentic-AI study guide, with its gaps closed: the row cap is told to the model, errors go back with
+  `is_error`, a system prompt, a schema tool, a step limit that says so, and five test questions
+  with known answers. One file, no framework; tested offline with a fake client.
 - **[examples/nl-sql-assistant](examples/nl-sql-assistant/)**: ask SQLite or Snowflake a question
   in plain English. Claude writes one query through tool calling; a sqlglot guard, a read-only
   session and a read-only role each block writes on their own; personal columns are flagged and

@@ -1,0 +1,7 @@
+[
+  {"question": "Which region had the highest sales in 2025?", "expect": "West"},
+  {"question": "What were total sales in 2025?", "expect": "40,?176"},
+  {"question": "How many sales rows are in the database?", "expect": "\\b288\\b"},
+  {"question": "Which region grew the most from 2024 to 2025, and by what percent?", "expect": "East[\\s\\S]*15\\.8|15\\.8[\\s\\S]*East"},
+  {"question": "Which product sold the most in 2024?", "expect": "Gizmo"}
+]
