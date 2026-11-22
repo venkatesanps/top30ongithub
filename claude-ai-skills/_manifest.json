@@ -269,7 +269,7 @@
   "path": "skills/ponytail",
   "bytes": 2604,
   "license": "MIT",
-  "commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846"
+  "commit": "ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10"
  },
  {
   "folder": "06-ponytail",
@@ -277,7 +277,7 @@
   "path": "skills/ponytail-review",
   "bytes": 3402,
   "license": "MIT",
-  "commit": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846"
+  "commit": "ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10"
  },
  {
   "folder": "17-caveman",
@@ -285,7 +285,7 @@
   "path": "skills/caveman",
   "bytes": 8217,
   "license": "Apache-2.0",
-  "commit": "a192894723a8f47e7f504c7b5041967ff1f18e55"
+  "commit": "70f4f34e834893ea9af9f4fc6022266bd56d18b1"
  },
  {
   "folder": "19-taste",
@@ -299,9 +299,9 @@
   "folder": "20-archify",
   "skill": "archify",
   "path": "archify",
-  "bytes": 4595964,
+  "bytes": 4736612,
   "license": "Apache-2.0",
-  "commit": "8509a3d63e763b4d454ea9aafa1f939545fcb1ea"
+  "commit": "6cafc5a9875a795c6932ac0c196dacf3097fafe6"
  },
  {
   "folder": "21-diagram-design",
@@ -309,7 +309,7 @@
   "path": "skills/diagram-design",
   "bytes": 1464735,
   "license": "MIT",
-  "commit": "d74d8c2d0c78a9e1efd43137f6a9a51182a8b5f0"
+  "commit": "d7b0176d7e60c6f2ff54067991491ac7622c81fb"
  },
  {
   "folder": "22-impeccable",
@@ -323,9 +323,9 @@
   "folder": "23-ui-ux-pro-max",
   "skill": "ui-ux-pro-max",
   "path": ".claude/skills/ui-ux-pro-max",
-  "bytes": 592844,
+  "bytes": 593828,
   "license": "MIT",
-  "commit": "f76d1653d7467fc11fb9d9d79295a421c92ab958"
+  "commit": "6ec2bb58334ca3014573c4cbd4834ee3a40afd9d"
  },
  {
   "folder": "25-marketing",

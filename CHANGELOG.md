@@ -2,6 +2,53 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-22 18:37 UTC
+
+**Upstream updates**
+- Ponytail: [96608e0 → ebd8654](https://github.com/DietrichGebert/ponytail/compare/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846...ebd8654c2c627f721eb8f9c0d1bd4090a29f9e10)
+- Career Ops: [267408a → fa320de](https://github.com/career-ops-hq/career-ops/compare/267408ab9aba9c47539d6192f31ba6b70230392b...fa320deb42cf3d75079b9fa994f26c07347ab5fc)
+- REA (Reverse Engineer Anything): [03b99c2 → 9e9cfba](https://github.com/morluto/rea/compare/03b99c2bcf16463792ed9d096d57de8454ba5390...9e9cfba67dc4a0a050552aedd364d8436c7b4186)
+- Graphify: [b582ad4 → 3671f31](https://github.com/Graphify-Labs/graphify/compare/b582ad401aaef4378935ec6620e3b165ae8e03c1...3671f31124fdb1de4ec4e485b1bcd7059726a5f3)
+- Understand Anything: [bb70fdb → 17550ef](https://github.com/Egonex-AI/Understand-Anything/compare/bb70fdb0489f8839ce55bf99dae0125ea067f712...17550efd7f70c9af683ce2b4bf0bd71f42593500)
+- Last 30 Days: [8ede659 → 64b1f00](https://github.com/mvanhorn/last30days-skill/compare/8ede659374b298ffb0529e13b802c0bd9637f769...64b1f006f800640022ce07f51de5ce56aad34b76)
+- Agent Reach: [c70ae6d → a8ab1e9](https://github.com/Panniantong/Agent-Reach/compare/c70ae6da5d39bc90e09ad2ae0575ccc89f31e284...a8ab1e9a2475957d759eac2dbedfe91b0a1e1021)
+- Headroom: [e27f0d9 → ce0460c](https://github.com/headroomlabs-ai/headroom/compare/e27f0d96cc3032d5f2c510ac97545553b867a697...ce0460cfa8598dc939243dbc7aec4b2d35f4e44a)
+- Claude-Mem: [f87d90f → b6344d1](https://github.com/thedotmack/claude-mem/compare/f87d90fa7e0bbb089115baee562625cd907550d6...b6344d18d8357e9fe2d5db3ff06613cc4a7b91ec)
+- gstack: [f71e785 → d3aed00](https://github.com/garrytan/gstack/compare/f71e785e4e75ade984efddfd9e8692b206b1951d...d3aed00dbe4bd051136294d9947d6a8225e32bed)
+- Caveman: [a192894 → 70f4f34](https://github.com/JuliusBrussee/caveman/compare/a192894723a8f47e7f504c7b5041967ff1f18e55...70f4f34e834893ea9af9f4fc6022266bd56d18b1)
+- GSD (Get Shit Done): [109b28c → 6a53f50](https://github.com/open-gsd/gsd-core/compare/109b28c53e09cb0f299f7422257f7981261b6c40...6a53f5043d3158c295a84bf6a47e3b0164df6e22)
+- Archify: [8509a3d → 6cafc5a](https://github.com/tt-a1i/archify/compare/8509a3d63e763b4d454ea9aafa1f939545fcb1ea...6cafc5a9875a795c6932ac0c196dacf3097fafe6)
+- Diagram Design: [d74d8c2 → d7b0176](https://github.com/cathrynlavery/diagram-design/compare/d74d8c2d0c78a9e1efd43137f6a9a51182a8b5f0...d7b0176d7e60c6f2ff54067991491ac7622c81fb)
+- UI UX Pro Max: [f76d165 → 6ec2bb5](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/f76d1653d7467fc11fb9d9d79295a421c92ab958...6ec2bb58334ca3014573c4cbd4834ee3a40afd9d)
+- HyperFrames: [e0d8440 → 196eff3](https://github.com/heygen-com/hyperframes/compare/e0d84403096c7b4d77c55448087251e9ffd3f44a...196eff39eb05752b45d9e2f84fb20c1d530dc166)
+- Agent Toolkit for AWS: [947a491 → c542bfe](https://github.com/aws/agent-toolkit-for-aws/compare/947a491774eed33d2a117bbecea50debc6ac1a20...c542bfe01ba1d46348b3700b42d946c94804951b)
+- SQLFluff: [51d7440 → 9801266](https://github.com/sqlfluff/sqlfluff/compare/51d7440dbe1711de491c2fbcdb8f836f9a17c448...980126613afc06db68016b352e2c8f63866b3101)
+- ccusage: [3724fd3 → 5040bed](https://github.com/ccusage/ccusage/compare/3724fd32fc7460390bbcbb974b4b4633a8e7c4e8...5040bede9dbe8f9f3b9185b10555876ac3043810)
+- Keep (alert hub & AIOps): [0f4a7f3 → 60aa8e0](https://github.com/keephq/keep/compare/0f4a7f3d43175b06f9ac811c83994565eb28e0e6...60aa8e052efed8060ab5290cfcda04622bb6e203)
+- HolmesGPT (AI SRE agent): [2154132 → 75ce939](https://github.com/HolmesGPT/holmesgpt/compare/2154132de4fe50169d5adca10d7c9fd6d83ee734...75ce939e35d53a99c6ab1b4fa51c924cd78fbca5)
+- Uptime Kuma (status pages): [b0cd0f1 → fefb019](https://github.com/louislam/uptime-kuma/compare/b0cd0f1daf708a6c04f074c925a20e0229e80258...fefb019d89620f0070c46358a43604dd9c707e63)
+- Ruflo (agent swarms): [87f612c → f203a8d](https://github.com/ruvnet/ruflo/compare/87f612cef121b50c2e31e2d3f88e46d88963a377...f203a8d2e7799af8034ab8b0963a3867b70e20d9)
+- wshobson agents (plugin packs): [91ff753 → 12bcec7](https://github.com/wshobson/agents/compare/91ff75307f5668916f3eb77d5ba556266c961376...12bcec79ec7f24868bc75fe8cd21428ebf5e96d0)
+- planning-with-files: [7673790 → 0d840dc](https://github.com/OthmanAdi/planning-with-files/compare/7673790971ea36c88c3e9119bb2be105a29d7df0...0d840dc9a48892a72d762a4295f7a59e56a112bd)
+- rtk (OSS edition): [ef0b734 → 762708c](https://github.com/rtk-ai/rtk/compare/ef0b734b6b2f5df26267bf05d90d71b887658580...762708cd452bb91276a72ec5394ca7ce90e2a965)
+- context-mode: [8a61fa7 → 65d228b](https://github.com/mksglu/context-mode/compare/8a61fa7ba461d5474bac35b5f6700ed598e7022f...65d228b6a522a0add2387ead3883e243ac0cec0b)
+- CC Switch (desktop): [2c084ec → fea70d7](https://github.com/farion1231/cc-switch/compare/2c084ec752a985fa77470facc14cad76ee67e8e1...fea70d7b69068dc52a957cc8a8a5743d918db558)
+- Claude Code (the CLI): [e1cd3c1 → a54554a](https://github.com/anthropics/claude-code/compare/e1cd3c1ba8e992c43e8317760096338596105a4d...a54554a317e68db4a8d5fe8740c02503174926ba)
+- Busabase: [4e8a298 → a00ae1f](https://github.com/busabase/busabase/compare/4e8a2987f2315e4863b5dc0d6724793f566c3498...a00ae1f536739cceaa3bc66001749a582c6fcf06)
+- Manim (Community): [27bd7d7 → 9aa10de](https://github.com/ManimCommunity/manim/compare/27bd7d72c9320d84803d4b4f24316e222d6af957...9aa10de80ebd1192254d63a79db8f559c70f92be)
+- EffectCraft: [887c08b → 108e636](https://github.com/storytold/effectcraft/compare/887c08b31e8f86e24614fd4755fccdd7ba07b3a7...108e6362609c05e94570d20f1e456b8fb33ad2d4)
+- Openverse: [e4e81cd → e4a1074](https://github.com/WordPress/openverse/compare/e4e81cd417ce43707a68d1d130ca4ea17b3e1229...e4a1074490d072df757d598f60e15cde9e2df413)
+- FFmpeg: [b8c699b → 329157f](https://github.com/FFmpeg/FFmpeg/compare/b8c699bfbebd889d7795fb07bd7679b84ab366fb...329157f5853150baf378a224b9dc828602e9045a)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.114 → 0.9.115
+- Headroom: pypi:headroom-ai 0.44.0 → 0.45.0
+- HyperFrames: npm:hyperframes 0.9.77 → 0.9.81
+- HolmesGPT (AI SRE agent): pypi:holmesgpt 0.46.0 → 0.47.0
+- Agent Toolkit for AWS: per-session tokens ~5,311 + ~4,232 → ~5,384 + ~4,232
+
+**Install tests**: 32/32 passed
+
 ## 2026-11-21 18:03 UTC
 
 **Upstream updates**
