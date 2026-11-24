@@ -2,6 +2,62 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-24 21:17 UTC
+
+**Upstream updates**
+- Matt Pocock Skills: [abeeaf9 → d653911](https://github.com/mattpocock/skills/compare/abeeaf95660ba9e8b7c753eb38f441ca707a8823...d65391149dbb5fe76478e76fa8d5122b2aa5a70e)
+- Agent Skills (Addy Osmani): [8c99fa3 → e997ac5](https://github.com/addyosmani/agent-skills/compare/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee...e997ac5b9a74eab332d5e9793bb38a38c8cfdd74)
+- Career Ops: [1ef2ea0 → f8e4beb](https://github.com/career-ops-hq/career-ops/compare/1ef2ea0da345853771cf5bf277b87322d4671ecf...f8e4beb8093acac96159d8413346ec15151fa7e4)
+- REA (Reverse Engineer Anything): [8f4f397 → 42bbf33](https://github.com/morluto/rea/compare/8f4f397341df68fbe665da34082f8649ab86721d...42bbf33f2d29aadcaedf6f25d477c8e59157bdd0)
+- Graphify: [013a646 → ba33a18](https://github.com/Graphify-Labs/graphify/compare/013a6461c31da6e003c0dea191aca84c94cb8d47...ba33a181f88b6ff675699decf4878566af851ab3)
+- Understand Anything: [8ec75de → 5338971](https://github.com/Egonex-AI/Understand-Anything/compare/8ec75de1de8c9d2eef685d8d6cbc50782ad31fbb...5338971c07a560c5fb6b26d85ad348b01315e2da)
+- Last 30 Days: [331025e → 7c2e1c2](https://github.com/mvanhorn/last30days-skill/compare/331025e662756ca51e86dfddcf59969f6dba25a0...7c2e1c2b099b13abd4397910168c4f53e638bb21)
+- Agent Reach: [a8ab1e9 → 8d9ecc1](https://github.com/Panniantong/Agent-Reach/compare/a8ab1e9a2475957d759eac2dbedfe91b0a1e1021...8d9ecc1f5521fe7d223cde782aaa4005695e2671)
+- Headroom: [c059110 → c489b5f](https://github.com/headroomlabs-ai/headroom/compare/c0591105f33bf6e99e0338728c5016121116826a...c489b5f8fe57b42b17f810ef5e9e65ede298947c)
+- Claude-Mem: [3843050 → 4dc8e48](https://github.com/thedotmack/claude-mem/compare/384305078d67808c95bbd6ec6c45392a5edc2e78...4dc8e48cddee663edc3e401109f836d11f926a45)
+- gstack: [a256d15 → beca1d6](https://github.com/garrytan/gstack/compare/a256d1530dad693df5b66ddd3e3a43351cefe3e4...beca1d6f15065a4ba44ca70b2cbfba40b530447a)
+- Caveman: [b89752f → 47c61be](https://github.com/JuliusBrussee/caveman/compare/b89752f6bca5a26bfde8b019813554241800ca99...47c61be2d10a354f0c5cbe2b90959d24c06b16c6)
+- GSD (Get Shit Done): [12ec210 → 455cd03](https://github.com/open-gsd/gsd-core/compare/12ec21070fe47df86cd8ba6e8fb4a5d4287917c8...455cd03c11c77172edaa9b7a69ce21a5f4edc124)
+- Archify: [3ca198d → 62f3a99](https://github.com/tt-a1i/archify/compare/3ca198d867ce4b616332f846ff66e5c8e5e60f95...62f3a995eb26ee23f784bdea4a7992340078e9be)
+- Diagram Design: [0eeda75 → 1acb877](https://github.com/cathrynlavery/diagram-design/compare/0eeda75a708f419560d5e032693618bb9954f17b...1acb8776bab34f5055399fbac96a693c8d5cf7b3)
+- UI UX Pro Max: [e8b065f → 8db3633](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/e8b065f0f3aaf2e680fd125f000e4f5e351ed108...8db36338810d0942567b97ce439affd1619fcf31)
+- HyperFrames: [0a68549 → 36d5763](https://github.com/heygen-com/hyperframes/compare/0a685496add1da8027b10cf67dd698e799675c75...36d57639584d0534c32e816c87d9baf2a1683fd0)
+- Snowflake AI Kit (Cortex Code): [9259a3b → c583652](https://github.com/Snowflake-Labs/snowflake-ai-kit/compare/9259a3b67def2ced6d67e96dc65637d12c3cf40f...c5836529084eea3c97cc61be3948d925689227ad)
+- Astronomer Airflow agents: [f38c558 → ca2d2e7](https://github.com/astronomer/agents/compare/f38c558471cea720957a9a25adfab7584a8ceb4f...ca2d2e72aa216864207a3ad8c502010ff40b1dab)
+- Agent Toolkit for AWS: [c733883 → 24b0e24](https://github.com/aws/agent-toolkit-for-aws/compare/c7338830e5467da63dcd2c1d89c74cf72da16e62...24b0e244c91ab0c64fb3202b568236e1ec6430ad)
+- AWS MCP servers (data & ops): [d6e3066 → 8ece21f](https://github.com/awslabs/mcp/compare/d6e3066078beb09b47672d05b8e14620c52ca5e8...8ece21f6926f95f40048d52c0a3c806f970f10bc)
+- SQLGlot: [eb35161 → 240a0f1](https://github.com/tobymao/sqlglot/compare/eb351618c1227967d54bc6257495c6c4ae44d8ea...240a0f14f4f8a75731b79780bfd4d7c1e448f681)
+- SQLFluff: [1aa1dd0 → ab4df19](https://github.com/sqlfluff/sqlfluff/compare/1aa1dd056a4a693b1d373250aa4b70ef6ef27ab1...ab4df1937fb3670318b44360e4dbbe3454ba7063)
+- Anthropic knowledge-work plugins: [2baf6d1 → 5e504ae](https://github.com/anthropics/knowledge-work-plugins/compare/2baf6d1eded3cd7aeff0b5c5918601a5799189b4...5e504ae11498f2b8daa30d86b7dab97b2ecd8092)
+- Apache DevLake (DORA dashboards): [aff3662 → 52d63a1](https://github.com/apache/devlake/compare/aff366208c9636c84aba63938d666857a330b65f...52d63a1423519bcf2223b3d17f275752401267f1)
+- ccusage: [40655d4 → fb31fa8](https://github.com/ccusage/ccusage/compare/40655d4c413b7fc28fc707163ba0d2d489d6c301...fb31fa87d0d3dcd407bd586ec4a8c9206c0a9a0c)
+- Grafana OTel LGTM (all-in-one): [20fe4af → 99a68e9](https://github.com/grafana/docker-otel-lgtm/compare/20fe4af26f72d194ec9248b28daa6d11decf0fea...99a68e96b5a6ce9bbf88bf1a03630d2fa52b2942)
+- Grafana MCP server: [1db0eff → 89860e3](https://github.com/grafana/mcp-grafana/compare/1db0eff98eccff53aafaf75d0ebfce05166f46ab...89860e373f5d81f5d4bc25b5f42464d8dba9e902)
+- Uptime Kuma (status pages): [1cc2fa7 → 9431d55](https://github.com/louislam/uptime-kuma/compare/1cc2fa7b1c9ec2be8e610167c8208309283177f2...9431d55549e8967aff621cc27d19aacfc4037c92)
+- Ruflo (agent swarms): [e14d7f4 → 99aeeac](https://github.com/ruvnet/ruflo/compare/e14d7f42bbec6960c3cbe2344ccf8acca4750486...99aeeac722ccdec103c9647a5463c6332b8d16f3)
+- wshobson agents (plugin packs): [34e50fe → c96b5f6](https://github.com/wshobson/agents/compare/34e50fee32114afd9475f25d81492712f08cb71c...c96b5f6552dba32e4492307493ee613581430715)
+- rtk (OSS edition): [c43b5c4 → 9a94ec1](https://github.com/rtk-ai/rtk/compare/c43b5c44945bbf861794e8d0683a14a5456004a8...9a94ec19463a957ecd8f22c89c15934a9c0bf9ec)
+- context-mode: [0fe3f5d → 4627924](https://github.com/mksglu/context-mode/compare/0fe3f5dadfade06758de018a90e6e860274fb8de...4627924702439a780f29cb8a327f1c322eb8eb84)
+- CC Switch (desktop): [721ca8e → e6fd4ac](https://github.com/farion1231/cc-switch/compare/721ca8e08c5233f41e9a79cc367d581ac1ec4bcd...e6fd4accd257406bf9141baa402caaa78f975ba1)
+- Claude Code (the CLI): [bd07f2a → 16c34fe](https://github.com/anthropics/claude-code/compare/bd07f2a121a9d16f2b00b209bbdf50c1bc46fb91...16c34feea69a4416dd7125b85b8ce858b8cb95ba)
+- Claude Code Action (GitHub): [b5e3765 → e5c0fcd](https://github.com/anthropics/claude-code-action/compare/b5e37652b7d48df841bfddfd6520610e19bf3136...e5c0fcd41850b0178962e40a9ef7cb1f5ab0c8b6)
+- EffectCraft: [86af5cb → a12c11e](https://github.com/storytold/effectcraft/compare/86af5cba7f6976fe2b4561df4e8021ba807591f5...a12c11ee0245f46807ce3ddb62e0fee294760c8a)
+- Openverse: [80a0ba3 → 16501c3](https://github.com/WordPress/openverse/compare/80a0ba384d5f8481af84cf02ef56d19bb56aa28a...16501c341e4b899ce6d19bd8d37199ffb628ca24)
+- librosa: [087a860 → dc2a75c](https://github.com/librosa/librosa/compare/087a8607dd86e98a9032a62b357eb9afd23a14c5...dc2a75c791141c58ec5cf044f30e65e3bd64c6be)
+- Remotion Skills: [89c8afa → a3f4098](https://github.com/remotion-dev/skills/compare/89c8afa3eee9cdd83838ac31979c2ba1384615aa...a3f4098a2afd0e13f6a6f8c8760e275f75457ea9)
+- FFmpeg: [4155ce3 → 6e839cf](https://github.com/FFmpeg/FFmpeg/compare/4155ce3d4a18cfa01112db57bcfcac6e1db8de30...6e839cf771424ec15c05e6d46401a4b13ebd8911)
+
+**Notes**
+- Graphify: pypi:graphifyy 0.9.118 → 0.9.119
+- Impeccable: npm:impeccable 4.10.0 → 4.11.0
+- HyperFrames: npm:hyperframes 0.9.86 → 0.9.91
+- SQLGlot: pypi:sqlglot 30.34.0 → 30.35.0
+- Diagram Design: per-session tokens ~445 → ~450
+- Snowflake AI Kit (Cortex Code): per-session tokens ~187 → ~226
+- Agent Toolkit for AWS: per-session tokens ~5,347 + ~4,232 → ~5,407 + ~4,232
+
+**Install tests**: 39/39 passed
+
 ## 2026-11-23 22:52 UTC
 
 **Upstream updates**
