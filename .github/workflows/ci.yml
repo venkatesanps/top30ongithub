@@ -68,6 +68,9 @@ jobs:
           python3 tests/learn_kit/test_learn_kit.py
           python3 tests/think_through/test_think.py
           python3 tests/instincts/test_instincts.py
+          python3 tests/papercut/test_papercut.py
+          python3 tests/skill_lint/test_skill_lint.py
+          python3 scripts/skill_lint.py plugins/ --baseline scripts/skill_lint_baseline.json
           python3 tests/prompt_clinic/test_prompt.py
           python3 tests/sf_de_team/test_de_team.py
           python3 tests/skill_trial/test_trial.py
