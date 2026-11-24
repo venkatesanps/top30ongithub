@@ -34,6 +34,9 @@ picker or drag-and-drop often removes the need.
 
 Common shapes and what each needs: [references/patterns.md](references/patterns.md).
 
+Check: the tier it prints should match what the user agreed to grant. If it says `full-access`,
+confirm the user made the app (or is in the org that did) before you build it that way.
+
 ## 2. Build it as an artifact
 
 Build it the normal way: in Claude, start with the Artifact quickstart and the `artifact-design`
@@ -48,6 +51,9 @@ browser, and the installed window.
 - Refresh on window focus or every 5-15 minutes, not every few seconds.
 - Show when data was fetched and an offline state; installed apps must be online and signed in.
 - Keep state that must persist or be shared in a runtime capability, not `localStorage`.
+
+Check: open the published artifact in the chat preview with every permission denied. It should
+still show its main view and say which feature is off and why.
 
 ## 3. Check the budget
 
@@ -87,8 +93,15 @@ Then run the read-only `app-permission-reviewer` agent on the page and fix what 
 
 ## 5. Publish, then install
 
+Run the linter once more in strict mode; it should exit 0:
+
+```bash
+python3 ${CLAUDE_PLUGIN_ROOT}/skills/artifact-app/scripts/appkit.py lint app.html --strict
+```
+
 Publish the artifact, open it, and use **Share → Install as app** in Claude for Mac or Windows.
-There's nothing to package or sign. Edits to the artifact flow to the installed app, and each new
+There's nothing to package or sign. Check that the installed window opens with the right name and
+icon, and that each permission prompt appears only after the action that needs it. Edits to the artifact flow to the installed app, and each new
 version asks for its permissions again, so tell the user that before you edit an installed app.
 Use the checklist in [references/checklist.md](references/checklist.md) before you say it's ready.
 
@@ -96,6 +109,18 @@ Example: [examples/chargeback-clock.html](examples/chargeback-clock.html), a dis
 tracker (fictional data) that lints clean, stores data on the device, and sends one reminder per
 case per day only after the user turns reminders on. [examples/bad-app.html](examples/bad-app.html)
 trips most rules.
+
+## When it fails
+
+| Failure | Fix |
+|---|---|
+| No "Install as app" in the Share menu | Update Claude for Mac or Windows; on Enterprise an owner must turn it on; Docs, Slides, Sheets and legacy artifacts can't be installed. |
+| App won't open | It needs to be online and signed in to Claude. |
+| A library is missing in the installed app | The script host isn't allowed or the URL isn't pinned (A06/A07); inline it or pin an exact version. |
+| Permission prompt on every update | Expected: grants cover one version. Batch edits and warn users. |
+| Notifications never arrive | Permission denied or never asked from a click (A11); check the app's permissions and the OS notification settings. |
+| Usage limits hit early | A timer is calling Claude too often (A14); run `budget` and refresh on focus instead. |
+| Data gone after restart | Storage blocked or in try/catch fallback (A09); move state that must persist to a runtime capability. |
 
 ## Don'ts
 
