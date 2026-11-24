@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chargeback Clock</title>
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--ink:#111827;--muted:#6b7280;--line:#e5e7eb;--accent:#2563eb;--late:#b91c1c;--soon:#b45309;--ok:#047857}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1020;--card:#121a2c;--ink:#e5e7eb;--muted:#9ca3af;--line:#243049;--accent:#60a5fa;--late:#f87171;--soon:#fbbf24;--ok:#34d399}}
+:root[data-theme="dark"]{--bg:#0b1020;--card:#121a2c;--ink:#e5e7eb;--muted:#9ca3af;--line:#243049;--accent:#60a5fa;--late:#f87171;--soon:#fbbf24;--ok:#34d399}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 48px}
+header{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:16px}
+h1{font-size:22px;margin:0}
+.sub{color:var(--muted);font-size:13px}
+button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:6px 12px;cursor:pointer}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.stat b{display:block;font-size:24px}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin-bottom:16px}
+input,select{font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:100%}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+li{background:var(--card);border:1px solid var(--line);border-left-width:4px;border-radius:10px;padding:10px 12px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center}
+li.late{border-left-color:var(--late)}li.soon{border-left-color:var(--soon)}li.ok{border-left-color:var(--ok)}
+.due{font-weight:600}.late .due{color:var(--late)}.soon .due{color:var(--soon)}.ok .due{color:var(--ok)}
+.note{color:var(--muted);font-size:12px;margin-top:16px}
+#status{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div><h1>Chargeback Clock</h1><div class="sub">Reply deadlines for open disputes. Sample data, fictional merchants.</div></div>
+  <div><button id="notify">Turn on reminders</button> <button id="theme" aria-label="Toggle theme">◐</button></div>
+</header>
+<div id="status" role="status"></div>
+<section class="stats" aria-label="Summary">
+  <div class="stat"><b id="n-late">0</b>past due</div>
+  <div class="stat"><b id="n-soon">0</b>due in 48h</div>
+  <div class="stat"><b id="n-open">0</b>open</div>
+  <div class="stat"><b id="n-amt">$0</b>at risk</div>
+</section>
+<form id="add" aria-label="Add a dispute">
+  <input name="id" placeholder="Case id" required>
+  <input name="merchant" placeholder="Merchant" required>
+  <input name="amount" type="number" min="0" step="0.01" placeholder="Amount" required>
+  <select name="reason"><option>Fraud</option><option>Not received</option><option>Not as described</option><option>Duplicate</option><option>Credit not processed</option></select>
+  <input name="due" type="date" required aria-label="Reply due">
+  <button class="primary">Add</button>
+</form>
+<ul id="list"></ul>
+<p class="note">Stored on this device only. Deadlines vary by card network and acquirer; use the date on the notice.</p>
+</main>
+<script>
+const KEY = "chargeback-clock-v1";
+const DAY = 86400000;
+const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d; };
+const iso = (d) => d.toISOString().slice(0, 10);
+const sample = () => [
+  { id: "CB-1041", merchant: "Juniper Bikes", amount: 412.5, reason: "Not received", due: iso(new Date(+today() + 1 * DAY)), done: false },
+  { id: "CB-1042", merchant: "Harbor Tea Co.", amount: 38.0, reason: "Fraud", due: iso(new Date(+today() + 6 * DAY)), done: false },
+  { id: "CB-1043", merchant: "Pine & Thread", amount: 129.99, reason: "Not as described", due: iso(new Date(+today() - 1 * DAY)), done: false },
+  { id: "CB-1044", merchant: "Juniper Bikes", amount: 89.0, reason: "Duplicate", due: iso(new Date(+today() + 2 * DAY)), done: false },
+];
+
+function load() {
+  try { const v = JSON.parse(localStorage.getItem(KEY)); if (Array.isArray(v)) return v; } catch (e) { /* storage blocked */ }
+  return sample();
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(cases)); } catch (e) { setStatus("Couldn't save on this device; changes last until you close the app."); }
+}
+let cases = load();
+let notified = new Set();
+
+const $ = (id) => document.getElementById(id);
+function setStatus(t) { $("status").textContent = t; }
+function daysLeft(c) { return Math.round((new Date(c.due + "T00:00:00") - today()) / DAY); }
+function band(n) { return n < 0 ? "late" : n <= 2 ? "soon" : "ok"; }
+const money = (n) => "$" + n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+function render() {
+  const open = cases.filter((c) => !c.done).sort((a, b) => a.due.localeCompare(b.due));
+  $("n-late").textContent = open.filter((c) => daysLeft(c) < 0).length;
+  $("n-soon").textContent = open.filter((c) => { const n = daysLeft(c); return n >= 0 && n <= 2; }).length;
+  $("n-open").textContent = open.length;
+  $("n-amt").textContent = money(open.reduce((s, c) => s + Number(c.amount), 0));
+  const ul = $("list");
+  ul.replaceChildren();
+  for (const c of open) {
+    const n = daysLeft(c);
+    const li = document.createElement("li");
+    li.className = band(n);
+    const left = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = `${c.id} · ${c.merchant}`;
+    const meta = document.createElement("div");
+    meta.className = "sub";
+    meta.textContent = `${c.reason} · ${money(Number(c.amount))}`;
+    left.append(title, meta);
+    const due = document.createElement("span");
+    due.className = "due";
+    due.textContent = n < 0 ? `${-n}d overdue` : n === 0 ? "due today" : `${n}d left`;
+    const btn = document.createElement("button");
+    btn.textContent = "Responded";
+    btn.onclick = () => { c.done = true; save(); render(); };
+    li.append(left, due, btn);
+    ul.append(li);
+  }
+  if (!open.length) { const li = document.createElement("li"); li.textContent = "No open disputes."; ul.append(li); }
+  remind(open);
+}
+
+// Reminders: one notification per case per day, only after the user turns them on.
+function canNotify() { return "Notification" in window && Notification.permission === "granted"; }
+function remind(open) {
+  if (!canNotify()) return;
+  const stamp = iso(today());
+  for (const c of open) {
+    const key = c.id + stamp;
+    if (daysLeft(c) <= 1 && !notified.has(key)) {
+      notified.add(key);
+      new Notification("Chargeback reply due", { body: `${c.id} (${c.merchant}) ${daysLeft(c) < 0 ? "is overdue" : "is due within a day"}` });
+    }
+  }
+}
+$("notify").onclick = async () => {
+  if (!("Notification" in window)) { setStatus("Reminders aren't available here."); return; }
+  const p = await Notification.requestPermission();
+  setStatus(p === "granted" ? "Reminders on." : "Reminders are off. The list still shows what's due.");
+  render();
+};
+
+$("add").onsubmit = (e) => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(e.target));
+  cases.push({ ...d, amount: Number(d.amount), done: false });
+  save(); e.target.reset(); render();
+};
+
+$("theme").onclick = () => {
+  const r = document.documentElement;
+  const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  r.dataset.theme = dark ? "light" : "dark";
+};
+
+// Re-check on focus and every 30 minutes; no network, so this costs nothing.
+window.addEventListener("focus", render);
+setInterval(render, 30 * 60 * 1000);
+render();
+</script>
+</body>
+</html>

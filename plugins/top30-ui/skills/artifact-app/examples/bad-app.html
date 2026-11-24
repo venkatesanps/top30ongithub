@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Dispute tracker: a dashboard for all of our open chargebacks</title>
+<link rel="stylesheet" href="https://example-cdn.com/theme.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://stats.example.com/tracker.js"></script>
+<style>.wrap{width:1200px}</style>
+</head>
+<body>
+<div class="wrap" id="out"></div>
+<iframe src="https://example.com/widget"></iframe>
+<script>
+const API_KEY = "sk-EXAMPLEnotARealKey000000000";
+const saved = JSON.parse(localStorage.getItem("cases"));
+async function refresh() {
+  const r = await window.claude.ask("Summarize today's disputes");
+  document.getElementById("out").innerHTML = `<p>${r}</p>`;
+  new Notification("Disputes updated");
+}
+setInterval(refresh, 10000);
+eval("refresh()");
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.24.0"
+    "version": "0.25.0"
   },
   "plugins": [
     {
@@ -39,8 +39,8 @@
     {
       "name": "top30-ui",
       "source": "./plugins/top30-ui",
-      "description": "EasyUI's and cult-ui's workflows plus motion forensics: components built to the components.build contract, your own shadcn registry, a read-only component reviewer, motion speed and render-cost checkers, a DESIGN.md keeper, a tilted 3D drill-down sunburst chart, and diagnosing and rebuilding how a site's animation is really built.",
-      "version": "0.5.1",
+      "description": "EasyUI's and cult-ui's workflows plus motion forensics: components built to the components.build contract, your own shadcn registry, a read-only component reviewer, motion speed and render-cost checkers, a DESIGN.md keeper, a tilted 3D drill-down sunburst chart, and diagnosing and rebuilding how a site's animation is really built, and an artifact-app kit for artifacts installed as desktop apps (permission planner, usage budget, linter) with an app-permission-reviewer agent.",
+      "version": "0.6.0",
       "category": "design"
     },
     {
