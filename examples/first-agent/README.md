@@ -25,6 +25,11 @@ python3 agent.py --db sales.db "Which region had the highest sales in 2025?"
 python3 agent.py --db sales.db --eval evals.json              # exits 1 unless all 5 pass
 ```
 
+Five questions are a smoke test, not a quality gate: 5 out of 5 passing fits a true pass rate
+anywhere from 57% to 100% (Wilson 95% interval). Before you trust a change, grow the set to about
+200 cases mixing normal questions, edge cases (an empty result, a table that doesn't exist),
+adversarial rows and vague questions, and run each one a few times.
+
 The test set has a trap: East is the only region that grew, but West still sold the most, so an
 agent that reasons from the growth story instead of querying fails question 1.
 
