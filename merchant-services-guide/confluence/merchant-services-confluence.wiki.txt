@@ -35,6 +35,19 @@ A payment enters through a terminal, Orbital or a direct host link, gets authori
 
 The top half \(entry to issuer) runs in about a second per transaction. Everything from the back office down runs on daily and monthly cycles, which is where most data and reconciliation work lives.
 
+h2. End to end in one diagram
+Every party a card payment passes through, in order. The first nine messages are authorization, in about a second; the rest happen at batch close and over the following days. At Chase the acquirer and the processor are the same company, so its two lanes are split by job: the processor lane authorizes, the acquiring lane settles and funds.
+
+!16-end-to-end-sequence.png|alt=End to end in one diagram!
+
+|| Steps || Phase || What happens || Records created ||
+| 1–2 | Checkout | The card is tapped, dipped, swiped or typed. Card-present terminals skip the gateway and go straight to the host | Order, terminal ID, entry mode |
+| 3–9 | Authorization | The host validates the merchant and the switch routes by BIN. The issuer places a hold; nothing is paid | Auth record, auth code, AVS and CVV results \(Layer 2) |
+| 10–12 | Capture and clearing | The merchant captures, the batch closes, and each sale is matched to its auth and qualified for interchange | Settled sale, qualification result \(Layer 3) |
+| 13–15 | Network settlement | The issuer pays the network less interchange; the network pays Chase less its fees | Network settlement, interchange and assessments |
+| 16 | Funding | Chase pays the merchant the net amount, often before the networks have paid Chase | Funds transfer, fee lines \(Layer 4) |
+| Later | Disputes | Retrievals and chargebacks come back from the issuer through the network | Case records, funding adjustments \(Layer 6) |
+
 h2. Glossary of terms and IDs
 Most data bugs in merchant services come from joining on the wrong ID or the wrong level of the merchant hierarchy. Learn these first.
 
