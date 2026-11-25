@@ -34,6 +34,8 @@ NAMES = [
     ("10-hierarchy-funding", "Funding by FTI"),
     ("11-reporting-group", "Reporting group"),
     ("12-sale-rollup", "One sale rolling up"),
+    ("14-payments-ecosystem", "Payments ecosystem above the merchant"),
+    ("15-business-models", "Hierarchy under three business models"),
     ("13-older-hierarchies", "Older hierarchies"),
 ]
 

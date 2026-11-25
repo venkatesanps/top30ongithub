@@ -104,6 +104,29 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
 .copy{font:500 14px Inter,sans-serif;min-height:40px;padding:0 14px;border-radius:8px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer;margin-bottom:8px}
 .copy:focus-visible{outline:3px solid var(--blue)}
 .src li{margin-bottom:6px;font-size:15px}
+.eco{margin-top:18px;border-top:1px solid var(--rule)}
+.erow{display:grid;grid-template-columns:minmax(0,1.5fr) 92px 92px minmax(0,1fr);gap:0 18px;align-items:stretch;border-bottom:1px solid var(--rule)}
+.erow.hd{font-weight:600;font-size:14px;color:var(--muted)}
+.erow.hd>div{padding:10px 0}
+.erow.me{background:color-mix(in srgb,var(--red) 6%,var(--bg))}
+.ename{padding:14px 0 14px 12px;border-left:4px solid var(--blue)}
+.erow.me .ename{border-left-color:var(--red)}
+.ename b{display:block;font-size:17px}
+.ename span{font-size:15px}
+.rail{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;padding:10px 0}
+.rail::before{content:"";position:absolute;top:0;bottom:0;left:50%;border-left:2px solid var(--rule)}
+.rail.m::before{border-color:color-mix(in srgb,var(--red) 45%,var(--bg))}
+.rail.l::before{border-left-style:dashed;border-color:color-mix(in srgb,var(--blue) 45%,var(--bg))}
+.dot{position:relative;width:16px;height:16px;border-radius:50%;border:2px solid;background:var(--bg);margin-bottom:4px}
+.rail.m .dot{border-color:var(--red)}.rail.l .dot{border-color:var(--blue)}
+.rail.m .dot.on{background:var(--red)}.rail.l .dot.on{background:var(--blue)}
+.rail small{position:relative;background:var(--bg);padding:0 2px;line-height:1.3}
+.erow.me .rail small,.erow.me .dot{background:color-mix(in srgb,var(--red) 6%,var(--bg))}
+.erow.me .rail.m .dot.on{background:var(--red)}
+.ech{padding:14px 0;font-size:14.5px;color:var(--muted)}
+@media(max-width:700px){.erow{grid-template-columns:minmax(0,1fr) 70px 70px}.ech{grid-column:1/-1;padding:0 0 12px 16px}.erow.hd .ech{display:none}}
+.models{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:18px}
+.models .note2{font-size:14.5px;margin-top:12px}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 @media(max-width:600px){table{font-size:13px}th,td{padding:7px 4px}td.c,th.c{width:34px}td.c{font-size:15px}}
 </style>
@@ -116,7 +139,7 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
 </div>
 </header>
 <nav class="scroll" aria-label="Sections">
-<a href="#tree-sec">The tree</a><a href="#levels">Each level</a><a href="#side">Funding and groups</a><a href="#process">Process map</a><a href="#older">Older hierarchies</a><a href="#reports">In reports</a><a href="#model">Data model</a><a href="#sources">Sources</a>
+<a href="#tree-sec">The tree</a><a href="#levels">Each level</a><a href="#side">Funding and groups</a><a href="#ecosystem">Above the merchant</a><a href="#models">Business models</a><a href="#process">Process map</a><a href="#older">Older hierarchies</a><a href="#gateway">Gateway names</a><a href="#reports">In reports</a><a href="#model">Data model</a><a href="#sources">Sources</a>
 </nav>
 
 <section class="band" id="tree-sec">
@@ -157,6 +180,23 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
 </div>
 </section>
 
+<section class="band" id="ecosystem">
+<div class="wrap">
+<h2>Above the merchant: who sits over the tree</h2>
+<p>The PE-to-TD tree is the merchant's own structure. Above it sit the parties that move the money and carry the risk. Money and liability travel down different paths: a processor touches every transaction but holds no funds, and an ISO sells the account but usually carries no losses.</p>
+<div class="eco" id="ecoRows"></div>
+<p class="small muted" style="margin-top:10px">Filled dot: money passes through this party, or it carries liability for the merchant's transactions. Hollow: it doesn't. ISO and PayFac arrangements vary by contract.</p>
+</div>
+</section>
+
+<section class="band" id="models" style="background:var(--soft)">
+<div class="wrap">
+<h2>The same tree under three business models</h2>
+<p>Who owns the TD changes the keys you join on. In a direct account the merchant's own TDs are the business key. Under a payment facilitator, many sub-merchants share the facilitator's TDs, so the sub-merchant ID becomes the key.</p>
+<div class="models" id="modelCols"></div>
+</div>
+</section>
+
 <section class="band" id="process">
 <div class="wrap">
 <h2>Where each process touches the hierarchy</h2>
@@ -172,6 +212,20 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
 <p>Chase's front ends and older portals each used their own level names. The leaf is always the merchant location; the names above it change. Leaves are drawn at the bottom so equivalent levels line up.</p>
 <div class="old" id="oldGrid"></div>
 <p class="small" style="margin-top:16px">Dashed boxes are reserved for Chase Paymentech. Resource Online's guide says most merchants on the FDMS-style back end use only the bottom three levels, which roughly match NPCO 1, Company and TD. Front-end reports link back to the merchant through the Reporting Merchant # and, on Tandem (PNS), the PNS Merchant #.</p>
+</div>
+</section>
+
+<section class="band" id="gateway">
+<div class="wrap">
+<h2>Gateway hierarchies use other names</h2>
+<p>Gateways keep their own account trees. Visa Acceptance Solutions (Cybersource) uses <b>portfolio</b>, <b>merchant</b>, <b>structural</b> and <b>transacting</b> organizations. These are the gateway's IDs, not Chase TD numbers, so map them through the processor set-up rather than by name.</p>
+<div class="scroll"><table class="stack"><thead><tr><th>Gateway level</th><th>What it is there</th><th>Nearest Chase reporting level</th></tr></thead><tbody>
+<tr><td><b>Portfolio</b></td><td>The top node, given to a partner who boards merchants. Every merchant account sits under it.</td><td>None inside the merchant; it sits at the partner's level, above the PE</td></tr>
+<tr><td><b>Merchant organization</b></td><td>A business entity such as a brand or company; one per branch. Holds the token vault.</td><td>Company (CO)</td></tr>
+<tr><td><b>Structural organization</b></td><td>Optional layers between merchant and transacting, for segmentation and reporting.</td><td>Business Unit (BU)</td></tr>
+<tr><td><b>Transacting organization</b></td><td>Where payments are processed; every merchant has at least one.</td><td>Transaction Division (TD), through its processor set-up <span class="cf">confirm</span></td></tr>
+</tbody></table></div>
+<p class="small muted" style="margin-top:8px">The mapping is by role, not an official cross-reference.</p>
 </div>
 </section>
 
@@ -259,6 +313,7 @@ group by h.co_id, f.event_date;</code></pre>
 <li><a href="https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/attribute-glossary">JPMorgan reporting attribute glossary</a>: Entity Type Code values, settled vs conveyed</li>
 <li><a href="https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/integration-options/custom-integration">JPMorgan Reporting API custom integration</a>: Processing Entity ID in file names and headers</li>
 <li><a href="https://developer.payments.jpmorgan.com/api/commerce/optimization-protection/reporting/error-codes">JPMorgan Reporting API response codes</a>: one entity type and ID per reporting-group request</li>
+<li><a href="https://developer.visaacceptance.com/docs/vas/en-us/boarding/user/all/ebc/boarding-user.html">Visa Acceptance Solutions merchant boarding guide</a> and <a href="https://developer.cas.visaacceptance.com/docs/vas/en-us/intelligent-commerce/developer/all/rest/intelligent-commerce/tms-mid-hierarchy.html">MID hierarchy</a>: portfolio, merchant, structural and transacting organizations; token vault at merchant level</li>
 <li><a href="https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/1099-k_explanation_form.pdf">Chase 1099-K explanation form</a>: payee is the merchant's IRS filing name</li>
 </ul>
 <p class="small muted">Public documentation doesn't define the Processing Entity or Business Unit beyond their codes. Their descriptions here are the usual reading of how they're used, tagged for confirmation. Compiled November 2026.</p>
@@ -387,6 +442,25 @@ const OLD=[
  {t:'Custom hierarchy',s:'Built by Chase on request',l:[['Level I'],['Level II'],['Level III']]}
 ];
 document.getElementById('oldGrid').innerHTML=OLD.map(c=>`<div class="stackcol"><h3>${c.t}</h3><div class="sub">${c.s}</div>${c.l.map(x=>`<div class="rung${x[1]?' '+x[1]:''}">${x[0]}</div>`).join('')}</div>`).join('');
+
+const ECO=[
+ ['Issuer','The cardholder\'s bank. Approves or declines, pays for the purchase, raises disputes.',1,'source of funds',0,'cardholder credit risk','Chase is also an issuer, on the other side'],
+ ['Card networks','Visa, Mastercard, Discover, Amex. Route authorizations, clear and settle between banks, set interchange and rules.',1,'net settlement',1,'set the rules, fine acquirers','Chase connects to each one'],
+ ['Acquiring / sponsor bank','Network member that contracts with and underwrites merchants, and answers to the networks for their transactions.',1,'funds the merchant',1,'primary',"Paymentech, LLC, a JPMorgan Chase Bank subsidiary"],
+ ['Processor and gateway','Authorization hosts, switch, settlement files, fees and reporting; gateways are the internet way in.',0,'calculates, holds none',0,'none','Stratus and Tandem hosts, Orbital; Authorize.net for small-business e-commerce'],
+ ['ISO or agent','Sells and supports merchant accounts under a bank\'s sponsorship.',0,'none',0,'only by contract','Referral and sales partners'],
+ ['Payment facilitator','A master merchant that boards sub-merchants under its own TDs and pays them out.',1,'pays sub-merchants',1,'for its sub-merchants','PayFacs processing through Chase'],
+ ['Merchant: PE → CO → BU → TD','Sells, accepts cards and owns the customer. This page\'s tree.',1,'receives net funding',1,'chargebacks and refunds','The client'],
+ ['Where cards are taken','Terminals, websites, apps, invoices and links. Each belongs to a TD, or to a sub-merchant under a PayFac.',0,'',0,'','Terminal IDs, order IDs']
+];
+document.getElementById('ecoRows').innerHTML='<div class="erow hd"><div>Party</div><div style="text-align:center">Money</div><div style="text-align:center">Liability</div><div class="ech" style="padding:10px 0">At Chase</div></div>'+ECO.map((r,i)=>`<div class="erow${i===6?' me':''}"><div class="ename"><b>${r[0]}</b><span>${r[1]}</span></div><div class="rail m"><span class="dot${r[2]?' on':''}"></span><small>${r[3]}</small></div><div class="rail l"><span class="dot${r[4]?' on':''}"></span><small>${r[5]}</small></div><div class="ech">${r[6]}</div></div>`).join('');
+
+const MODELS=[
+ {t:'Direct or ISO-sold account',l:[['Acquiring bank (Chase)'],['ISO or agent, optional','res'],['Merchant tree: PE → CO → BU'],['Merchant\'s own TDs (MIDs)','leaf'],['Terminals, sites, apps']],n:'The merchant contracts with the acquirer and owns its TDs. An ISO only sells and supports the account. Join on the TD.'},
+ {t:'Payment facilitator',l:[['Acquiring bank (Chase)'],['PayFac: master merchant'],['PayFac\'s TDs (master MIDs)','leaf'],['Sub-merchants'],['Sub-merchants\' sales']],n:'Many sub-merchants share the PayFac\'s TDs. The sub-merchant ID and soft descriptor are the real keys, so reporting splits one level below the TD.'},
+ {t:'Platform or marketplace',l:[['Acquiring bank (Chase)'],['Platform account'],['Child merchants or sellers'],['TDs: child\'s own, or the platform\'s','leaf'],['Transactions']],n:'Depends on the programme: children may get their own merchant accounts or ride on the platform\'s. Check which before choosing the join key.'}
+];
+document.getElementById('modelCols').innerHTML=MODELS.map(c=>`<div class="stackcol"><h3>${c.t}</h3>${c.l.map(x=>`<div class="rung${x[1]?' '+x[1]:''}">${x[0]}</div>`).join('')}<p class="note2">${c.n}</p></div>`).join('');
 
 document.getElementById('copyBtn').addEventListener('click',e=>{const b=e.currentTarget;navigator.clipboard.writeText(document.getElementById('sql').textContent).then(()=>{b.textContent='Copied'},()=>{b.textContent='Select the text to copy'}).finally(()=>setTimeout(()=>{b.textContent='Copy SQL'},1800))});
 setMode('tree');
