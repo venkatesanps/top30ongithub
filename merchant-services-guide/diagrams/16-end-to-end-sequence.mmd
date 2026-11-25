@@ -1,0 +1,27 @@
+sequenceDiagram
+    autonumber
+    actor C as Cardholder
+    participant M as Merchant<br/>checkout, app, POS
+    participant G as Gateway<br/>Orbital, Authorize.net
+    participant P as Chase processing<br/>Stratus or Tandem host, switch
+    participant N as Card network
+    participant I as Issuer
+    participant A as Chase acquiring<br/>settlement, funding
+    C->>M: Pays with a card or wallet
+    M->>G: Card data or token, amount, order ID
+    G->>P: Auth request with MID (TD), tokenized
+    P->>N: ISO 8583 0100, routed by BIN
+    N->>I: Forwarded to the cardholder's bank
+    I-->>N: Approve or decline, auth code, hold on funds
+    N-->>P: Response
+    P-->>G: Response
+    G-->>M: Approved, with TxRefNum
+    Note over M,I: About a second. No money has moved.
+    M->>G: Capture: mark for capture or close the batch
+    G->>A: Deposit batch
+    A->>N: Clearing file (BASE II, IPM), interchange qualified
+    N->>I: Clearing record posts to the cardholder's statement
+    I->>N: Pays the sale less interchange
+    N->>A: Net settlement, less network fees
+    A->>M: Funding: sales less refunds, chargebacks and fees
+    Note over C,A: Weeks later, disputes travel back the same way (Layer 6)

@@ -24,6 +24,7 @@ DIAGRAMS = GUIDE / "diagrams"
 NAMES = [
     ("01-money-flow", "Money flow"),
     ("02-big-picture", "Big picture"),
+    ("16-end-to-end-sequence", "End to end in one diagram"),
     ("03-merchant-hierarchy", "Merchant hierarchy"),
     ("04-authorization-sequence", "Authorization sequence"),
     ("05-chargeback-lifecycle", "Chargeback lifecycle"),

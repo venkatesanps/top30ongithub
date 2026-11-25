@@ -10,6 +10,7 @@ An onboarding guide for developers and data engineers joining a merchant service
 
 - [Purpose and the five parties](#purpose-and-the-five-parties)
 - [Big picture](#big-picture)
+- [End to end in one diagram](#end-to-end-in-one-diagram)
 - [Glossary of terms and IDs](#glossary-of-terms-and-ids)
 - [Layer 1: Entry points and front-end hosts](#layer-1-entry-points-and-front-end-hosts)
 - [Layer 2: Authorization and switching](#layer-2-authorization-and-switching)
@@ -127,6 +128,49 @@ flowchart TD
 ```
 
 The top half (entry to issuer) runs in about a second per transaction. Everything from the back office down runs on daily and monthly cycles, which is where most data and reconciliation work lives.
+
+## End to end in one diagram
+
+Every party a card payment passes through, in order. The first nine messages are authorization, in about a second; the rest happen at batch close and over the following days. At Chase the acquirer and the processor are the same company, so its two lanes are split by job: the processor lane authorizes, the acquiring lane settles and funds.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor C as Cardholder
+    participant M as Merchant<br/>checkout, app, POS
+    participant G as Gateway<br/>Orbital, Authorize.net
+    participant P as Chase processing<br/>Stratus or Tandem host, switch
+    participant N as Card network
+    participant I as Issuer
+    participant A as Chase acquiring<br/>settlement, funding
+    C->>M: Pays with a card or wallet
+    M->>G: Card data or token, amount, order ID
+    G->>P: Auth request with MID (TD), tokenized
+    P->>N: ISO 8583 0100, routed by BIN
+    N->>I: Forwarded to the cardholder's bank
+    I-->>N: Approve or decline, auth code, hold on funds
+    N-->>P: Response
+    P-->>G: Response
+    G-->>M: Approved, with TxRefNum
+    Note over M,I: About a second. No money has moved.
+    M->>G: Capture: mark for capture or close the batch
+    G->>A: Deposit batch
+    A->>N: Clearing file (BASE II, IPM), interchange qualified
+    N->>I: Clearing record posts to the cardholder's statement
+    I->>N: Pays the sale less interchange
+    N->>A: Net settlement, less network fees
+    A->>M: Funding: sales less refunds, chargebacks and fees
+    Note over C,A: Weeks later, disputes travel back the same way (Layer 6)
+```
+
+| Steps | Phase | What happens | Records created |
+| --- | --- | --- | --- |
+| 1–2 | Checkout | The card is tapped, dipped, swiped or typed. Card-present terminals skip the gateway and go straight to the host | Order, terminal ID, entry mode |
+| 3–9 | Authorization | The host validates the merchant and the switch routes by BIN. The issuer places a hold; nothing is paid | Auth record, auth code, AVS and CVV results ([Layer 2](#layer-2-authorization-and-switching)) |
+| 10–12 | Capture and clearing | The merchant captures, the batch closes, and each sale is matched to its auth and qualified for interchange | Settled sale, qualification result ([Layer 3](#layer-3-capture-batching-and-settlement)) |
+| 13–15 | Network settlement | The issuer pays the network less interchange; the network pays Chase less its fees | Network settlement, interchange and assessments |
+| 16 | Funding | Chase pays the merchant the net amount, often before the networks have paid Chase | Funds transfer, fee lines ([Layer 4](#layer-4-funding)) |
+| Later | Disputes | Retrievals and chargebacks come back from the issuer through the network | Case records, funding adjustments ([Layer 6](#layer-6-chargebacks-and-disputes)) |
 
 ## Glossary of terms and IDs
 
