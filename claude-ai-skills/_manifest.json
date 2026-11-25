@@ -13,7 +13,7 @@
   "path": "skills/engineering/code-review",
   "bytes": 4187,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -21,15 +21,15 @@
   "path": "skills/engineering/diagnosing-bugs",
   "bytes": 5979,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
   "skill": "domain-modeling",
   "path": "skills/engineering/domain-modeling",
-  "bytes": 5474,
+  "bytes": 5549,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -37,7 +37,7 @@
   "path": "skills/productivity/grill-me",
   "bytes": 1233,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -45,7 +45,7 @@
   "path": "skills/engineering/grill-with-docs",
   "bytes": 1331,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -53,7 +53,7 @@
   "path": "skills/productivity/grilling",
   "bytes": 2062,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -61,7 +61,7 @@
   "path": "skills/productivity/handoff",
   "bytes": 1631,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -69,7 +69,7 @@
   "path": "skills/engineering/implement",
   "bytes": 1457,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -77,7 +77,7 @@
   "path": "skills/engineering/retro",
   "bytes": 3106,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -85,7 +85,7 @@
   "path": "skills/engineering/tdd",
   "bytes": 4745,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -93,7 +93,7 @@
   "path": "skills/productivity/teach",
   "bytes": 9928,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -101,7 +101,7 @@
   "path": "skills/engineering/to-spec",
   "bytes": 2509,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -109,7 +109,7 @@
   "path": "skills/engineering/to-tickets",
   "bytes": 3657,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -117,7 +117,7 @@
   "path": "skills/productivity/wait-what",
   "bytes": 1407,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "02-mattpocock",
@@ -125,7 +125,7 @@
   "path": "skills/engineering/wayfinder",
   "bytes": 6192,
   "license": "MIT",
-  "commit": "d65391149dbb5fe76478e76fa8d5122b2aa5a70e"
+  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
  },
  {
   "folder": "04-agent-skills",
@@ -293,31 +293,31 @@
   "path": "skills/taste-skill",
   "bytes": 30276876,
   "license": "MIT",
-  "commit": "6c0b5c78f5d31776e2210305abaa210cdc0030bf"
+  "commit": "d1a2bb41d927083ac7118f60cfc9cdf711810ea0"
  },
  {
   "folder": "20-archify",
   "skill": "archify",
   "path": "archify",
-  "bytes": 4775538,
+  "bytes": 4798396,
   "license": "Apache-2.0",
-  "commit": "62f3a995eb26ee23f784bdea4a7992340078e9be"
+  "commit": "aff5c2b2a0f8b6cdb187f5f121e965a495833f10"
  },
  {
   "folder": "21-diagram-design",
   "skill": "diagram-design",
   "path": "skills/diagram-design",
-  "bytes": 1481786,
+  "bytes": 1482378,
   "license": "MIT",
-  "commit": "1acb8776bab34f5055399fbac96a693c8d5cf7b3"
+  "commit": "b228c5d77794a84150fca41b22940bb316b1398d"
  },
  {
   "folder": "22-impeccable",
   "skill": "impeccable",
   "path": "plugin/skills/impeccable",
-  "bytes": 881651,
+  "bytes": 882878,
   "license": "Apache-2.0",
-  "commit": "b49177d32788f2dc585c42831d845dacf1ebed2c"
+  "commit": "9e460a87ef338ee9d12c7beed8fedc597a5af5f7"
  },
  {
   "folder": "23-ui-ux-pro-max",
@@ -325,7 +325,7 @@
   "path": ".claude/skills/ui-ux-pro-max",
   "bytes": 594659,
   "license": "MIT",
-  "commit": "8db36338810d0942567b97ce439affd1619fcf31"
+  "commit": "bde080f4c6d546fea1313bff76960c99045b2ae7"
  },
  {
   "folder": "25-marketing",
@@ -765,7 +765,7 @@
   "path": "skills/i-have-adhd",
   "bytes": 5884,
   "license": "MIT",
-  "commit": "1ecea1993b7fce257ffbd686c070948b5e07eda6"
+  "commit": "f3e783bae5f4820416492091b3abeb670616c23a"
  },
  {
   "folder": "32-dbt",
@@ -957,7 +957,7 @@
   "path": "skills/huggingface-gradio",
   "bytes": 17440,
   "license": "Apache-2.0",
-  "commit": "d67b12054923df5bbfa07c5ff1331412deebdf4f"
+  "commit": "c158db6f839c65fe3234f0baa743f5e2c8d4ec13"
  },
  {
   "folder": "74-huggingface",
@@ -965,7 +965,7 @@
   "path": "skills/huggingface-local-models",
   "bytes": 11151,
   "license": "Apache-2.0",
-  "commit": "d67b12054923df5bbfa07c5ff1331412deebdf4f"
+  "commit": "c158db6f839c65fe3234f0baa743f5e2c8d4ec13"
  },
  {
   "folder": "74-huggingface",
@@ -973,7 +973,7 @@
   "path": "skills/huggingface-papers",
   "bytes": 7268,
   "license": "Apache-2.0",
-  "commit": "d67b12054923df5bbfa07c5ff1331412deebdf4f"
+  "commit": "c158db6f839c65fe3234f0baa743f5e2c8d4ec13"
  },
  {
   "folder": "75-n8n",
