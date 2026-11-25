@@ -42,6 +42,8 @@ guide, and upload-ready skill zips for the Claude app:
 
 <img src="guide/snowflake-query-execution/flow.gif" alt="Animated flow of a Snowflake query through cloud services, the warehouse and storage" width="300">
 
+**Study guide: Snowflake data engineering architecture.** The three layers, ingestion, storage, transformation, caches, Time Travel and cloning, governance and sharing, checked against Snowflake's docs, with the 14 places a widely shared cheat sheet is wrong or silent (editions, billing, limits): [`guide/snowflake-de-architecture/`](guide/snowflake-de-architecture/). It comes with a hands-on [lab](guide/snowflake-de-architecture/lab.sql) in 13 short steps (one X-Small Gen1 warehouse, drops everything at the end; written from the docs, not yet run live), 45 [flashcards](guide/snowflake-de-architecture/flashcards/deck.md) (study page and Anki file) and ten scenario questions.
+
 A GitHub Action re-checks everything every day:
 
 - **New upstream commits** are re-pinned under `sources/`, and affected skill zips are rebuilt.
@@ -546,7 +548,7 @@ _Checked 2026-11-24: 101 repos, 97 of 97 install-tested items passing, 1 needing
 | `install.sh`, `verify.sh` | Generated from the catalog. Bash 3.2 compatible. |
 | `claude-ai-skills/` | Skill zips + `_manifest.json` (skill, source path, upstream commit, license). |
 | `playbooks/` | Role playbooks and the at-work guardrails page. |
-| `guide/` | Field guide page (`index.html` is generated from `template.html`) and the Snowflake query explainer (`snowflake-query-execution/`). Published to GitHub Pages. |
+| `guide/` | Field guide page (`index.html` is generated from `template.html`), the Snowflake query explainer (`snowflake-query-execution/`) and the Snowflake DE architecture study guide (`snowflake-de-architecture/`). Published to GitHub Pages. |
 | `sources/` | Upstream repos as submodules, pinned to the last checked commit. `git submodule update --init --depth 1 sources/30-i-have-adhd` fetches one. |
 | `plugins/`, `.claude-plugin/` | This repo's own plugin marketplace (`top30-data`, `top30-ops`, `top30-coach`, `top30-agents`, `top30-ui`, `top30-private`, `top30-wensity`, `top30-sparring`, `top30-motion`, `top30-duet`, `top30-learn`). |
 | `examples/sql-review-agent/` | A working Agent SDK agent: read-only Snowflake SQL review with a custom tool, guard hook and budget cap. |

@@ -63,6 +63,7 @@ jobs:
           python3 tests/ora2sf/test_ora2sf.py
           python3 tests/sf_cost/test_sf_cost.py
           python3 tests/sf_query_advisor/test_sf_query_advisor.py
+          python3 tests/snowflake_de_guide/test_guide.py
           python3 tests/first_agent/test_first_agent.py
           python3 tests/de_setup/test_de_setup.py
           python3 tests/learn_kit/test_learn_kit.py
