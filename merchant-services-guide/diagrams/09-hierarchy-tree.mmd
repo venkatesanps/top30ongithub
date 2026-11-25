@@ -1,0 +1,16 @@
+flowchart TD
+    PE["Lakeview Group<br/>PE 100045"]:::pe
+    PE --> CO1["Lakeview Stores<br/>CO 210118"]:::co
+    PE --> CO2["Lakeview Direct<br/>CO 210119"]:::co
+    CO1 --> BU1["Texas stores<br/>BU 330071"]:::bu
+    CO1 --> BU2["Oklahoma stores<br/>BU 330072"]:::bu
+    CO2 --> BU3["Online & phone<br/>BU 330080"]:::bu
+    BU1 --> TD1["Frisco store<br/>TD 412201"]:::td
+    BU1 --> TD2["Plano store<br/>TD 412202"]:::td
+    BU2 --> TD3["Tulsa store<br/>TD 412310"]:::td
+    BU3 --> TD4["Web store<br/>TD 412501"]:::td
+    BU3 --> TD5["Call center<br/>TD 412502"]:::td
+    classDef pe fill:#1d2bd8,stroke:#1d2bd8,color:#ffffff
+    classDef co fill:#dfe2ff,stroke:#1d2bd8,color:#14110f
+    classDef bu fill:#f1f2ff,stroke:#8a92ee,color:#14110f
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
