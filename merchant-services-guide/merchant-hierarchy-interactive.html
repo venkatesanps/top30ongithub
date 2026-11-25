@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merchant Hierarchy Explained</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a technical reference for developers and data engineers, dense and ordered
+   IDEA a corporate family tree drawn like a figure in a journal article, with the leaf (TD) as the place money lands
+   PICTURE one live tree of a sample merchant; switch overlays for funding, reporting groups and one sale rolling up
+   COLOUR white ground, ink, ultramarine for the hierarchy levels, carmine for the leaf and money movement
+   TYPE Spectral 500 headings + Inter text
+   LAYOUT laptop: title row, tree 2/3 with the mode note beside it; phone: title, tree as an indented outline, note */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d0e18);--ink:light-dark(#14110f,#ecebf2);--muted:light-dark(#555b6b,#a7abbc);--rule:light-dark(#dde0e8,#2b2e44);--soft:light-dark(#f5f6fa,#151729);--blue:light-dark(#1d2bd8,#8f99ff);--red:light-dark(#c1121f,#ff7a82)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+.band{padding:clamp(28px,4vw,56px) max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,h3{font-family:Spectral,Georgia,serif;font-weight:500;line-height:1.05;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,4.6vw,52px)}
+h2{font-size:clamp(26px,3vw,34px);margin-bottom:10px}
+h3{font-size:22px}
+p{margin:0 0 12px;max-width:70ch}
+a{color:var(--blue)}
+.lede{font-size:18px;max-width:62ch;margin-top:14px}
+@media(min-width:960px){.head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:end}.head .lede{margin:0;font-size:17px}}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+nav.scroll{display:flex;gap:6px;overflow-x:auto;padding:10px max(5vw,16px);border-block:1px solid var(--rule);background:var(--bg)}
+nav.scroll a{flex:none;text-decoration:none;color:var(--ink);font-size:14px;padding:8px 12px;border-radius:999px;border:1px solid var(--rule)}
+nav.scroll a:hover,nav.scroll a:focus-visible{border-color:var(--blue);color:var(--blue)}
+@media(min-width:900px){nav.scroll{position:sticky;top:0;z-index:5}}
+.hero{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:28px;align-items:start;margin-top:26px}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.modes button{font:500 15px Inter,sans-serif;min-height:44px;padding:0 16px;border-radius:8px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer}
+.modes button[aria-pressed=true]{background:var(--blue);border-color:var(--blue);color:var(--bg)}
+.modes button:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+#tree{width:100%;display:block}
+#tree text{font-family:Inter,sans-serif}
+.nd{cursor:pointer}
+.nd:focus{outline:none}.nd:focus-visible rect{stroke-width:3}
+.l0 rect{fill:var(--blue);stroke:var(--blue)}.l0 text{fill:var(--bg)}
+.l1 rect{fill:color-mix(in srgb,var(--blue) 16%,var(--bg));stroke:var(--blue)}
+.l2 rect{fill:color-mix(in srgb,var(--blue) 6%,var(--bg));stroke:color-mix(in srgb,var(--blue) 55%,var(--bg))}
+.l3 rect{fill:color-mix(in srgb,var(--red) 8%,var(--bg));stroke:var(--red)}
+.l1 text,.l2 text,.l3 text{fill:var(--ink)}
+.nm{font-weight:600;font-size:14px}.id{font-size:13px;opacity:.8}
+.edge{stroke:var(--muted);stroke-width:1.4;fill:none}
+.lvl{fill:var(--muted);font-size:13px}
+.hot rect{stroke:var(--red);stroke-width:3}
+.route{stroke:var(--red);stroke-width:3;fill:none}
+.tok{fill:var(--red)}
+.bank rect{fill:var(--soft);stroke:var(--ink)}.bank text{fill:var(--ink);font-size:13px}
+.fline{stroke:var(--ink);stroke-width:1.2;stroke-dasharray:4 3;fill:none}
+.rg{stroke:var(--blue);stroke-width:2;stroke-dasharray:6 4;fill:none}
+.rgt{fill:var(--blue);font-size:13px;font-weight:600;paint-order:stroke;stroke:var(--bg);stroke-width:4px}
+.tag{font-size:12.5px;font-weight:600}
+.note{border-left:3px solid var(--blue);padding:4px 0 4px 16px}
+.note h3{margin-bottom:8px}
+.note ol{padding-left:20px;margin:0}.note li{margin-bottom:6px}
+.key{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:14px;font-size:14px;color:var(--muted)}
+.sw{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px;border:1.5px solid}
+.levels{display:grid;gap:0}
+.level{display:grid;grid-template-columns:140px minmax(0,1fr);gap:24px;padding:26px 0;border-top:1px solid var(--rule)}
+@media(max-width:640px){.level{grid-template-columns:minmax(0,1fr);gap:12px}}
+.level.flash{background:color-mix(in srgb,var(--blue) 6%,var(--bg))}
+.ladder{width:140px;height:auto}
+@media(max-width:640px){.ladder{width:220px}}
+.code{font:600 13px Inter,sans-serif;color:var(--blue)}
+dl.facts{display:grid;grid-template-columns:12em minmax(0,1fr);gap:8px 18px;margin:14px 0 0}
+dl.facts dt{font-weight:600;font-size:15px}
+dl.facts dd{margin:0;font-size:15.5px}
+@media(max-width:640px){dl.facts{grid-template-columns:minmax(0,1fr);gap:2px}dl.facts dd{margin-bottom:10px}}
+.cf{display:inline-block;font-size:13px;color:var(--red);border:1px solid var(--red);border-radius:4px;padding:0 6px;margin-left:4px;white-space:nowrap}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:18px}
+.card{border:1px solid var(--rule);border-radius:10px;padding:18px;background:var(--soft)}
+.card h3{font-size:20px;margin-bottom:8px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;font-size:14px}
+td.c,th.c{text-align:center;width:56px}
+td.c{font-size:18px;color:var(--blue)}
+td.c.x{color:var(--red)}
+.pn{font-weight:600}
+.pd{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+.old{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;align-items:end;margin-top:18px}
+.stackcol h3{font-size:19px}
+.stackcol .sub{font-size:14px;color:var(--muted);margin:2px 0 10px}
+.rung{border:1.5px solid color-mix(in srgb,var(--blue) 55%,var(--bg));background:color-mix(in srgb,var(--blue) 6%,var(--bg));border-radius:7px;padding:8px 10px;font-size:14.5px;margin-top:6px;position:relative}
+.rung.res{border-style:dashed;color:var(--muted);background:var(--bg)}
+.rung.leaf{border-color:var(--red);background:color-mix(in srgb,var(--red) 8%,var(--bg))}
+.rung+.rung::before{content:"";position:absolute;left:18px;top:-8px;height:7px;border-left:1.5px solid var(--muted)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;margin-top:10px}
+@media(max-width:760px){.two{grid-template-columns:minmax(0,1fr)}}
+ul.tight{padding-left:20px;margin:0}ul.tight li{margin-bottom:8px}
+pre{overflow-x:auto;background:var(--soft);border:1px solid var(--rule);border-radius:10px;padding:16px;font-size:14px;line-height:1.5;margin:0}
+code{font-family:ui-monospace,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.copy{font:500 14px Inter,sans-serif;min-height:40px;padding:0 14px;border-radius:8px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer;margin-bottom:8px}
+.copy:focus-visible{outline:3px solid var(--blue)}
+.src li{margin-bottom:6px;font-size:15px}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media(max-width:600px){table{font-size:13px}th,td{padding:7px 4px}td.c,th.c{width:34px}td.c{font-size:15px}}
+</style>
+</head>
+<body>
+<header class="band" style="padding-bottom:20px">
+<div class="wrap head">
+<h1>Merchant hierarchy, from processing entity to transaction division</h1>
+<p class="lede">Every card transaction posts at one place: the <b>Transaction Division</b>, the leaf of the tree, whose number is the merchant ID. Every level above it exists to group that activity for contracts, fees, statements and reports. Funding follows its own line, the funds transfer instruction (FTI), which doesn't have to match any branch of the tree.</p>
+</div>
+</header>
+<nav class="scroll" aria-label="Sections">
+<a href="#tree-sec">The tree</a><a href="#levels">Each level</a><a href="#side">Funding and groups</a><a href="#process">Process map</a><a href="#older">Older hierarchies</a><a href="#reports">In reports</a><a href="#model">Data model</a><a href="#sources">Sources</a>
+</nav>
+
+<section class="band" id="tree-sec">
+<div class="wrap">
+<div class="modes" role="group" aria-label="What the tree shows">
+<button type="button" id="m-tree" data-m="tree" aria-pressed="true">Hierarchy</button>
+<button type="button" id="m-fti" data-m="fti" aria-pressed="false">Funding (FTI)</button>
+<button type="button" id="m-rg" data-m="rg" aria-pressed="false">Reporting group</button>
+<button type="button" id="m-sale" data-m="sale" aria-pressed="false">Follow one sale</button>
+</div>
+<div class="hero">
+<figure style="margin:0">
+<svg id="tree" role="img" aria-label="Sample merchant hierarchy: one Processing Entity, two Companies, three Business Units and five Transaction Divisions"></svg>
+<figcaption class="small muted" style="margin-top:8px">Sample merchant "Lakeview" with made-up numbers. Select a box to jump to that level's explanation.</figcaption>
+</figure>
+<aside class="note" id="modeNote" aria-live="polite"></aside>
+</div>
+</div>
+</section>
+
+<section class="band" id="levels" style="padding-top:8px">
+<div class="wrap">
+<h2>Each level, top to leaf</h2>
+<p class="muted">The four levels in current JPMorgan reporting, plus what sits underneath the leaf. Points tagged <span class="cf">confirm</span> are where public documentation stops; check them against the internal merchant set-up guide.</p>
+<div class="levels" id="levelList"></div>
+</div>
+</section>
+
+<section class="band" id="side" style="background:var(--soft)">
+<div class="wrap">
+<h2>Three things that sit beside the tree</h2>
+<p>These group TDs differently from the parent-child line. Mixing them up is the most common cause of totals that don't reconcile.</p>
+<div class="cards">
+<div class="card"><h3>Funds Transfer Instruction (FTI)</h3><p>The instruction that moves money to a bank account. JPMorgan's reporting docs state that funding occurs at the FTI level. One FTI can collect several TDs, and TDs under one Company can fund to different accounts.</p><p class="small">A Financial Activity Summary run at Company level combines all FTI activity and may not match any single bank statement. Run it per FTI to reconcile to the bank.</p></div>
+<div class="card"><h3>Reporting group (RG)</h3><p>A named set of entities chosen for reporting, from anywhere in the tree. Reports accept RG as an entity type next to PE, CO, BU, TD and FTI.</p><p class="small">An API request for a reporting group can carry only one entity type and ID. In Resource Online the equivalent was a custom hierarchy of up to three levels, such as 10 of a corporate office's 85 locations.</p></div>
+<div class="card"><h3>Tax ID</h3><p>The merchant's taxpayer ID cuts across the tree. Visa assesses its monthly Fixed Acquirer Network Fee (FANF) across all accounts under one taxpayer ID. Form 1099-K is issued in the merchant's IRS filing name.</p><p class="small">Group TDs by tax ID, not by Company, when checking FANF or tax reporting. <span class="cf">confirm</span> where the tax ID is stored in the merchant set-up.</p></div>
+</div>
+</div>
+</section>
+
+<section class="band" id="process">
+<div class="wrap">
+<h2>Where each process touches the hierarchy</h2>
+<p>Read across a row to see the level where something happens and the levels that only see it as a roll-up.</p>
+<div class="key"><span><b style="color:var(--blue)">●</b> happens or is set here</span><span><b style="color:var(--blue)">○</b> visible as a roll-up</span><span><b style="color:var(--red)">◆</b> cuts across the tree</span></div>
+<div class="scroll" style="margin-top:12px"><table id="procTable"><thead><tr><th>Process</th><th class="c">PE</th><th class="c">CO</th><th class="c">BU</th><th class="c">TD</th><th class="c">FTI</th></tr></thead><tbody></tbody></table></div>
+</div>
+</section>
+
+<section class="band" id="older" style="background:var(--soft)">
+<div class="wrap">
+<h2>Older hierarchies you will still meet</h2>
+<p>Chase's front ends and older portals each used their own level names. The leaf is always the merchant location; the names above it change. Leaves are drawn at the bottom so equivalent levels line up.</p>
+<div class="old" id="oldGrid"></div>
+<p class="small" style="margin-top:16px">Dashed boxes are reserved for Chase Paymentech. Resource Online's guide says most merchants on the FDMS-style back end use only the bottom three levels, which roughly match NPCO 1, Company and TD. Front-end reports link back to the merchant through the Reporting Merchant # and, on Tandem (PNS), the PNS Merchant #.</p>
+</div>
+</section>
+
+<section class="band" id="reports">
+<div class="wrap">
+<h2>How the hierarchy shows up in merchant reports</h2>
+<div class="two">
+<div>
+<h3 style="margin-bottom:10px">Choosing the level</h3>
+<ul class="tight">
+<li>Current reports take an entity picker: PE, CO, BU, TD, FTI or RG. Report file names and headers carry the Processing Entity ID.</li>
+<li>In Resource Online, users start at the highest level they're entitled to. They move with Drill Down and Drill Up, the Selected Hierarchy list, Quick Search by hierarchy or merchant number, and Top Level.</li>
+<li>Pre-generated reports are built at the user account's hierarchy level and can't be switched to another level.</li>
+<li>Statements are chosen by hierarchy or merchant number.</li>
+</ul>
+<h3 style="margin:22px 0 10px">Fields that carry the level</h3>
+<ul class="tight">
+<li><b>Entity Type Code</b>: "the level at which the reported event occurred" (PE, CO, BU or TD).</li>
+<li><b>Entity Identifier</b>: the CO, BU, TD or PE number that goes with it.</li>
+<li><b>Transaction Division External Identifier</b>: part of the key of the Deposit Details report.</li>
+<li>Resource Online fields: Reporting Merch #, Client #, Division, Chain ID. Chargeback cases carry CO, BU and TD.</li>
+</ul>
+</div>
+<div>
+<h3 style="margin-bottom:10px">One merchant, three levels in one file</h3>
+<div class="scroll"><table class="small"><thead><tr><th>Entity Type Code</th><th>Entity Identifier</th><th>Event</th><th style="text-align:right">Amount</th></tr></thead>
+<tbody>
+<tr><td>TD</td><td>412501</td><td>Settled sale, web store</td><td style="text-align:right;white-space:nowrap">$100.00</td></tr>
+<tr><td>TD</td><td>412201</td><td>Chargeback debit, Frisco</td><td style="text-align:right;white-space:nowrap">−$42.10</td></tr>
+<tr><td>CO</td><td>210118</td><td>Monthly account fee</td><td style="text-align:right;white-space:nowrap">−$25.00</td></tr>
+</tbody></table></div>
+<p class="small muted" style="margin-top:6px">Illustrative rows for the sample merchant.</p>
+<h3 style="margin:18px 0 10px">Traps</h3>
+<ul class="tight">
+<li>Add a Company's total and its Business Units' totals together and you count the same money twice. Sum only one level.</li>
+<li>Rows posted above the TD, such as account fees, have no TD. Joining every row to a TD drops them.</li>
+<li>A Company-level funding summary won't match one bank statement. Reconcile per FTI.</li>
+<li>Changing a custom hierarchy can make month-to-month comparisons unreliable. Keep history of the tree.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band" id="model" style="background:var(--soft)">
+<div class="wrap">
+<h2>Modelling it in the warehouse</h2>
+<p>Keep the tree as its own versioned dimension. Post facts at the level in Entity Type Code, then roll them up through the path that was valid on the event date, so a TD that moved to another Business Unit doesn't rewrite history. FTI and reporting-group membership go in bridge tables because they don't follow the tree.</p>
+<button type="button" class="copy" id="copyBtn">Copy SQL</button>
+<pre id="sql"><code>-- One row per node at any level, versioned so a TD can move
+create table dim_merchant_hierarchy (
+  entity_type   char(2),      -- PE, CO, BU, TD
+  entity_id     varchar,      -- the number at that level
+  parent_type   char(2),
+  parent_id     varchar,
+  pe_id varchar, co_id varchar, bu_id varchar, td_id varchar,  -- flattened path
+  platform      varchar,      -- Salem (6-digit MID) or PNS (12-digit)
+  valid_from    date,
+  valid_to      date          -- '9999-12-31' for the current row
+);
+
+-- Funding and reporting groups don't follow the tree
+create table bridge_fti_td   (fti_id varchar, td_id varchar, valid_from date, valid_to date);
+create table bridge_rg_entity (rg_id varchar, entity_type char(2), entity_id varchar);
+
+-- Roll every fact up to Company as the tree stood on the event date
+select h.co_id, f.event_date, sum(f.amount) as amount
+from fact_financial_event f
+join dim_merchant_hierarchy h
+  on  h.entity_type = f.entity_type_code
+  and h.entity_id   = f.entity_identifier
+  and f.event_date between h.valid_from and h.valid_to
+group by h.co_id, f.event_date;</code></pre>
+</div>
+</section>
+
+<section class="band" id="sources">
+<div class="wrap">
+<h2>Sources</h2>
+<ul class="src">
+<li><a href="https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/resource_online_reports_guide.pdf">Resource Online Reports Guide</a>, section 1.3, Understanding the Hierarchy: Company, TD, NPCO, FDMS levels, custom hierarchies, navigation</li>
+<li><a href="https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/resource_online_pro_user_guide.pdf">Resource Online PRO User Guide</a>, section 3.3: the three hierarchy options, custom hierarchy examples, statements by level</li>
+<li><a href="https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/preset-reports/financial-activity-summary-report">JPMorgan Financial Activity Summary report</a>: entity types, Entity Type Code, funding at FTI level</li>
+<li><a href="https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/preset-reports/deposit-details-report">JPMorgan Deposit Details report</a>: Entity Identifier, TD External Identifier</li>
+<li><a href="https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/attribute-glossary">JPMorgan reporting attribute glossary</a>: Entity Type Code values, settled vs conveyed</li>
+<li><a href="https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/integration-options/custom-integration">JPMorgan Reporting API custom integration</a>: Processing Entity ID in file names and headers</li>
+<li><a href="https://developer.payments.jpmorgan.com/api/commerce/optimization-protection/reporting/error-codes">JPMorgan Reporting API response codes</a>: one entity type and ID per reporting-group request</li>
+<li><a href="https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/1099-k_explanation_form.pdf">Chase 1099-K explanation form</a>: payee is the merchant's IRS filing name</li>
+</ul>
+<p class="small muted">Public documentation doesn't define the Processing Entity or Business Unit beyond their codes. Their descriptions here are the usual reading of how they're used, tagged for confirmation. Compiled November 2026.</p>
+</div>
+</section>
+
+<script>
+{
+const N=[
+ {id:'pe',l:0,name:'Lakeview Group',num:'PE 100045',p:null},
+ {id:'co1',l:1,name:'Lakeview Stores',num:'CO 210118',p:'pe'},
+ {id:'co2',l:1,name:'Lakeview Direct',num:'CO 210119',p:'pe'},
+ {id:'bu1',l:2,name:'Texas stores',num:'BU 330071',p:'co1'},
+ {id:'bu2',l:2,name:'Oklahoma stores',num:'BU 330072',p:'co1'},
+ {id:'bu3',l:2,name:'Online & phone',num:'BU 330080',p:'co2'},
+ {id:'td1',l:3,name:'Frisco store',num:'TD 412201',p:'bu1',fti:'A',rg:1},
+ {id:'td2',l:3,name:'Plano store',num:'TD 412202',p:'bu1',fti:'A'},
+ {id:'td3',l:3,name:'Tulsa store',num:'TD 412310',p:'bu2',fti:'C'},
+ {id:'td4',l:3,name:'Web store',num:'TD 412501',p:'bu3',fti:'B',rg:1},
+ {id:'td5',l:3,name:'Call center',num:'TD 412502',p:'bu3',fti:'B'}
+];
+const FTI={A:'FTI A · Texas stores account',B:'FTI B · Direct account',C:'FTI C · Oklahoma account'};
+const LV=['Processing Entity','Company','Business Unit','Transaction Division'];
+const CODES=['PE','CO','BU','TD'];
+const NOTES={
+ tree:'<h3>Read it top down</h3><ol><li><b>Processing Entity</b> is the top of the tree and the level report files are produced for.</li><li><b>Company</b> is the organization that contracts with Chase.</li><li><b>Business Unit</b> groups TDs inside a Company, here by region and channel.</li><li><b>Transaction Division</b> is a location or channel with its own merchant ID. Every transaction posts here.</li></ol>',
+ fti:'<h3>Funding takes its own route</h3><p>Each TD points to a funds transfer instruction. Frisco and Plano fund one Texas account, Tulsa funds its own, and both Direct TDs share a third.</p><p>Lakeview Stores is one Company paid through two FTIs, which is why a Company-level funding summary matches neither bank statement.</p>',
+ rg:'<h3>A reporting group ignores branches</h3><p>"Flagship review" holds the Frisco store and the web store, which sit under different Companies. One report on the group covers both without pulling in the rest of either Company.</p><p>Groups are for reporting only; they don\'t change funding, pricing or where transactions post.</p>',
+ sale:'<h3>One $100 web sale</h3><ol><li>The authorization and deposit carry TD 412501\'s merchant ID. The sale posts there.</li><li>Business Unit "Online & phone" totals include it.</li><li>So does Company "Lakeview Direct", on its statement and fee summary.</li><li>The Processing Entity\'s daily report file includes it, under Entity Type Code TD.</li><li>The money itself leaves through FTI B, not up the tree.</li></ol>'
+};
+const svg=document.getElementById('tree');
+const note=document.getElementById('modeNote');
+let mode='tree',raf=0;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const byId=Object.fromEntries(N.map(n=>[n.id,n]));
+const kids=id=>N.filter(n=>n.p===id);
+const salePath=['td4','bu3','co2','pe'];
+function layout(W){
+ const pos={};
+ if(W>=600){
+  const lab=W>=820?150:0, tds=N.filter(n=>n.l===3), slot=(W-lab)/tds.length, bw=Math.min(168,slot-12), bh=52, gap=W>=820?46:40, top=14;
+  tds.forEach((n,i)=>pos[n.id]={x:lab+slot*i+slot/2,y:top+3*(bh+gap),w:bw,h:bh});
+  for(let l=2;l>=0;l--)N.filter(n=>n.l===l).forEach(n=>{const c=kids(n.id).map(k=>pos[k.id].x);pos[n.id]={x:c.reduce((a,b)=>a+b,0)/c.length,y:top+l*(bh+gap),w:Math.min(l===0?176:168,Math.max(bw,124)),h:bh}});
+  return {pos,wide:true,lab,bh,gap,top,slot,H:top+4*bh+3*gap+(mode==='fti'||mode==='rg'?96:16)};
+ }
+ const order=[];(function walk(id){order.push(id);kids(id).forEach(k=>walk(k.id))})('pe');
+ const rh=58;order.forEach((id,i)=>{const n=byId[id],x=8+n.l*20;pos[id]={x0:x,y:8+i*rh,w:W-x-4,h:48}});
+ return {pos,wide:false,H:8+order.length*rh+4};
+}
+function boxXY(p,wide){return wide?{x:p.x-p.w/2,y:p.y}:{x:p.x0,y:p.y}}
+function draw(){
+ cancelAnimationFrame(raf);
+ const W=svg.clientWidth||svg.parentNode.clientWidth;
+ const L=layout(W),P=L.pos;let o='';
+ svg.setAttribute('viewBox',`0 0 ${W} ${L.H}`);svg.setAttribute('height',L.H);
+ if(L.wide&&L.lab)CODES.forEach((c,l)=>{o+=`<text class="lvl" x="0" y="${L.top+l*(L.bh+L.gap)+22}">${LV[l]}</text><text class="lvl" x="0" y="${L.top+l*(L.bh+L.gap)+40}" style="font-weight:600">${c}</text>`});
+ N.forEach(n=>{if(!n.p)return;const a=P[n.p],b=P[n.id];
+  if(L.wide){const y1=a.y+a.h,y2=b.y,ym=(y1+y2)/2;o+=`<path class="edge" d="M${a.x} ${y1}V${ym}H${b.x}V${y2}"/>`}
+  else{o+=`<path class="edge" d="M${a.x0+12} ${a.y+a.h}V${b.y+b.h/2}H${b.x0}"/>`}});
+ if(mode==='sale'){const s0=P[salePath[0]];let d=L.wide?`M${s0.x} ${s0.y+s0.h/2}`:`M${s0.x0+24} ${s0.y+s0.h/2}`;
+  salePath.slice(1).forEach((id,i)=>{const a=P[salePath[i]],b=P[id],last=i===salePath.length-2;
+   if(L.wide){const ym=(a.y+b.y+b.h)/2;d+=`V${ym}H${b.x}V${b.y+b.h/2}`}
+   else{d+=`H${b.x0+12}V${b.y+b.h}`+(last?'':`V${b.y+b.h/2}`)}});
+  o+=`<path id="rt" class="route" d="${d}"/><circle id="tok" class="tok" r="7" cx="-20" cy="-20"/>`}
+ N.forEach(n=>{const p=P[n.id],b=boxXY(p,L.wide),hot=mode==='sale'&&salePath.includes(n.id);
+  const tag=!L.wide&&mode==='fti'&&n.fti?`FTI ${n.fti}`:(!L.wide&&mode==='rg'&&n.rg?'RG':'');
+  const tx=L.wide?p.x:b.x+12,anchor=L.wide?'middle':'start';
+  o+=`<g class="nd l${n.l}${hot?' hot':''}" data-id="${n.id}" tabindex="0" role="button" aria-label="${esc(LV[n.l]+' '+n.name)}"><rect x="${b.x}" y="${b.y}" width="${p.w}" height="${p.h}" rx="8" stroke-width="1.5"/>`+
+   `<text class="nm" x="${tx}" y="${b.y+21}" text-anchor="${anchor}">${esc(L.wide?n.name:CODES[n.l]+' · '+n.name)}</text><text class="id" x="${tx}" y="${b.y+39}" text-anchor="${anchor}">${esc(n.num)}</text>`+
+   (tag?`<text class="tag" x="${b.x+p.w-10}" y="${b.y+30}" text-anchor="end" fill="${mode==='rg'?'var(--blue)':'var(--red)'}">${tag}</text>`:'')+`</g>`});
+ if(L.wide&&mode==='fti'){const ty=P.td1.y+P.td1.h,by=ty+50;['A','C','B'].forEach(k=>{const m=N.filter(n=>n.fti===k),cx=m.reduce((a,n)=>a+P[n.id].x,0)/m.length,bw=Math.min(200,1.5*L.slot-14);
+   m.forEach(n=>o+=`<path class="fline" d="M${P[n.id].x} ${ty}V${by-14}H${cx}V${by}"/>`);
+   const lab=FTI[k].split(' · ');o+=`<g class="bank"><rect x="${cx-bw/2}" y="${by}" width="${bw}" height="40" rx="6"/><text x="${cx}" y="${by+17}" text-anchor="middle" style="font-weight:600">${lab[0]}</text><text x="${cx}" y="${by+33}" text-anchor="middle">${lab[1]}</text></g>`})}
+ if(L.wide&&mode==='rg'){const m=N.filter(n=>n.rg);m.forEach(n=>{const p=P[n.id];o+=`<rect class="rg" x="${p.x-p.w/2-6}" y="${p.y-6}" width="${p.w+12}" height="${p.h+12}" rx="11"/>`});
+   const a=P[m[0].id],b=P[m[1].id],y=a.y+a.h+40;o+=`<path class="rg" d="M${a.x} ${a.y+a.h+6}V${y}H${b.x}V${b.y+b.h+6}"/><text class="rgt" x="${(a.x+b.x)/2}" y="${y+22}" text-anchor="middle">RG "Flagship review"</text>`}
+ svg.innerHTML=o;
+ if(mode==='sale'){const rt=svg.querySelector('#rt'),tk=svg.querySelector('#tok'),len=rt.getTotalLength();
+  const still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(still){const q=rt.getPointAtLength(len);tk.setAttribute('cx',q.x);tk.setAttribute('cy',q.y)}
+  else{let t0=0;const step=t=>{if(!t0)t0=t;const f=((t-t0)%3600)/3000,q=rt.getPointAtLength(Math.min(f,1)*len);tk.setAttribute('cx',q.x);tk.setAttribute('cy',q.y);raf=requestAnimationFrame(step)};raf=requestAnimationFrame(step)}}
+}
+function setMode(m){mode=m;document.querySelectorAll('.modes button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===m));note.innerHTML=NOTES[m];draw()}
+document.querySelectorAll('.modes button').forEach(b=>b.addEventListener('click',()=>setMode(b.dataset.m)));
+const go=id=>{const n=byId[id];if(!n)return;const el=document.getElementById('lv-'+CODES[n.l]);el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1600)};
+svg.addEventListener('click',e=>{const g=e.target.closest('.nd');if(g)go(g.dataset.id)});
+svg.addEventListener('keydown',e=>{const g=e.target.closest('.nd');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();go(g.dataset.id)}});
+const treeObs=new ResizeObserver(draw);treeObs.observe(svg.parentNode);
+
+const CF='<span class="cf">confirm</span>';
+const LEVELS=[
+ {c:'PE',t:'Processing Entity',one:'The top of the tree in current JPMorgan reporting. Everything a client processes rolls up to it.',
+  f:[['Identifier','Processing Entity ID. Report file names, file headers and trailers carry it.'],['Set or held here','The client relationship as a whole; usually one per enterprise client. '+CF],['In processing','Nothing is authorized or settled at this level. It exists to group.'],['In reports','Daily and monthly report files are produced per Processing Entity. A PE-level report is the whole client in one file.'],['Older name','Above the Company, Resource Online allowed up to four non-processing parent companies (NPCO). The PE plays that grouping role. '+CF]]},
+ {c:'CO',t:'Company',one:'The organization that contracts with Chase. Resource Online calls it the highest standard level.',
+  f:[['Identifier','Company number (CO).'],['Set or held here','The merchant agreement and, typically, the pricing schedule and billing set-up that its TDs inherit. '+CF],['In processing','No transactions post here, but account-level items can: Entity Type Code CO marks an event that occurred at Company level, such as some monthly fees.'],['In reports','Statements, fee and financial summaries for the whole contract. A Company-level funding summary combines every FTI under it.'],['Watch for','One client can have several Companies, for example one per legal entity or country.']]},
+ {c:'BU',t:'Business Unit',one:'An optional grouping between a Company and its TDs, used to split a Company by region, brand or channel.',
+  f:[['Identifier','Business Unit number (BU).'],['Set or held here','The grouping itself. Public documentation lists BU only as an entity type; whether any settings live here varies by client. '+CF],['In processing','Like the Company, a grouping level. Chargeback cases still carry the BU alongside CO and TD.'],['In reports','Run any report at BU level to see one region or channel. Because BU totals add up to the Company, never sum both.'],['Older name','Close to Chain in the FDMS-style hierarchy and Division on the Tandem front end.']]},
+ {c:'TD',t:'Transaction Division',one:'The leaf: one location, channel or account that processes cards. Every authorization, deposit, refund and chargeback belongs to a TD.',
+  f:[['Identifier','The TD number. Resource Online says the TD number is also the merchant ID (MID) unless stated otherwise. Salem (Stratus) MIDs are 6 digits; Tandem (PNS) merchant numbers are 12.'],['Set or held here','Merchant name and descriptor, MCC, card types accepted, the platform it is boarded on, its terminals and the FTI it funds to.'],['In processing','Auth requests carry the MID and terminal ID. Batches and deposits post to the TD, interchange is qualified per transaction there, and chargebacks are matched back to the original sale there.'],['In reports','The most detailed card processing and funding data. Deposit Details is keyed by TD External Identifier.'],['Below the leaf','Not hierarchy levels, but every TD owns terminals (TIDs), batches, orders and transactions. Those are the rows of the fact tables.']]}
+];
+document.getElementById('levelList').innerHTML=LEVELS.map((v,i)=>{
+ const rungs=[0,1,2,3].map(k=>`<rect x="${10+k*12}" y="${8+k*30}" width="${110-k*24}" height="22" rx="5" fill="${k===i?(k===3?'var(--red)':'var(--blue)'):'none'}" stroke="${k===3?'var(--red)':'var(--blue)'}" stroke-width="1.5" opacity="${k===i?1:.45}"/><text x="${16+k*12}" y="${23+k*30}" font-size="13" font-weight="600" fill="${k===i?'var(--bg)':'var(--muted)'}" font-family="Inter,sans-serif">${CODES[k]}</text>`).join('');
+ return `<article class="level" id="lv-${v.c}"><svg class="ladder" viewBox="0 0 140 132" role="img" aria-label="${v.t} is level ${i+1} of 4">${rungs}</svg><div><div class="code">${v.c} · level ${i+1} of 4</div><h3>${v.t}</h3><p style="margin-top:8px">${v.one}</p><dl class="facts">${v.f.map(x=>`<dt>${x[0]}</dt><dd>${x[1]}</dd>`).join('')}</dl></div></article>`}).join('');
+
+const D='●',R='○',X='◆';
+const PROC=[
+ ['Boarding and set-up','Parents are created first; each location or channel becomes a TD with its own MID and FTI',[D,D,D,D,D]],
+ ['Authorization','The request carries the MID (TD) and terminal ID',['','','',D,'']],
+ ['Capture and settlement','Batches and deposits post to the TD',[R,R,R,D,'']],
+ ['Interchange and per-item fees','Qualified and priced per transaction at the TD',[R,R,R,D,'']],
+ ['Account-level fees','Entity Type Code shows where each fee posted; some post above the TD',[R,D,D,D,'']],
+ ['Funding','Money moves per FTI, which collects one or more TDs',['',R,'',R,D]],
+ ['Chargebacks','Matched to the original sale; the case carries CO, BU and TD',[R,R,R,D,'']],
+ ['Statements','Chosen by hierarchy or merchant number',[R,D,D,D,'']],
+ ['Report runs','Any level can be picked, plus reporting groups',[D,D,D,D,D]],
+ ['Portal access','Users land at the highest level they are entitled to',[D,D,D,D,'']],
+ ['Visa FANF','Assessed across all accounts under one taxpayer ID',[X,X,X,X,'']],
+ ['Form 1099-K','Issued in the merchant\'s IRS filing name',[X,X,X,X,'']]
+];
+document.querySelector('#procTable tbody').innerHTML=PROC.map(r=>`<tr><td><span class="pn">${r[0]}</span><span class="pd">${r[1]}</span></td>${r[2].map(v=>`<td class="c${v===X?' x':''}" aria-label="${v===D?'happens here':v===R?'roll-up':v===X?'cuts across':'not used'}">${v}</td>`).join('')}</tr>`).join('');
+
+const OLD=[
+ {t:'Current reporting',s:'Commerce Center and Reporting API',l:[['Processing Entity (PE)'],['Company (CO)'],['Business Unit (BU)'],['Transaction Division (TD)','leaf']]},
+ {t:'Resource Online back end',s:'Chase North American hierarchy',l:[['NPCO 1 to 4, optional'],['Company'],['Transaction Division / location','leaf']]},
+ {t:'FDMS-style, front and back end',s:'Option one in Resource Online PRO',l:[['Business','res'],['Bank','res'],['Agent','res'],['Corporate'],['Chain'],['Merchant location / outlet','leaf']]},
+ {t:'Front end only',s:'Tandem (PNS) front end',l:[['Client'],['Division'],['Merchant location / outlet','leaf']]},
+ {t:'Custom hierarchy',s:'Built by Chase on request',l:[['Level I'],['Level II'],['Level III']]}
+];
+document.getElementById('oldGrid').innerHTML=OLD.map(c=>`<div class="stackcol"><h3>${c.t}</h3><div class="sub">${c.s}</div>${c.l.map(x=>`<div class="rung${x[1]?' '+x[1]:''}">${x[0]}</div>`).join('')}</div>`).join('');
+
+document.getElementById('copyBtn').addEventListener('click',e=>{const b=e.currentTarget;navigator.clipboard.writeText(document.getElementById('sql').textContent).then(()=>{b.textContent='Copied'},()=>{b.textContent='Select the text to copy'}).finally(()=>setTimeout(()=>{b.textContent='Copy SQL'},1800))});
+setMode('tree');
+}
+</script>
+</body>
+</html>

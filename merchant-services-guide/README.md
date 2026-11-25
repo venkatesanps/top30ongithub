@@ -1,6 +1,6 @@
 # Merchant Services: End-to-End Payment Data & Process Flow
 
-An onboarding guide for developers and data engineers joining a merchant services (card acquiring) technology team. It follows a card payment from the merchant's terminal, website or phone through authorization, settlement, funding, fees and chargebacks to the reports merchants pull from the portal.
+An onboarding guide for developers and data engineers joining a merchant services (card acquiring) technology team. It follows a card payment from the merchant's terminal, website or phone through authorization, settlement, funding, fees and chargebacks to the reports merchants pull from the portal. It ends with the merchant hierarchy that every one of those steps hangs off.
 
 *Compiled November 2026 from public sources, which are linked in each section. Points marked **Confirm internally** are where public material stops and internal runbooks and data dictionaries take over. Diagrams are written in Mermaid and render on GitHub.*
 
@@ -42,6 +42,17 @@ An onboarding guide for developers and data engineers joining a merchant service
 - [Mastercard fees](#mastercard-fees) · [Visa fees](#visa-fees) · [Discover fees](#discover-fees)
 - [Chase account and processing fees](#chase-account-and-processing-fees)
 - [Penalty fees as data-quality signals](#penalty-fees-as-data-quality-signals)
+
+**[Part 4: Merchant hierarchy](#part-4-merchant-hierarchy)**
+
+- [The tree at a glance](#the-tree-at-a-glance)
+- [Each level, top to leaf](#each-level-top-to-leaf): [PE](#processing-entity-pe) · [CO](#company-co) · [BU](#business-unit-bu) · [TD](#transaction-division-td)
+- [Funding, reporting groups and tax ID](#funding-reporting-groups-and-tax-id)
+- [Follow one sale up the tree](#follow-one-sale-up-the-tree)
+- [Where each process touches the hierarchy](#where-each-process-touches-the-hierarchy)
+- [Older hierarchies you will still meet](#older-hierarchies-you-will-still-meet)
+- [How the hierarchy shows up in merchant reports](#how-the-hierarchy-shows-up-in-merchant-reports)
+- [Modelling the hierarchy in the warehouse](#modelling-the-hierarchy-in-the-warehouse)
 
 ---
 
@@ -129,7 +140,7 @@ flowchart TD
     BU2 --> TD4["TD (MID)"]
 ```
 
-Transactions post at the Transaction Division (TD); reports roll up the tree. Fees and funding can be set at higher levels.
+Transactions post at the Transaction Division (TD); reports roll up the tree. Fees and funding can be set at higher levels. [Part 4](#part-4-merchant-hierarchy) explains every level in detail.
 
 | Term | Meaning | Why it matters to a developer |
 | --- | --- | --- |
@@ -1065,3 +1076,278 @@ Merchants can usually prevent the first five by fixing their integration: revers
 - American Express fees are not covered; Chase's page doesn't list them, and many merchants' Amex volume is conveyed.
 - The basis column (percentage or per item) and the transaction or non-transaction column are this guide's classification from the definitions; confirm against the internal fee table.
 
+---
+
+# Part 4: Merchant hierarchy
+
+Every card transaction posts at one place: the **Transaction Division (TD)**, the leaf of the tree, whose number is the merchant ID. Every level above it exists to group that activity for contracts, fees, statements and reports. Funding follows its own line, the **funds transfer instruction (FTI)**, which doesn't have to match any branch of the tree.
+
+The examples use a made-up merchant, "Lakeview", with made-up numbers. An interactive version of this part, with a clickable tree, is in [`merchant-hierarchy-interactive.html`](merchant-hierarchy-interactive.html): download it and open it in a browser.
+
+## The tree at a glance
+
+```mermaid
+flowchart TD
+    PE["Lakeview Group<br/>PE 100045"]:::pe
+    PE --> CO1["Lakeview Stores<br/>CO 210118"]:::co
+    PE --> CO2["Lakeview Direct<br/>CO 210119"]:::co
+    CO1 --> BU1["Texas stores<br/>BU 330071"]:::bu
+    CO1 --> BU2["Oklahoma stores<br/>BU 330072"]:::bu
+    CO2 --> BU3["Online & phone<br/>BU 330080"]:::bu
+    BU1 --> TD1["Frisco store<br/>TD 412201"]:::td
+    BU1 --> TD2["Plano store<br/>TD 412202"]:::td
+    BU2 --> TD3["Tulsa store<br/>TD 412310"]:::td
+    BU3 --> TD4["Web store<br/>TD 412501"]:::td
+    BU3 --> TD5["Call center<br/>TD 412502"]:::td
+    classDef pe fill:#1d2bd8,stroke:#1d2bd8,color:#ffffff
+    classDef co fill:#dfe2ff,stroke:#1d2bd8,color:#14110f
+    classDef bu fill:#f1f2ff,stroke:#8a92ee,color:#14110f
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+```
+
+1. **Processing Entity (PE)** is the top of the tree and the level report files are produced for.
+2. **Company (CO)** is the organization that contracts with Chase.
+3. **Business Unit (BU)** groups TDs inside a Company, here by region and channel.
+4. **Transaction Division (TD)** is a location or channel with its own merchant ID. Every transaction posts here.
+
+Points marked **Confirm internally** are where public documentation stops; check them against the internal merchant set-up guide.
+
+## Each level, top to leaf
+
+### Processing Entity (PE)
+
+The top of the tree in current JPMorgan reporting. Everything a client processes rolls up to it.
+
+| | |
+| --- | --- |
+| Identifier | Processing Entity ID. Report file names, file headers and trailers carry it. |
+| Set or held here | The client relationship as a whole; usually one per enterprise client. **Confirm internally** |
+| In processing | Nothing is authorized or settled at this level. It exists to group. |
+| In reports | Daily and monthly report files are produced per Processing Entity. A PE-level report is the whole client in one file. |
+| Older name | Above the Company, Resource Online allowed up to four non-processing parent companies (NPCO). The PE plays that grouping role. **Confirm internally** |
+
+### Company (CO)
+
+The organization that contracts with Chase. Resource Online calls it the highest standard level.
+
+| | |
+| --- | --- |
+| Identifier | Company number (CO). |
+| Set or held here | The merchant agreement and, typically, the pricing schedule and billing set-up that its TDs inherit. **Confirm internally** |
+| In processing | No transactions post here, but account-level items can: Entity Type Code CO marks an event that occurred at Company level, such as some monthly fees. |
+| In reports | Statements, fee and financial summaries for the whole contract. A Company-level funding summary combines every FTI under it. |
+| Watch for | One client can have several Companies, for example one per legal entity or country. |
+
+### Business Unit (BU)
+
+An optional grouping between a Company and its TDs, used to split a Company by region, brand or channel.
+
+| | |
+| --- | --- |
+| Identifier | Business Unit number (BU). |
+| Set or held here | The grouping itself. Public documentation lists BU only as an entity type; whether any settings live here varies by client. **Confirm internally** |
+| In processing | Like the Company, a grouping level. Chargeback cases still carry the BU alongside CO and TD. |
+| In reports | Run any report at BU level to see one region or channel. Because BU totals add up to the Company, never sum both. |
+| Older name | Close to Chain in the FDMS-style hierarchy and Division on the Tandem front end. |
+
+### Transaction Division (TD)
+
+The leaf: one location, channel or account that processes cards. Every authorization, deposit, refund and chargeback belongs to a TD.
+
+| | |
+| --- | --- |
+| Identifier | The TD number. Resource Online says the TD number is also the merchant ID (MID) unless stated otherwise. Salem (Stratus) MIDs are 6 digits; Tandem (PNS) merchant numbers are 12. |
+| Set or held here | Merchant name and descriptor, MCC, card types accepted, the platform it is boarded on, its terminals and the FTI it funds to. |
+| In processing | Auth requests carry the MID and terminal ID. Batches and deposits post to the TD, interchange is qualified per transaction there, and chargebacks are matched back to the original sale there. |
+| In reports | The most detailed card processing and funding data. Deposit Details is keyed by TD External Identifier. |
+| Below the leaf | Not hierarchy levels, but every TD owns terminals (TIDs), batches, orders and transactions. Those are the rows of the fact tables. |
+
+## Funding, reporting groups and tax ID
+
+These three group TDs differently from the parent-child line. Mixing them up is the most common cause of totals that don't reconcile.
+
+```mermaid
+flowchart TD
+    CO1["Lakeview Stores<br/>CO 210118"]:::co --> TD1["Frisco store<br/>TD 412201"]:::td
+    CO1 --> TD2["Plano store<br/>TD 412202"]:::td
+    CO1 --> TD3["Tulsa store<br/>TD 412310"]:::td
+    CO2["Lakeview Direct<br/>CO 210119"]:::co --> TD4["Web store<br/>TD 412501"]:::td
+    CO2 --> TD5["Call center<br/>TD 412502"]:::td
+    TD1 -.->|funds to| A["FTI A<br/>Texas stores account"]:::fti
+    TD2 -.->|funds to| A
+    TD3 -.->|funds to| C["FTI C<br/>Oklahoma account"]:::fti
+    TD4 -.->|funds to| B["FTI B<br/>Direct account"]:::fti
+    TD5 -.->|funds to| B
+    classDef co fill:#dfe2ff,stroke:#1d2bd8,color:#14110f
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+    classDef fti fill:#f5f6fa,stroke:#14110f,color:#14110f,stroke-dasharray:4 3
+```
+
+Business Units are left out of this drawing to keep it readable. Lakeview Stores is one Company paid through two FTIs, which is why a Company-level funding summary matches neither bank statement.
+
+- **Funds transfer instruction (FTI).** The instruction that moves money to a bank account. JPMorgan's reporting docs state that funding occurs at the FTI level. One FTI can collect several TDs, and TDs under one Company can fund to different accounts. A Financial Activity Summary run at Company level combines all FTI activity and may not match any single bank statement; run it per FTI to reconcile to the bank.
+- **Reporting group (RG).** A named set of entities chosen for reporting, from anywhere in the tree. Reports accept RG as an entity type next to PE, CO, BU, TD and FTI. An API request for a reporting group can carry only one entity type and ID. In Resource Online the equivalent was a custom hierarchy of up to three levels, such as 10 of a corporate office's 85 locations.
+- **Tax ID.** The merchant's taxpayer ID cuts across the tree. Visa assesses its monthly Fixed Acquirer Network Fee (FANF) across all accounts under one taxpayer ID, and Form 1099-K is issued in the merchant's IRS filing name. Group TDs by tax ID, not by Company, when checking FANF or tax reporting. **Confirm internally** where the tax ID is stored in the merchant set-up.
+
+```mermaid
+flowchart LR
+    subgraph RG["Reporting group: Flagship review"]
+        TD1["Frisco store<br/>TD 412201<br/>under Lakeview Stores"]:::td
+        TD4["Web store<br/>TD 412501<br/>under Lakeview Direct"]:::td
+    end
+    RG --> R["One report covering both TDs<br/>and nothing else from either Company"]
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+```
+
+Reporting groups are for reporting only; they don't change funding, pricing or where transactions post.
+
+## Follow one sale up the tree
+
+```mermaid
+flowchart BT
+    S(["$100 web sale"]) -->|auth and deposit carry the MID| TD4["Web store<br/>TD 412501<br/>sale posts here"]:::td
+    TD4 -->|counted in| BU3["Online & phone<br/>BU 330080"]:::bu
+    BU3 -->|counted in| CO2["Lakeview Direct<br/>CO 210119<br/>statement and fee summary"]:::co
+    CO2 -->|counted in| PE["Lakeview Group<br/>PE 100045<br/>daily report file"]:::pe
+    TD4 -.->|money leaves through| B["FTI B<br/>Direct account"]:::fti
+    classDef pe fill:#1d2bd8,stroke:#1d2bd8,color:#ffffff
+    classDef co fill:#dfe2ff,stroke:#1d2bd8,color:#14110f
+    classDef bu fill:#f1f2ff,stroke:#8a92ee,color:#14110f
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+    classDef fti fill:#f5f6fa,stroke:#14110f,color:#14110f,stroke-dasharray:4 3
+```
+
+1. The authorization and deposit carry TD 412501's merchant ID. The sale posts there.
+2. Business Unit "Online & phone" totals include it.
+3. So does Company "Lakeview Direct", on its statement and fee summary.
+4. The Processing Entity's daily report file includes it, under Entity Type Code TD.
+5. The money itself leaves through FTI B, not up the tree.
+
+## Where each process touches the hierarchy
+
+Read across a row to see the level where something happens and the levels that only see it as a roll-up. ● happens or is set here · ○ visible as a roll-up · ◆ cuts across the tree.
+
+| Process | How it uses the hierarchy | PE | CO | BU | TD | FTI |
+| --- | --- | :-: | :-: | :-: | :-: | :-: |
+| Boarding and set-up | Parents are created first; each location or channel becomes a TD with its own MID and FTI | ● | ● | ● | ● | ● |
+| Authorization | The request carries the MID (TD) and terminal ID | | | | ● | |
+| Capture and settlement | Batches and deposits post to the TD | ○ | ○ | ○ | ● | |
+| Interchange and per-item fees | Qualified and priced per transaction at the TD | ○ | ○ | ○ | ● | |
+| Account-level fees | Entity Type Code shows where each fee posted; some post above the TD | ○ | ● | ● | ● | |
+| Funding | Money moves per FTI, which collects one or more TDs | | ○ | | ○ | ● |
+| Chargebacks | Matched to the original sale; the case carries CO, BU and TD | ○ | ○ | ○ | ● | |
+| Statements | Chosen by hierarchy or merchant number | ○ | ● | ● | ● | |
+| Report runs | Any level can be picked, plus reporting groups | ● | ● | ● | ● | ● |
+| Portal access | Users land at the highest level they are entitled to | ● | ● | ● | ● | |
+| Visa FANF | Assessed across all accounts under one taxpayer ID | ◆ | ◆ | ◆ | ◆ | |
+| Form 1099-K | Issued in the merchant's IRS filing name | ◆ | ◆ | ◆ | ◆ | |
+
+## Older hierarchies you will still meet
+
+Chase's front ends and older portals each used their own level names. The leaf is always the merchant location; the names above it change.
+
+```mermaid
+flowchart TB
+    subgraph CU["Custom hierarchy"]
+        direction TB
+        e1["Level I"] --> e2["Level II"] --> e3["Level III"]
+    end
+    subgraph FE["Tandem (PNS) front end only"]
+        direction TB
+        d1["Client"] --> d2["Division"] --> d3["Merchant location / outlet"]:::td
+    end
+    subgraph FD["FDMS-style, front and back end"]
+        direction TB
+        c1["Business"]:::res --> c2["Bank"]:::res --> c3["Agent"]:::res --> c4["Corporate"] --> c5["Chain"] --> c6["Merchant location / outlet"]:::td
+    end
+    subgraph RO["Resource Online back end"]
+        direction TB
+        b1["NPCO 1 to 4, optional"] --> b2["Company"] --> b3["Transaction Division / location"]:::td
+    end
+    subgraph NOW["Current reporting"]
+        direction TB
+        a1["Processing Entity (PE)"] --> a2["Company (CO)"] --> a3["Business Unit (BU)"] --> a4["Transaction Division (TD)"]:::td
+    end
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+    classDef res fill:#ffffff,stroke:#8a8f9c,color:#5b6070,stroke-dasharray:4 3
+```
+
+- Dashed levels (Business, Bank, Agent) are reserved for Chase Paymentech.
+- Resource Online's guide says most merchants on the FDMS-style back end use only the bottom three levels, which roughly match NPCO 1, Company and TD.
+- A custom hierarchy is built by Chase on request: data for one outlet, a group of unrelated merchants, or a subset of related ones.
+- Front-end reports link back to the merchant through the Reporting Merchant # and, on Tandem (PNS), the PNS Merchant #.
+
+## How the hierarchy shows up in merchant reports
+
+**Choosing the level**
+
+- Current reports take an entity picker: PE, CO, BU, TD, FTI or RG. Report file names and headers carry the Processing Entity ID.
+- In Resource Online, users start at the highest level they're entitled to. They move with Drill Down and Drill Up, the Selected Hierarchy list, Quick Search by hierarchy or merchant number, and Top Level.
+- Pre-generated reports are built at the user account's hierarchy level and can't be switched to another level.
+- Statements are chosen by hierarchy or merchant number.
+
+**Fields that carry the level**
+
+- **Entity Type Code**: "the level at which the reported event occurred" (PE, CO, BU or TD).
+- **Entity Identifier**: the CO, BU, TD or PE number that goes with it.
+- **Transaction Division External Identifier**: part of the key of the Deposit Details report.
+- Resource Online fields: Reporting Merch #, Client #, Division, Chain ID. Chargeback cases carry CO, BU and TD.
+
+**One merchant, three levels in one file** (illustrative rows for the sample merchant)
+
+| Entity Type Code | Entity Identifier | Event | Amount |
+| --- | --- | --- | --: |
+| TD | 412501 | Settled sale, web store | $100.00 |
+| TD | 412201 | Chargeback debit, Frisco | −$42.10 |
+| CO | 210118 | Monthly account fee | −$25.00 |
+
+**Traps**
+
+- Add a Company's total and its Business Units' totals together and you count the same money twice. Sum only one level.
+- Rows posted above the TD, such as account fees, have no TD. Joining every row to a TD drops them.
+- A Company-level funding summary won't match one bank statement. Reconcile per FTI.
+- Changing a custom hierarchy can make month-to-month comparisons unreliable. Keep history of the tree.
+
+## Modelling the hierarchy in the warehouse
+
+Keep the tree as its own versioned dimension. Post facts at the level in Entity Type Code, then roll them up through the path that was valid on the event date, so a TD that moved to another Business Unit doesn't rewrite history. FTI and reporting-group membership go in bridge tables because they don't follow the tree.
+
+```sql
+-- One row per node at any level, versioned so a TD can move
+create table dim_merchant_hierarchy (
+  entity_type   char(2),      -- PE, CO, BU, TD
+  entity_id     varchar,      -- the number at that level
+  parent_type   char(2),
+  parent_id     varchar,
+  pe_id varchar, co_id varchar, bu_id varchar, td_id varchar,  -- flattened path
+  platform      varchar,      -- Salem (6-digit MID) or PNS (12-digit)
+  valid_from    date,
+  valid_to      date          -- '9999-12-31' for the current row
+);
+
+-- Funding and reporting groups don't follow the tree
+create table bridge_fti_td   (fti_id varchar, td_id varchar, valid_from date, valid_to date);
+create table bridge_rg_entity (rg_id varchar, entity_type char(2), entity_id varchar);
+
+-- Roll every fact up to Company as the tree stood on the event date
+select h.co_id, f.event_date, sum(f.amount) as amount
+from fact_financial_event f
+join dim_merchant_hierarchy h
+  on  h.entity_type = f.entity_type_code
+  and h.entity_id   = f.entity_identifier
+  and f.event_date between h.valid_from and h.valid_to
+group by h.co_id, f.event_date;
+```
+
+## Sources for Part 4
+
+- [Resource Online Reports Guide](https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/resource_online_reports_guide.pdf), section 1.3, Understanding the Hierarchy: Company, TD, NPCO, FDMS levels, custom hierarchies, navigation
+- [Resource Online PRO User Guide](https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/resource_online_pro_user_guide.pdf), section 3.3: the three hierarchy options, custom hierarchy examples, statements by level
+- [JPMorgan Financial Activity Summary report](https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/preset-reports/financial-activity-summary-report): entity types, Entity Type Code, funding at FTI level
+- [JPMorgan Deposit Details report](https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/preset-reports/deposit-details-report): Entity Identifier, TD External Identifier
+- [JPMorgan reporting attribute glossary](https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/attribute-glossary): Entity Type Code values
+- [JPMorgan Reporting API custom integration](https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/integration-options/custom-integration): Processing Entity ID in file names and headers
+- [JPMorgan Reporting API response codes](https://developer.payments.jpmorgan.com/api/commerce/optimization-protection/reporting/error-codes): one entity type and ID per reporting-group request
+- [Chase 1099-K explanation form](https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/1099-k_explanation_form.pdf): payee is the merchant's IRS filing name
+
+Public documentation doesn't define the Processing Entity or Business Unit beyond their codes. Their descriptions here are the usual reading of how they're used, marked for confirmation.

@@ -1,0 +1,14 @@
+flowchart TD
+    CO1["Lakeview Stores<br/>CO 210118"]:::co --> TD1["Frisco store<br/>TD 412201"]:::td
+    CO1 --> TD2["Plano store<br/>TD 412202"]:::td
+    CO1 --> TD3["Tulsa store<br/>TD 412310"]:::td
+    CO2["Lakeview Direct<br/>CO 210119"]:::co --> TD4["Web store<br/>TD 412501"]:::td
+    CO2 --> TD5["Call center<br/>TD 412502"]:::td
+    TD1 -.->|funds to| A["FTI A<br/>Texas stores account"]:::fti
+    TD2 -.->|funds to| A
+    TD3 -.->|funds to| C["FTI C<br/>Oklahoma account"]:::fti
+    TD4 -.->|funds to| B["FTI B<br/>Direct account"]:::fti
+    TD5 -.->|funds to| B
+    classDef co fill:#dfe2ff,stroke:#1d2bd8,color:#14110f
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+    classDef fti fill:#f5f6fa,stroke:#14110f,color:#14110f,stroke-dasharray:4 3

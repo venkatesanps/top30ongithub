@@ -1,0 +1,23 @@
+flowchart TB
+    subgraph CU["Custom hierarchy"]
+        direction TB
+        e1["Level I"] --> e2["Level II"] --> e3["Level III"]
+    end
+    subgraph FE["Tandem (PNS) front end only"]
+        direction TB
+        d1["Client"] --> d2["Division"] --> d3["Merchant location / outlet"]:::td
+    end
+    subgraph FD["FDMS-style, front and back end"]
+        direction TB
+        c1["Business"]:::res --> c2["Bank"]:::res --> c3["Agent"]:::res --> c4["Corporate"] --> c5["Chain"] --> c6["Merchant location / outlet"]:::td
+    end
+    subgraph RO["Resource Online back end"]
+        direction TB
+        b1["NPCO 1 to 4, optional"] --> b2["Company"] --> b3["Transaction Division / location"]:::td
+    end
+    subgraph NOW["Current reporting"]
+        direction TB
+        a1["Processing Entity (PE)"] --> a2["Company (CO)"] --> a3["Business Unit (BU)"] --> a4["Transaction Division (TD)"]:::td
+    end
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+    classDef res fill:#ffffff,stroke:#8a8f9c,color:#5b6070,stroke-dasharray:4 3
