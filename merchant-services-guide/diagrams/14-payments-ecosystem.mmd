@@ -1,0 +1,11 @@
+flowchart TD
+    ISS["Issuer<br/>cardholder's bank"] -->|pays for the purchase| NET["Card networks<br/>Visa, Mastercard, Discover, Amex"]
+    NET -->|net settlement| ACQ["Acquiring / sponsor bank<br/>Chase: Paymentech, LLC"]
+    ACQ -->|net funding| MER["Merchant tree<br/>PE → CO → BU → TD"]:::me
+    ACQ -->|funding| PF["Payment facilitator<br/>master merchant"]
+    PF -->|payouts| SUB["Sub-merchants"]
+    PROC["Processor and gateway<br/>hosts, switch, Orbital"] -.-|authorizes, settles, reports; holds no funds| ACQ
+    ISO["ISO or agent"] -.-|sells and supports| MER
+    MER --> PTS["Terminals, sites, apps, invoices"]
+    SUB --> PTS2["Sub-merchants' sales"]
+    classDef me fill:#fdecee,stroke:#c1121f,color:#14110f

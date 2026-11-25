@@ -1,0 +1,15 @@
+flowchart TB
+    subgraph PL["Platform or marketplace"]
+        direction TB
+        p1["Acquiring bank (Chase)"] --> p2["Platform account"] --> p3["Child merchants or sellers"] --> p4["TDs: child's own, or the platform's"]:::td --> p5["Transactions"]
+    end
+    subgraph PF["Payment facilitator"]
+        direction TB
+        f1["Acquiring bank (Chase)"] --> f2["PayFac: master merchant"] --> f3["PayFac's TDs (master MIDs)"]:::td --> f4["Sub-merchants"] --> f5["Sub-merchants' sales"]
+    end
+    subgraph DI["Direct or ISO-sold account"]
+        direction TB
+        d1["Acquiring bank (Chase)"] --> d2["ISO or agent, optional"]:::res --> d3["Merchant tree: PE → CO → BU"] --> d4["Merchant's own TDs (MIDs)"]:::td --> d5["Terminals, sites, apps"]
+    end
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+    classDef res fill:#ffffff,stroke:#8a8f9c,color:#5b6070,stroke-dasharray:4 3

@@ -49,8 +49,11 @@ An onboarding guide for developers and data engineers joining a merchant service
 - [Each level, top to leaf](#each-level-top-to-leaf): [PE](#processing-entity-pe) · [CO](#company-co) · [BU](#business-unit-bu) · [TD](#transaction-division-td)
 - [Funding, reporting groups and tax ID](#funding-reporting-groups-and-tax-id)
 - [Follow one sale up the tree](#follow-one-sale-up-the-tree)
+- [Above the merchant: who sits over the tree](#above-the-merchant-who-sits-over-the-tree)
+- [The same tree under three business models](#the-same-tree-under-three-business-models)
 - [Where each process touches the hierarchy](#where-each-process-touches-the-hierarchy)
 - [Older hierarchies you will still meet](#older-hierarchies-you-will-still-meet)
+- [Gateway hierarchies use other names](#gateway-hierarchies-use-other-names)
 - [How the hierarchy shows up in merchant reports](#how-the-hierarchy-shows-up-in-merchant-reports)
 - [Modelling the hierarchy in the warehouse](#modelling-the-hierarchy-in-the-warehouse)
 
@@ -1223,6 +1226,65 @@ flowchart BT
 4. The Processing Entity's daily report file includes it, under Entity Type Code TD.
 5. The money itself leaves through FTI B, not up the tree.
 
+## Above the merchant: who sits over the tree
+
+The PE-to-TD tree is the merchant's own structure. Above it sit the parties that move the money and carry the risk. Money and liability travel down different paths: a processor touches every transaction but holds no funds, and an ISO sells the account but usually carries no losses.
+
+```mermaid
+flowchart TD
+    ISS["Issuer<br/>cardholder's bank"] -->|pays for the purchase| NET["Card networks<br/>Visa, Mastercard, Discover, Amex"]
+    NET -->|net settlement| ACQ["Acquiring / sponsor bank<br/>Chase: Paymentech, LLC"]
+    ACQ -->|net funding| MER["Merchant tree<br/>PE → CO → BU → TD"]:::me
+    ACQ -->|funding| PF["Payment facilitator<br/>master merchant"]
+    PF -->|payouts| SUB["Sub-merchants"]
+    PROC["Processor and gateway<br/>hosts, switch, Orbital"] -.-|authorizes, settles, reports; holds no funds| ACQ
+    ISO["ISO or agent"] -.-|sells and supports| MER
+    MER --> PTS["Terminals, sites, apps, invoices"]
+    SUB --> PTS2["Sub-merchants' sales"]
+    classDef me fill:#fdecee,stroke:#c1121f,color:#14110f
+```
+
+Solid arrows carry money; dotted lines are parties that touch the transaction without holding the funds.
+
+| Party | What it does | Money passes through | Carries liability | At Chase |
+| --- | --- | --- | --- | --- |
+| Issuer | The cardholder's bank. Approves or declines, pays for the purchase, raises disputes | Yes: source of funds | Cardholder credit risk only | Chase is also an issuer, on the other side |
+| Card networks | Route authorizations, clear and settle between banks, set interchange and rules | Yes: net settlement | Set the rules, fine acquirers | Chase connects to each one |
+| Acquiring / sponsor bank | Network member that contracts with and underwrites merchants, and answers to the networks for their transactions | Yes: funds the merchant | Yes, primary | Paymentech, LLC, a JPMorgan Chase Bank subsidiary |
+| Processor and gateway | Authorization hosts, switch, settlement files, fees and reporting; gateways are the internet way in | No: calculates, holds none | No | Stratus and Tandem hosts, Orbital; Authorize.net for small-business e-commerce |
+| ISO or agent | Sells and supports merchant accounts under a bank's sponsorship | No | Only by contract | Referral and sales partners |
+| Payment facilitator | A master merchant that boards sub-merchants under its own TDs and pays them out | Yes: pays sub-merchants | Yes, for its sub-merchants | PayFacs processing through Chase |
+| **Merchant: PE → CO → BU → TD** | Sells, accepts cards and owns the customer | Yes: receives net funding | Yes: chargebacks and refunds | The client |
+| Where cards are taken | Terminals, websites, apps, invoices and links; each belongs to a TD, or to a sub-merchant under a PayFac | No | No | Terminal IDs, order IDs |
+
+ISO and PayFac arrangements vary by contract.
+
+## The same tree under three business models
+
+Who owns the TD changes the keys you join on. In a direct account the merchant's own TDs are the business key. Under a payment facilitator, many sub-merchants share the facilitator's TDs, so the sub-merchant ID becomes the key.
+
+```mermaid
+flowchart TB
+    subgraph PL["Platform or marketplace"]
+        direction TB
+        p1["Acquiring bank (Chase)"] --> p2["Platform account"] --> p3["Child merchants or sellers"] --> p4["TDs: child's own, or the platform's"]:::td --> p5["Transactions"]
+    end
+    subgraph PF["Payment facilitator"]
+        direction TB
+        f1["Acquiring bank (Chase)"] --> f2["PayFac: master merchant"] --> f3["PayFac's TDs (master MIDs)"]:::td --> f4["Sub-merchants"] --> f5["Sub-merchants' sales"]
+    end
+    subgraph DI["Direct or ISO-sold account"]
+        direction TB
+        d1["Acquiring bank (Chase)"] --> d2["ISO or agent, optional"]:::res --> d3["Merchant tree: PE → CO → BU"] --> d4["Merchant's own TDs (MIDs)"]:::td --> d5["Terminals, sites, apps"]
+    end
+    classDef td fill:#fdecee,stroke:#c1121f,color:#14110f
+    classDef res fill:#ffffff,stroke:#8a8f9c,color:#5b6070,stroke-dasharray:4 3
+```
+
+- **Direct or ISO-sold:** the merchant contracts with the acquirer and owns its TDs. An ISO only sells and supports the account. Join on the TD.
+- **Payment facilitator:** many sub-merchants share the PayFac's TDs. The sub-merchant ID and soft descriptor are the real keys, so reporting splits one level below the TD.
+- **Platform or marketplace:** depends on the programme. Children may get their own merchant accounts or ride on the platform's; check which before choosing the join key.
+
 ## Where each process touches the hierarchy
 
 Read across a row to see the level where something happens and the levels that only see it as a roll-up. ● happens or is set here · ○ visible as a roll-up · ◆ cuts across the tree.
@@ -1276,6 +1338,17 @@ flowchart TB
 - Resource Online's guide says most merchants on the FDMS-style back end use only the bottom three levels, which roughly match NPCO 1, Company and TD.
 - A custom hierarchy is built by Chase on request: data for one outlet, a group of unrelated merchants, or a subset of related ones.
 - Front-end reports link back to the merchant through the Reporting Merchant # and, on Tandem (PNS), the PNS Merchant #.
+
+## Gateway hierarchies use other names
+
+Gateways keep their own account trees. Visa Acceptance Solutions (Cybersource) uses **portfolio**, **merchant**, **structural** and **transacting** organizations. These are the gateway's IDs, not Chase TD numbers, so map them through the processor set-up rather than by name. The mapping below is by role, not an official cross-reference.
+
+| Gateway level | What it is there | Nearest Chase reporting level |
+| --- | --- | --- |
+| Portfolio | The top node, given to a partner who boards merchants. Every merchant account sits under it | None inside the merchant; it sits at the partner's level, above the PE |
+| Merchant organization | A business entity such as a brand or company; one per branch. Holds the token vault | Company (CO) |
+| Structural organization | Optional layers between merchant and transacting, for segmentation and reporting | Business Unit (BU) |
+| Transacting organization | Where payments are processed; every merchant has at least one | Transaction Division (TD), through its processor set-up. **Confirm internally** |
 
 ## How the hierarchy shows up in merchant reports
 
@@ -1348,6 +1421,7 @@ group by h.co_id, f.event_date;
 - [JPMorgan reporting attribute glossary](https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/attribute-glossary): Entity Type Code values
 - [JPMorgan Reporting API custom integration](https://developer.payments.jpmorgan.com/docs/commerce/optimization-protection/capabilities/reporting/integration-options/custom-integration): Processing Entity ID in file names and headers
 - [JPMorgan Reporting API response codes](https://developer.payments.jpmorgan.com/api/commerce/optimization-protection/reporting/error-codes): one entity type and ID per reporting-group request
+- [Visa Acceptance Solutions merchant boarding guide](https://developer.visaacceptance.com/docs/vas/en-us/boarding/user/all/ebc/boarding-user.html) and [MID hierarchy](https://developer.cas.visaacceptance.com/docs/vas/en-us/intelligent-commerce/developer/all/rest/intelligent-commerce/tms-mid-hierarchy.html): portfolio, merchant, structural and transacting organizations; token vault at merchant level
 - [Chase 1099-K explanation form](https://merchantservices.chase.com/content/dam/chase/merchant-services/support/us/documents/1099-k_explanation_form.pdf): payee is the merchant's IRS filing name
 
 Public documentation doesn't define the Processing Entity or Business Unit beyond their codes. Their descriptions here are the usual reading of how they're used, marked for confirmation.
