@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.25.0"
+    "version": "0.26.0"
   },
   "plugins": [
     {
@@ -81,8 +81,8 @@
     {
       "name": "top30-learn",
       "source": "./plugins/top30-learn",
-      "description": "ChatGPT-style learning commands: /mindmap (SVG, HTML, Mermaid, OPML), /sketchnotes (hand-drawn SVG), /flashcards (Anki, printable, spaced-repetition study page) and /educationalcomics (SVG pages plus image prompts), each with a linter, plus study-pack builder and reviewer agents.",
-      "version": "0.1.0",
+      "description": "ChatGPT-style learning commands: /mindmap (SVG, HTML, Mermaid, OPML), /sketchnotes (hand-drawn SVG), /flashcards (Anki, printable, spaced-repetition study page) and /educationalcomics (SVG pages plus image prompts), each with a linter, explainer-figures (one-idea SVG figures with sourced numbers and a layout linter), plus study-pack builder and reviewer and figure-maker agents.",
+      "version": "0.2.0",
       "category": "education"
     }
   ]

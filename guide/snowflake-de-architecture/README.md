@@ -106,6 +106,8 @@ Supporting objects:
   listing its files.
 - **File format:** how to parse the files.
 
+![Re-running COPY INTO skips files already in the table's 64-day load metadata; FORCE and CREATE OR REPLACE are the two ways to load rows twice](figures/copy-load-metadata.svg)
+
 **What people get wrong:** re-running `COPY INTO` doesn't reload files it already loaded.
 Snowflake keeps **64 days** of load metadata per table, so a second run says "0 files loaded".
 That is a safety feature, not a bug. `FORCE = TRUE` overrides it and duplicates your data, and
@@ -149,6 +151,8 @@ schedule.
 ## 5. Performance and cost
 
 Three caches, often confused:
+
+![Result cache and metadata are free; the warehouse cache costs a running warehouse and is dropped on suspend](figures/snowflake-caches.svg)
 
 | Cache | Lives in | Holds | How long | Cost to use |
 |---|---|---|---|---|
@@ -345,6 +349,9 @@ It was created as Gen2 (AWS), which is now the default in regions that have it. 
   and [Optimizing storage for performance](https://docs.snowflake.com/en/user-guide/performance-query-storage).
 - Sharing: [Reader accounts](https://docs.snowflake.com/en/user-guide/data-sharing-reader-create).
 - Editions: [Snowflake editions](https://docs.snowflake.com/en/user-guide/intro-editions).
+
+The two figures are built with the `explainer-figures` skill in `top30-learn`; their scripts are
+in `plugins/top30-learn/skills/explainer-figures/examples/`.
 
 To see how a single query moves through these layers, read the companion explainer
 [How a Snowflake query runs](../snowflake-query-execution/). To review your own SQL, use the

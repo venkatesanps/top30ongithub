@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" role="img" aria-label="Re-running COPY INTO loads nothing new. The table keeps 64 days of load metadata, so files it has already loaded are skipped.">
+<title>Re-running COPY INTO loads nothing new</title>
+<defs><marker id="ar-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#22252a"/></marker><marker id="ar-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#16897c"/></marker></defs>
+<rect width="960" height="500" fill="#fbfbf9"/>
+<text x="40" y="40" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#1d4f9e" letter-spacing="1.5">SNOWFLAKE · INGESTION</text>
+<text x="40" y="74" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="26" fill="#22252a" font-weight="700">Re-running COPY INTO loads nothing new</text>
+<text x="40" y="100" font-family="Georgia,'Times New Roman',serif" font-size="15" fill="#5d626b" font-style="italic">The table keeps 64 days of load metadata, so files it has already loaded are skipped.</text>
+<line x1="40" y1="118" x2="920" y2="118" stroke="#d9d9d4" stroke-width="1"/>
+<rect x="40" y="150" width="150" height="64" rx="8" fill="#f1f1ef" stroke="#22252a" stroke-width="1.5"/>
+<text x="115" y="180" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15" fill="#22252a" text-anchor="middle" font-weight="700">Stage</text>
+<text x="115" y="198.5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#5d626b" text-anchor="middle">3 files</text>
+<rect x="290" y="150" width="190" height="64" rx="8" fill="#e8f0fc" stroke="#2f6fd6" stroke-width="1.5"/>
+<text x="385" y="180" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15" fill="#1d4f9e" text-anchor="middle" font-weight="700">COPY INTO</text>
+<text x="385" y="198.5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#5d626b" text-anchor="middle">checks load metadata</text>
+<rect x="560" y="150" width="150" height="64" rx="8" fill="#f1f1ef" stroke="#22252a" stroke-width="1.5"/>
+<text x="635" y="180" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15" fill="#22252a" text-anchor="middle" font-weight="700">Table</text>
+<text x="635" y="198.5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#5d626b" text-anchor="middle">3 files loaded</text>
+<rect x="790" y="150" width="130" height="64" rx="8" fill="#e2f4f1" stroke="#16897c" stroke-width="1.5"/>
+<text x="855" y="180" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15" fill="#0d5f56" text-anchor="middle" font-weight="700">Metadata</text>
+<text x="855" y="198.5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#5d626b" text-anchor="middle">64 days</text>
+<path d="M190 182 L290 182" fill="none" stroke="#22252a" stroke-width="1.6" marker-end="url(#ar-ink)"/>
+<text x="240" y="175" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle" stroke="#fbfbf9" stroke-width="4" paint-order="stroke" stroke-linejoin="round">run 1</text>
+<path d="M480 182 L560 182" fill="none" stroke="#22252a" stroke-width="1.6" marker-end="url(#ar-ink)"/>
+<text x="520" y="175" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle" stroke="#fbfbf9" stroke-width="4" paint-order="stroke" stroke-linejoin="round">loads 3</text>
+<path d="M710 182 L790 182" fill="none" stroke="#16897c" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ar-teal)"/>
+<text x="750" y="175" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle" stroke="#fbfbf9" stroke-width="4" paint-order="stroke" stroke-linejoin="round">records</text>
+<polygon points="385,262 500,300 385,338 270,300" fill="#e8f0fc" stroke="#2f6fd6" stroke-width="1.5"/>
+<text x="385" y="305" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="14" fill="#1d4f9e" text-anchor="middle">loaded before?</text>
+<path d="M385 214 L385 262" fill="none" stroke="#22252a" stroke-width="1.6" marker-end="url(#ar-ink)"/>
+<text x="393" y="242" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" stroke="#fbfbf9" stroke-width="4" paint-order="stroke" stroke-linejoin="round">run 2</text>
+<rect x="580" y="268" width="340" height="64" rx="8" fill="#e5f4ea" stroke="#2e8b4f" stroke-width="1.5"/>
+<text x="750" y="298" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="15" fill="#1f6438" text-anchor="middle" font-weight="700">0 files processed</text>
+<text x="750" y="316.5" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12.5" fill="#5d626b" text-anchor="middle">safe to re-run after a failure</text>
+<path d="M500 300 L580 300" fill="none" stroke="#22252a" stroke-width="1.6" marker-end="url(#ar-ink)"/>
+<text x="540" y="293" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle" stroke="#fbfbf9" stroke-width="4" paint-order="stroke" stroke-linejoin="round">yes</text>
+<text x="40" y="384" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#992626">TWO WAYS TO LOAD THE SAME ROWS TWICE</text>
+<rect x="40" y="398" width="433" height="60" rx="8" fill="#fbe9e8" stroke="#cc3f3f" stroke-width="1.5"/>
+<text x="52" y="420" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b">FORCE = TRUE</text>
+<text x="52" y="444" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="22" fill="#992626" font-weight="700">reloads every file</text>
+<rect x="487" y="398" width="433" height="60" rx="8" fill="#fbe9e8" stroke="#cc3f3f" stroke-width="1.5"/>
+<text x="499" y="420" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b">CREATE OR REPLACE TABLE</text>
+<text x="499" y="444" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="22" fill="#992626" font-weight="700">wipes the metadata</text>
+<text x="40" y="484" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b">source: guide/snowflake-de-architecture/README.md §2; docs: Loading data (64-day load metadata)</text>
+</svg>

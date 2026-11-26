@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="480" viewBox="0 0 960 480" role="img" aria-label="Three caches, three lifetimes. Only the warehouse cache costs anything, and it's the one that disappears on suspend.">
+<title>Three caches, three lifetimes</title>
+<defs></defs>
+<rect width="960" height="480" fill="#fbfbf9"/>
+<text x="40" y="40" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#1d4f9e" letter-spacing="1.5">SNOWFLAKE · PERFORMANCE AND COST</text>
+<text x="40" y="74" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="26" fill="#22252a" font-weight="700">Three caches, three lifetimes</text>
+<text x="40" y="100" font-family="Georgia,'Times New Roman',serif" font-size="15" fill="#5d626b" font-style="italic">Only the warehouse cache costs anything, and it's the one that disappears on suspend.</text>
+<line x1="40" y1="118" x2="920" y2="118" stroke="#d9d9d4" stroke-width="1"/>
+<text x="48" y="167.3" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b">CACHE</text>
+<text x="280" y="167.3" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle">LIVES IN</text>
+<text x="455" y="167.3" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle">HOLDS</text>
+<text x="640" y="167.3" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle">HOW LONG</text>
+<text x="830" y="167.3" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b" text-anchor="middle">COST TO USE</text>
+<line x1="40" y1="184" x2="920" y2="184" stroke="#22252a" stroke-width="1"/>
+<text x="48" y="212.2" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#22252a">Result cache</text>
+<text x="280" y="212.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#22252a" text-anchor="middle">cloud services</text>
+<text x="455" y="212.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#22252a" text-anchor="middle">finished results</text>
+<rect x="543" y="187" width="194" height="38" rx="4" fill="#e2f4f1" stroke="#16897c" stroke-width="1"/>
+<text x="640" y="212.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#0d5f56" text-anchor="middle">24 h; renews on reuse</text>
+<rect x="743" y="187" width="174" height="38" rx="4" fill="#e5f4ea" stroke="#2e8b4f" stroke-width="1"/>
+<text x="830" y="212.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#1f6438" text-anchor="middle" font-weight="700">free</text>
+<rect x="40" y="228" width="880" height="44" fill="#f2f2ef"/>
+<text x="48" y="256.2" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#22252a">Metadata</text>
+<text x="280" y="256.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#22252a" text-anchor="middle">cloud services</text>
+<text x="455" y="256.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#22252a" text-anchor="middle">row counts, min/max</text>
+<rect x="543" y="231" width="194" height="38" rx="4" fill="#e2f4f1" stroke="#16897c" stroke-width="1"/>
+<text x="640" y="256.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#0d5f56" text-anchor="middle">always</text>
+<rect x="743" y="231" width="174" height="38" rx="4" fill="#e5f4ea" stroke="#2e8b4f" stroke-width="1"/>
+<text x="830" y="256.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#1f6438" text-anchor="middle" font-weight="700">free</text>
+<text x="48" y="300.2" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#22252a">Warehouse cache</text>
+<text x="280" y="300.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#22252a" text-anchor="middle">warehouse disk + RAM</text>
+<text x="455" y="300.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#22252a" text-anchor="middle">table data it read</text>
+<rect x="543" y="275" width="194" height="38" rx="4" fill="#fbe9e8" stroke="#cc3f3f" stroke-width="1"/>
+<text x="640" y="300.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#992626" text-anchor="middle" font-weight="700">dropped on suspend</text>
+<rect x="743" y="275" width="174" height="38" rx="4" fill="#fbe9e8" stroke="#cc3f3f" stroke-width="1"/>
+<text x="830" y="300.2" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#992626" text-anchor="middle" font-weight="700">warehouse running</text>
+<text x="40" y="352" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="13" fill="#22252a">WHAT THAT MEANS</text>
+<text x="40" y="375" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#5d626b">· A repeated dashboard query is free only while the data is unchanged and the SQL text is identical; each reuse</text>
+<text x="55.1" y="393" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#5d626b">renews the 24 hours, up to 31 days from the first run.</text>
+<text x="40" y="419" font-family="'Inter','Segoe UI','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="13" fill="#5d626b">· A short auto-suspend saves credits on ETL warehouses but throws away the cache a BI warehouse lives on.</text>
+<text x="40" y="464" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace" font-size="12" fill="#5d626b">source: guide/snowflake-de-architecture/README.md §5 (Snowflake docs, Nov 2026)</text>
+</svg>
