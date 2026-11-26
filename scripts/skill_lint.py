@@ -7,8 +7,9 @@
     python3 scripts/skill_lint.py plugins/ --write-baseline scripts/skill_lint_baseline.json
 
 The checks follow Uber's description of the linter behind its internal skills marketplace
-("How Uber Evals 1 Million Agent Skill Invocations a Month", November 2026). The post describes
-the rules, not an implementation; these are heuristics written to match it:
+("How Uber Evals 1 Million Agent Skill Invocations a Month", November 23, 2026,
+https://www.uber.com/us/en/blog/optimizing-ubers-agent-skills/). The post describes the rules, not an implementation;
+these are heuristics written to match it:
 
   numbered-steps      the procedure is written as numbered steps
   step-verifies       each step says how to check its result (soft verification is fine)
@@ -18,6 +19,9 @@ the rules, not an implementation; these are heuristics written to match it:
   body-length         the body stays under 500 lines (it loads in full whenever the skill runs)
   description-length  the description stays under 1,024 characters (it is always loaded)
   frontmatter         name and description are present
+  mcp-config          no .mcp.json in the skill folder or its plugin root: Uber blocks these because
+                      installed MCP tool definitions preload into every session (100+ tools cost
+                      50,000-70,000 tokens); call tools from scripts instead
 
 Steps are "## 1. Title" style headings, or top-level numbered list items (lists under headings
 such as Rules, Don'ts or Notes are not steps). Code fences are ignored when looking for headings,
@@ -34,7 +38,7 @@ import sys
 from pathlib import Path
 
 CHECKS = ("numbered-steps", "step-verifies", "step-command", "error-recovery", "retry-only-fix",
-          "body-length", "description-length", "frontmatter")
+          "body-length", "description-length", "frontmatter", "mcp-config")
 STEP_HEADING = re.compile(r"^(#{2,4})\s+(?:step\s+)?(\d+)[.:)]?\s+\S", re.I)
 HEADING = re.compile(r"^(#{1,6})\s+(.*)")
 LIST_ITEM = re.compile(r"^ ?(\d+)[.)]\s+\S")
@@ -214,6 +218,28 @@ def lint_text(text, rel="SKILL.md"):
     return findings
 
 
+def mcp_findings(path, rel_dir, text):
+    """A .mcp.json next to the skill, or at the root of the plugin that ships it."""
+    m = re.search(r"<!--\s*skill-lint:\s*disable(?:=([\w,\- ]+))?", text)
+    if m and (not m.group(1) or "mcp-config" in [x.strip() for x in re.split(r"[ ,]+", m.group(1))]):
+        return []
+    out, seen = [], set()
+    d = path.resolve().parent
+    candidates = [d / ".mcp.json"]
+    for anc in d.parents:
+        if (anc / ".claude-plugin" / "plugin.json").is_file():
+            candidates.append(anc / ".mcp.json")
+            break
+    for c in candidates:
+        if c.is_file() and c not in seen:
+            seen.add(c)
+            where = "the skill folder" if c.parent == d else f"its plugin root ({c.parent.name})"
+            out.append({"skill": rel_dir, "check": "mcp-config", "line": 0,
+                        "message": f".mcp.json in {where} installs MCP servers whose tool definitions load into "
+                                   "every session; call the tool from a script instead, or document why it's needed"})
+    return out
+
+
 def find_skills(paths):
     out = []
     for p in paths:
@@ -255,7 +281,9 @@ def main(argv=None):
         sys.exit("no SKILL.md found")
     findings = []
     for p in skills:
-        findings += lint_text(p.read_text(encoding="utf-8", errors="replace"), rel(p))
+        text = p.read_text(encoding="utf-8", errors="replace")
+        findings += lint_text(text, rel(p))
+        findings += mcp_findings(p, rel(p), text)
     now = counts(findings)
     if a.write_baseline:
         Path(a.write_baseline).write_text(json.dumps(now, indent=1) + "\n")

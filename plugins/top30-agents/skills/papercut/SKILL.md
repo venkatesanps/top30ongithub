@@ -7,8 +7,9 @@ description: File a short structured bug report (a "papercut") when a skill, too
 
 Agents notice when they are fighting a tool, then spend tokens working around it and the lesson is
 lost. A papercut turns that moment into a short report that the skill's owner can fix from.
-After the papercut loop Uber describes for its skills marketplace ("How Uber Evals 1 Million Agent
-Skill Invocations a Month", November 2026), kept local: reports go to
+After the papercut loop Uber describes for its skills marketplace
+(["How Uber Evals 1 Million Agent Skill Invocations a Month"](https://www.uber.com/us/en/blog/optimizing-ubers-agent-skills/),
+November 23, 2026), kept local: reports go to
 `~/.claude/papercuts/papercuts.jsonl` (or `$PAPERCUT_LOG`), one JSON line each, and nothing is
 sent anywhere.
 
@@ -22,7 +23,9 @@ File when something outside your own reasoning is wrong, and you can say what yo
 - a flag or option the help text lists, which the tool then rejects
 - a command that exits 0 but printed an error, or exits non-zero on success
 - a query or search that returns nothing where a match clearly exists
-- wrong units or formats (seconds where milliseconds are expected), a silent default
+- wrong units or formats (seconds where milliseconds are expected), a silent default, or a wrong
+  result returned quietly for a missing key
+- temp files or caches shared between concurrent sessions that clash
 - a skill's instructions that are out of date, or point to files or commands that don't exist
 - the same error twice in a row after a reasonable fix, or ten turns spent on one obstacle
 
@@ -55,7 +58,9 @@ tests that the task is about.
    $P export --skill <skill-name>                       # issue text for the top problem
    $P export --skill <skill-name> --gh owner/repo       # writes a body file, prints the gh command
    ```
-   Verify the counts look right before acting on them. `export` never posts: running the printed
+   Verify the counts look right before acting on them. Work each problem through the loop Uber
+   uses: group, triage, find the root cause, fix, re-run the skill's evals, approve, and check for
+   the same signature after release before closing it. A person decides at triage and approval. `export` never posts: running the printed
    `gh issue create` command sends the report to GitHub, so do that only when the user says to.
 
 ## What a report holds

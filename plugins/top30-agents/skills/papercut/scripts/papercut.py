@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """papercut: structured friction reports that an agent files when a skill, tool or doc misbehaves.
 
-After the "papercut" loop Uber describes for its skills marketplace: the agent notices it is
+After the "papercut" loop Uber describes for its skills marketplace
+(https://www.uber.com/us/en/blog/optimizing-ubers-agent-skills/): the agent notices it is
 struggling, files what it tried, expected, got and what would fix it, and the skill's owner sees
 the reports grouped. This version keeps everything on this machine.
 

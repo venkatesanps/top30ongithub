@@ -17,7 +17,9 @@ A few runs show a direction, not proof. Small differences (under ~10%) are usual
 proper placebo-controlled method see https://github.com/simonether/skill-placebo.
 
 --judge adds a blind pairwise judge, after the ablation method in Uber's post "How Uber Evals 1
-Million Agent Skill Invocations a Month" (November 2026). For each run it shows a separate
+Million Agent Skill Invocations a Month" (November 23, 2026,
+https://www.uber.com/us/en/blog/optimizing-ubers-agent-skills/), where a warehouse-query skill's answer won 87% of
+blind comparisons. For each run it shows a separate
 `claude -p` the task and the two results (final message, plus any --judge-files, capped) as
 "Response A" and "Response B", with the order shuffled by --seed and the mapping saved; the judge
 runs in an empty folder with no tools, no MCP servers and the plugin off. --noise-runs N adds N

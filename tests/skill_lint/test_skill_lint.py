@@ -149,6 +149,25 @@ with tempfile.TemporaryDirectory() as d:
     r = run("a", "--json")
     check(r.returncode == 0 and json.loads(r.stdout)["findings"] == [], "--json on a clean skill")
 
+# mcp-config: a .mcp.json in the skill folder or at the plugin root is flagged
+with tempfile.TemporaryDirectory() as d:
+    d = Path(d)
+    sk = d / "plug" / "skills" / "s"
+    sk.mkdir(parents=True)
+    (sk / "SKILL.md").write_text(GOOD)
+    (d / "plug" / ".claude-plugin").mkdir()
+    (d / "plug" / ".claude-plugin" / "plugin.json").write_text("{}")
+    check(sl.mcp_findings(sk / "SKILL.md", "s", GOOD) == [], "no .mcp.json, no mcp-config finding")
+    (d / "plug" / ".mcp.json").write_text("{}")
+    f = sl.mcp_findings(sk / "SKILL.md", "s", GOOD)
+    check([x["check"] for x in f] == ["mcp-config"] and "plugin root" in f[0]["message"], "a plugin-root .mcp.json is flagged")
+    (sk / ".mcp.json").write_text("{}")
+    check(len(sl.mcp_findings(sk / "SKILL.md", "s", GOOD)) == 2, "a skill-folder .mcp.json is flagged too")
+    opted = GOOD + "\n<!-- skill-lint: disable=mcp-config reason: the server is the product -->\n"
+    check(sl.mcp_findings(sk / "SKILL.md", "s", opted) == [], "disable=mcp-config opts out")
+    r = subprocess.run([sys.executable, "-I", str(ROOT / "scripts/skill_lint.py"), str(sk)], capture_output=True, text=True)
+    check(r.returncode == 1 and "[mcp-config]" in r.stdout, f"the CLI reports mcp-config: {r.stdout[-200:]}")
+
 # the repo's own baseline matches the skills as they are
 r = subprocess.run([sys.executable, "-I", str(ROOT / "scripts/skill_lint.py"), "plugins/",
                     "--baseline", "scripts/skill_lint_baseline.json"], capture_output=True, text=True, cwd=ROOT)

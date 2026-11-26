@@ -5,7 +5,7 @@
   },
   "metadata": {
     "description": "Skills built in the top30ongithub kit",
-    "version": "0.26.0"
+    "version": "0.26.1"
   },
   "plugins": [
     {
@@ -33,7 +33,7 @@
       "name": "top30-agents",
       "source": "./plugins/top30-agents",
       "description": "Loops, graphs and harnesses: agent pattern picker and design audit, graph designer, loop harness, /goal writer, goal gate Stop hook, command picker, /batch scout, and a long-running harness starter (locked feature list, progress log) with a separate evaluator agent, and a session doctor that says which layer of a bad session failed, plus an agent setup audit (config, MCP, permissions, sandbox, hooks, pre-commit, CI), a trust check for cloned repos and a Bash guard hook, plus think-through (mode-chain reasoning with a ledger linter) and a think-auditor agent, and instincts (private, offline learning of habits from your sessions) with an instinct-curator agent, and a prompt clinic (technique picker, prompt linter, injection test cases and grader) with a prompt-reviewer agent, and papercut (agents file scrubbed friction reports on skills and tools, kept local).",
-      "version": "0.11.0",
+      "version": "0.11.1",
       "category": "development"
     },
     {
