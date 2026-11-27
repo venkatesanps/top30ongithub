@@ -13,7 +13,7 @@
   "path": "skills/engineering/code-review",
   "bytes": 4187,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -21,7 +21,7 @@
   "path": "skills/engineering/diagnosing-bugs",
   "bytes": 5979,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -29,7 +29,7 @@
   "path": "skills/engineering/domain-modeling",
   "bytes": 5549,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -37,7 +37,7 @@
   "path": "skills/productivity/grill-me",
   "bytes": 1233,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -45,7 +45,7 @@
   "path": "skills/engineering/grill-with-docs",
   "bytes": 1331,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -53,7 +53,7 @@
   "path": "skills/productivity/grilling",
   "bytes": 2062,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -61,7 +61,7 @@
   "path": "skills/productivity/handoff",
   "bytes": 1631,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -69,7 +69,7 @@
   "path": "skills/engineering/implement",
   "bytes": 1457,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -77,7 +77,7 @@
   "path": "skills/engineering/retro",
   "bytes": 3106,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -85,7 +85,7 @@
   "path": "skills/engineering/tdd",
   "bytes": 4745,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -93,7 +93,7 @@
   "path": "skills/productivity/teach",
   "bytes": 9928,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -101,7 +101,7 @@
   "path": "skills/engineering/to-spec",
   "bytes": 2509,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -109,7 +109,7 @@
   "path": "skills/engineering/to-tickets",
   "bytes": 3657,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -117,7 +117,7 @@
   "path": "skills/productivity/wait-what",
   "bytes": 1407,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "02-mattpocock",
@@ -125,7 +125,7 @@
   "path": "skills/engineering/wayfinder",
   "bytes": 6192,
   "license": "MIT",
-  "commit": "6f7f7831a625f040a8e06a0e7954826b87ce775a"
+  "commit": "bbadaa631c37af594e5a05c9cefacd9956136b18"
  },
  {
   "folder": "04-agent-skills",
@@ -293,7 +293,7 @@
   "path": "skills/taste-skill",
   "bytes": 30276876,
   "license": "MIT",
-  "commit": "d1a2bb41d927083ac7118f60cfc9cdf711810ea0"
+  "commit": "952435f63acece7d2fcb4b4d3c1786c1c43603e0"
  },
  {
   "folder": "20-archify",
@@ -323,9 +323,9 @@
   "folder": "23-ui-ux-pro-max",
   "skill": "ui-ux-pro-max",
   "path": ".claude/skills/ui-ux-pro-max",
-  "bytes": 605720,
+  "bytes": 605780,
   "license": "MIT",
-  "commit": "b244c0448bff0a891f972672d47df9c47d61ac31"
+  "commit": "11ca2b3bdd555649f278ee348c32a9302b24dcf1"
  },
  {
   "folder": "25-marketing",
@@ -1013,7 +1013,7 @@
   "path": "skills/context-degradation",
   "bytes": 17828,
   "license": "MIT",
-  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
+  "commit": "9f062cad10b9d2d46c0aa4206b025be6bb5a85b1"
  },
  {
   "folder": "78-context-engineering",
@@ -1021,15 +1021,15 @@
   "path": "skills/context-fundamentals",
   "bytes": 16564,
   "license": "MIT",
-  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
+  "commit": "9f062cad10b9d2d46c0aa4206b025be6bb5a85b1"
  },
  {
   "folder": "78-context-engineering",
   "skill": "context-optimization",
   "path": "skills/context-optimization",
-  "bytes": 16862,
+  "bytes": 16944,
   "license": "MIT",
-  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
+  "commit": "9f062cad10b9d2d46c0aa4206b025be6bb5a85b1"
  },
  {
   "folder": "78-context-engineering",
@@ -1037,7 +1037,7 @@
   "path": "skills/tool-design",
   "bytes": 21464,
   "license": "MIT",
-  "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f"
+  "commit": "9f062cad10b9d2d46c0aa4206b025be6bb5a85b1"
  },
  {
   "folder": "80-interfaces",

@@ -2,6 +2,57 @@
 
 Written by the daily refresh workflow, newest first.
 
+## 2026-11-27 20:04 UTC
+
+**Upstream updates**
+- Matt Pocock Skills: [6f7f783 → bbadaa6](https://github.com/mattpocock/skills/compare/6f7f7831a625f040a8e06a0e7954826b87ce775a...bbadaa631c37af594e5a05c9cefacd9956136b18)
+- Career Ops: [5464a8b → 2cf658d](https://github.com/career-ops-hq/career-ops/compare/5464a8bb75781d06f208a1e6296b62e792f787e4...2cf658d88776a42d071e4d4cf4894b56bdb9d717)
+- REA (Reverse Engineer Anything): [3e8f6a4 → 1d05636](https://github.com/morluto/rea/compare/3e8f6a43a9402fea3108e5b15dd5a152b4665960...1d056364b1cf19517b453f7bfa060e88294d00c7)
+- Graphify: [6f2359f → 0f22ae7](https://github.com/Graphify-Labs/graphify/compare/6f2359fe67983a653207b2b4f8377d1d59fc90e1...0f22ae762e3e3d0b689fc7ad2b8192740628413b)
+- Last 30 Days: [ed7ec67 → 3fd9465](https://github.com/mvanhorn/last30days-skill/compare/ed7ec6752b766ea3eb62239b374900764e9b5453...3fd946546afddc2096ab955f3abb223ed59f52ce)
+- Claude-Mem: [fb126b0 → ad682a3](https://github.com/thedotmack/claude-mem/compare/fb126b09fc4951d1573082d6ec303130e789ba10...ad682a38da4cdbd2076451f595adc7db512a626c)
+- gstack: [be64b10 → 9befb56](https://github.com/garrytan/gstack/compare/be64b102975afe46f35dd27d3fe7c6908d7c9d5e...9befb56288fcf4948353c19820e0cf157108aa71)
+- GSD (Get Shit Done): [26429a6 → d9a617a](https://github.com/open-gsd/gsd-core/compare/26429a68cdbe675dcb5b422e56bf896e4cc38d95...d9a617a568b14543df210353903c7195f9f65d4d)
+- Taste: [d1a2bb4 → 952435f](https://github.com/Leonxlnx/taste-skill/compare/d1a2bb41d927083ac7118f60cfc9cdf711810ea0...952435f63acece7d2fcb4b4d3c1786c1c43603e0)
+- UI UX Pro Max: [b244c04 → 11ca2b3](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/compare/b244c0448bff0a891f972672d47df9c47d61ac31...11ca2b3bdd555649f278ee348c32a9302b24dcf1)
+- HyperFrames: [14d8a2d → 4276039](https://github.com/heygen-com/hyperframes/compare/14d8a2d0cf6e39cdb1c7265a6640413d99106f38...4276039576d4bf7345f57f545723c8125eaed5a7)
+- Elementary (data observability): [d88784b → b3035ed](https://github.com/elementary-data/elementary/compare/d88784bef145c00dc6797c1ce74352c53c0f4dc1...b3035ed155d0163c58a006a4439deb3cedebbbd5)
+- Agent Toolkit for AWS: [e62ada6 → e8fa0f5](https://github.com/aws/agent-toolkit-for-aws/compare/e62ada690e3adf340a4cccb3b20204721e4b54d2...e8fa0f5109686246cae7e09e98efba2907db3de6)
+- AWS MCP servers (data & ops): [a760620 → a36288d](https://github.com/awslabs/mcp/compare/a760620171c17f7c5c08fcfefbc9b0747727cd6a...a36288da51becc7cd604e243602a988776a61c24)
+- SQLGlot: [ba06510 → c891883](https://github.com/tobymao/sqlglot/compare/ba0651085c690b8b49e9b9dba2f4a37dbb9055e0...c891883e936dbeae7fb8af84ec96d43ac4dcbda0)
+- SQLFluff: [63fd396 → e23b9e5](https://github.com/sqlfluff/sqlfluff/compare/63fd396b5c0af320810724bbc4a5d3327d033093...e23b9e590d3fbfe4a57283dc126082e3053e89d2)
+- Apache DevLake (DORA dashboards): [75ee42b → 6282a42](https://github.com/apache/devlake/compare/75ee42bf95b50b418662ae39c54ac3c8931b277a...6282a4229b045c53584e19c2ab3489c778f0bcfa)
+- ccusage: [98b9dbd → ab47d62](https://github.com/ccusage/ccusage/compare/98b9dbd84a534b594e6bbd76f7511bed43a87771...ab47d62c694de174f9800a51117fd70d78305f80)
+- Grafana OTel LGTM (all-in-one): [42823ea → 9e08e50](https://github.com/grafana/docker-otel-lgtm/compare/42823ea891ad2f51152c84b5bdfcd20cb717d208...9e08e50e45bb5affab285f8ac9e8b80ab74a27e3)
+- Grafana MCP server: [5e4f0c3 → 5d8da53](https://github.com/grafana/mcp-grafana/compare/5e4f0c3fb382cfca69027b2937c3637664d3fc16...5d8da53306cc16307eff77347eea8cf70e381af2)
+- Keep (alert hub & AIOps): [60aa8e0 → 7761f0a](https://github.com/keephq/keep/compare/60aa8e052efed8060ab5290cfcda04622bb6e203...7761f0a6700a987ecc4643220b3394658df3ac12)
+- Uptime Kuma (status pages): [df494b4 → d35c3fa](https://github.com/louislam/uptime-kuma/compare/df494b4549a0e0550ac027ddacb9bc78ed4e7b77...d35c3fafa1da1fe42d86de55e60632255fd9a225)
+- Ruflo (agent swarms): [3f2a40a → df1204f](https://github.com/ruvnet/ruflo/compare/3f2a40a2f06db9138f97ad8d582329189395e8ab...df1204f53829568e59da0f69f637bd97905f4b24)
+- rtk (OSS edition): [97e68d5 → 16b02ac](https://github.com/rtk-ai/rtk/compare/97e68d5358aa5d91d1540ea64df58c9688bcf83d...16b02ac8fdd8b8ea6e4b7d178d08854b772b165e)
+- context-mode: [1400b93 → ab4fdc5](https://github.com/mksglu/context-mode/compare/1400b93fee0eec0f3404d67a7c328b45d1ed033e...ab4fdc57b93e93991012e2c3196102feaec3972e)
+- video-shotcraft: [1152363 → 85ad62d](https://github.com/Vincentwei1021/video-shotcraft/compare/1152363da5c824b32dba6d8a2ef7f935b677e445...85ad62df7ab3a72e87b6bfab7dc5591fc0dde518)
+- CC Switch (desktop): [754fed7 → ff0a51a](https://github.com/farion1231/cc-switch/compare/754fed72d428c66c1e6ed45f38601ac25ded90c6...ff0a51a3713eb13f9b63f9ad2034858c85d9cf61)
+- claude-skills (380+ skills): [f565e66 → d3cc4c6](https://github.com/alirezarezvani/claude-skills/compare/f565e664952b3d5b7ef2b1e6a50e2314b100e472...d3cc4c620288c571a95efc898edc91f522acaa7f)
+- Claude Code (the CLI): [a3b7a20 → 102fafb](https://github.com/anthropics/claude-code/compare/a3b7a20a282a7b75ed68c2f8a0d0ecc822171c3e...102fafb0953d90cff472b438e443485e7d131d36)
+- Context engineering skills: [d9202c7 → 9f062ca](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/compare/d9202c76d6dc8351e648badb576a6e9b5aae1e7f...9f062cad10b9d2d46c0aa4206b025be6bb5a85b1)
+- Busabase: [a00ae1f → 4cff3dd](https://github.com/busabase/busabase/compare/a00ae1f536739cceaa3bc66001749a582c6fcf06...4cff3ddc39c76ea263c489af024411653c543df8)
+- Blender Agent Skills: [1a1cc6c → ab601e2](https://github.com/EL4CTEO/blender-skills/compare/1a1cc6c49312f9f370aae86f52b7b907f29c94f6...ab601e27a247c18773924188eb580f81c561b249)
+- EffectCraft: [225ab2f → 01a61a9](https://github.com/storytold/effectcraft/compare/225ab2f07234123e09f007fbb34ddb56acd219e4...01a61a9462f58f25142ab54c98d23cb26917b2e1)
+- Openverse: [d829c3f → 44f89ed](https://github.com/WordPress/openverse/compare/d829c3ff27ace453651aa02d273543101ea6fbd1...44f89edac77a45005350e658510b72bf85f9dd76)
+- FFmpeg: [d119b62 → 6d026e3](https://github.com/FFmpeg/FFmpeg/compare/d119b626ca50a575741a467e05466148a8123c79...6d026e3cd8a0796d976d12163d9933cb98aea654)
+
+**Notes**
+- HyperFrames: npm:hyperframes 0.9.100 → 0.9.104
+- Elementary (data observability): pypi:elementary-data 0.26.1 → 0.26.2
+- Busabase: npm:busabase 1.5.0 → 1.6.0
+- Busabase: npm:busabase-cli 1.5.0 → 1.6.0
+- Agent Toolkit for AWS: per-session tokens ~5,407 + ~4,232 → ~5,407 + ~4,228
+- Context engineering skills: per-session tokens ~2,082 → ~2,334
+- ⚠ Apache DevLake (DORA dashboards): install test failed
+- ✓ FFmpeg: install test passes again
+
+**Install tests**: 32/34 passed (failed: Apache DevLake (DORA dashboards), Hugging Face skills)
+
 ## 2026-11-26 20:16 UTC
 
 **Upstream updates**

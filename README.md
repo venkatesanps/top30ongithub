@@ -194,7 +194,7 @@ the other seven are items 72–78. `./install.sh --show skills27` prints the lis
 | 6 | [75](#status) | n8n skills | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | ~2,817 | pass |
 | 7 | [76](#status) | Vercel agent skills | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | ~250 (est., skills dir) | pass |
 | 8 | [77](#status) | Trail of Bits skills | [trailofbits/skills](https://github.com/trailofbits/skills) | ~47 | pass |
-| 9 | [78](#status) | Context engineering skills | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | ~2,082 | pass |
+| 9 | [78](#status) | Context engineering skills | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | ~2,334 | pass |
 <!-- list:skills27:end -->
 
 | Folder | Skills from the post | Item |
@@ -249,7 +249,7 @@ active; one of them (Openverse) is a public API rather than something to install
 | 15 | [98](#status) | librosa | [librosa/librosa](https://github.com/librosa/librosa) | n/a | pass |
 | 16 | [99](#status) | WhisperX | [m-bain/whisperX](https://github.com/m-bain/whisperX) | n/a | manual |
 | 17 | [100](#status) | Remotion Skills | [remotion-dev/skills](https://github.com/remotion-dev/skills) | ~340 (est., skills dir) | pass |
-| 18 | [101](#status) | FFmpeg | [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) | n/a | fail |
+| 18 | [101](#status) | FFmpeg | [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) | n/a | pass |
 <!-- list:motion18:end -->
 
 | Step | Post # | Repos | Built here (`top30-motion`) |
@@ -387,72 +387,72 @@ description to every chat.
 ## Status
 
 <!-- status:start -->
-_Checked 2026-11-26: 101 repos, 95 of 97 install-tested items passing, 3 needing attention. Token costs measured with 2.1.332 (Claude Code) on 2026-11-26._
+_Checked 2026-11-27: 101 repos, 95 of 97 install-tested items passing, 3 needing attention. Token costs measured with 2.1.332 (Claude Code) on 2026-11-27._
 
 **Top 30 from the post**
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 235.9k | 2026-04-20 | pass (2026-11-23) | ~66 | OK |
-| 2 | Matt Pocock Skills | [mattpocock/skills](https://github.com/mattpocock/skills) | 333.5k | 2026-11-25 | pass (2026-11-25) | ~1,169 | OK |
-| 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 311.2k | 2026-11-23 | pass (2026-11-23) | ~35,141 | OK |
-| 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 120.6k | 2026-11-24 | pass (2026-11-24) | ~3,354 | OK |
-| 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 327.4k | 2026-11-26 | pass (2026-11-23) | ~706 | OK |
-| 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 199.3k | 2026-11-22 | pass (2026-11-23) | ~430 | OK |
-| 7 | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | 85k | 2026-11-26 | pass (2026-11-26) | ~116 | OK |
-| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 479.6k | 2026-11-26 | pass (2026-11-26) | n/a (MCP) | OK |
-| 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 153.8k | 2026-11-26 | pass (2026-11-26) | n/a (CLI skill) | OK |
-| 10 | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 94.6k | 2026-11-25 | pass (2026-11-25) | ~971 | OK |
-| 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 75.6k | 2026-11-26 | pass (2026-11-25) | ~20 | OK |
-| 12 | Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 115k | 2026-11-24 | pass (2026-11-24) | n/a (CLI skill) | OK |
-| 13 | Headroom | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | 80.9k | 2026-11-26 | pass (2026-11-26) | ~0 | OK |
-| 14 | BMAD Method | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) | 55.8k | 2026-11-26 | pass (2026-11-23) | per project | OK |
-| 15 | Claude-Mem | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 120k | 2026-11-26 | pass (2026-11-26) | ~2,141 | OK |
-| 16 | gstack | [garrytan/gstack](https://github.com/garrytan/gstack) | 142.7k | 2026-11-26 | pass (2026-11-26) | n/a (skills dir) | OK |
-| 17 | Caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 123.1k | 2026-11-26 | pass (2026-11-26) | ~1,366 | OK |
-| 18 | GSD (Get Shit Done) | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) | 11.9k | 2026-11-26 | pass (2026-11-26) | n/a (commands) | OK |
-| 19 | Taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 121.9k | 2026-11-26 | pass (2026-11-25) | ~235 | OK |
-| 20 | Archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 100.5k | 2026-11-26 | pass (2026-11-26) | n/a (skill) | OK |
-| 21 | Diagram Design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 73.7k | 2026-11-26 | pass (2026-11-26) | ~450 | OK |
-| 22 | Impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 117.4k | 2026-11-26 | pass (2026-11-26) | ~252 | OK |
-| 23 | UI UX Pro Max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 154.6k | 2026-11-26 | pass (2026-11-26) | ~711 | OK |
-| 24 | PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 80.5k | 2026-11-20 | pass (2026-11-23) | ~139 | OK |
-| 25 | Marketing Skills | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | 62.8k | 2026-11-26 | pass (2026-11-26) | ~5,062 | OK |
-| 26 | Skills by Anthropic | [anthropics/skills](https://github.com/anthropics/skills) | 201k | 2026-11-16 | pass (2026-11-23) | ~759 + ~939 | OK |
-| 27 | OpenMontage | [OpenMontageInc/OpenMontage](https://github.com/OpenMontageInc/OpenMontage) | 83.6k | 2026-11-16 | pass (2026-11-23) | per project | OK |
-| 28 | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | 73.9k | 2026-11-19 | pass (2026-11-23) | ~79 | OK |
-| 29 | HyperFrames | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 90.7k | 2026-11-26 | pass (2026-11-26) | ~688 | OK |
-| 30 | I Have ADHD | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | 62.6k | 2026-11-25 | pass (2026-11-25) | ~67 | OK |
+| 1 | Karpathy Skills | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | 236.2k | 2026-04-20 | pass (2026-11-23) | ~66 | OK |
+| 2 | Matt Pocock Skills | [mattpocock/skills](https://github.com/mattpocock/skills) | 334.2k | 2026-11-27 | pass (2026-11-27) | ~1,169 | OK |
+| 3 | ECC (Everything Claude Code) | [affaan-m/ECC](https://github.com/affaan-m/ECC) | 311.8k | 2026-11-23 | pass (2026-11-23) | ~35,141 | OK |
+| 4 | Agent Skills (Addy Osmani) | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) | 120.8k | 2026-11-24 | pass (2026-11-24) | ~3,354 | OK |
+| 5 | Superpowers | [obra/superpowers](https://github.com/obra/superpowers) | 328.2k | 2026-11-26 | pass (2026-11-23) | ~706 | OK |
+| 6 | Ponytail | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) | 200k | 2026-11-22 | pass (2026-11-23) | ~430 | OK |
+| 7 | Career Ops | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | 85.2k | 2026-11-27 | pass (2026-11-27) | ~116 | OK |
+| 8 | REA (Reverse Engineer Anything) | [morluto/rea](https://github.com/morluto/rea) | 480.9k | 2026-11-27 | pass (2026-11-27) | n/a (MCP) | OK |
+| 9 | Graphify | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) | 154.2k | 2026-11-27 | pass (2026-11-27) | n/a (CLI skill) | OK |
+| 10 | Understand Anything | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) | 94.7k | 2026-11-25 | pass (2026-11-25) | ~971 | OK |
+| 11 | Last 30 Days | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | 76.3k | 2026-11-27 | pass (2026-11-27) | ~20 | OK |
+| 12 | Agent Reach | [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 115.3k | 2026-11-24 | pass (2026-11-24) | n/a (CLI skill) | OK |
+| 13 | Headroom | [headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom) | 81k | 2026-11-27 | pass (2026-11-26) | ~0 | OK |
+| 14 | BMAD Method | [bmad-code-org/BMAD-METHOD](https://github.com/bmad-code-org/BMAD-METHOD) | 55.8k | 2026-11-27 | pass (2026-11-23) | per project | OK |
+| 15 | Claude-Mem | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | 120.2k | 2026-11-26 | pass (2026-11-27) | ~2,141 | OK |
+| 16 | gstack | [garrytan/gstack](https://github.com/garrytan/gstack) | 142.8k | 2026-11-27 | pass (2026-11-27) | n/a (skills dir) | OK |
+| 17 | Caveman | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) | 123.3k | 2026-11-27 | pass (2026-11-26) | ~1,366 | OK |
+| 18 | GSD (Get Shit Done) | [open-gsd/gsd-core](https://github.com/open-gsd/gsd-core) | 11.9k | 2026-11-27 | pass (2026-11-27) | n/a (commands) | OK |
+| 19 | Taste | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | 122.3k | 2026-11-26 | pass (2026-11-27) | ~235 | OK |
+| 20 | Archify | [tt-a1i/archify](https://github.com/tt-a1i/archify) | 100.9k | 2026-11-27 | pass (2026-11-26) | n/a (skill) | OK |
+| 21 | Diagram Design | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) | 74.4k | 2026-11-26 | pass (2026-11-26) | ~450 | OK |
+| 22 | Impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | 118k | 2026-11-27 | pass (2026-11-26) | ~252 | OK |
+| 23 | UI UX Pro Max | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | 155.1k | 2026-11-27 | pass (2026-11-27) | ~711 | OK |
+| 24 | PPT Master | [hugohe3/ppt-master](https://github.com/hugohe3/ppt-master) | 80.8k | 2026-11-20 | pass (2026-11-23) | ~139 | OK |
+| 25 | Marketing Skills | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | 63k | 2026-11-26 | pass (2026-11-26) | ~5,062 | OK |
+| 26 | Skills by Anthropic | [anthropics/skills](https://github.com/anthropics/skills) | 201.4k | 2026-11-16 | pass (2026-11-23) | ~759 + ~939 | OK |
+| 27 | OpenMontage | [OpenMontageInc/OpenMontage](https://github.com/OpenMontageInc/OpenMontage) | 83.8k | 2026-11-16 | pass (2026-11-23) | per project | OK |
+| 28 | Humanizer | [blader/humanizer](https://github.com/blader/humanizer) | 74.3k | 2026-11-19 | pass (2026-11-23) | ~79 | OK |
+| 29 | HyperFrames | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) | 91.4k | 2026-11-27 | pass (2026-11-27) | ~688 | OK |
+| 30 | I Have ADHD | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | 62.8k | 2026-11-25 | pass (2026-11-25) | ~67 | OK |
 
 **Data & ops toolkit**
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 31 | Snowflake AI Kit (Cortex Code) | [Snowflake-Labs/snowflake-ai-kit](https://github.com/Snowflake-Labs/snowflake-ai-kit) | 47 | 2026-11-25 | pass (2026-11-25) | ~308 | OK |
+| 31 | Snowflake AI Kit (Cortex Code) | [Snowflake-Labs/snowflake-ai-kit](https://github.com/Snowflake-Labs/snowflake-ai-kit) | 47 | 2026-11-27 | pass (2026-11-25) | ~308 | OK |
 | 32 | dbt Agent Skills | [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills) | 773 | 2026-11-06 | pass (2026-11-23) | ~1,136 + ~305 | OK |
 | 33 | dbt MCP server | [dbt-labs/dbt-mcp](https://github.com/dbt-labs/dbt-mcp) | 625 | 2026-11-25 | pass (2026-11-25) | n/a | OK |
 | 34 | Astronomer Airflow agents | [astronomer/agents](https://github.com/astronomer/agents) | 464 | 2026-11-24 | pass (2026-11-24) | ~3,961 | OK |
 | 35 | Snowflake cost monitoring (dbt) | [get-select/dbt-snowflake-monitoring](https://github.com/get-select/dbt-snowflake-monitoring) | 264 | 2026-03-18 | manual (2026-10-25) | n/a | OK |
-| 36 | Elementary (data observability) | [elementary-data/elementary](https://github.com/elementary-data/elementary) | 2.4k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
-| 37 | Great Expectations | [fivetran/great_expectations](https://github.com/fivetran/great_expectations) | 11.9k | 2026-11-17 | pass (2026-11-23) | n/a | OK |
-| 38 | Agent Toolkit for AWS | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | 3.6k | 2026-11-26 | pass (2026-11-26) | ~5,407 + ~4,232 | OK |
-| 39 | AWS MCP servers (data & ops) | [awslabs/mcp](https://github.com/awslabs/mcp) | 10k | 2026-11-26 | pass (2026-11-25) | n/a | OK |
-| 40 | Oracle SQLcl MCP server | [oracle/mcp](https://github.com/oracle/mcp) | 486 | 2026-11-25 | pass (2026-11-26) | n/a | OK |
-| 41 | SQLGlot | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | 9.8k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
-| 42 | SQLFluff | [sqlfluff/sqlfluff](https://github.com/sqlfluff/sqlfluff) | 10k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
+| 36 | Elementary (data observability) | [elementary-data/elementary](https://github.com/elementary-data/elementary) | 2.4k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 37 | Great Expectations | [fivetran/great_expectations](https://github.com/fivetran/great_expectations) | 12k | 2026-11-17 | pass (2026-11-23) | n/a | OK |
+| 38 | Agent Toolkit for AWS | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | 3.6k | 2026-11-27 | pass (2026-11-27) | ~5,407 + ~4,228 | OK |
+| 39 | AWS MCP servers (data & ops) | [awslabs/mcp](https://github.com/awslabs/mcp) | 10k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 40 | Oracle SQLcl MCP server | [oracle/mcp](https://github.com/oracle/mcp) | 487 | 2026-11-25 | pass (2026-11-26) | n/a | OK |
+| 41 | SQLGlot | [tobymao/sqlglot](https://github.com/tobymao/sqlglot) | 9.8k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 42 | SQLFluff | [sqlfluff/sqlfluff](https://github.com/sqlfluff/sqlfluff) | 10k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
 | 43 | Informatica for Claude (IDMC) | [forcedotcom/informatica-claude-plugins](https://github.com/forcedotcom/informatica-claude-plugins) | 1 | 2026-09-15 | pass (2026-11-23) | ~234 | OK |
-| 44 | Anthropic knowledge-work plugins | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | 37.1k | 2026-11-26 | pass (2026-11-24) | ~695 + ~868 + ~675 | OK |
+| 44 | Anthropic knowledge-work plugins | [anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | 37.2k | 2026-11-26 | pass (2026-11-24) | ~695 + ~868 + ~675 | OK |
 | 45 | Jira & Confluence MCP (Data Center) | [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian) | 6.2k | 2026-11-23 | pass (2026-11-23) | n/a | OK |
-| 46 | Apache DevLake (DORA dashboards) | [apache/devlake](https://github.com/apache/devlake) | 3.2k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
+| 46 | Apache DevLake (DORA dashboards) | [apache/devlake](https://github.com/apache/devlake) | 3.2k | 2026-11-27 | fail (2026-11-27) | n/a | ⚠ `cd ~/devlake && docker compose config -q && docker compose pull -q` failed (exit 1): Image mysql:8 Pulled / Image devlake.docker.scarf.sh/a |
 | 47 | Middleware (DORA metrics) | [middlewarehq/middleware](https://github.com/middlewarehq/middleware) | 1.6k | 2026-08-03 | pass (2026-11-23) | n/a | OK |
 | 48 | Claude Code ROI monitoring | [anthropics/claude-code-monitoring-guide](https://github.com/anthropics/claude-code-monitoring-guide) | 395 | 2025-07-29 | pass (2026-11-23) | n/a | OK |
-| 49 | ccusage | [ccusage/ccusage](https://github.com/ccusage/ccusage) | 19.6k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
-| 50 | Grafana OTel LGTM (all-in-one) | [grafana/docker-otel-lgtm](https://github.com/grafana/docker-otel-lgtm) | 2.2k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
-| 51 | Grafana MCP server | [grafana/mcp-grafana](https://github.com/grafana/mcp-grafana) | 3.7k | 2026-11-25 | pass (2026-11-26) | n/a | OK |
-| 52 | Keep (alert hub & AIOps) | [keephq/keep](https://github.com/keephq/keep) | 12.6k | 2026-11-22 | pass (2026-11-23) | n/a | OK |
+| 49 | ccusage | [ccusage/ccusage](https://github.com/ccusage/ccusage) | 19.6k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 50 | Grafana OTel LGTM (all-in-one) | [grafana/docker-otel-lgtm](https://github.com/grafana/docker-otel-lgtm) | 2.2k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 51 | Grafana MCP server | [grafana/mcp-grafana](https://github.com/grafana/mcp-grafana) | 3.7k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 52 | Keep (alert hub & AIOps) | [keephq/keep](https://github.com/keephq/keep) | 12.6k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
 | 53 | HolmesGPT (AI SRE agent) | [HolmesGPT/holmesgpt](https://github.com/HolmesGPT/holmesgpt) | 4k | 2026-11-26 | pass (2026-11-25) | n/a | OK |
-| 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | 94.9k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
-| 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | 188 | 2026-11-09 | pass (2026-11-23) | ~6,364 | OK |
+| 54 | Uptime Kuma (status pages) | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma) | 95k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 55 | Dynatrace for AI (plugin + MCP) | [Dynatrace/dynatrace-for-ai](https://github.com/Dynatrace/dynatrace-for-ai) | 189 | 2026-11-09 | pass (2026-11-23) | ~6,364 | OK |
 | 56 | PagerDuty MCP server (hosted) | [PagerDuty/pagerduty-mcp-server](https://github.com/PagerDuty/pagerduty-mcp-server) | 79 | 2026-09-04 | pass (2026-11-23) | n/a | OK |
 | 57 | Datadog app investigator | [datadog-labs/claude-code-plugin](https://github.com/datadog-labs/claude-code-plugin) | 20 | 2026-11-20 | pass (2026-11-23) | ~549 + ~94 | OK |
 
@@ -460,37 +460,37 @@ _Checked 2026-11-26: 101 repos, 95 of 97 install-tested items passing, 3 needing
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 58 | Ruflo (agent swarms) | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 82.5k | 2026-11-26 | pass (2026-11-26) | ~417 | OK |
-| 59 | wshobson agents (plugin packs) | [wshobson/agents](https://github.com/wshobson/agents) | 42.9k | 2026-11-24 | pass (2026-11-24) | ~492 + ~903 + ~111 | OK |
-| 60 | planning-with-files | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | 28.2k | 2026-11-25 | pass (2026-11-25) | ~736 | OK |
-| 61 | rtk (OSS edition) | [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | 87.9k | 2026-11-25 | pass (2026-11-25) | n/a | OK |
-| 62 | context-mode | [mksglu/context-mode](https://github.com/mksglu/context-mode) | 34.5k | 2026-11-26 | pass (2026-11-26) | ~60 | OK |
-| 63 | video-shotcraft | [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | 22.8k | 2026-11-25 | pass (2026-11-25) | n/a | OK |
-| 64 | CC Switch (desktop) | [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 157.4k | 2026-11-26 | manual (2026-10-26) | n/a | OK |
-| 65 | pm-skills | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 28.3k | 2026-11-08 | pass (2026-11-23) | ~1,693 | OK |
-| 66 | claude-skills (380+ skills) | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 30.5k | 2026-11-26 | pass (2026-11-26) | ~2,618 + ~66 + ~69 | OK |
+| 58 | Ruflo (agent swarms) | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 82.6k | 2026-11-27 | pass (2026-11-27) | ~417 | OK |
+| 59 | wshobson agents (plugin packs) | [wshobson/agents](https://github.com/wshobson/agents) | 43k | 2026-11-24 | pass (2026-11-24) | ~492 + ~903 + ~111 | OK |
+| 60 | planning-with-files | [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files) | 28.3k | 2026-11-25 | pass (2026-11-25) | ~736 | OK |
+| 61 | rtk (OSS edition) | [rtk-ai/rtk](https://github.com/rtk-ai/rtk) | 88k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 62 | context-mode | [mksglu/context-mode](https://github.com/mksglu/context-mode) | 34.5k | 2026-11-27 | pass (2026-11-27) | ~60 | OK |
+| 63 | video-shotcraft | [Vincentwei1021/video-shotcraft](https://github.com/Vincentwei1021/video-shotcraft) | 23.1k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
+| 64 | CC Switch (desktop) | [farion1231/cc-switch](https://github.com/farion1231/cc-switch) | 157.7k | 2026-11-27 | manual (2026-10-26) | n/a | OK |
+| 65 | pm-skills | [phuryn/pm-skills](https://github.com/phuryn/pm-skills) | 28.4k | 2026-11-08 | pass (2026-11-23) | ~1,693 | OK |
+| 66 | claude-skills (380+ skills) | [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills) | 30.6k | 2026-11-27 | pass (2026-11-27) | ~2,618 + ~66 + ~69 | OK |
 
 **Anthropic's repos to build with**
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 67 | Prompt engineering tutorial | [anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) | 39.8k | 2026-08-28 | pass (2026-11-23) | n/a | OK |
-| 68 | Claude quickstarts | [anthropics/claude-quickstarts](https://github.com/anthropics/claude-quickstarts) | 21.3k | 2026-11-06 | pass (2026-11-23) | n/a | OK |
-| 69 | Claude Agent SDK (Python) | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | 8.6k | 2026-11-25 | pass (2026-11-25) | n/a | OK |
-| 70 | Claude Code (the CLI) | [anthropics/claude-code](https://github.com/anthropics/claude-code) | 157.2k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
+| 67 | Prompt engineering tutorial | [anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial) | 39.9k | 2026-08-28 | pass (2026-11-23) | n/a | OK |
+| 68 | Claude quickstarts | [anthropics/claude-quickstarts](https://github.com/anthropics/claude-quickstarts) | 21.4k | 2026-11-06 | pass (2026-11-23) | n/a | OK |
+| 69 | Claude Agent SDK (Python) | [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) | 8.7k | 2026-11-25 | pass (2026-11-25) | n/a | OK |
+| 70 | Claude Code (the CLI) | [anthropics/claude-code](https://github.com/anthropics/claude-code) | 157.3k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
 | 71 | Claude Code Action (GitHub) | [anthropics/claude-code-action](https://github.com/anthropics/claude-code-action) | 10.1k | 2026-11-25 | pass (2026-11-25) | n/a | OK |
 
 **From the '27 skills, one at a time' post**
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 72 | Obsidian Skills | [obsidianmd/obsidian-skills](https://github.com/obsidianmd/obsidian-skills) | 53.9k | 2026-11-26 | pass (2026-11-26) | ~481 | OK |
+| 72 | Obsidian Skills | [obsidianmd/obsidian-skills](https://github.com/obsidianmd/obsidian-skills) | 54.3k | 2026-11-26 | pass (2026-11-26) | ~481 | OK |
 | 73 | NotebookLM skill | [PleasePrompto/notebooklm-skill](https://github.com/PleasePrompto/notebooklm-skill) | 7.8k | 2026-09-10 | pass (2026-11-23) | ~75 (est., skills dir) | ⚠ Upstream repo is archived (read-only). |
-| 74 | Hugging Face skills | [huggingface/skills](https://github.com/huggingface/skills) | 11.4k | 2026-11-26 | fail (2026-11-26) | ~200 (est., skills dir) | ⚠ `test -f ~/.claude/skills/huggingface-papers/SKILL.md && test -f ~/.claude/skills/huggingface-local-models/SKILL.md  (verify)` failed (exit  |
+| 74 | Hugging Face skills | [huggingface/skills](https://github.com/huggingface/skills) | 11.4k | 2026-11-26 | fail (2026-11-27) | ~200 (est., skills dir) | ⚠ `test -f ~/.claude/skills/huggingface-papers/SKILL.md && test -f ~/.claude/skills/huggingface-local-models/SKILL.md  (verify)` failed (exit  |
 | 75 | n8n skills | [czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills) | 6.7k | 2026-11-18 | pass (2026-11-23) | ~2,817 | OK |
 | 76 | Vercel agent skills | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | 35k | 2026-11-20 | pass (2026-11-23) | ~250 (est., skills dir) | OK |
 | 77 | Trail of Bits skills | [trailofbits/skills](https://github.com/trailofbits/skills) | 8.5k | 2026-11-25 | pass (2026-11-23) | ~47 | OK |
-| 78 | Context engineering skills | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | 18.4k | 2026-11-21 | pass (2026-11-23) | ~2,082 | OK |
+| 78 | Context engineering skills | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | 18.4k | 2026-11-27 | pass (2026-11-27) | ~2,334 | OK |
 
 **Picked since the posts**
 
@@ -498,7 +498,7 @@ _Checked 2026-11-26: 101 repos, 95 of 97 install-tested items passing, 3 needing
 |---|---|---|---|---|---|---|---|
 | 79 | EasyUI | [Surajmaurya1/easyui](https://github.com/Surajmaurya1/easyui) | 363 | 2026-11-26 | pass (2026-11-26) | n/a (copied source) | OK |
 | 80 | Interfaces skills | [jakubkrehel/skills](https://github.com/jakubkrehel/skills) | 12.9k | 2026-11-19 | pass (2026-11-23) | ~650 | OK |
-| 81 | Busabase | [busabase/busabase](https://github.com/busabase/busabase) | 932 | 2026-11-26 | pass (2026-11-23) | ~470 (est., skills dir) | OK |
+| 81 | Busabase | [busabase/busabase](https://github.com/busabase/busabase) | 934 | 2026-11-27 | pass (2026-11-27) | ~470 (est., skills dir) | OK |
 | 82 | Amicro | [Subhan-code/Amicro--Micro-transitions-](https://github.com/Subhan-code/Amicro--Micro-transitions-) | 2.9k | 2026-11-17 | pass (2026-11-23) | n/a (copied source) | OK |
 | 83 | Cult UI | [nolly-studio/cult-ui](https://github.com/nolly-studio/cult-ui) | 7.7k | 2026-10-29 | pass (2026-11-23) | n/a (copied source) | OK |
 
@@ -506,24 +506,24 @@ _Checked 2026-11-26: 101 repos, 95 of 97 install-tested items passing, 3 needing
 
 | # | Name | Repo | Stars | Upstream updated | Install test | Tokens/session | Status |
 |---|---|---|---|---|---|---|---|
-| 84 | reanimate | [NiazMorshed2007/reanimate](https://github.com/NiazMorshed2007/reanimate) | 2.6k | 2026-10-31 | pass (2026-11-23) | ~310 (est., skills dir) | OK |
-| 85 | Motion Design Skill (LottieFiles) | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | 3.7k | 2026-11-23 | pass (2026-11-23) | ~130 (est., skills dir) | OK |
+| 84 | reanimate | [NiazMorshed2007/reanimate](https://github.com/NiazMorshed2007/reanimate) | 2.7k | 2026-10-31 | pass (2026-11-23) | ~310 (est., skills dir) | OK |
+| 85 | Motion Design Skill (LottieFiles) | [LottieFiles/motion-design-skill](https://github.com/LottieFiles/motion-design-skill) | 3.8k | 2026-11-23 | pass (2026-11-23) | ~130 (est., skills dir) | OK |
 | 86 | 15 Motion Design Styles | [Vincentwei1021/mg-styles-15](https://github.com/Vincentwei1021/mg-styles-15) | 4k | 2026-11-25 | pass (2026-11-25) | n/a (prompts) | OK |
 | 87 | huashu-art-motion | [alchaincyf/huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) | 7.8k | 2026-11-18 | pass (2026-11-23) | ~130 (est., skills dir) | OK |
 | 88 | anidoodle | [alexgreensh/anidoodle](https://github.com/alexgreensh/anidoodle) | 2.1k | 2026-11-05 | pass (2026-11-23) | ~55 | OK |
-| 89 | cinetic | [Leonxlnx/cinetic](https://github.com/Leonxlnx/cinetic) | 1.4k | 2026-11-26 | pass (2026-11-23) | ~205 | OK |
+| 89 | cinetic | [Leonxlnx/cinetic](https://github.com/Leonxlnx/cinetic) | 1.4k | 2026-11-27 | pass (2026-11-23) | ~205 | OK |
 | 90 | motionmaxxing | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) | 1.9k | 2026-10-06 | pass (2026-11-23) | ~280 (est., skills dir) | OK |
-| 91 | Manim (Community) | [ManimCommunity/manim](https://github.com/ManimCommunity/manim) | 42.9k | 2026-11-26 | pass (2026-11-26) | n/a | OK |
-| 92 | Blender Agent Skills | [EL4CTEO/blender-skills](https://github.com/EL4CTEO/blender-skills) | 3k | 2026-11-21 | pass (2026-11-23) | ~2,771 | OK |
+| 91 | Manim (Community) | [ManimCommunity/manim](https://github.com/ManimCommunity/manim) | 43k | 2026-11-27 | pass (2026-11-26) | n/a | OK |
+| 92 | Blender Agent Skills | [EL4CTEO/blender-skills](https://github.com/EL4CTEO/blender-skills) | 3k | 2026-11-27 | pass (2026-11-27) | ~2,771 | OK |
 | 93 | three.quarks | [Alchemist0823/three.quarks](https://github.com/Alchemist0823/three.quarks) | 1.3k | 2026-11-18 | pass (2026-11-23) | n/a (library) | OK |
 | 94 | React Postprocessing | [pmndrs/react-postprocessing](https://github.com/pmndrs/react-postprocessing) | 1.8k | 2026-10-21 | pass (2026-11-23) | n/a (library) | OK |
 | 95 | Tweakpane | [cocopon/tweakpane](https://github.com/cocopon/tweakpane) | 4.8k | 2026-03-15 | pass (2026-11-23) | n/a (library) | OK |
-| 96 | EffectCraft | [storytold/effectcraft](https://github.com/storytold/effectcraft) | 9.3k | 2026-11-26 | manual (2026-11-19) | n/a (MCP) | OK |
-| 97 | Openverse | [WordPress/openverse](https://github.com/WordPress/openverse) | 815 | 2026-11-26 | pass (2026-11-26) | ~774 | OK |
+| 96 | EffectCraft | [storytold/effectcraft](https://github.com/storytold/effectcraft) | 9.3k | 2026-11-27 | manual (2026-11-19) | n/a (MCP) | OK |
+| 97 | Openverse | [WordPress/openverse](https://github.com/WordPress/openverse) | 837 | 2026-11-27 | pass (2026-11-27) | ~774 | OK |
 | 98 | librosa | [librosa/librosa](https://github.com/librosa/librosa) | 9.2k | 2026-11-25 | pass (2026-11-25) | n/a | OK |
-| 99 | WhisperX | [m-bain/whisperX](https://github.com/m-bain/whisperX) | 25.7k | 2026-11-21 | manual (2026-11-19) | n/a | OK |
+| 99 | WhisperX | [m-bain/whisperX](https://github.com/m-bain/whisperX) | 25.8k | 2026-11-21 | manual (2026-11-19) | n/a | OK |
 | 100 | Remotion Skills | [remotion-dev/skills](https://github.com/remotion-dev/skills) | 8.1k | 2026-11-24 | pass (2026-11-24) | ~340 (est., skills dir) | OK |
-| 101 | FFmpeg | [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) | 68.3k | 2026-11-26 | fail (2026-11-26) | n/a | ⚠ `command -v ffmpeg >/dev/null // sudo apt-get install -y ffmpeg` failed (exit 100): E: Failed to fetch https://security.ubuntu.com/ubuntu/po |
+| 101 | FFmpeg | [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg) | 68.3k | 2026-11-27 | pass (2026-11-27) | n/a | OK |
 <!-- status:end -->
 
 ## Things worth knowing before you pick
