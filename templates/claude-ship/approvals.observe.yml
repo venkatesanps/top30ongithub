@@ -1,0 +1,43 @@
+# Claude Approvals policy, observe mode. Copy to .claude/approvals.yml in the target repo.
+#
+# Claude Approvals reads .claude/approvals.yml from the DEFAULT branch. Merging it turns
+# Approvals on for the repository, so clear it with a Claude org Owner first, and tell the
+# budget owner: a policy that names claude/code_review can start billed Code Reviews on every
+# push, even in observe mode and even where Code Review is turned off.
+#
+# In observe mode the check prints the outcome but never approves. Leave it on for a week or
+# two, compare its verdicts with what your reviewers did, then enforce (see the playbook).
+#
+# seats = people who must approve; the PR author can take one seat.
+# claude: comments = Claude never approves under this rule. Strictest matching rule wins.
+
+version: 1
+mode: observe
+
+rules:
+  - purpose: "A change takes two people."
+    paths: ["**"]
+    verdict: { claude: comments, seats: 2 }
+    # Keep this line. Once the policy is on the default branch, Code Review only starts
+    # automatically on PRs that match a rule naming it. Advisory results don't change the verdict.
+    advisory: [claude/code_review]
+
+    # Stage 2 (still observe mode): swap the advisory line above for this override, and set
+    # purpose to "When Claude's review passes, one is enough and Claude approves."
+    # Text in a PR can sway Claude's review, and then this lowers what that PR needs.
+    # override:
+    #   - { if: "claude/code_review = pass", verdict: { claude: approves, seats: 1 } }
+
+  - purpose: "A change to the review rules takes two people."
+    paths: ["**/.claude/**", "**/REVIEW.md", "**/CLAUDE.md", "**/CODEOWNERS", ".github/**"]
+    nested: inherit
+    verdict: { claude: comments, seats: 2 }
+
+  # Stage 3, before enforcing: paths that always need a person who isn't an author.
+  # No if/override, so no review or classifier result can lower it.
+  # - purpose: "Auth, billing and CI take a person who isn't an author."
+  #   paths: ["src/auth/**", "src/billing/**", ".github/**"]
+  #   nested: inherit
+  #   verdict:
+  #     claude: comments
+  #     seats: [{ count: 1, from: [humans, "!pr/authors"] }]

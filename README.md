@@ -30,6 +30,7 @@ guide, and upload-ready skill zips for the Claude app:
 [Claude features worth setting up](playbooks/claude-features.md) (fact-checked, with prompts for work), and
 [loops and graphs](playbooks/loops-and-graphs.md) (agent work you approve once, not step by step), and
 [Claude Code commands, fact-checked](playbooks/claude-commands.md) (15, then 20 more by layer),
+[Claude Ship](playbooks/claude-ship.md) (`/ship`, `/steward`, review rules and an observe-mode approvals policy, with [starter files](templates/claude-ship/)),
 [Claude Code in four folders](playbooks/claude-code-setup.md) (setup in order, fact-checked),
 [Agentic AI study notes, checked](playbooks/agentic-ai-notes.md) (18 chapters, with a corrected first agent),
 [Snowflake's AI products, checked](playbooks/snowflake-ai-stack.md) (CoCo, Cortex Agents, CoWork: access and cost defaults first), and a
